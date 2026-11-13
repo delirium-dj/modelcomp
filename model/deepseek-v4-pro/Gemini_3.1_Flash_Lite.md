@@ -12,7 +12,7 @@
 - **Provider / access:** DeepSeek (https://www.deepseek.com). Chat Completions API / Open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/deepseek-v4-pro` (MIT license)
-- **Context window:** 1M tokens total; 384K tokens max output.
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** Paid ~$1.32/$3.96 peak per 1M; free self-host.
 - **Architecture:** MoE (1.6T total / 49B-active).
@@ -43,3 +43,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [DeepSeek](https://www.deepseek.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

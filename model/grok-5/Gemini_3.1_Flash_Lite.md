@@ -11,7 +11,7 @@
 - **Short description:** xAI's latest flagship reasoning model, highly optimized for large-scale knowledge synthesis, complex agentic tasks, and creative/coding output.
 - **Provider / access:** xAI API / Grok. Chat/Messages API; tool-calls supported.
 - **Release / knowledge:** Released 2026-09. Knowledge cutoff July 2026.
-- **Context window:** 128,000 total tokens.
+
 - **Modalities:** Text, image, audio in; text + tool-calls out.
 - **Pricing:** Premium-tier pricing based on token usage.
 - **Architecture:** Proprietary, large-scale MoE, parameter count undisclosed.
@@ -37,3 +37,13 @@
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
 - Method: Public web research; scores are normalized 1–100 interpretations. Cross-referenced xAI model announcements and leaderboard rankings.
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba (https://qwenlm.github.io). Apache 2.0 open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/qwen-3.5-397b`
-- **Context window:** 262K native (1M hosted).
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** Hosted ~$0.60/$3.60 per 1M; free self-host.
 - **Architecture:** MoE (397B total / 17B active).
@@ -43,3 +43,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [QwenLM](https://qwenlm.github.io)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

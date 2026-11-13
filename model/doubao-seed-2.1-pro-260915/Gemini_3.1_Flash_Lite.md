@@ -12,7 +12,7 @@
 - **Provider / access:** ByteDance (https://www.volcengine.com). Chat Completions API.
 - **Release / knowledge:** Sep 2026; knowledge cutoff unknown.
 - **IDs:** `bytedance/doubao-seed-2.1-pro-260915` (Paid-tier)
-- **Context window:** 1.02M total; 256K tokens max output.
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** ModelArk rates apply.
 - **Architecture:** Proprietary (Multimodal flagship).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [BytePlus ModelArk](https://www.byteplus.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

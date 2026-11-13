@@ -12,7 +12,7 @@
 - **Provider / access:** Google DeepMind (https://deepmind.google/technologies/gemini/). Chat Completions API.
 - **Release / knowledge:** Released 2026; knowledge cutoff unknown.
 - **IDs:** `google/gemini-4-argon` (gated launch)
-- **Context window:** 1M tokens total; 262K tokens max output (1M via continuation).
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** Intro $2/$10; standard $4/$20 per 1M. Paid model.
 - **Architecture:** Proprietary (frontier model).
@@ -43,3 +43,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Google DeepMind Gemini](https://deepmind.google/technologies/gemini/)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

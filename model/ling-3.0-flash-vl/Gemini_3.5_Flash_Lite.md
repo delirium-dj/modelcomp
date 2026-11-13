@@ -1,7 +1,7 @@
 # Ling 3.0 Flash VL — findings by Gemini 3.5 Flash Lite
 
 - Source: Ant Group InclusionAI / Hugging Face `inclusionAI/Ling-3.0-flash-VL`
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Date: 2026-11-13 (UTC; deep re-research update) (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -46,5 +46,11 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-13
 - Method: Deep third-pass multi-source empirical research and verification across official Hugging Face repository specifications, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+
+- Reference URLs:
+  - [Official Model Documentation & API Reference](https://huggingface.co)
+  - [Artificial Analysis Models Index](https://artificialanalysis.ai)
+
+---

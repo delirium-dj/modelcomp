@@ -12,7 +12,7 @@
 - **Provider / access:** xAI (https://x.ai). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/grok-4.3` (Paid-tier)
-- **Context window:** 1M tokens total.
+
 - **Modalities:** Text, image in; text out.
 - **Pricing (as of 2026-11-13):** Paid $1.25/$2.50 per 1M (<200K); $2.50/$5.00 (>200K).
 - **Architecture:** Proprietary.
@@ -40,3 +40,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [xAI](https://x.ai)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

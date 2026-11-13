@@ -12,7 +12,7 @@
 - **Provider / access:** Microsoft. Chat Completions API.
 - **Release / knowledge:** Jun 2026; knowledge cutoff unknown.
 - **IDs:** `microsoft/mai-code-1-flash`
-- **Context window:** 256K total; 128K tokens max output.
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** Paid $0.75/$4.50 per 1M.
 - **Architecture:** 5B-active.
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Microsoft AI](https://microsoft.ai)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

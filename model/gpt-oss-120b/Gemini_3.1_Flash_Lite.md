@@ -11,7 +11,7 @@
 - **Short description:** A high-parameter open-source reasoning model (120B), offering competitive performance for research and self-hosted environments.
 - **Provider / access:** Open Source / Community.
 - **Release / knowledge:** 2026-07.
-- **Context window:** 64,000 total.
+
 - **Modalities:** Text/Image/PDF.
 - **Pricing:** $0 (Open Source).
 - **Architecture:** Dense/MoE architecture optimized for open-source high-parameter research.
@@ -37,3 +37,13 @@
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
 - Method: Public web research; scores are normalized 1–100 interpretations. Cross-referenced community benchmarks and open-source documentation.
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

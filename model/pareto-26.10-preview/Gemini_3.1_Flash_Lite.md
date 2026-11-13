@@ -12,7 +12,7 @@
 - **Provider / access:** Unbiased. Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/pareto-26.10-preview`
-- **Context window:** 1M tokens total; 131K output.
+
 - **Modalities:** Text, image in; text out.
 - **Pricing (as of 2026-11-13):** Paid $0.80/$3.20 per 1M; cached $0.03.
 - **Architecture:** Proprietary (Composite).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Unbiased AI](https://unbiased.ai)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

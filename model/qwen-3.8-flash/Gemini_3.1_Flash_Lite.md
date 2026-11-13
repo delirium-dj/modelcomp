@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba (https://qwenlm.github.io). Chat Completions API / Open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `alibaba/qwen3-8-flash`
-- **Context window:** 1M (API); 262K native.
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** Paid ~$0.15/$0.47 per 1M. Free via Qoder.
 - **Architecture:** Sparse MoE (6B active).
@@ -43,3 +43,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [QwenLM](https://qwenlm.github.io)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

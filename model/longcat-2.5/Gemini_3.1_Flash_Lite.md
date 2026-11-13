@@ -12,7 +12,7 @@
 - **Provider / access:** Meituan (https://longcat.chat). Hosted API-only.
 - **Release / knowledge:** Nov 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/longcat-2.5-preview-free`
-- **Context window:** 1M tokens.
+
 - **Modalities:** Text in; text out.
 - **Pricing (as of 2026-11-13):** Paid ~$0.30/$1.20 per 1M (limited-time price); free Zen slot.
 - **Architecture:** Proprietary.
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [LongCat](https://longcat.chat)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

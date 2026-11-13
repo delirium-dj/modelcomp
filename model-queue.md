@@ -5,29 +5,29 @@
 # Retired (parked) slugs are omitted — never researched (model/README.md).
 # Deleted phantom model folders are omitted too — never recreated or restored.
 94.1 claude-opus-5.5
+93.9 gemini-4-carbon
 93.8 gemini-4-argon
-93.8 gemini-4-carbon
 93.8 muse-spark-1.3
 93.4 gpt-6-astra
 92.9 gemini-3.1-pro
 92.8 claude-fable-5.1
+92.8 claude-mythos-5
 92.6 claude-mythos-5.1
-92.5 claude-mythos-5
 92.5 claude-sonnet-5.5
 92.5 gemini-3.8-flash
 92.4 claude-opus-5
 92.4 muse-wonder-full
 92.3 claude-fable-5
+92.1 claude-fable-5.2
 92.1 gpt-5.6-sol
-91.8 claude-fable-5.2
 91.6 gemini-3.7-flash
 91.3 gemini-3-pro
 91.3 gpt-6.1-sol
 91.3 kimi-k3.1-pro
+91.1 claude-mythos-5.2
 91.1 kimi-k3
 91 gpt-5.5-pro
 91 mimo-v2.6-pro
-90.8 claude-mythos-5.2
 90.4 muse-wonder-1.0
 90.3 claude-opus-4.8
 90 muse-spark-1.2
@@ -63,6 +63,7 @@
 86.6 inkling-small
 86.6 qwen-3.8-27b
 86.6 step-5-preview
+86.4 gemini-4-hydrogen
 86.4 gpt-5.2
 86.3 kimi-k2.6
 86.1 grok-4.7
@@ -70,7 +71,6 @@
 86 qwen-3.6-plus
 85.9 Inkling
 85.9 deepseek-v4-vision-exp
-85.8 gemini-4-hydrogen
 85.6 deepseek-v4.1-flash-1017
 85.6 qwen-3.8-flash-next
 85.5 qwen-3.5-plus
@@ -102,10 +102,9 @@
 80.6 grok-4
 80.4 grok-4.20
 80.3 grok-4-fast
-80.2 qwen-4-max
 80.1 qwen-3.5-27b
 80 gpt-5.4-mini
-79.5 doubao-seed-evolving
+79.8 qwen-4-max
 79.5 kimi-k2.8-preview
 79.4 muse-ember
 79.3 glm-5.3
@@ -113,12 +112,14 @@
 78.7 minimax-m3.1-flash
 78.7 qwen-3.5-flash
 78.7 union-alpha
+78.6 doubao-seed-evolving
 78.5 gpt-6.2-astra
 78.4 gemini-2.5-flash
 78.3 qwen-3.5-35b-a3b
 78.1 muse-glimmer-30b
 77.9 claude-sonnet-4
 77.7 gemini-3.1-flash-lite
+77.6 doubao-seed-2.1-pro-260915
 77.5 gemini-1.5-pro
 77.3 gemini-2.0-flash
 77 gpt-5.1-codex
@@ -139,7 +140,6 @@
 74.7 mimo-v2.5-pro
 74.6 claude-haiku-4.5
 74.5 longcat-2.5
-74.4 doubao-seed-2.1-pro-260915
 73.9 hy4
 73.8 nemotron-3.5-bolt-74b-a9b
 73.7 grok-build-0.1
@@ -203,6 +203,7 @@
 57.5 nemotron-3.5-lightning-free
 57.4 qwen-3.5-2b
 57.2 big-pickle
+57.2 egg-alpha
 56.5 ling-2.6-flash
 55.8 exo-free
 55.5 owo-2.5
@@ -211,7 +212,6 @@
 54.5 glm-4.5-flash
 54.1 glyph-cluster
 53.3 ling-3.0-tiny
-52.5 egg-alpha
 50.1 nemotron-3.5-bolt-e4b
 48.6 codestral-25.08
 48.3 iceman

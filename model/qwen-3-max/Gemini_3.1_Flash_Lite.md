@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba (https://qwenlm.github.io). Chat Completions API.
 - **Release / knowledge:** 2025; knowledge cutoff unknown.
 - **IDs:** `opencode/qwen3-max` (Deprecated)
-- **Context window:** 262,144 total; 65,536 output.
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** Paid ~$1.20/$6.00 per 1M.
 - **Architecture:** Proprietary (2025 flagship).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [QwenLM](https://qwenlm.github.io)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

@@ -12,7 +12,7 @@
 - **Provider / access:** Anthropic API (`claude-sonnet-4-5`)
 - **Release / knowledge:** 2026-01-15
 - **IDs:** `anthropic/claude-sonnet-4-5`
-- **Context window:** 200K tokens
+
 - **Modalities:** Text/Image in; Text out.
 - **Pricing (as of 2026-10-08):** Mid-tier professional pricing.
 - **Architecture:** Proprietary.
@@ -33,3 +33,13 @@
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
 - Method: Public web research; scores are normalized 1–100 interpretations.
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

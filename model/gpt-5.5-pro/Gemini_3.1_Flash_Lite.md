@@ -12,7 +12,7 @@
 - **Provider / access:** OpenAI. Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/gpt-5.5-pro` (Paid-tier)
-- **Context window:** 1.05M total; 128K output.
+
 - **Modalities:** Text, image, file in; text out.
 - **Pricing (as of 2026-11-13):** Paid $30/$180 per 1M.
 - **Architecture:** Proprietary (high-compute tier).
@@ -44,3 +44,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [OpenAI](https://openai.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

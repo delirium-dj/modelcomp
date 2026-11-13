@@ -12,7 +12,7 @@
 - **Provider / access:** NVIDIA (https://huggingface.co/models?search=nemotron-3.5-super-vl). Open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/nemotron-3.5-super-vl`
-- **Context window:** 1M tokens native (host-served 262K).
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** $0.15/$0.50 per 1M (NanoGPT); self-host $0.
 - **Architecture:** Mamba-Transformer hybrid MoE (120B total / 12B active).
@@ -40,3 +40,13 @@ Reasoning / knowledge:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [NVIDIA](https://www.nvidia.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

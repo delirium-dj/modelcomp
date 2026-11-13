@@ -12,7 +12,7 @@
 - **Provider / access:** Agnes AI (https://wiki.agnes-ai.com). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `agnes-ai/agnes-3.0-flash` (Paid-tier)
-- **Context window:** 512,000 total; 65,536 output.
+
 - **Modalities:** Text, image in; text out.
 - **Pricing (as of 2026-11-13):** Paid $0.05/$0.15 per 1M ($0 trial).
 - **Architecture:** Proprietary.
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Agnes AI](https://wiki.agnes-ai.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

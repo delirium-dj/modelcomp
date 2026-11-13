@@ -12,7 +12,7 @@
 - **Provider / access:** Xiaomi (https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B). MIT open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B` (MIT License)
-- **Context window:** 262K total.
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** Open-weights; self-hostable.
 - **Architecture:** Dense (9.41B).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Xiaomi MiMo](https://mimo.mi.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

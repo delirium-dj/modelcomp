@@ -12,7 +12,7 @@
 - **Provider / access:** OpenAI (https://openai.com). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/gpt-5.3-codex` (Deprecated)
-- **Context window:** 400,000 total; 128K output.
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** Paid $1.75/$14.00 per 1M.
 - **Architecture:** Proprietary (GPT-5 lane).
@@ -43,3 +43,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [OpenAI](https://openai.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

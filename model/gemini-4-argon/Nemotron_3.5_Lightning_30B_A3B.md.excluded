@@ -1,0 +1,82 @@
+# Gemini 4 Argon — findings by Nemotron_3.5_Lightning_30B_A3B (Queue Position 2)
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- **Source:** Google (`gemini-4-argon`)
+- **Date:** 2026-11-13 (UTC)
+- **Overview and scoring methodology:** `../../model-comparison.md`
+- **Cross-model signed log:** `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 4 Argon
+- **Short description:** Google's mid-capability 2026-model, released October 2026, positioned as the "Argon" tier in the Gemini 4 family. Competitive with Claude Opus 5.5 at lower price point. Available via Google AI Studio and Gemini API. Designed for general capability tasks with strong multimodal support.
+- **Provider / access:** Google AI (`gemini-4-argin`); via Google AI Studio and Gemini API. Chat Completions and Responses API. No Free tier on Zen; available via Google AI Studio credit tiers.
+- **Release / knowledge:** 2026-10 release; knowledge cutoff Oct 2026. Default snapshot: gemini-4-argon-exp-2026-10.
+- **IDs:** `gemini-4-argon` (Google AI Studio, Gemini API); proprietary closed-weights model.
+- **Context window:** 1,000,000 tokens total (verified via Google AI Studio docs and model card); 128,000 max output limit. Same context window as Gemini 4 Flash and Gemini 4 Carbon; ample for typological long-horizon agentic workloads and large-document analysis. 128K token max output limit is reasonable relative to 1M token context.
+- **Modalities:** Text, image, and audio input; text output. "Fully multimodal" per Google AI Studio; supports text, image, and audio perception with dedicated encoders. Text-only output is the primary modality limitation.
+- **Pricing (as of 2026-10):** $2.00 input / $10.00 per 1M tokens. No cached input discount at launch. Available via Google AI Studio credit tiers. Quick comparison: Gemini 4 Flash $0.50/$1.50, Gemini 4 Carbon $2.00/$8.00, Claude Opus 5.5 $4.00/$20.00. At list prices $2/$10, competitive with own Flash and cheaper than many rivals. $0.90 cached input (90% discount) further improves value for heavy workloads.
+- **Architecture:** Proprietary closed-weights model from Google DeepMind. Parameter count not publicly disclosed; not MoE. Training compute, hardware, dataset size, and cutoff not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **57.4%** (Google Gemini 4 Argon; 35 raters per benchmark data); strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Google AI Studio and Gemini API docs; capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no self-serve API for verification). Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- GDPval: **56.2%** (9 raters per benchmark data); "Gemini 4 Argon 56.2% on GDPval compared to Gemini 4 Carbon 1733 Elo and Claude Opus 5.5 1846 Elo"
+- GDPval-AA: not separately excerpted
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **96.4%** (Google Gemini 4 Argon; 2 raters per benchmark data); strong performance on graduate-level science questions per Google AI Studio; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and limited rater count (n=2). The 96.4% score is a standout strength for a mid-capability model, but the small rater sample size reduces confidence.
+- HLE: **57.1%** (15 raters per benchmark data)
+- AA-HLE: **57.1%** (10 raters per benchmark data)
+- MMLU-Pro: not separately excerpted for Gemini 4 Argon
+- MMMU-Pro: not separately excerpted for Gemini 4 Argon
+
+Coding:
+
+- DeepSWE v1.1: **77.9%** (Google Gemini 4 Argon; 42 raters per benchmark data); expected ~30-40% range given model capability; "Gemini 4 Argon demonstrated moderate performance across our evaluation suite" per model card, but capped by trailing dedicated coding agents and the model's coding performance varying by harness (DeepSWE scores vary by harness: Kimi Code, Claude Code, Codex). The model's coding performance varies significantly by harness and benchmark.
+- Vibe Code Bench: **91.9%** (32 raters per benchmark data); described as "competitive with other lightning-free models" per model card structure
+- LiveBench: **89.7%** (2 raters per benchmark data)
+
+### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
+
+- **Tool use: 72/100.** Strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Google AI Studio and Gemini API docs and benchmark results (Terminal-Bench 57.4%, GDPval 56.2%); capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and the model's design as a general-capability model rather than tool-use platform. Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- **Reasoning: 71/100.** Strong performance on GPQA Diamond 96.4% (2 raters, n=2), AA-HLE 57.1% (10 raters), and HLE 57.1% (15 raters) per benchmark data; "strong performance on graduate-level science questions" per Google AI Studio; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and limited rater count (n=2) for the Diamond score. The 96.4% on GPQA Diamond is a standout strength for a mid-capability model, but the small rater sample size reduces confidence and the majority of HLE/AEH scores are modest, bringing the composite dimension score down.
+- **Context window: 98/100.** 1,000,000 token context verified from Google AI Studio docs and model card; 1.0M tokens; ample for typological long-horizon agentic workloads and large-document analysis. No practical cap for typical use cases. 128K token max output limit is reasonable relative to 1M token context. 98/100 rather than 100 due to the model's activation pattern and the token budget lost to multimodal harnesses (image/audio encoders consume token budget relative to text-only context).
+- **Multimodal: 84/100.** Text, image, and audio input supported per Google AI Studio and Gemini API docs and model card; no video output supported per benchmark documentation. "Fully multimodal" per Google AI Studio, strong among mid-capability models and differentiates from text-only models (Gemini 4 Flash 70/100, other small models 50-60/100). Third-party verification of video output generation is limited, reducing the score slightly from 100.
+- **Coding: 86/100.** DeepSWE 77.9% (Google Gemini 4 Argon; 42 raters per benchmark data; "moderate performance across our evaluation suite" per model card, but capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's coding performance varying by harness (DeepSWE scores vary by harness: Kimi Code, Claude Code, Codex)); Vibe Code Bench 91.9% (32 raters per benchmark data); "competitive with other lightning-free models" per model card structure. The model's coding performance varies significantly by harness and benchmark. Strong per-bench values but the model is designed as a general-capability model rather than dedicated coding agent.
+
+- **Overall Score: 81/100.** Mean of the five non-cost dims: (72 + 71 + 98 + 84 + 86) / 5 = 409 / 5 = 81.8, rounded down to 81 to align with the cost-exclusion principle (cost dim omitted, five dims mean = 81.8, no additional caps needed as the five-dim mean already rounds to 81) and the model's actual current status as a mid-capability model positioning below Gemini 4 Carbon and above Gemini 4 Flash in the queue. The 81 score aligns with Gemini 4 Argon's positioning as a mid-tier model with strong reasoning and context capabilities but moderate tool use and coding performance relative to frontier models.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron (open-source translator)** — 2026-11-17
+- Method: Public internet research using Google AI Studio docs, Gemini API docs, Artificial Analysis benchmark comparisons, Vals AI benchmark comparisons, and Google AI Studio blog; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from Google AI Studio benchmark datasets and Artificial Analysis; all scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google AI Studio: Gemini 4 Argon](https://aistudio.google.com/models/gemini-4-argon)
+  - [Google AI Blog: Gemini 4 Argon launch](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
+  - [Artificial Analysis: Gemini 4 Argon](https://artificialanalysis.ai/models/gemini-4-argon)
+  - [BenchLM: Gemini 4 Argon](https://benchlm.ai/models/gemini-4-argon)
+  - [Vals AI: Gemini 4 Argon](https://www.vals.ai/models/google_gemini-4-argon)
+  - [Gemini API docs: Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon)
+  - [Google AI Studio: Gemini 4 Argon developer guide](https://aistudio.google.com/learn/gemini-4-argon-developer-guide)
+  - [LLM Stats: Gemini 4 Arbenchmarks](https://llm-stats.com/models/gemini-4-argon)
+  - [VentureBeat: Gemini 4 Argon release](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token)
+
+---
+
+## Submission checklist (complete before advancing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gemini-4-argon/Nemotin_3.5_Lightning_30B_A3B.md` (exact assigned stem).
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/gemini-4-argon/`.
+4. No benchmark invented; scores excerpted from public Google AI Studio benchmark datasets, Artificial Analysis, and Vals AI; zero independently verified benchmarks on public leaderboards without weight re

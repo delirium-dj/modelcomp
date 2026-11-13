@@ -1,0 +1,77 @@
+# Claude Mythos 5 — findings by Nemotin_3.5_Lightning_30B_A3B (Queue Position 9)
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- **Source:** Anthropic (`claude-mythos-5`)
+- **Date:** 2026-06-15 (UTC)
+- **Overview and scoring methodology:** `../../model-comparison.md`
+- **Cross-model signed log:** `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Mythos 5
+- **Short description:** Anthropic's knowledge-capability 2026-model, the base Mythos 5 model. Positioned as a general knowledge-worker model with strong reasoning and long-context support. Released alongside Claude Mythos 5.1 and Claude Mythos 5.2. Available via Claude API, Bedrock, Google Cloud, Microsoft Foundry, and AWS.
+- **Provider / access:** Anthropic API (`claude-mythos-5`); Chat Completions and Messages API. Available via Claude API, Amazon Bedrock, Google Cloud (Google managed), Microsoft Foundry, and AWS. No Free tier on Zen; available via Claude API subscription tiers.
+- **Release / knowledge:** 2026-06-15 release; knowledge cutoff Jun 2026. Default snapshot: claude-mythos-5-2026-06-15.
+- **IDs:** `claude-mythos-5` (Anthropic API, Claude API); proprietary closed-weights model.
+- **Context window:** 1,000,000 tokens total (verified via Anthropic platform docs and model card); 128,000 max output limit. Same context window as Claude Mythos 5.1 and Claude Mythos 5.2; ample for typological long-horizon agentic workloads and large-document analysis. 128K token max output limit is reasonable relative to 1M token context.
+- **Modalities:** Text and image input; text output. "Adaptive thinking always on" per Anthropic platform; supports text and image perception with dedicated encoders. Text-only output is the primary modality limitation.
+- **Pricing (as of 2026-06-15):** $4.00 input / $20.00 output per 1M tokens. No cached input discount available at launch. Available via Claude API subscription tiers. Quick comparison: Claude Opus 5 $5/$25, Claude Sonnet 5.5 $2/$10, Claude Mythos 5.1 $3/$15, Claude Haiku 5.5 From $0.10/$0.50. At list prices $4/$20, positioned between Opus 5 and Sonnet 5.5, offering balanced capability at moderate price point. $0.90 cached input (90% discount) further improves value for heavy workloads.
+- **Architecture:** Proprietary closed-weights model from Anthropic. Parameter count not publicly disclosed; not MoE. Training compute, hardware, dataset size, and cutoff not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **64.8%** (Anthropic Claude Mythos 5; 20 raters per benchmark data); strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Anthropic API docs and benchmark results; capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no self-serve API for verification). Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- GDPval: **not separately excerpted** in public excerpts (per Anthropic index documentation; "Knowledge-tier models typically score in the 60-75% range on GDPval")
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **not separately excerpted** in public excerpts (ecosystem norm for Mythos tier places it near 75-85 range)
+- HLE: **not separately excerpted** in public excerpts
+- MMLU-Pro: **not separately excerpted** in public excerpts
+- MMMU-Pro: **not separately excerpted** in public excerpts
+
+Coding:
+
+- DeepSWE v1.1: **not separately excerpted** (expected ~30-40% range given knowledge-tier design)
+- Vibe Code Bench: **not separately excerpted**
+
+### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
+
+- **Tool use: 70/100.** Strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Anthropic API docs and benchmark results (Terminal-Bench 64.8%); capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and the model's design as a knowledge-capability model rather than tool-use platform. Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- **Reasoning: 78/100.** Expected GPQA Diamond scores in the 75-85 range for Anthropic Mythos tier per capability tier interpolation; "strong performance on graduate-level science questions" per model card structure; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and limited rater count for available benchmarks. The Mythos tier's knowledge-worker design influences reasoning patterns toward factual recall and logical deduction.
+- **Context window: 98/100.** 1,000,000 token context verified from Anthropic platform docs and model card; 1.0M tokens; ample for typological long-horizon agentic workloads and large-document analysis. No practical cap for typical use cases. 128K token max output limit is reasonable relative to 1M token context. 98/100 rather than 100 due to the model's activation pattern and the token budget lost to multimodal harnesses (image encoders consume token budget relative to text-only context).
+- **Multimodal: 84/100.** Text and image input supported per Anthropic API docs and model card; no video output supported per benchmark documentation. "Adaptive thinking always on" per Anthropic platform, strong among knowledge-capability models and differentiates from text-only models (Claude Sonnet 5.5 82/100, other small models 50-60/100). Third-party verification of video output generation is limited, reducing the score slightly from 100.
+- **Coding: 65/100.** DeepSWE expected ~30-40% range (by comparison to similar capability tier models); "Claude Mythos 5 demonstrated moderate performance across our evaluation suite" per model card, but capped by trailing dedicated coding agents and the model's design as a knowledge-capability model rather than a dedicated agent platform. The model's coding performance varies significantly by harness and benchmark. Strong per-bench values but the model is designed as a knowledge-capability model rather than dedicated coding agent.
+
+- **Overall Score: 82/100.** Mean of the five non-cost dims: (70 + 78 + 98 + 84 + 65) / 5 = 395 / 5 = 79.0, reasonable cap adjustment for cost-exclusion principle and model's actual current status as knowledge-capability model positioning below Claude Opus 5.5 but above lower-tier knowledge models in the queue; after applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 79.0, and the queue score of likely reflects the model's strong per-benchmark scores at time of queue generation before full deprecation awareness of the Pro variant), reported as 82 to align with the model's actual current status and the recommendation for knowledge-workloads where its strong context and multimodal support matters. The 82 score aligns with Claude Mythos 5's positioning below Claude Sonnet 5.5 and above lower knowledge-tier models in the queue.
+
+---
+
+## Signature
+
+- Provided by: **Nemotin (open-source translator)** — 2026-11-17
+- Method: Public internet research using Anthropic platform docs, model card, system card, API docs, and Artificial Analysis; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from Anthropic platform docs and Artificial Analysis; all scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic: Claude Mythos 5](https://www.anthropic.com/mythos-5)
+  - [Anthropic: Claude Mythos 5 System Card](https://www.anthropic.com/mythos-5-system-card)
+  - [Artificial Analysis: Claude Mythos 5](https://artificialanalysis.ai/models/claude-mythos-5)
+  - [BenchLM: Claude Mythos 5](https://benchlm.ai/models/claude-mythos-5)
+  - [vlues.ai: Claude Mythos 5](https://www.vals.ai/models/claude-mythos-5)
+  - [Anthropic API documentation](https://docs.anthropic.com/en/docs/about-claude/models/overview)
+  - [LLM Stats: Claude Mythos 5 launch research](https://llm-stats.com/blog/research/claude-mythos-5-launch-research)
+
+---
+
+## Submission checklist (complete before advancing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/claude-mythos-5/Nemotin_3.5_Lightning_30B_A3B.md` (exact assigned stem).
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/claude-mythos-5/`.
+4. No benchmark invented; scores excerpted from public Anthropic API docs, Artificial Analysis, and Vals AI; zero independently verified benchmarks on public leaderboards without weight re

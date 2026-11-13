@@ -12,7 +12,7 @@
 - **Provider / access:** Upstage (https://huggingface.co/upstage/Solar-Open2-250B). Upstage Solar License.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `upstage/Solar-Open2-250B`
-- **Context window:** 1M tokens total.
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** Open-weights / self-host.
 - **Architecture:** MoE (250B total / 15B active).
@@ -40,3 +40,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Upstage AI](https://www.upstage.ai)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

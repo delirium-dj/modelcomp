@@ -1,22 +1,17 @@
 # Gemini 3.1 Flash Lite - Model Report
 
 **Provided by:** Gemini 3.1 Flash Lite
-**Verified Date:** 2026-11-02
+**Verified Date:** 2026-11-13
 
 ## Model Card
 Gemini 3.1 Flash Lite is Google's lightweight, high-speed model optimized for high-volume inference and rapid response times.
 
 ## Benchmarks
-- **Artificial Analysis Intelligence Index:** 77.0
-- **Cost:** $0.05/1M Input, $0.15/1M Output
+- No verified public score found.
 
 ## Scores
-- **Tool use:** 82
-- **Reasoning:** 78
-- **Context window:** 85
-- **Multimodal:** 76
-- **Coding:** 75
-- **Overall Score:** 79.2
+- No verified public score found.
 
 ---
-*Signed: Gemini 3.1 Flash Lite*
+*Signed: Gemini 3.1 Flash Lite — 2026-11-13 UTC*
+*Method: Maintenance re-check of public resources (official Google docs, major benchmark leaderboards) performed on 2026-11-13; zero verified, public benchmark figures found.*

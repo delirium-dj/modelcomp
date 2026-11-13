@@ -1,0 +1,43 @@
+# Egg Alpha — findings by Step 5 Preview (self-excluded: anonymous model with zero verified public benchmarks)
+
+- Source: 基元律动 / Token Rhythm platform (anonymous "Egg Alpha" listing; identity undisclosed)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Egg Alpha (anonymous / stealth listing)
+- **Short description:** An anonymous model listed on the Chinese 基元律动 (Token Rhythm) platform and accessed through the open-source Pi agent framework — a single informal six-task evaluation exists; identity, parameters, and every standard benchmark are undisclosed.
+- **Provider / access:** `https://tokenrhythm.studio/models` (基元律动 / Token Rhythm platform, China); testers accessed it through the Pi open-source AI agent framework. No vendor identity announced.
+- **Release / knowledge:** Listed and evaluation-published November 3, 2026 (techgogogo evaluation report). No release announcement from any named vendor.
+- **IDs:** No official model ID published in fetched sources (referred to only as "Egg Alpha" in the picker).
+- **Context window:** 1M context claimed by the evaluation report (single secondary source; the platform's own models page is JavaScript-rendered and did not display this entry when fetched).
+- **Modalities:** Reasoning + image and video input per the evaluation report; output text (SVG/UI tasks in the informal test). Not vendor-documented.
+- **Pricing (as of 2026-11-13):** Input/output temporarily 0 元 (free) per the evaluation report — provisional, not on a vendor price page.
+- **Architecture:** Unknown (anonymous).
+
+### Raw benchmarks found
+
+- Every standard benchmark row reads **no verified public score found**: no GPQA / HLE / AIME / SWE-bench / Terminal-Bench / MMMU / AA Intelligence Index / Arena entry exists for this model, and no leaderboard tracks it.
+- The only public testing is one informal, ad-hoc six-task evaluation (2026-11-03, techgogogo, run at maximum thinking depth via a borrowed key on Pi): constrained instruction-following sentence generation (one ending error, two sentences awkward), pelican-on-Saturn-rings SVG (near-clean, slightly behind a top Claude Opus 5.5 demo), compound-bow archery SVG (minor parabola issue), browser-OS UI build (functional, minor polish issues), 3D racing game (functional, crude car model), dependency-free Trello board (clean). These are informal creative tasks, not measured benchmarks — no numeric scores attach to them.
+- Terminal-Bench 2.1 / 4.x / Tau3-Banking / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found.
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience: no verified public score found.
+- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: no verified public score found.
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Normalized scores (1–100)
+
+Not computed — per `model-report-TEMPLATE.md` SELF-EXCLUSION, a folder with zero verified public benchmark numbers must not carry a scored report; placeholder scores would corrupt the average. Saved as `.md.excluded` (notes only; scores inside are ignored by `pnpm sync`). If the model's vendor is revealed or benchmark numbers are published, this file can be replaced by a fresh scored report.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-13 UTC
+- Method: public internet research; web search was unavailable (HTTP 402), so per `RULES.md` § Web-research fallback I queried DuckDuckGo HTML, then fetched the platform's models page (tokenrhythm.studio) and the techgogogo evaluation report that first surfaced the model. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs: only URLs actually fetched this pass (markdown links to primary sources):
+  - [Egg Alpha evaluation report — techgogogo, 2026-11-03 (informal six-task test, access entry)](https://www.techgogogo.com/2026/11/03/egg-alpha-evaluation-report-mystery-model/)
+  - [基元律动 (Token Rhythm) platform models page](https://tokenrhythm.studio/models)
+  - [DuckDuckGo HTML query route used for discovery](https://html.duckduckgo.com/html/?q=%22Egg+Alpha%22+AI+model+arena+anonymous)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

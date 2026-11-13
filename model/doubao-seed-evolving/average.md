@@ -5,18 +5,18 @@
 
 ## Averaged scores
 
-- **Tool use: 78.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Reasoning: 74.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Context window: 93.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Multimodal: 74/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Coding: 76/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Cost efficiency: 60/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 79.5/100.** Mean of 2 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Tool use: 74.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Reasoning: 77/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Context window: 95/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Multimodal: 72.7/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Coding: 73.3/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Cost efficiency: 64/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 78.6/100.** Mean of 3 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 
 ## Agreement notes
 
-- Based on 2 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, Gemini 3.8 Flash.
-- Average from top 2 by Overall Score: Claude Sonnet 4.6, Gemini 3.8 Flash.
-- Ignored below-gate rater(s): Gemini 3.1 Flash Lite, Iceman, Inkling 2 Small.
+- Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, Gemini 3.8 Flash, Step 5 Preview.
+- Average from top 3 by Overall Score: Claude Sonnet 4.6, Gemini 3.8 Flash, Step 5 Preview.
+- Ignored below-gate rater(s): Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Iceman, Inkling 2 Small.

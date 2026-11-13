@@ -12,7 +12,7 @@
 - **Provider / access:** NVIDIA (https://huggingface.co/models?search=nemotron-3.5-bolt-74b-a9b). Open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB` (Open-weights)
-- **Context window:** 256K total.
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** Self-hostable ($0).
 - **Architecture:** Mamba-2 VLM MoE (74B total / 9B active).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [NVIDIA](https://www.nvidia.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

@@ -1,7 +1,7 @@
 # Grok 4 — findings by Gemini 3.5 Flash Lite
 
 - Source: xAI / Grok 4 (`xai/grok-4`)
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Date: 2026-11-13 (UTC; deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -14,16 +14,16 @@
 - **IDs:** `xai/grok-4` (no Free ID on Zen).
 - **Context window:** 256,000 tokens total (verified via xAI documentation).
 - **Modalities:** Text input, image input, PDF input; text output; native tool calling; JSON mode.
-- **Pricing (as of 2026-11):** Paid professional tier ($3.00 input / $15.00 output per 1M tokens; $0.75 cached).
+- **Pricing (as of 2026-11-13):** Paid professional tier ($3.00 input / $15.00 output per 1M tokens; $0.75 cached).
 - **Architecture:** Proprietary Mixture-of-Experts (MoE) architecture by xAI.
 
 ### Raw benchmarks found
 
-- GPQA Diamond: **87.5%** <(xAI evaluation suite, 2025/2026)>
-- HLE (Humanity's Last Exam): **38.6%** <(with Python/internet assistance)>
-- SWE-bench Verified: **57.8%** <(SWE-bench official leaderboard, October 2026)>
-- LiveCodeBench: **79.0%** <(LiveCodeBench benchmark harness)>
-- RULER 256K window: **retrieval quality verified** <(xAI documentation)>
+- GPQA Diamond: **87.5%** (xAI evaluation suite, 2025/2026)
+- HLE (Humanity's Last Exam): **38.6%** (with Python/internet assistance)
+- SWE-bench Verified: **57.8%** (SWE-bench official leaderboard, October 2026)
+- LiveCodeBench: **79.0%** (LiveCodeBench benchmark harness)
+- RULER 256K window: **retrieval quality verified** (xAI documentation)
 
 ### Normalized scores (1–100)
 
@@ -37,13 +37,12 @@
 
 ---
 
-## Re-research update (2026-11-01)
-
-- **Third-pass verification:** Confirmed across xAI technical documentation and benchmark leaderboards. Metrics remain stable and verified.
-
----
-
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
-- Method: Deep third-pass multi-source empirical research and verification across official xAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-13
+- Method: Deep multi-source empirical re-research and verification across official xAI technical documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+- Reference URLs:
+  - [xAI Official Documentation](https://docs.x.ai)
+  - [LiveCodeBench Leaderboard](https://livecodebench.github.io)
+
+---

@@ -12,7 +12,7 @@
 - **Provider / access:** StepFun (https://stepfun.com). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `stepfun/step-5-preview`
-- **Context window:** 1M tokens total; 64K tokens max output.
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** Paid $1.00/$2.70 per 1M; cache $0.10.
 - **Architecture:** MoE (600B total / 27B active).
@@ -43,3 +43,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [StepFun](https://www.stepfun.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

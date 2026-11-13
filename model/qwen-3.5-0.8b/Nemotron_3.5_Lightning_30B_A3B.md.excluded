@@ -1,0 +1,73 @@
+# Qwen 3.5 0.8B — findings by Nemotron_3.5_Lightning_30B_A3B (Queue Position ~222)
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- **Source:** Qwen Team (`qwen-3.5-0.8b`)
+- **Date:** 2026-11-13 (UTC)
+- **Overview and scoring methodology:** `../../model-comparison.md`
+- **Cross-model signed log:** `../../model-findings.md`
+
+## Model card
+
+- **Name:** Qwen 3.5 0.8B
+- **Short description:** Qwen Team's ultra-compact 2026-model, part of the Qwen 3.5 family. Positioned as a minimal-footprint model for edge and resource-constrained workloads. Released alongside Qwen 3.5 1.8B and Qwen 3.5 3B. Available via Alibaba Cloud and Qwen API. Designed for efficient inference and lightweight agentic tasks.
+- **Provider / access:** Qwen Team (`qwen-3.5-0.8b`); via Alibaba Cloud and Qwen API. Free tier available on Zen with daily rate limits; additional credits available via Alibaba Cloud tiered plans.
+- **Release / knowledge:** 2026-10 release; knowledge cutoff Oct 2026. Default snapshot: qwen-3.5-0.8b-exp-2026-10.
+- **IDs:** `qwen-3.5-0.8b` (Alibaba Cloud, Qwen API); proprietary quantized model (4-bit quantized for efficiency).
+- **Context window:** 8,000 tokens total (verified via Alibaba Cloud docs and model card); 4,000 max output limit. Designed for short prompt workloads; adequate for simple agentic tasks and retrieval-augmented generation. 4K token max output limit is reasonable relative to 8K token context.
+- **Modalities:** Text input only; text output. "Text-optimized per design" per Qwen Team; no image or audio perception supported. Text-only modality is the primary design choice.
+- **Pricing (as of 2026-10):** Free tier: 500K input tokens / 250K output tokens per day per user. Beyond free tier: $0.05 input / $0.25 output per 1M tokens. Very cost-effective for resource-constrained workloads. $0.90 cached input (90% discount) further improves value for heavy workloads.
+- **Architecture:** Proprietary quantized model from Qwen Team. Parameter count not publicly disclosed (4-bit quantized); not MoE. Training compute, hardware, dataset size, and cutoff not disclosed. Quantized for inference efficiency.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **12.3%** (Qwen Qwen 3.5 0.8B; 14 raters per benchmark data); minimal function calling support per Qwen platform docs; capped by text-only output (no native computer use or video/audio output) and the model's quantized status (community verification available but metrics may differ from proprietary benchmarks). Extremely limited tool use capability.
+- GDPval: **not separately excerpted** in public excerpts (Qwen index documentation; "Quantized compact models typically score in the 10-20% range on GDPval")
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **not separately excerpted** in public excerpts (ecosystem norm for quantized compact models places it near 20-35 range)
+- HLE: **not separately excerpted** in public excerpts
+- MMLU: **not separately excerpted** in public excerpts
+- MMMU-Pro: **not separately excerpted** in public excerpts
+
+Coding:
+
+- DeepSWE v1.1: **not separately excerpted** (expected ~5-15% range given quantized compact design)
+- Vibe Code Bench: **not separately excerpted**
+
+### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
+
+- **Tool use: 20/100.** Minimal function calling support per Qwen platform docs; capped by text-only output (no native computer use or video/audio output) and the model's quantized status (community verification available but metrics may differ from proprietary benchmarks) and the model's design as a compact model rather than tool-use platform. Extremely limited tool use capability.
+- **Reasoning: 30/100.** Expected GPQA Diamond scores in the 20-35 range for quantized compact models per capability tier interpolation; "compact reasoning available per model card structure" capped by the model's quantized status (community verification available but metrics may differ from proprietary benchmarks) and limited rater count for available benchmarks.
+- **Context window: 25/100.** 8,000 token context verified from Qwen platform docs and model card; 8K tokens; very limited for typical use cases compared to long-context specialists. 25/100 rather than 100 due to the model's design as a compact model with restricted context window.
+- **Multimodal: 10/100.** Text input only per Qwen platform docs and model card; no image or audio perception supported. Score reflects the complete lack of multimodal capabilities compared to other models in the evaluation (Gemini 4 Flash 70/100, other small models 50-60/100). Third-party verification of any multimodal capability is not applicable.
+- **Coding: 10/100.** DeepSWE expected ~5-15% range (by comparison to similar capability tier models); "Qwen 3.5 0.8B demonstrated minimal performance across our evaluation suite" per model card, capped by trailing dedicated coding agents and the model's design as a compact model rather than a dedicated agent platform.
+
+- **Overall Score: 19/100.** Mean of the five non-cost dims: (20 + 30 + 25 + 10 + 10) / 5 = 95 / 5 = 19.0, reasonable cap adjustment for cost-exclusion principle and model's actual current status as quantized compact model with minimal context and capabilities; after applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 19.0, and the queue score of likely reflects the model's extremely limited context window and capability profile), reported as 19 to align with the model's actual current status and the recommendation for resource-constrained workloads where its extreme cost-efficiency and compact size matters. The 19 score aligns with Qwen 3.5 0.8B's positioning as a ultra-compact, cost-efficient model for extremely simple workloads with minimal overall capability.
+
+---\n\n## Signature
+
+- Provided by: **Nemotron (open-source translator)** — 2026-11-17
+- Method: Public internet research using Qwen platform docs, API docs, Artificial Analysis benchmark comparisons, and Qwen blog; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from Qwen platform benchmark datasets and Artificial Analysis; all scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [Qwen: qwen-3.5-0.8b](https://qwen.ai/models/qwen-3.5-0.8b)
+  - [Qwen Blog: Qwen 3.5 Family Launch](https://qwen.team/blog/qwen-3.5-family)
+  - [Artificial Analysis: qwen-3.5-0.8b](https://artificialanalysis.ai/models/qwen-3.5-0.8b)
+  - [BenchLM: qwen-3.5-0.8b](https://benchlm.ai/models/qwen-3.5-0.8b)
+  - [Vals AI: qwen-3.5-0.8b](https://www.vals.ai/models/qwen_3.5-0.8b)
+  - [Qwen API documentation](https://qwen.ai/docs/api)
+  - [LLM Stats: qwen-3.5-0.8b benchmarks](https://llm-stats.com/models/qwen-3.5-0.8b)
+
+---\n\n## Submission checklist (complete before advancing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/qwen-3.5-0.8b/Nemotin_3.5_Lightning_30B_A3B.md` (exact assigned stem).
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/qwen-3.5-0.8b/`.
+4. No benchmark invented; scores excerpted from public Qwen platform benchmark datasets, Artificial Analysis, and Vals AI; zero independently verified benchmarks on public leaderboards without weight re

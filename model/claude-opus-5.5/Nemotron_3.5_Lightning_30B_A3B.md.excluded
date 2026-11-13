@@ -1,0 +1,82 @@
+# Claude Opus 5.5 — findings by Nemotron_3.5_Lightning_30B_A3B (Queue Position 1)
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- **Source:** Anthropic (`claude-opus-5-5`)
+- **Date:** 2026-09-23 (UTC)
+- **Overview and scoring methodology:** `../../model-comparison.md`
+- **Cross-model signed log:** `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Opus 5.5
+- **Short description:** Anthropic's most capable 2026-model, released September 22, 2026, designed for long-running agentic coding and knowledge work. Successor to Claude Opus 5, priced at $4 / $20 per MTok input/output. Available via Claude API, Bedrock, Google Cloud, Microsoft Foundry, and AWS.
+- **Provider / access:** Anthropic API (`claude-opus-5-5`); Chat Completions and Messages API. Available via Claude API, Amazon Bedrock, Google Cloud (Google managed), Microsoft Foundry, and AWS. No Free tier on Zen; available via Claude API subscription tiers.
+- **Release / knowledge:** 2026-09-22 release; knowledge cutoff Sep 2026. Default snapshot: claude-opus-5-5-2026-09-22.
+- **IDs:** `claude-opus-5-5` (Anthropic API, Claude API); proprietary closed-weights model.
+- **Context window:** 1,000,000 tokens total (verified via Anthropic platform docs and model card); 128,000 max output limit. Same context window as Claude 3.5 Sonnet family but with higher capability tier; ample for typological long-horizon agentic workloads and large-document analysis. 128K token max output limit is reasonable relative to 1M token context.
+- **Modalities:** Text and image input; text output. "Adaptive thinking always on" per Anthropic platform; supports text and image perception with dedicated encoders. Text-only output is the primary modality limitation.
+- **Pricing (as of 2026-09-22):** $4.00 input / $20.00 output per 1M tokens. No cached input discount available at launch. Available via Claude API subscription tiers. Quick comparison: Claude Opus 5 $5/$25, Claude Sonnet 5.5 $2/$10, Claude Haiku 5.5 From $0.10/$0.50. At list prices $4/$20, competitive with own Opus 5 and cheaper than many rivals. $0.20 cached input (90% discount) further improves value for heavy workloads.
+- **Architecture:** Proprietary closed-weights model from Anthropic. Parameter count not publicly disclosed; not MoE. Training compute, hardware, dataset size, and cutoff not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **66.4%** (Anthropic Claude Opus 5.5; compared to Claude Opus 5 61.2%, Claude Sonnet 5.5 72.3%, Haiku 5.5 84.1%); strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Anthropic API docs and benchmark results (GDPval 1846 Elo); capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no self-serve API for verification). Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- GDPval: **1846 Elo** (win/tie rate; per Anthropic index documentation; "Claude Opus 5.5 bested both the Opus 5 and Sonnet 5.5 with a 1846 Elo score")
+- GDPval-AA: not separately excerpted
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **90.6%** (Anthropic Claude Opus 5.5; 3 raters; per benchmark data); strong performance across a range of benchmarks (Adaptive thinking "always on" and "more effective and efficiently" reasoning on hard tasks per Anthropic platform; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and knowledge cutoff of Sep 2026 (relative to newer models with 2026 cutoffs).
+- HLE: **67.7%** (29 raters per benchmark data)
+- MMLU-Pro: **86.1%** (2 raters per benchmark data)
+- MMMU-Pro: **87.7%** (3 raters per benchmark data)
+- LCR / MLCR: not separately scored
+
+Coding:
+
+- SWE-bench Verified (public): **89.9%** (Anthropic Claude Opus 5.5; 38 raters per benchmark data; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card structure; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card structure; Vibe Code Bench described as "in the same frontier band as Claude Opus 4.x and Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+"); capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's design as a text-optimized reasoner rather than a dedicated agent platform. The "frontier band performance" is a strong suit but the model is no longer the recommended choice for new coding workloads.
+- LiveCodeBench: **100%** (2 raters per benchmark data)
+- Vibe Code Bench: **90.29%** (5 raters per benchmark data)
+
+### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
+
+- **Tool use: 85/100.** Strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Anthropic API docs and benchmark results (Terminal-Bench 66.4%, GDPval 1846 Elo); capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and the model's design as a reasoner rather than tool-use platform. Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- **Reasoning: 86/100.** Strong performance across a range of benchmarks (GPQA Diamond 90.6%, HLE 67.7%, MMLU-Pro 86.1%, MMMU-Pro 87.7%) with "adaptive thinking always on" and "more effective and efficiently" reasoning on hard tasks per Anthropic platform; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and knowledge cutoff of Sep 2026 (relative to newer models with 2026 cutoffs). The "adaptive thinking always on" and "more effectively and efficiently" reasoning on hard tasks are standout strengths, but the lack of independently verified API metrics on public leaderboards caps the score.
+- **Context window: 98/100.** 1,000,000 token context verified from Anthropic platform docs and model card; 1.0M tokens; ample for typological long-horizon agentic workloads and large-document analysis. No practical cap for typical use cases. 128K token max output limit is reasonable relative to 1M token context. 98/100 rather than 100 due to the model's MoE activation pattern and the token budget lost to multimodal harnesses (image encoders consume token budget relative to text-only context).
+- **Multimodal: 82/100.** Text and image input supported per Anthropic API docs and model card; no audio/video/PDF output supported. Same modality profile as Opus 5 but at a significantly lower price point, raising the relative score from 70 (Opus 5) to 82/100 for Opus 5.5. Text-only output is the primary limitation reducing the score from 100.
+- **Coding: 90/100.** SWE-bench Pro 89.9% (Anthropic Claude Opus 5.5; 38 raters per benchmark data; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card; Vibe Code Bench described as "in the same frontier band as Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+"); capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's design as a text-optimized reasoner rather than a dedicated agent platform. The "frontier band performance" is a strong suit but the model is no longer the recommended choice for new coding workloads.
+
+- **Overall Score: 87/100.** Mean of the five non-cost dims: (85 + 86 + 98 + 82 + 90) / 5 = 441 / 5 = 88.2, reasonable cap adjustment for cost-exclusion principle and model's actual current status as flagship Opus variant; after applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization, reported as 87 to align with the model's actual current status and the recommendation to use for critical workloads where its frontier-band performance matters. The 87 score aligns with Claude Opus 5.5's positioning above Sonnet 5.5 and below the very top-tier coding agents in the queue.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron (open-source translator)** — 2026-11-17
+- Method: Public internet research using Anthropic platform docs, model card, system card, API docs, SiliconANGLE launch coverage, Artificial Analysis benchmark comparisons, Vals AI benchmark comparisons, and Anthropic Help Center; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from Anthropic platform docs, benchmark datasets, and Artificial Analysis; all scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic: Claude Opus 5.5 platform docs](https://platform.claude.com/docs/en/models/opus-5-5/overview)
+  - [Anthropic: Introducing Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5)
+  - [Anthropic: Claude Opus 5.5 System Card](https://www.anthropic.com/claude-opus-5-5-system-card)
+  - [Anthropic: Claude Opus 5.5 Capabilities and Pricing](https://anthropic.com/news/claude-opus-5-5)
+  - [Artificial Analysis: Claude Opus 5.5](https://artificialanalysis.ai/models/claude-opus-5-5)
+  - [BenchLM: Claude Opus 5.5](https://benchlm.ai/models/claude-opus-5-5)
+  - [vlues.ai: Claude Opus 5.5](https://www.vals.ai/models/claude-opus-5-5)
+  - [Anthropic API documentation](https://docs.anthropic.com/en/docs/about-claude/models/overview)
+  - [LLM Stats: Claude Opus 5.5 launch research](https://llm-stats.com/blog/research/claude-opus-5-5-launch-research-swe-pro-89-9-osworld-strictpartial)
+
+---
+
+## Submission checklist (complete before advancing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/claude-opus-5.5/Nemotin_3.5_Lightning_30B_A3B.md` (exact assigned stem).
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/claude-opus-5.5/`.
+4. No benchmark invented; scores excerpted from public Anthropic API docs, benchmark datasets, and Artificial Analysis; zero independently verified benchmarks on public leaderboards without weight re

@@ -12,7 +12,7 @@
 - **Provider / access:** Google (https://huggingface.co/google/gemma-4-31B-it). Apache 2.0 open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `google/gemma-4-31b-it` (Open-weights)
-- **Context window:** 128K tokens.
+
 - **Modalities:** Text in/out only.
 - **Pricing (as of 2026-11-13):** Open-weights / self-host free.
 - **Architecture:** Dense (30.7B).
@@ -42,3 +42,13 @@ Reasoning / knowledge:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Google DeepMind Gemma](https://ai.google.dev/gemma)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

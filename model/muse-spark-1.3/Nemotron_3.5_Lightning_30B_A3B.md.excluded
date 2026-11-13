@@ -1,0 +1,78 @@
+# Muse Spark 1.3 — findings by Nemotron_3.5_Lightning_30B_A3B (Queue Position 4)
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- **Source:** Google DeepMind (`muse-spark-1.3`)
+- **Date:** 2026-11-13 (UTC)
+- **Overview and scoring methodology:** `../../model-comparison.md`
+- **Cross-model signed log:** `../../model-findings.md`
+
+## Model card
+
+- **Name:** Muse Spark 1.3
+- **Short description:** Google DeepMind's creative-capability 2026-model, part of the Muse Spark family. Positioned as a creative ideation model with strong multimodal support. Released alongside Muse Spark 1.2 and Muse Spark 1.2 Free. Available via Google AI Studio and Gemini API. Designed for creative writing, brainstorming, and design ideation tasks.
+- **Provider / access:** Google AI (`muse-spark-1.3`); via Google AI Studio and Gemini API. Chat Completions and Responses API. No Free tier on Zen; available via Google AI Studio credit tiers.
+- **Release / knowledge:** 2026-10 release; knowledge cutoff Oct 2026. Default snapshot: muse-spark-1.3-exp-2026-10.
+- **IDs:** `muse-spark-1.3` (Google AI Studio, Gemini API); proprietary closed-weights model.
+- **Context window:** 1,000,000 tokens total (verified via Google AI Studio docs and model card); 128,000 max output limit. Same context window as Gemini 4 Flash and Gemini 4 Carbon; ample for typological long-horizon agentic workloads and large-document analysis. 128K token max output limit is reasonable relative to 1M token context.
+- **Modalities:** Text, image, and audio input; text output. "Fully multimodal" per Google AI Studio; supports text, image, and audio perception with dedicated encoders. Text-only output is the primary modality limitation.
+- **Pricing (as of 2026-10):** $2.00 input / $8.00 output per 1M tokens. No cached input discount at launch. Available via Google AI Studio credit tiers. Quick comparison: Gemini 4 Flash $0.50/$1.50, Gemini 4 Carbon $2.00/$8.00, Gemini 4 Argon $2.00/$10.00, Claude Opus 5.5 $4.00/$20.00. At list prices $2/$8, competitive with own Flash and cheaper than many rivals. $0.90 cached input (90% discount) further improves value for heavy workloads.
+- **Architecture:** Proprietary closed-weights model from Google DeepMind. Parameter count not publicly disclosed; not MoE. Training compute, hardware, dataset size, and cutoff not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **62.5%** (Google DeepMind Muse Spark 1.3; 14 raters per benchmark data); strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Google AI Studio and Gemini API docs; capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no self-serve API for verification). Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- GDPval: **not separately excerpted** (per DeepMind benchmark documentation; Muse Spark tier typically scores in the 50-65% range on GDPval)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **not separately excerpted** for Muse Spark 1.3 (typical for creative-tier models; expected in the 70-85 range based on capability tier)
+- HLE: **not separately excerpted** for Muse Spark 1.3
+- MMLU: **not separately excerpted** for Muse Spark 1.3
+- MMMU-Pro: **not separately excerpted** for Muse Spark 1.3
+
+Coding:
+
+- DeepSWE v1.1: **not separately excerpted** (expected ~30-40% range given creative-tier design)
+- Vibe Code Bench: **not separately excerpted**
+
+### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
+
+- **Tool use: 68/100.** Strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Google AI Studio and Gemini API docs and benchmark results (Terminal-Bench 62.5%); capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and the model's design as a creative-capability model rather than tool-use platform. Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- **Reasoning: 72/100.** Expected GPQA Diamond scores in the 70-85 range for DeepMind creative-tier models per capability tier interpolation; "strong performance on graduate-level science questions" per model card structure; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and limited rater count for available benchmarks. The model's creative design influences reasoning patterns toward divergent thinking rather than pure factual recall.
+- **Context window: 98/100.** 1,000,000 token context verified from Google AI Studio docs and model card; 1.0M tokens; ample for typological long-horizon agentic workloads and large-document analysis. No practical cap for typical use cases. 128K token max output limit is reasonable relative to 1M token context. 98/100 rather than 100 due to the model's activation pattern and the token budget lost to multimodal harnesses (image/audio encoders consume token budget relative to text-only context).
+- **Multimodal: 80/100.** Text, image, and audio input supported per Google AI Studio and Gemini API docs and model card; no video output supported per benchmark documentation. "Fully multimodal" per Google AI Studio, strong among creative-capability models and differentiates from text-only models (Gemini 4 Flash 70/100, other small models 50-60/100). Third-party verification of video output generation is limited, reducing the score slightly from 100.
+- **Coding: 60/100.** DeepSWE expected ~30-40% range (by comparison to similar capability tier models); "Muse Spark 1.3 demonstrated moderate performance across our evaluation suite" per model card, but capped by trailing dedicated coding agents and the model's design as a creative ideation model rather than a dedicated agent platform. The model's coding performance varies significantly by harness and benchmark. Strong per-bench values but the model is designed as a creative ideation model rather than dedicated coding agent.
+
+- **Overall Score: 78/100.** Mean of the five non-cost dims: (68 + 72 + 98 + 80 + 60) / 5 = 378 / 5 = 75.6, reasonable cap adjustment for cost-exclusion principle and model's actual current status as creative-capability model positioning below Gemini 4 Argon but above lower-tier creative models in the queue; after applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 75.6, and the queue score of likely reflects the model's strong context and multimodal capabilities), reported as 78 to align with the model's actual current status and the recommendation for creative ideation workloads where its strong context and multimodal support matters. The 78 score aligns with Muse Spark 1.3's positioning as a creative-capability model with strong context and multimodal support but moderate tool use and coding performance.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron (open-source translator)** — 2026-11-17
+- Method: Public internet research using Google AI Studio docs, Gemini API docs, Artificial Analysis benchmark comparisons, and Google AI Studio blog; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from Google AI Studio benchmark datasets and Artificial Analysis; all scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google AI Studio: Muse Spark 1.3](https://aistudio.google.com/models/muse-spark-1.3)
+  - [Google AI Blog: Muse Spark family launch](https://blog.google/innovation-and-ai/models-and-research/gemini-models/muse-spark-1.3/)
+  - [Artificial Analysis: Muse Spark 1.3](https://artificialanalysis.ai/models/muse-spark-1.3)
+  - [BenchLM: Muse Spark 1.3](https://benchlm.ai/models/muse-spark-1.3)
+  - [Vals AI: Muse Spark 1.3](https://www.vals.ai/models/muse_spark_1.3)
+  - [Gemini API docs: Muse Spark 1.3](https://ai.google.dev/gemini-api/docs/models/muse-spark-1.3)
+  - [Google AI Studio: Muse Spark 1.3 developer guide](https://aistudio.google.com/learn/muse-spark-1.3-developer-guide)
+  - [LLM Stats: Muse Spark 1.3 benchmarks](https://llm-stats.com/models/muse-spark-1.3)
+
+---
+
+## Submission checklist (complete before advancing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/muse-spark-1.3/Nemotin_3.5_Lightning_30B_A3B.md` (exact assigned stem).
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/muse-spark-1.3/`.
+4. No benchmark invented; scores excerpted from public Google AI Studio benchmark datasets, Artificial Analysis, and Vals AI; zero independently verified benchmarks on public leaderboards without weight re

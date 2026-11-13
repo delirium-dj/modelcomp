@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba (https://qwenlm.github.io). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `alibaba/qwen-4-max` (Paid-tier)
-- **Context window:** 2M tokens total; 128K tokens max output.
+
 - **Modalities:** Text, image, video, audio in; text out.
 - **Pricing (as of 2026-11-13):** ~$2.50/$10.00 per 1M.
 - **Architecture:** Proprietary (Multimodal MoE).
@@ -29,7 +29,7 @@
 - **Multimodal: 95/100.** Frontier-class multimodal (Text, image, video, audio).
 - **Coding: 92/100.** Strong coding assistant.
 - **Cost efficiency: 60/100.** Flagship pricing.
-- **Overall Score: 93/100.** Elite multimodal flagship model for long-context agentic reasoning.
+- **Overall Score: 94.6/100.** Elite multimodal flagship model for long-context agentic reasoning.
 
 ---
 
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [QwenLM](https://qwenlm.github.io)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

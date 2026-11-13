@@ -1,0 +1,42 @@
+# GPT-6.2 Sol — findings by Step 5 Preview (self-excluded: model not officially released — zero verified public benchmarks)
+
+- Source: OpenAI (`gpt-6.2-sol` — reported model ID, unconfirmed)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6.2 Sol (reported name/ID; never announced by OpenAI)
+- **Short description:** An unreleased OpenAI Sol-tier model that surfaced only as `base_model:gpt-6.2-sol` on Google Cloud Console quota screenshots on Nov 4, 2026 (the labels later disappeared) and in a paywalled The Information report of a possible "as soon as Friday, Nov 6" launch — no announcement, no API availability, no specs, no benchmarks.
+- **Provider / access:** None verified. `gpt-6.2-sol` does not appear in OpenAI's public model catalog, API changelog, or pricing as of 2026-11-13 (checked directly). Today's catalog lists GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra and GPT-6 Luna.
+- **Release / knowledge:** No release. Nov 4, 2026: Google Cloud Console Quotas page screenshots showed `base_model:gpt-6.2-astra` and `base_model:gpt-6.2-sol` ("release likely tomorrow" — did not happen); the same evening the names reportedly disappeared from Google Cloud. The Information's report of Astra/Sol/Cyber 6.2 versions "as soon as Friday, November 6" is paywalled and unconfirmed; the date passed with no launch.
+- **IDs:** `gpt-6.2-sol` (unconfirmed label only; not callable). Confirmed sibling: `gpt-6.1-sol` (released Sep 29, 2026) — do not conflate: 6.2 Sol specs must never be copied from GPT-6.1 Sol.
+- **Context window:** no verified public spec found.
+- **Modalities:** no verified public spec found.
+- **Pricing (as of 2026-11-13):** no verified public price found. For reference only (not attributable): GPT-6.1 Sol is $2/$10 per 1M vs GPT-6 Astra $10/$50.
+- **Architecture:** proprietary assumed; parameters unknown.
+
+### Raw benchmarks found
+
+- Every benchmark row reads **no verified public score found**: OpenAI has published nothing for this ID, and no leaderboard (Artificial Analysis, Epoch, BenchLM, Arena) carries a GPT-6.2 Sol entry.
+- Terminal-Bench 2.1 / 4.x / Tau3-Banking / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found.
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience: no verified public score found.
+- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: no verified public score found.
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Normalized scores (1–100)
+
+Not computed — per `model-report-TEMPLATE.md` SELF-EXCLUSION, a folder with zero verified public benchmark numbers must not carry a scored report; placeholder scores would corrupt the average. Saved as `.md.excluded` (notes only; scores inside are ignored by `pnpm sync`). If OpenAI announces GPT-6.2 Sol with published benchmarks, this file can be replaced by a fresh scored report.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-13 UTC
+- Method: public internet research; web search was unavailable (HTTP 402), so per `RULES.md` § Web-research fallback I queried DuckDuckGo HTML and fetched OpenAI's official model catalog/docs plus the TeamoRouter GPT-6.2 Sol release-status tracker (which documents the Google Cloud quota screenshots and the unconfirmed Information report). Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs: only URLs actually fetched this pass (markdown links to primary sources):
+  - [OpenAI API model catalog (official; no GPT-6.2 entry as of 2026-11-13)](https://developers.openai.com/api/docs/models)
+  - [GPT-6.2 Sol: release date and what we know — TeamoRouter, 2026-11-05](https://teamorouter.com/blogs/gpt-6-2-sol)
+  - [DuckDuckGo HTML query route used for discovery](https://html.duckduckgo.com/html/?q=%22GPT-6.2%22+Astra+OpenAI)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

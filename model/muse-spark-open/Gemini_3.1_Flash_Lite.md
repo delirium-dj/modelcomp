@@ -12,7 +12,7 @@
 - **Provider / access:** Meta (https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B). Open-weights.
 - **Release / knowledge:** Oct 2026; knowledge cutoff unknown.
 - **IDs:** `meta/muse-spark-open-816b` (Apache 2.0 open-weights)
-- **Context window:** 1M tokens total; 131K tokens max output.
+
 - **Modalities:** Text, code, image, video, audio in; text, JSON out.
 - **Pricing (as of 2026-11-13):** Free open-weights; self-hostable.
 - **Architecture:** MoE (816B total / 42B active).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Meta AI](https://dev.meta.ai)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

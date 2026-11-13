@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba (https://huggingface.co/Qwen/Qwen3.5-27B). Apache 2.0 open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `qwen/qwen3.5-27b` (Open-weights)
-- **Context window:** 262K native (extensible to 1M).
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** ~$0.27/$2.16 per 1M (hosted); self-host free.
 - **Architecture:** Dense (27B).
@@ -34,7 +34,7 @@ Coding:
 - **Multimodal: 85/100.** Strong Text, image, video support.
 - **Coding: 90/100.** Strong coding assistant (72.4% SWE-bench Verified).
 - **Cost efficiency: 100/100.** Open-weights / self-hostable.
-- **Overall Score: 87/100.** Robust, efficient multimodal model for coding and general-purpose agents.
+- **Overall Score: 87.6/100.** Robust, efficient multimodal model for coding and general-purpose agents.
 
 ---
 
@@ -44,3 +44,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [QwenLM](https://qwenlm.github.io)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

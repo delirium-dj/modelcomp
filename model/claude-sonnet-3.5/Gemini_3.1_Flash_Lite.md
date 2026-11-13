@@ -10,7 +10,7 @@
 - **Name:** Claude Sonnet 3.5
 - **Short description:** Efficient, high-performance reasoning model.
 - **Provider / access:** Anthropic API.
-- **Context window:** 128,000.
+
 - **Modalities:** Text/Image.
 
 ### Raw benchmarks found
@@ -34,3 +34,13 @@
 
 - Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
 - Method: Public web research; scores are normalized 1–100 interpretations.
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

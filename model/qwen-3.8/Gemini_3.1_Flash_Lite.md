@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba (https://qwenlm.github.io). API or open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `alibaba/qwen3-8` (Apache 2.0 open-weights)
-- **Context window:** 262K native (1M via YaRN); 33K output.
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** ~$0.42/$3.00 per 1M; $0 self-host (Apache 2.0).
 - **Architecture:** Dense (27B).
@@ -40,3 +40,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [QwenLM](https://qwenlm.github.io)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

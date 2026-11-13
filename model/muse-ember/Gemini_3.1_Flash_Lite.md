@@ -12,7 +12,7 @@
 - **Provider / access:** Meta (https://research.meta.ai). Chat Completions API.
 - **Release / knowledge:** Nov 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/muse-ember-1.0` (Paid-tier)
-- **Context window:** 1M tokens total; 524K tokens max output.
+
 - **Modalities:** Text, image, audio, video in; text out.
 - **Pricing (as of 2026-11-13):** $0.10/$0.50 per 1M; cached $0.004.
 - **Architecture:** Proprietary (Efficient reasoning model).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Meta AI](https://research.meta.ai)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

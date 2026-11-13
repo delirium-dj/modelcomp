@@ -12,7 +12,7 @@
 - **Provider / access:** Tencent (https://huggingface.co/tencent/Hy3-preview). Apache 2.0 open-weights.
 - **Release / knowledge:** Apr 2026; knowledge cutoff unknown.
 - **IDs:** `tencent/hy3-preview`
-- **Context window:** 256,000 tokens.
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** OpenRouter ~$0.18/$0.60 per 1M.
 - **Architecture:** MoE (295B total / 21B active).
@@ -40,3 +40,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Tencent](https://huggingface.co/tencent/Hy3-preview)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

@@ -10,7 +10,7 @@
 - **Name:** Exo Free
 - **Short description:** Lightweight free-tier model for basic tasks.
 - **Provider / access:** Exo API.
-- **Context window:** 32,000.
+
 - **Modalities:** Text.
 
 ### Raw benchmarks found
@@ -38,3 +38,13 @@
 - **Cost efficiency: 90/100**
 
 - **Overall Score: 73/100**
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

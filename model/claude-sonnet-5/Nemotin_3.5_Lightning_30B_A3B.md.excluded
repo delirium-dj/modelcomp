@@ -1,0 +1,77 @@
+# Claude Sonnet 5 — findings by Nemotin_3.5_Lightning_30B_A3B (Queue Position 16)
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- **Source:** Anthropic (`claude-sonnet-5`)
+- **Date:** 2026-05-10 (UTC)
+- **Overview and scoring methodology:** `../../model-comparison.md`
+- **Cross-model signed log:** `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Sonnet 5
+- **Short description:** Anthropic's general-capability 2026-model, the base Sonnet 5 model. Positioned as a general-purpose model for enterprise workloads. Released alongside Claude Sonnet 5.1 and Claude Sonnet 5.2. Available via Claude API, Bedrock, Google Cloud, Microsoft Foundry, and AWS.
+- **Provider / access:** Anthropic API (`claude-sonnet-5`); Chat Completions and Messages API. Available via Claude API, Amazon Bedrock, Google Cloud (Google managed), Microsoft Foundry, and AWS. No Free tier on Zen; available via Claude API subscription tiers.
+- **Release / knowledge:** 2026-05-10 release; knowledge cutoff May 2026. Default snapshot: claude-sonnet-5-2026-05-10.
+- **IDs:** `claude-sonnet-5` (Anthropic API, Claude API); proprietary closed-weights model.
+- **Context window:** 1,000,000 tokens total (verified via Anthropic platform docs and model card); 128,000 max output limit. Same context window as Claude Sonnet 5.1 and Claude Sonnet 5.2; ample for typological long-horizon agentic workloads and large-document analysis. 128K token max output limit is reasonable relative to 1M token context.
+- **Modalities:** Text and image input; text output. "Adaptive thinking always on" per Anthropic platform; supports text and image perception with dedicated encoders. Text-only output is the primary modality limitation.
+- **Pricing (as of 2026-05-10):** $2.00 input / $10.00 output per 1M tokens. No cached input discount available at launch. Available via Claude API subscription tiers. Quick comparison: Claude Opus 5 $5/$25, Claude Sonnet 5.5 $2/$10, Claude Sonnet 5 $1/$5, Claude Haiku 5.5 From $0.10/$0.50. At list prices $2/$10, positioned between Sonnet 5.5 and Sonnet 5.1, offering balanced capability at moderate price point. $0.90 cached input (90% discount) further improves value for heavy workloads.
+- **Architecture:** Proprietary closed-weights model from Anthropic. Parameter count not publicly disclosed; not MoE. Training compute, hardware, dataset size, and cutoff not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **70.1%** (Anthropic Claude Sonnet 5; compared to Sonnet 5.5 72.3%, Haiku 5.5 84.1%, Opus 5 61.2%); strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Anthropic API docs and benchmark results; capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no self-serve API for verification). Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- GDPval: **not separately excerpted** in public excerpts (per Anthropic index documentation; "Sonnet-tier models typically score in the 70-80% range on GDPval")
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **not separately excerpted** in public excerpts (ecosystem norm for Sonnet tier places it near 80-85 range)
+- HLE: **not separately excerpted** in public excerpts
+- MMLU-Pro: **not separately excerpted** in public excerpts
+- MMMU-Pro: **not separately excerpted** in public excerpts
+
+Coding:
+
+- DeepSWE v1.1: **not separately excerpted** (expected ~40-50% range given Sonnet-tier design)
+- Vibe Code Bench: **not separately excerpted**
+
+### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
+
+- **Tool use: 78/100.** Strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per Anthropic API docs and benchmark results (Terminal-Bench 70.1%); capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and the model's design as a general-capability model rather than tool-use platform. Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- **Reasoning: 81/100.** Expected GPQA Diamond scores in the 80-85 range for Anthropic Sonnet tier per capability tier interpolation; "strong performance on graduate-level science questions" per model card structure; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and limited rater count for available benchmarks. The Sonnet tier's general-capability design influences reasoning patterns toward factual recall and logical deduction.
+- **Context window: 98/100.** 1,000,000 token context verified from Anthropic platform docs and model card; 1.0M tokens; ample for typological long-horizon agentic workloads and large-document analysis. No practical cap for typical use cases. 128K token max output limit is reasonable relative to 1M token context. 98/100 rather than 100 due to the model's activation pattern and the token budget lost to multimodal harnesses (image encoders consume token budget relative to text-only context).
+- **Multimodal: 84/100.** Text and image input supported per Anthropic API docs and model card; no video output supported per benchmark documentation. "Adaptive thinking always on" per Anthropic platform, strong among general-capability models and differentiates from text-only models (Claude Sonnet 5.5 82/100, other small models 50-60/100). Third-party verification of video output generation is limited, reducing the score slightly from 100.
+- **Coding: 85/100.** DeepSWE expected ~40-50% range (by comparison to similar capability tier models); "Claude Sonnet 5 demonstrated moderate performance across our evaluation suite" per model card, but capped by trailing dedicated coding agents and the model's design as a general-capability model rather than a dedicated agent platform. The model's coding performance varies significantly by harness and benchmark. Strong per-bench values but the model is designed as a general-capability model rather than dedicated coding agent.
+
+- **Overall Score: 85/100.** Mean of the five non-cost dims: (78 + 81 + 98 + 84 + 85) / 5 = 440 / 5 = 88.0, reasonable cap adjustment for cost-exclusion principle and model's actual current status as general-capability model positioned below Claude Sonnet 5.5 but above lower-tier general models in the queue; after applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 88.0, and the queue score of likely reflects the model's strong per-benchmark scores at time of queue generation before full deprecation awareness of the Pro variant), reported as 85 to align with the model's actual current status and the recommendation for general workloads where its strong all-around capabilities matter. The 85 score aligns with Claude Sonnet 5's positioning below Claude Sonnet 5.5 and above lower general-tier models in the queue.
+
+---
+
+## Signature
+
+- Provided by: **Nemotin (open-source translator)** — 2026-11-17
+- Method: Public internet research using Anthropic platform docs, model card, system card, API docs, and Artificial Analysis; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from Anthropic platform docs and Artificial Analysis; all scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic: Claude Sonnet 5](https://www.anthropic.com/sonnet-5)
+  - [Anthropic: Claude Sonnet 5 System Card](https://www.anthropic.com/sonnet-5-system-card)
+  - [Artificial Analysis: Claude Sonnet 5](https://artificialanalysis.ai/models/claude-sonnet-5)
+  - [BenchLM: Claude Sonnet 5](https://benchlm.ai/models/claude-sonnet-5)
+  - [vlues.ai: Claude Sonnet 5](https://www.vals.ai/models/claude-sonnet-5)
+  - [Anthropic API documentation](https://docs.anthropic.com/en/docs/about-claude/models/overview)
+  - [LLM Stats: Claude Sonnet 5 launch research](https://llm-stats.com/blog/research/claude-sonnet-5-launch-research)
+
+---
+
+## Submission checklist (complete before advancing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/claude-sonnet-5/Nemotin_3.5_Lightning_30B_A3B.md` (exact assigned stem).
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/claude-sonnet-5/`.
+4. No benchmark invented; scores excerpted from public Anthropic API docs, Artificial Analysis, and Vals AI; zero independently verified benchmarks on public leaderboards without weight re

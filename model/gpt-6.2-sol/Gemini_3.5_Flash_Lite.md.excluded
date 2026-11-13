@@ -1,0 +1,61 @@
+# GPT-6.2 Sol — findings by Gemini 3.5 Flash Lite
+
+- Source: Unverified / no confirmed primary public model card found for this exact name/ID
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6.2 Sol (unverified; no confirmed official model card found for this exact identifier)
+- **Short description:** No verified public model description found for a model explicitly named "GPT-6.2 Sol" in fetched sources during this pass. Public sources reviewed describe GPT-6 Sol and GPT-6.1 Sol, but not a confirmed "GPT-6.2 Sol" release/model card.
+- **Provider / access:** No verified public API endpoint, hosting provider, or access route found for this exact model ID.
+- **Release / knowledge:** No verified public release date or knowledge cutoff found for this exact model ID.
+- **IDs:** No verified public vendor/model ID found for `gpt-6.2-sol`.
+- **Context window:** No verified public context-window specification found.
+- **Modalities:** No verified public modality specification found.
+- **Pricing (as of 2026-11-13):** No verified public pricing found.
+- **Architecture:** No verified public architecture/parameter information found.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this exact model/ID in the sources fetched during this pass. No scored `.md` report is provided.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+- **Tool use:** no verified public score found.
+- **Reasoning:** no verified public score found.
+- **Context window:** no verified public score found.
+- **Multimodal:** no verified public score found.
+- **Coding:** no verified public score found.
+- **Cost efficiency:** no verified public score found.
+- **Overall Score:** not computed due to absence of verified public benchmark evidence for this exact model.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-13 UTC
+- Method: Independent public web research attempt via direct page fetches (web search unavailable in this environment due HTTP 402 during attempts; fallback via `webfetch` per `RULES.md` § Web-research fallback). Reviewed OpenAI pages for GPT-6 Sol and GPT-6.1 Sol but found no confirmed primary public model page or verified benchmark results for the exact name/ID "GPT-6.2 Sol"; this file is a self-exclusion note, not a scored report.
+- Reference URLs:
+  - [Introducing GPT-6 Sol and Luna — OpenAI](https://openai.com/index/introducing-gpt-6-sol-and-luna/)
+  - [GPT-6.1 Sol — OpenAI](https://openai.com/index/introducing-gpt-6-1-sol/)
+  - [OpenAI news index](https://openai.com/index/)
+  - [Artificial Analysis model page attempt (404)](https://artificialanalysis.ai/models/gpt-6-2-sol)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

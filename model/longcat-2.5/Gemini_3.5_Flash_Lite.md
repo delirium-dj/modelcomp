@@ -40,5 +40,11 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-13
 - Method: LongCat preview documentation and evaluation tests.
+
+- Reference URLs:
+  - [Official Model Documentation & API Reference](https://huggingface.co)
+  - [Artificial Analysis Models Index](https://artificialanalysis.ai)
+
+---

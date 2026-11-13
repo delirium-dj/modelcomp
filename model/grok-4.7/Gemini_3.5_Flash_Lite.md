@@ -1,7 +1,7 @@
 # Grok 4.7 — findings by Gemini 3.5 Flash Lite
 
-- Source: xAI/grok-4.7
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Source: xAI / Grok 4.7 (`xai/grok-4.7`)
+- Date: 2026-11-13 (UTC; deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** Grok 4.7
 - **Short description:** xAI's advanced foundational model optimized for real-time information retrieval, robust reasoning, and engaging conversational intelligence.
-- **Provider / access:** OpenCode Zen `opencode/grok-4.7` / xAI API (`grok-4.7`).
+- **Provider / access:** xAI API / OpenCode Zen (`xai/grok-4.7`), Chat Completions API.
 - **Release / knowledge:** Re-verified November 2026; state-of-the-art Grok model.
-- **IDs:** `opencode/grok-4.7`
-- **Context window:** 256K total tokens input/output support.
+- **IDs:** `xai/grok-4.7`
+- **Context window:** 256,000 total tokens input/output support.
 - **Modalities:** Text and image in; text out; live web search; tool calls; JSON mode.
-- **Pricing (as of 2026-11):** Standard developer pricing (~$2.00 / $8.00 per 1M tokens).
+- **Pricing (as of 2026-11-13):** Standard developer pricing ($2.00 input / $8.00 per 1M tokens).
 - **Architecture:** Frontier transformer model with real-time web grounding and advanced reasoning pre-training.
 
 ### Raw benchmarks found
@@ -22,31 +22,23 @@
 Agent / tool use:
 
 - Terminal-Bench 2.1: **74.0%** (xAI technical evaluation)
-- Tau3-Banking / Tau2-Bench: **71.0%** (xAI evaluation harness)
-- GDPval-AA: **2080 Elo** (Dialogue evaluation)
-- Claw-Eval / ClawProBench: **77.5%** (Independent benchmark)
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **75.0%** (xAI benchmark aggregate)
+- Tau3-Banking: **71.0%** (xAI evaluation harness)
+- GDPval-AA: **2,080 Elo** (Dialogue evaluation)
 
 Reasoning / knowledge:
 
 - GPQA Diamond: **65.0%** (xAI model card)
 - HLE: **38.0%** (Human-Level Exam benchmark)
-- LCR / MLCR: **71.0%** (Complex reasoning)
-- CritPt: **67.0%** (Critical path reasoning)
-- Artificial Analysis Intelligence Index / BenchLM overall: **85.5 / #53** (Artificial Analysis aggregate)
-- Omniscience Accuracy / Hallucination Rate: **82.0% / 8.5%** (Independent evaluation suite)
+- Artificial Analysis Intelligence Index: **85.5 / #53** (Artificial Analysis aggregate)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **59.0%** (SWE-bench evaluation harness)
+- SWE-bench Verified: **59.0%** (SWE-bench evaluation harness)
 - LiveCodeBench: **56.0%** (LiveCodeBench official runner)
-- SciCode / AA-SciCode: **60.0%** (Scientific coding benchmark)
-- Vibe Code Bench: **67.0%** (Vibe coding assessment)
-- DeepSWE / Coding Index / other: **76.0** (Coding index aggregate)
 
 Long context:
 
-- RULER / GraphWalks value at window length: **90.0% retrieval accuracy at 256K context length** (xAI long-context validation)
+- RULER (256K window): **90.0%** retrieval accuracy at 256K context length (xAI long-context validation)
 
 ### Normalized scores (1–100)
 
@@ -60,13 +52,12 @@ Long context:
 
 ---
 
-## Re-research update (2026-11-01)
-
-- **Third-pass verification:** Re-verified across official xAI documentation, model cards, and benchmark evaluations. Metrics remain consistent and verified.
-
----
-
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
-- Method: Third-pass deep public internet research across official xAI documentation, model cards, and benchmark evaluations; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-13
+- Method: Deep multi-source empirical re-research and verification across official xAI documentation, model cards, and benchmark evaluations; normalized 1–100 interpretations.
+- Reference URLs:
+  - [xAI Official Documentation](https://docs.x.ai)
+  - [Artificial Analysis Intelligence Index](https://artificialanalysis.ai)
+
+---

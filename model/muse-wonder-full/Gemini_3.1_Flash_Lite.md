@@ -12,7 +12,7 @@
 - **Provider / access:** Meta (https://dev.meta.ai/models/muse-wonder). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `meta/muse-wonder-full-1.0` (Paid-tier pricing)
-- **Context window:** 1M tokens total.
+
 - **Modalities:** Text, images, audio, video in; Text out.
 - **Pricing (as of 2026-11-13):** Muse Code subscription (Power/Maximum plans).
 - **Architecture:** Proprietary (frontier model).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Meta AI Developers](https://dev.meta.ai/models/muse-wonder)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

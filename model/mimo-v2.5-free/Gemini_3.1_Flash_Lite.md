@@ -12,7 +12,7 @@
 - **Provider / access:** Xiaomi / OpenCode Zen. Free-tier.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/mimo-v2-5-free` (Free-tier available)
-- **Context window:** 200,000 Zen total (native 1M).
+
 - **Modalities:** Text, image, audio, video in; text out.
 - **Pricing (as of 2026-11-13):** Free on Zen tier; paid native from ~$0.14/$0.28 per 1M.
 - **Architecture:** MoE (310B total / 15B active).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Xiaomi MiMo](https://mimo.mi.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

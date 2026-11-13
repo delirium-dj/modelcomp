@@ -12,7 +12,7 @@
 - **Provider / access:** Google DeepMind (https://deepmind.google/technologies/gemini/). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `google/gemini-2.5-flash`
-- **Context window:** 1M tokens.
+
 - **Modalities:** Text, image, audio, video, PDF in; text out.
 - **Pricing (as of 2026-11-13):** Paid $0.30/M in, $2.50/M out.
 - **Architecture:** Proprietary.
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Google DeepMind Gemini](https://deepmind.google/technologies/gemini/)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

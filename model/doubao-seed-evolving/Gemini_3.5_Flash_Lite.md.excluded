@@ -1,0 +1,63 @@
+# Doubao Seed Evolving — findings by Gemini 3.5 Flash Lite
+
+- Source: Unverified / no confirmed primary public model card found for this exact name/ID
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Doubao Seed Evolving (unverified; no confirmed official model card found for this exact identifier)
+- **Short description:** No verified public model description found for a model explicitly named "doubao-seed-evolving" or "Doubao Seed Evolving" in fetched sources during this pass. Identity, publisher attribution, and intended use case could not be confirmed from primary public documentation.
+- **Provider / access:** No verified public API endpoint, hosting provider, or access route found for this exact model ID.
+- **Release / knowledge:** No verified public release date or knowledge cutoff found.
+- **IDs:** No verified public vendor/model ID found for `doubao-seed-evolving`.
+- **Context window:** No verified public context-window specification found.
+- **Modalities:** No verified public modality specification found.
+- **Pricing (as of 2026-11-13):** No verified public pricing found.
+- **Architecture:** No verified public architecture/parameter information found.
+
+### Raw benchmarks found
+
+> SELF-EXCLUSION: zero verified public benchmark numbers were found for this exact model/ID in the sources fetched during this pass. No scored `.md` report is provided.
+
+Agent / tool use:
+
+- No verified public score found.
+
+Reasoning / knowledge:
+
+- No verified public score found.
+
+Coding:
+
+- No verified public score found.
+
+Long context:
+
+- No verified public score found.
+
+### Normalized scores (1–100)
+
+- **Tool use:** no verified public score found.
+- **Reasoning:** no verified public score found.
+- **Context window:** no verified public score found.
+- **Multimodal:** no verified public score found.
+- **Coding:** no verified public score found.
+- **Cost efficiency:** no verified public score found.
+- **Overall Score:** not computed due to absence of verified public benchmark evidence for this exact model.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-13 UTC
+- Method: Independent public web research attempt via direct page fetches (web search unavailable in this environment due HTTP 402 during attempts; fallback via `webfetch` per `RULES.md` § Web-research fallback). No confirmed primary public model page or verified benchmark results were found for the exact name/ID "doubao-seed-evolving"; this file is a self-exclusion note, not a scored report.
+- Reference URLs:
+  - [ByteDance Seed — Home](https://seed.bytedance.com/en/)
+  - [ByteDance Seed — Models](https://seed.bytedance.com/en/models)
+  - [ByteDance Seed — Hugging Face organization](https://huggingface.co/ByteDance-Seed)
+  - [ByteDance Seed — GitHub organization](https://github.com/ByteDance-Seed)
+  - [Volcengine Doubao product page](https://www.volcengine.com/product/doubao)
+  - [Artificial Analysis models (search: doubao)](https://artificialanalysis.ai/models?search=doubao)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

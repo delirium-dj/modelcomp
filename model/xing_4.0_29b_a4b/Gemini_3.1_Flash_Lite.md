@@ -12,7 +12,7 @@
 - **Provider / access:** TeleAI (https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B). Apache 2.0 open-weights.
 - **Release / knowledge:** Sep 2026; knowledge cutoff unknown.
 - **IDs:** `XingChen-AGI/Xing4.0-29B-A4B` (Apache 2.0)
-- **Context window:** 262K native (512K via YaRN).
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** Open-weights / self-host $0.
 - **Architecture:** MoE (29B total / 4B active).
@@ -40,3 +40,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [TeleAI](https://huggingface.co/XingChen-AGI)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba (https://huggingface.co/Qwen/Qwen3.5-122B-A10B). Apache 2.0 open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `qwen/qwen3.5-122b-a10b` (Open-weights)
-- **Context window:** 262K native (extensible to 1M).
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** ~$0.26/$2.08 per 1M (hosted); self-host $0.
 - **Architecture:** MoE (125B total / 10B active).
@@ -44,3 +44,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [QwenLM](https://qwenlm.github.io)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

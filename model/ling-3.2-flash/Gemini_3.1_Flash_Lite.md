@@ -12,7 +12,7 @@
 - **Provider / access:** Ant Group (https://developer.ant-ling.com). Chat Completions API.
 - **Release / knowledge:** Nov 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/ling-3.2-flash` (Paid-tier)
-- **Context window:** 1,000,000 total.
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** Paid $0.30/$0.90 per 1M.
 - **Architecture:** MoE (560B total / 25B active).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Ant Group](https://developer.ant-ling.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

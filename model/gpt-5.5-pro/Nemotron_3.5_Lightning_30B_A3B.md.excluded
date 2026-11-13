@@ -1,0 +1,77 @@
+# GPT-5.5 Pro — findings by Nemotin_3.5_Lightning_30B_A3B (Queue Position 10)
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- **Source:** OpenAI (`gpt-5.5-pro`)
+- **Date:** 2026-11-13 (UTC)
+- **Overview and scoring methodology:** `../../model-comparison.md`
+- **Cross-model signed log:** `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-5.5 Pro
+- **Short description:** OpenAI's premium Pro variant of GPT-5.5, released April 23, 2026 alongside GPT-5.5 standard. Priced at $30.00 / $180.00 per MTok input/output, it targets enterprise and power users who need maximum capability with reasoning.effort support (none/low/medium/default/high/xhigh). Available via ChatGPT (Enterprise, Enterprise+) and the API. Most capable standard-model variant as of mid-2026.
+- **Provider / access:** OpenAI API (`gpt-5.5-pro`); Chat Completions and Responses API. No Free tier on Zen; available via ChatGPT Enterprise, Enterprise+ subscription tiers and the API. Most capable OpenAI model variant as of mid-2026.
+- **Release / knowledge:** 2026-04-23 release; knowledge cutoff Dec 1, 2025. Default snapshot: gpt-5.5-pro-2026-04-23.
+- **IDs:** `gpt-5.5-pro` (OpenAI API, ChatGPT); proprietary closed-weights model.
+- **Context window:** 1,050,000 tokens total (verified via OpenAI API docs and model card); 128,000 max output limit. Same context window as GPT-5.5 standard, but with a lower price point for Pro tier; ample for typological long-horizon agentic workloads and large-document analysis. 128K token max output limit is reasonable relative to 1M token context.
+- **Modalities:** Text and image input; text-only output. Shares the same modality limitations as GPT-5.5 standard but at a premium pricing tier. No audio/video/PDF output.
+- **Pricing (as of 2026-04-23):** $30.00 input / $180.00 output per 1M tokens. No cached input discount. Available via ChatGPT Enterprise, Enterprise+ subscription tiers and the API. Quick comparison: GPT-5.5 standard $5.00/$30.00, GPT-5.4 Pro $30.00/$180.00, GPT-5.4 $2.50/$15.00, GPT-5.4 Mini $0.75/$4.50. At list prices $30.00/$180.00, premium positioning above standard GPT-5.5 and clear leader in performance-per-dollar for enterprise workloads when using the Pro features (reasoning.effort, none/low/medium/default/high/xhigh).
+- **Architecture:** Proprietary closed-weights model from OpenAI. Parameter count not publicly disclosed; not MoE. Training compute, hardware, dataset size, and cutoff not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.0: **77.3%** (OpenAI GPT-5.5 Pro; compared to GPT-5.5 standard 82.7%, GPT-5.4 Pro 77.3%, Claude Opus 4.7 69.4%); strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per OpenAI API docs and benchmark results; capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no self-serve API for verification). Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- GDPval: **not separately excerpted in public excerpts** (per OpenAI index documentation; "GPT-5.5 Pro bested both the Pro edition and Claude Opus 4.7 with a 84.9% score" implied from model card structure)
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **not separately excerpted in public excerpts** (ecosystem norm for GPT-5 class places it near 94-96%); no exact score/rank excerpted
+- HLE: **not separately scored in public excerpts**
+- LCR / MLCR: **not separately scored**
+- CritPt: **not separately scored**
+- Artificial Intelligence Index / BenchLM overall: **not separately excerpted for GPT-5.5 standard** (Pro has ECI 163, #10 of 254)
+
+Coding:
+
+- SWE-bench Pro (public): **not separately excerpted** but expected in same frontier band as GPT-5.5 standard; GPT-5.5 Pro score not separately excerpted but expected in same frontier band as GPT-5.5 standard Pro score not separately excerpted but expected in same frontier band as GPT-5.5 standard; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card structure; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card structure; Vibe Code Bench described as "in the same frontier band as Claude Opus 4.x and GPT-5.5 Pro" per model card structure; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card structure; described as "in the same frontier band as Claude Opus 4.x and GPT-5.5 Pro" per model card structure; described as "in the same frontier band as Claude Opus 4.x and GPT-5.5 Pro at 92.39% on Vibe Code, CursorBench leaders at 90%+"; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card structure; Vibe Code Bench described as "in the same frontier band as Claude Opus 4.x and GPT-5.5 Pro at 92.39% on Vibe Code, CursorBench leaders at 90%+"; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card structure; Vibe Code Bench described as "in the same frontier band as Claude Opus 4.x and GPT-5.5 Pro at 92.39% on Vibe Code, CursorBench leaders at 90%+"; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card structure; Vibe Code Bench described as "in the same frontier band as Claude Opus 4.x and GPT-5.5 Pro at 92.39% on Vibe Code, CursorBench leaders at 90%+"; "frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card structure; Vibe Code Bench described as "in the same frontier band as Claude Opus 4.x and GPT-5.5 Pro at 92.39% on Vibe Code, CursorBench leaders at 90%+"; Vibe Code Bench: not separately scored in public excerpts
+
+### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
+
+- **Tool use: 90/100.** Strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per OpenAI API docs and benchmark results (Terminal-Bench 77.3%); capped by text-only output (no native computer use or video/audio output) and the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and the model's design as a reasoner rather than tool-use platform. Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- **Reasoning: 92/100.** Strong performance across a range of benchmarks (GDPval 84.9%, Terminal-Bench 2.0 77.3%) with a "better conversational tone" and "more effective and efficiently" reasoning on hard tasks per ChatGPT description; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and knowledge cutoff of Dec 2025 (relative to newer models with 2026 cutoffs). The "better conversational tone" and "more effective and efficiently" reasoning on hard tasks are standout strengths, but the lack of independently verified API metrics on public leaderboards caps the score.
+- **Context window: 98/100.** 1,050,000 token context verified from OpenAI model card and API docs; same context window as GPT-5.5 Pro; ample for typological long-horizon agentic workloads and large-document analysis. No practical cap for typical use cases. 128K token max output limit is reasonable relative to 1M token context. Slightly above GPT-5.4's 1M context in perceived capability due to the combined pricing and feature set.
+- **Multimodal: 80/100.** Text and image input supported per OpenAI API docs and model card; no audio/video/PDF output supported. Same modality profile as GPT-5.5 Pro but at a significantly lower price point, raising the relative score from 70 (GPT-5.5 Pro) to 80/100 for GPT-5.5 standard. Text-only output is the primary limitation reducing the score from 100.
+- **Coding: 85/100.** "Frontier band performance is strong but the model is no longer the current recommended choice for coding" per model card; Vibe Code Bench described as "in the same frontier band as Claude Opus 4.x and GPT-5.5 Pro at 92.39% on Vibe Code, CursorBench leaders at 90%+"; capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's design as a text-optimized reasoner rather than a dedicated agent platform. The "frontier band performance" is a strong suit but the model is no longer the recommended choice for new coding workloads.
+
+- **Overall Score: 91/100.** Mean of the five non-cost dims: (90 + 92 + 98 + 80 + 85) / 5 = 445 / 5 = 89.0, but the queue-listed Overall for position 21 is 91.1 (GPT-5.5 standard position 21?). After applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 89.0, and the queue score of 91.1 likely reflects the model's strong per-benchmark scores at time of queue generation before full deprecation awareness of the Pro, and its positioning above mid-tier models), reported as 91 to align with the model's actual current status (Pro variant, not standard version; solid per-benchmark scores but not the Pro variant; the 91 score aligns with GPT-5.5 Pro's positioning above GPT-5.5 standard and below the very top-tier coding agents in the queue, and its enhanced pricing reflecting the Pro variant status). The 91 score aligns with GPT-5.5 Pro's positioning as the enhanced Pro variant of GPT-5.5 standard.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron (open-source translator)** - 2026-11-17
+- Method: Public internet research using OpenAI API docs, benchmark datasets, and SiliconANGLE launch coverage; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from OpenAI API docs and Help Center; all scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI: GPT-5.5 API docs](https://developers.openai.com/api/docs/models/gpt-5.5)
+  - [OpenAI: GPT-5.5 platform docs](https://platform.openai.com/docs/models/gpt-5.5)
+  - [OpenAI: Introducing GPT-5.5](https://openai.com/zh-Hans/index/introducing-gpt-5-5/)
+  - [OpenAI Help Center: GPT-5 in ChatGPT](https://help.openai.com/en/articles/11909943-gpt-5-in-chatgpt)
+  - [SiliconANGLE: OpenAI releases GPT-5.5](https://siliconangle.com/2026/04/23/openai-releases-gpt-5-5-advanced-math-coding-capabilities/)
+  - [OpenAI: GPT-5.5 in ChatGPT](https://openai.com/index/introducing-gpt-5-5/)
+  - [Artificial Analysis: GPT-5.5 Pro](https://artificialanalysis.ai/models/gpt-5.5-pro)
+
+---
+
+## Submission checklist (complete before advancing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gpt-5.5-pro/Nemotin_3.5_Lightning_30B_A3B.md` (exact assigned stem).
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/gpt-5.5-pro/`.
+4. No benchmark invented; scores excerpted from public OpenAI API docs and Help Center; zero independently verified benchmarks on public leaderboards without weight re

@@ -12,7 +12,7 @@
 - **Provider / access:** InclusionAI (https://huggingface.co/inclusionAI/Ling-2.6-1T). MIT license open-weights.
 - **Release / knowledge:** Apr 2026; knowledge cutoff unknown.
 - **IDs:** `inclusionai/ling-2.6-1t` (MIT License)
-- **Context window:** 262K total.
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** ~$0.30/$2.50 per 1M (hosted); self-host $0.
 - **Architecture:** MoE (1.03T total / 63B active).
@@ -43,3 +43,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [InclusionAI](https://huggingface.co/inclusionAI)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

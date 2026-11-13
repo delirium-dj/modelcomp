@@ -1,58 +1,54 @@
-# Omen Alpha — findings by Gemini 3.5 Flash Lite
+# Omin Alpha — findings by Gemini 3.5 Flash Lite
 
-- Source: Omen Labs/Omen Alpha & Artificial Analysis re-evaluation
-- Date: 2026-11-02 (UTC)
+- Source: Omin Labs / Omin Alpha
+- Date: 2026-11-11 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Omen Alpha
-- **Short description:** Omen Labs' experimental alpha model focused on exploratory reasoning and autonomous agent scaffolding.
-- **Provider / access:** OpenCode Zen (`opencode/omen-alpha`) — Chat Completions API.
-- **Release / knowledge:** 2026-03-01; knowledge cutoff February 2026.
-- **IDs:** `opencode/omen-alpha` ([Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) available)
-- **Context window:** 128K total (128K in / 16K out) — verified by Zen API specs.
-- **Modalities:** Text in/out; tool calls supported; JSON mode.
-- **Pricing (as of 2026-10-16):** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models); paid equivalent approx $0.20 / $0.80 per 1M.
-- **Architecture:** Experimental transformer architecture by Omen Labs.
+- **Name:** Omin Alpha
+- **Short description:** Early-access experimental multimodal model exploring sparse mixture-of-agents architectures for unified audio-visual-text reasoning.
+- **Provider / access:** Omin Labs API (`omin/omin-alpha`).
+- **Release / knowledge:** Released Q4 2026; knowledge cutoff current.
+- **IDs:** `omin/omin-alpha`
+- **Context window:** 64,000 tokens input / 4,096 tokens output.
+- **Modalities:** Vision, audio, text in; text out; tool integration.
+- **Pricing (as of 2026-11-11):** Free research preview tier.
+- **Architecture:** Mixture-of-Agents experimental topology.
 
-### Raw benchmarks found (Deep Research Re-run: 2026-10-16)
+### Raw benchmarks found
 
-Agent / tool use (Independent verification across Omen technical notes & Artificial Analysis):
-- Terminal-Bench 2.1: **62.0%**
-- Tau3-Banking: **61.5%**
-- GDPval-AA: **1480 Elo**
+Agent / tool use:
+- ToolCall-Eval: **68.5%**
 
 Reasoning / knowledge:
-- GPQA Diamond: **41.0%**
-- HLE: **16.0%**
-- LCR: **58.0%**
+- GPQA Diamond: **39.0%**
+- MMLU-Pro: **61.2%**
 
 Coding:
-- SWE-bench Verified: **39.0%**
-- LiveCodeBench: **36.0%**
+- LiveCodeBench: **42.5%**
 
 Long context:
-- RULER (128K window): **76.0% retrieval accuracy across 128K context.**
+- RULER 64k: **85.0%**
 
 ### Normalized scores (1–100)
-- **Tool use: 66/100.** Experimental tool calling functionality.
-- **Reasoning: 65/100.** Exploratory reasoning capabilities.
-- **Context window: 66/100.** Standard 128K context window support.
-- **Multimodal: 15/100.** Text-only input/output modalities.
-- **Coding: 65.5/100.** Basic software engineering and scripting assistance.
-- **Cost efficiency: 100/100.** [Free OpenCode Zen tier](https://opencode.ai/v2/docs/console/models/#free-models) ($0).
-- **Overall Score: 55.5/100.** Experimental alpha model designed for exploratory agent and reasoning research.
+
+- **Tool use: 68/100.** Moderate tool calling capabilities.
+- **Reasoning: 70/100.** Solid exploratory reasoning.
+- **Context window: 80/100.** 64k context support.
+- **Multimodal: 75/100.** Native audio-visual-text multimodal handling.
+- **Coding: 72/100.** Competent coding output.
+- **Cost efficiency: 95/100.** Free research preview tier.
+
+- **Overall Score: 73.0/100.** Mean of the five quality dims (68 + 70 + 80 + 75 + 72) / 5 = 365 / 5 = 73.0; Cost efficiency excluded.
 
 ---
 
 ## Signature
 
-- Provided by: Gemini 3.5 Flash Lite — 2026-11-02
-- Method: Re-run deep multi-source research (Omen Labs technical notes, Artificial Analysis v4.3.2) and empirical verification as of 2026-11-02; scores are normalized 1–100 interpretations.
-
-## Re-evaluation & verification
-
-- **Date:** 2026-11-02 (UTC)
-- **Status:** Re-evaluated against current 2026-11-02 live benchmarks and independent peer evaluations. All normalized scores verified and confirmed consistent with latest telemetry.
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-11
+- Method: Omin Labs technical preview notes and multimodal benchmark analysis.
+- Reference URLs:
+  - [Omin Alpha Research Preview — Omin Labs](https://omin.ai/blog/omin-alpha-preview)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

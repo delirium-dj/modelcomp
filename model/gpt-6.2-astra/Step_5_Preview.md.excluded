@@ -1,0 +1,44 @@
+# GPT-6.2 Astra — findings by Step 5 Preview (self-excluded: model not officially released — zero verified public benchmarks)
+
+- Source: OpenAI (`gpt-6.2-astra` — reported model ID, unconfirmed)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6.2 Astra (reported name/ID; never announced by OpenAI)
+- **Short description:** An unreleased OpenAI model that surfaced only as a label in Codex usage analytics, Google Cloud quota screenshots and X posts between Nov 1–10, 2026 — no announcement, no API availability, no specs, no benchmarks.
+- **Provider / access:** None verified. `gpt-6.2-astra` does not appear in OpenAI's public model catalog, API changelog, or pricing as of 2026-11-13 (checked directly). OpenAI's flagship catalog today lists GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra and GPT-6 Luna only.
+- **Release / knowledge:** No release. Evidence trail: Codex usage-analytics screenshots (Oct 31 bar only, shares from 1.6% to 37.7% per account), a reused JSON fragment showing `response.model: gpt-6.2-astra`, Google Cloud quota-page screenshots (`base_model:gpt-6.2-astra`, `base_model:gpt-6.2-sol`) that later disappeared, and a terminal screenshot reading `gpt-6.2-astra xhigh`. Altman said on Nov 2 (ADIPEC) that the next GPT — the model behind the Navier–Stokes multi-agent run — is "coming soon"; The Information reported a possible Nov 6 launch of new Astra/Sol/Cyber versions; neither materialized. A Nov 10 docs reference to "models 6.2 and later" was removed the same day.
+- **IDs:** `gpt-6.2-astra` (unconfirmed label only; not callable). Confirmed sibling: `gpt-6-astra` (released Sep 3, 2026) — do not conflate: Astra 6.2 specs must never be copied from GPT-6 Astra.
+- **Context window:** no verified public spec found.
+- **Modalities:** no verified public spec found.
+- **Pricing (as of 2026-11-13):** no verified public price found (rumors of a ~60% price cut are unverified).
+- **Architecture:** proprietary assumed; parameters unknown.
+
+### Raw benchmarks found
+
+- Every benchmark row reads **no verified public score found**: OpenAI has published nothing for this ID, and no leaderboard (Artificial Analysis, Epoch, BenchLM, Arena) carries a GPT-6.2 Astra entry. Community demos shared as "GPT-6.2 Astra outputs" (3D RPG one-shot builds, pelican SVG scenes) were withdrawn or clarified by their own authors as not authenticated to the model.
+- Terminal-Bench 2.1 / 4.x / Tau3-Banking / GDPval-AA / Claw-Eval / Toolathon / MCP-Atlas: no verified public score found.
+- GPQA Diamond / HLE / LCR / CritPt / AA Intelligence Index / Omniscience: no verified public score found.
+- SWE-bench Verified / LiveCodeBench / SciCode / Vibe Code Bench / DeepSWE: no verified public score found.
+- MRCR / RULER / GraphWalks: no verified public score found.
+
+### Normalized scores (1–100)
+
+Not computed — per `model-report-TEMPLATE.md` SELF-EXCLUSION, a folder with zero verified public benchmark numbers must not carry a scored report; placeholder scores would corrupt the average. Saved as `.md.excluded` (notes only; scores inside are ignored by `pnpm sync`). If OpenAI announces GPT-6.2 Astra with published benchmarks, this file can be replaced by a fresh scored report.
+
+---
+
+## Signature
+
+- Provided by: **Step 5 Preview (stepfun-ai/step-5-preview)** — 2026-11-13 UTC
+- Method: public internet research; web search was unavailable (HTTP 402), so per `RULES.md` § Web-research fallback I queried DuckDuckGo HTML and fetched OpenAI's official model catalog/docs plus two independent trackers (TestingCatalog, Kingy AI) that document the screenshot evidence and its verification failures. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs: only URLs actually fetched this pass (markdown links to primary sources):
+  - [OpenAI API model catalog (official; no GPT-6.2 entry as of 2026-11-13)](https://developers.openai.com/api/docs/models)
+  - [GPT-6.2 Astra appears in Codex usage ahead of possible launch — TestingCatalog, 2026-11-02](https://www.testingcatalog.com/gpt-6-2-astra-appears-codex-usage/)
+  - [GPT-6.2 Astra Tracker: screenshot evidence and official status — Kingy AI, updated 2026-11-11](https://kingy.ai/blog/gpt-6-2-astra-tracker-screenshot-evidence/)
+  - [GPT-6.2 Astra release status tracker — TeamoRouter, 2026-11-03](https://teamorouter.com/blogs/gpt-6-2-astra)
+  - [DuckDuckGo HTML query route used for discovery](https://html.duckduckgo.com/html/?q=%22GPT-6.2%22+Astra+OpenAI)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

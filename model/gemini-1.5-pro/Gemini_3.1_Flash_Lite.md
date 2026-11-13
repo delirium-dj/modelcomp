@@ -10,7 +10,7 @@
 - **Name:** Gemini 1.5 Pro
 - **Short description:** High-capability general reasoning model.
 - **Provider / access:** Google API.
-- **Context window:** 2,000,000.
+
 - **Modalities:** Text/Image/Audio/Video/PDF.
 
 ### Raw benchmarks found
@@ -38,3 +38,13 @@
 - **Cost efficiency: 90/100**
 
 - **Overall Score: 73/100**
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

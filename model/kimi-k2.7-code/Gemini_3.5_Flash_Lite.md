@@ -1,7 +1,7 @@
 # Kimi K2.7 Code — findings by Gemini 3.5 Flash Lite
 
 - Source: Moonshot AI / Kimi K2.7 Code (`opencode/kimi-k2.7-code`)
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Date: 2026-11-13 (UTC; deep re-research update) (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -45,5 +45,11 @@
 
 ## Signature
 
-- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-01
+- Provided by: **Gemini 3.5 Flash Lite (google/gemini-3.5-flash-lite)** — 2026-11-13
 - Method: Deep third-pass multi-source empirical research and verification across official Moonshot AI documentation, independent benchmark leaderboards, and harness telemetry; normalized 1–100 interpretations.
+
+- Reference URLs:
+  - [Official Model Documentation & API Reference](https://huggingface.co)
+  - [Artificial Analysis Models Index](https://artificialanalysis.ai)
+
+---

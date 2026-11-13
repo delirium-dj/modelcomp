@@ -12,7 +12,7 @@
 - **Provider / access:** Thinking Machines (https://huggingface.co/thinkingmachines/Inkling-Small). Open-weights.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `thinkingmachines/inkling-small` (Open-weights)
-- **Context window:** 1M tokens total.
+
 - **Modalities:** Text in/out; image/audio input.
 - **Pricing (as of 2026-11-13):** Open-weights (self-host $0).
 - **Architecture:** Hybrid-reasoning MoE (276B total / 12B active).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Thinking Machines](https://huggingface.co/thinkingmachines)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

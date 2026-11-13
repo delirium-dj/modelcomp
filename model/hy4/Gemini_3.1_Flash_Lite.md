@@ -12,7 +12,7 @@
 - **Provider / access:** Tencent (https://huggingface.co/tencent/Hy4-preview). Apache 2.0 open-weights.
 - **Release / knowledge:** Aug 2026; knowledge cutoff unknown.
 - **IDs:** `tencent/hy4-preview` (Open-weights)
-- **Context window:** 1M tokens total; 64K tokens max output.
+
 - **Pricing (as of 2026-11-13):** ~$0.75/$2.25 per 1M (OpenRouter); self-host $0.
 - **Architecture:** MoE (770B total / 49B active).
 
@@ -42,3 +42,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Tencent](https://huggingface.co/tencent/Hy4-preview)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

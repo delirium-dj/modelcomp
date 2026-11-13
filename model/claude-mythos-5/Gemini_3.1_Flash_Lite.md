@@ -12,7 +12,7 @@
 - **Provider / access:** Anthropic. Chat Completions API (CVP access only).
 - **Release / knowledge:** June 2026; knowledge cutoff unknown.
 - **IDs:** `anthropic/claude-mythos-5` (Paid only)
-- **Context window:** 1M tokens total; 128K tokens max output.
+
 - **Modalities:** Text, image in; text out.
 - **Pricing (as of 2026-11-13):** Paid $10/$50 per 1M ($1.00/M cache read).
 - **Architecture:** Proprietary (Claude Fable 5-class weights).
@@ -43,3 +43,13 @@ Coding:
 - Method: Public internet research (Anthropic official announcements via fallback); scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Anthropic News (Official)](https://www.anthropic.com/news)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

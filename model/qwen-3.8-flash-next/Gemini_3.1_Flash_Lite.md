@@ -12,7 +12,7 @@
 - **Provider / access:** Alibaba (https://qwenlm.github.io). Open-weights (Qwen Community license).
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/qwen-3.8-flash-next`
-- **Context window:** 262K native (extensible to 1M with YaRN).
+
 - **Modalities:** Text, image, video in; text out; tool use.
 - **Pricing (as of 2026-11-13):** ~$0.12/$0.40 per 1M (Vercel); open-weights (self-host).
 - **Architecture:** Efficient checkpoint (125B total / 6B active).
@@ -41,3 +41,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [QwenLM](https://qwenlm.github.io)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

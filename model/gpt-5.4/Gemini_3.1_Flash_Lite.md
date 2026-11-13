@@ -12,7 +12,7 @@
 - **Provider / access:** OpenAI (https://openai.com). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `openai/gpt-5.4` (Paid only)
-- **Context window:** ~1M tokens total; 128K tokens max output.
+
 - **Modalities:** Text, image in; text out.
 - **Pricing (as of 2026-11-13):** Paid-tier pricing ($1.25-$2.50/$7.50-$15.00).
 - **Architecture:** Proprietary (GPT-5 lane).
@@ -41,3 +41,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [OpenAI](https://openai.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

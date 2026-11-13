@@ -12,7 +12,7 @@
 - **Provider / access:** Google (https://huggingface.co/google/diffusiongemma-26B-A4B-it). Apache 2.0.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `google/diffusiongemma-26B-A4B-it` (Open-weights)
-- **Context window:** 256K total.
+
 - **Modalities:** Text, image in; text out.
 - **Pricing (as of 2026-11-13):** Apache 2.0 open-weights (self-host $0).
 - **Architecture:** MoE (25.2B total / 3.8B active).
@@ -42,3 +42,13 @@ Reasoning / knowledge:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Google DiffusionGemma](https://huggingface.co/google/diffusiongemma-26B-A4B-it)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

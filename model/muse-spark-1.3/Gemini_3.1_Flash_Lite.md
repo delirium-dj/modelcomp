@@ -12,7 +12,7 @@
 - **Provider / access:** Meta (https://huggingface.co/models?search=muse-spark-1.3). Chat Completions API.
 - **Release / knowledge:** Released 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/muse-spark-1.3` (Contributor/Free, Standard, and Max tiers available)
-- **Context window:** 1M tokens total; 131K tokens max output.
+
 - **Modalities:** Text, image, video, PDF in; text out.
 - **Pricing (as of 2026-11-13):** Contributor $0.10/$0.20; Standard & Max $1.25/$4.25 per 1M.
 - **Architecture:** Frontier open-weights (trained by Meta).
@@ -43,3 +43,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Meta Research: Muse Spark 1.3](https://research.meta.ai/blog/introducing-muse-spark-1-3)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

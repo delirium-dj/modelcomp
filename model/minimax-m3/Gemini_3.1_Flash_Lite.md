@@ -12,7 +12,7 @@
 - **Provider / access:** MiniMax (https://huggingface.co/models?search=minimax-m3). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `minimax-ai/minimax-m3`
-- **Context window:** 1M tokens total; 512K tokens output.
+
 - **Modalities:** Text, image, video in; text out.
 - **Pricing (as of 2026-11-13):** Paid $0.30/$1.20 per 1M.
 - **Architecture:** MoE (428B total / 23B active).
@@ -41,3 +41,13 @@ Coding:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [MiniMax](https://www.minimax.io)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

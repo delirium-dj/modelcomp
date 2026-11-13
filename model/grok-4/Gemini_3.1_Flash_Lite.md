@@ -12,7 +12,7 @@
 - **Provider / access:** xAI (https://x.ai). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/grok-4` (Deprecated)
-- **Context window:** 256,000.
+
 - **Modalities:** Text, image, PDF in; text out.
 - **Pricing (as of 2026-11-13):** Paid $3/$15 per 1M (cached $0.75).
 - **Architecture:** Proprietary.
@@ -30,7 +30,7 @@ Reasoning / knowledge:
 - **Multimodal: 70/100.** Text/image support.
 - **Coding: 85/100.** Solid coding assistant.
 - **Cost efficiency: 40/100.** Deprecated in favor of 4.5/4.7.
-- **Overall Score: 87/100.** Reliable legacy flagship, superseded by newer Grok generations.
+- **Overall Score: 82/100.** Reliable legacy flagship, superseded by newer Grok generations.
 
 ---
 
@@ -40,3 +40,13 @@ Reasoning / knowledge:
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [xAI](https://x.ai)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

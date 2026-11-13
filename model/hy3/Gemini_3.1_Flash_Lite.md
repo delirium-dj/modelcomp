@@ -12,7 +12,7 @@
 - **Provider / access:** Tencent (https://huggingface.co/tencent/Hy3). Apache 2.0 open-weights.
 - **Release / knowledge:** Jul 2026; knowledge cutoff unknown.
 - **IDs:** `tencent/hy3` (Open-weights)
-- **Context window:** 256,000 total.
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** Paid ~$0.08/$0.33 per 1M; self-host $0.
 - **Architecture:** MoE (295B total / 21B active).
@@ -41,3 +41,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Tencent](https://huggingface.co/tencent/Hy3)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

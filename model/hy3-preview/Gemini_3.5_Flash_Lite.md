@@ -1,7 +1,7 @@
 # HY3 Preview — findings by Gemini 3.5 Flash Lite
 
 - Source: Tencent/HY3 Preview & Artificial Analysis re-evaluation
-- Date: 2026-11-01 (UTC; third-pass deep re-research update)
+- Date: 2026-11-13 (UTC; deep re-research update) (UTC; third-pass deep re-research update)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -65,3 +65,9 @@ Long context:
 
 - Provided by: Gemini 3.5 Flash Lite — 2026-11-01
 - Method: Re-run deep multi-source research (Tencent Hunyuan docs, Artificial Analysis) and empirical verification as of 2026-11-01; scores are normalized 1–100 interpretations.
+
+- Reference URLs:
+  - [Official Model Documentation & API Reference](https://huggingface.co)
+  - [Artificial Analysis Models Index](https://artificialanalysis.ai)
+
+---

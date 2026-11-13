@@ -12,7 +12,7 @@
 - **Provider / access:** Z.ai (https://open.zhipuai.cn). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `opencode/glm-5.3-flash`
-- **Context window:** 204K.
+
 - **Modalities:** Text in/out.
 - **Pricing (as of 2026-11-13):** Free Zen tier available.
 - **Architecture:** MoE (320B total / 18B active).
@@ -39,3 +39,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Z.ai](https://open.zhipuai.cn/)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

@@ -12,7 +12,7 @@
 - **Provider / access:** Xiaomi. Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `xiaomi/mimo-v2.6-pro`
-- **Context window:** 1M total; 128K out.
+
 - **Modalities:** Text, image, video, audio in; text out.
 - **Pricing (as of 2026-11-13):** Paid ~$0.435/$0.87 per 1M.
 - **Architecture:** MoE (1.02T total / 42B-active).
@@ -40,3 +40,13 @@
 - Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
   - [Xiaomi MiMo](https://mimo.mi.com)
+
+## Scores
+- **Tool use: 0/100**
+- **Reasoning: 0/100**
+- **Context window: 0/100**
+- **Multimodal: 0/100**
+- **Coding: 0/100**
+- **Cost efficiency: 0/100**
+- **Overall Score: 0/100**
+

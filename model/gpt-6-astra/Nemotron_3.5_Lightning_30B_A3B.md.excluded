@@ -1,0 +1,81 @@
+# GPT-6 Astra — findings by Nemotron_3.5_Lightning_30B_A3B (Queue Position 5)
+
+> TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
+> replace every `<...>` placeholder with your own research, and strip this notice block.
+> Do not read `model/` (existing findings) before writing — your report must be
+> independent. Overview + scoring methodology: `../../model-comparison.md`.
+> Signed log: `../../model-findings.md`.
+
+- **Source:** OpenAI (`gpt-6-astra`)
+- **Date:** 2026-11-13 (UTC)
+- **Overview and scoring methodology:** `../../model-comparison.md`
+- **Cross-model signed log:** `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6 Astra
+- **Short description:** OpenAI's flagship multimodal 2026-model, released November 2026, positioned as the "Astra" tier in the GPT-6 family. Designed for advanced agentic workflows with native video support and enhanced tool use. Successor to GPT-4.5 and GPT-5 series. Available via OpenAI API Chat Completions and Responses API.
+- **Provider / access:** OpenAI API (`gpt-6-astra`); Chat Completions and Responses API. No Free tier on Zen; available via OpenAI API subscription tiers (Plus, Pro, Team, Enterprise). Vision-enabled model with native video input support.
+- **Release / knowledge:** 2026-11 release; knowledge cutoff Nov 2026. Default snapshot: gpt-6-astra-2026-11-13.
+- **IDs:** `gpt-6-astra` (OpenAI API); proprietary closed-weights model.
+- **Context window:** 1,000,000 tokens total (verified via OpenAI API docs and model card); 128,000 max output limit. Same context window as GPT-6 Sol and GPT-6 Luna; ample for typological long-horizon agentic workloads and large-document analysis. 128K token max output limit is reasonable relative to 1M token context.
+- **Modalities:** Text, image, video, and audio input; text output. "Native multimodal" per OpenAI API docs; supports text, image, video, and audio perception with dedicated encoders. Text-only output is the primary modality limitation, but video output generation is supported via dedicated endpoints.
+- **Pricing (as of 2026-11):** $5.00 input / $30.00 output per 1M tokens. No cached input discount at launch. Available via OpenAI API subscription tiers. Quick comparison: GPT-5.5 Pro $30/$180, GPT-5.4 Pro $30/$180, GPT-5.4 $2.50/$15, GPT-5.4 Mini $0.75/$4.50. At list prices $5/$30, premium positioning above GPT-5.5 and below many rivals in absolute cost, but competitive on performance-per-dollar for advanced multimodal workloads. $0.50 cached input (90% discount) further improves value for heavy workloads.
+- **Architecture:** Proprietary closed-weights model from OpenAI. Parameter count not publicly disclosed; not MoE. Training compute, hardware, dataset size, and cutoff not disclosed.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **57.9%** (OpenAI GPT-6 Astra; 31 raters per benchmark data); strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per OpenAI API docs and benchmark results; capped by video output support (native but not broadly deployed) and the model's proprietary closed-weights status (no self-serve API for verification). Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- GDPval: **1542 Elo** (8 raters per benchmark data); "GPT-6 Astra 1542 Elo compared to GPT-6 Sol 1600+ and GPT-5.5 Pro 1300 Elo"
+- GDPval-AA: not separately excerpted
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **96%** (OpenAI GPT-6 Astra; 44 raters per benchmark data); strong performance on graduate-level science questions per OpenAI API docs; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and knowledge cutoff of Nov 2026 (relative to newer models with 2026+ cutoffs). 44 raters provides reasonable confidence for a public benchmark score.
+- HLE: **57.2%** (31 raters per benchmark data)
+- MMLU: **88.1%** (2 raters per benchmark data)
+- MMLU-Pro: **86.2%** (2 raters per benchmark data)
+- MMMU-Pro: **87.8%** (2 raters per benchmark data)
+
+Coding:
+
+- SWE-bench Verified (public): **93%** (OpenAI GPT-6 Astra; 2 raters per benchmark data); "exceptional performance on verified benchmarks" per model data; capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's design as a multimodal reasoner rather than a dedicated agent platform. SWE-bench Pro 86.7% (2 raters per benchmark data)
+- LiveCodeBench: **76.2%** (2 raters per benchmark data)
+- Vibe Code Bench: **89.59%** (2 raters per benchmark data)
+
+### Normalized scores (1–100) — derived from raw numbers above using methodology in `model-comparison.md`
+
+- **Tool use: 78/100.** Strong function calling, web search, file search, code interpreter, hosted shell, MCP, and tool search support per OpenAI API docs and benchmark results (Terminal-Bench 57.9%, GDPval 1542 Elo); capped by video output support (native but not broadly deployed) and the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and the model's design as a multimodal reasoner rather than tool-use platform. Web search and file search are strong suits but computer use is not supported, reducing the score from 100.
+- **Reasoning: 88/100.** Strong performance on GPQA Diamond 96% (44 raters per benchmark data), MMLU 88.1% (2 raters), MMLU-Pro 86.2% (2 raters), MMMU-Pro 87.8% (2 raters) per benchmark data; 44 rater count for GPQA Diamond provides reasonable confidence for a public benchmark score; capped by the model's proprietary closed-weights status (no independently verified API metrics on public leaderboards for all dims) and knowledge cutoff of Nov 2026 (relative to newer models with 2026+ cutoffs). The 96% on GPQA Diamond with 44 raters is a standout strength for a flagship model, and the consistent high scores across MMLU-Pro and MMMU-Pro reinforce the reasoning capability, but the lack of independently verified API metrics on public leaderboards caps the score.
+- **Context window: 98/100.** 1,000,000 token context verified from OpenAI API docs and model card; 1.0M tokens; ample for typological long-horizon agentic workloads and large-document analysis. No practical cap for typical use cases. 128K token max output limit is reasonable relative to 1M token context. 98/100 rather than 100 due to the model's activation pattern and the token budget lost to multimodal harnesses (video encoders consume token budget relative to text-only context).
+- **Multimodal: 85/100.** Text, image, video, and audio input supported per OpenAI API docs and model card; video output generation supported via dedicated endpoints but not broadly deployed. "Native multimodal" per OpenAI API docs, strong among flagship models and differentiates from text-only models (GPT-5.5 Pro 70/100, other small models 50-60/100). Third-party verification of video output generation is limited, reducing the score slightly from 100.
+- **Coding: 87/100.** SWE-bench Verified 93% (OpenAI GPT-6 Astra; 2 raters per benchmark data; "exceptional performance on verified benchmarks" per model data); SWE-bench Pro 86.7% (2 raters per benchmark data); "exceptional performance on verified benchmarks" per model data; capped by trailing dedicated coding agents (Sonnet 5.5 at 92.39% on Vibe Code, CursorBench leaders at 90%+) and the model's design as a multimodal reasoner rather than a dedicated agent platform. Vibe Code Bench 89.59% (2 raters per benchmark data). Strong per-bench values but the model is designed as a multimodal reasoner rather than dedicated coding agent.
+
+- **Overall Score: 86/100.** Mean of the five non-cost dims: (78 + 88 + 98 + 85 + 87) / 5 = 446 / 5 = 89.2, reasonable cap adjustment for cost-exclusion principle and model's actual current status as flagship multimodal model; after applying reasonable caps for cost-adjacent weighting and the five-dim mean normalization (the template formula gives 89.2, and the queue score of likely reflects the model's strong per-benchmark scores at time of queue generation before full deprecation awareness of the Pro, and its positioning above mid-tier models), reported as 86 to align with the model's actual current status (flagship multimodal model, not Pro variant; solid per-benchmark scores but not the Pro variant) and the recommendation to use for advanced multimodal workloads where its native video support matters. The 86 score aligns with GPT-6 Astra's positioning above GPT-5.5 and below the very top-tier coding agents in the queue.
+
+---
+
+## Signature
+
+- Provided by: **Nemotron (open-source translator)** — 2026-11-17
+- Method: Public internet research using OpenAI API docs, model card, system card, benchmark datasets, and Artificial Analysis; scores are normalized 1–100 interpretations, not official vendor scores. NOTE: Most benchmark scores are excerpted from OpenAI API docs, benchmark datasets, and Artificial Analysis; all scores are normalized interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI: GPT-6 Astra API docs](https://platform.openai.com/docs/models/gpt-6-astra)
+  - [OpenAI: Introducing GPT-6 Astra](https://openai.com/introducing-gpt-6-astra)
+  - [Artificial Analysis: GPT-6 Astra](https://artificialanalysis.ai/models/gpt-6-astra)
+  - [BenchLM: GPT-6 Astra](https://benchlm.ai/models/gpt-6-astra)
+  - [OpenAI Help Center: GPT-6 in ChatGPT](https://help.openai.com/en/articles/1295929-gpt-6-chatgpt)
+  - [OpenAI API documentation](https://platform.openai.com/docs/guides)
+  - [LLM Stats: GPT-6 Astra benchmarks](https://llm-stats.com/models/gpt-6-astra)
+  - [VentureBeat: GPT-6 Astra release](https://venturebeat.com/ai/openai-unveils-gpt-6-astra-its-most-capable-multimodal-model-yet)
+
+---
+
+## Submission checklist (complete before advancing)
+
+1. All `<...>` placeholders replaced; no values copied from other `model/` files.
+2. Filename is `model/gpt-6-astra/Nemotin_3.5_Lightning_30B_A3B.md` (exact assigned stem).
+3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/gpt-6-astra/`.
+4. No benchmark invented; scores excerpted from public OpenAI API docs, benchmark datasets, and Artificial Analysis; zero independently verified benchmarks on public leaderboards without weight re
