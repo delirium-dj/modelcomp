@@ -1,21 +1,21 @@
 # Qwen 4 Max — findings by Nemotron 3 Ultra 550B A55B
 
-- Source: Alibaba (`alibaba/qwen-4-max`)
-- Date: 2026-11-11 (UTC)
+- Source: Alibaba Cloud / Qwen (`qwen4-max-preview`)
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen 4 Max
-- **Short description:** Alibaba's Qwen 4 Max frontier multimodal MoE model offering massive 2M context, elite reasoning, and advanced agentic capabilities. Available as `qwen4-max-preview` on Alibaba Cloud Model Studio for complex reasoning, coding, and visual understanding tasks.
-- **Provider / access:** Alibaba Cloud Model Studio (`qwen4-max-preview`), Alibaba Cloud API. Token Plan pricing. No free tier on OpenCode Zen or OpenRouter.
-- **Release / knowledge:** 2026 (preview available on Model Studio as of 2026-11-11); knowledge cutoff not publicly specified.
-- **IDs:** `alibaba/qwen-4-max` (Model Studio: `qwen4-max-preview`); no free ID on OpenCode Zen or OpenRouter.
-- **Context window:** 2,000,000 total / 128,000 max output (per Model Studio and meta.json)
-- **Modalities:** Text, image, video, audio in; text out; reasoning; tool calls; JSON mode
-- **Pricing (as of 2026-11-11):** ~$2.50 / $10.00 per 1M (input / output) per meta.json and Alibaba Cloud Model Studio pricing; paid API only, no free tier.
-- **Architecture:** MoE (Mixture of Experts); proprietary; parameter count not disclosed.
+- **Name:** Qwen 4 Max (Preview)
+- **Short description:** Alibaba's Qwen 4 Max Preview — next-generation flagship multimodal MoE model with deep thinking, image/video understanding, tool calling, and structured output. Available via Alibaba Cloud Model Studio Token Plan (subscription) only during preview period 2026-11-11 to 2026-11-25 (UTC+8).
+- **Provider / access:** Alibaba Cloud Model Studio (百炼) — API ID `qwen4-max-preview`. Token Plan only (personal/team subscriptions with Credits). Base URL: `https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1`. Compatible with OpenAI Chat Completions, Responses API, and Anthropic Messages API. No free tier on OpenCode Zen or OpenRouter.
+- **Release / knowledge:** Preview released 2026-11-11; preview period ends 2026-11-25 (UTC+8); knowledge cutoff not publicly specified.
+- **IDs:** `qwen4-max-preview` (Model Studio Token Plan). No pay-as-you-go billing during preview.
+- **Context window:** 1,000,000 tokens total; max output 393,216 tokens (thinking + final answer share this budget). Verified via Model Studio docs.
+- **Modalities:** Text, image, video input; text output. Reasoning: yes (deep thinking, default on, adjustable via `reasoning_effort`: low/medium/xhigh). Tool calls: yes (Function Calling, web search, built-in tools). JSON mode: supported (JSON Object and JSON Schema). Audio: not supported (use Qwen3.8-Omni-Flash for audio).
+- **Pricing (as of 2026-11-13):** Token Plan subscription only (Credits-based). Personal Standard/Pro and Team plans available. No per-token public pricing published; Credits consumed per request. No free tier.
+- **Architecture:** MoE (Mixture of Experts); proprietary; parameter count not disclosed. Part of Qwen 4 generation.
 
 ### Raw benchmarks found
 
@@ -24,19 +24,20 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found (model in preview, not yet evaluated on AA)
+- Terminal-Bench 4.0: no verified public score found
 - Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
+- GDPval-AA v2.1: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
 - GPQA Diamond: no verified public score found
-- HLE: no verified public score found
+- HLE-Diamond: no verified public score found
 - LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- CritPt v2 (Hard Subset): no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
@@ -49,36 +50,33 @@ Coding:
 
 Long context:
 
-- 2,000,000 token context window claimed; no MRCR / RULER / GraphWalks public scores found for this exact model.
+- 1M token context window claimed; no MRCR / RULER / GraphWalks public scores found for this exact model.
 
 Multimodal:
 
-- Image, video, audio input supported per Model Studio listing; no verified public benchmark scores found for visual/audio understanding tasks on this exact model.
+- Image and video input supported per Model Studio listing; no verified public benchmark scores found for visual understanding tasks on this exact model (no Chartography, MMMU, Video-MME, etc.).
 
 ### Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-> **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 55/100.** Listed for complex reasoning and agentic capabilities on Model Studio; capped by complete absence of public Terminal-Bench, Tau, GDPval, or Toolathon scores.
-- **Reasoning: 55/100.** Marketed for "complex reasoning" and "elite reasoning"; capped by zero verified GPQA/HLE/LCR/CritPt/AA Index scores.
-- **Context window: 95/100.** 2M token context window (among the largest available); capped by lack of MRCR/RULER/GraphWalks retrieval verification at length.
-- **Multimodal: 60/100.** Text, image, video, audio input declared on Model Studio; capped by zero public multimodal benchmark scores (no Chartography, MMMU, Video-MME, etc.).
-- **Coding: 55/100.** Listed for "coding" on Model Studio; capped by zero verified SWE-bench, LiveCodeBench, SciCode scores.
-- **Cost efficiency: 40/100.** ~$2.50/$10 per 1M — mid-tier paid pricing; no free tier limits accessibility.
-- **Overall Score: 64/100.** Mean of (55 + 55 + 95 + 60 + 55) / 5 = 64. Best fit: high-context multimodal frontier model with strong claimed capabilities but zero public benchmark verification; scores are provisional pending independent evaluation.
+- **Tool use: 58/100.** Supports Function Calling, web search, built-in tools, and structured output; compatible with OpenAI/Anthropic APIs for agent workflows. Capped by complete absence of public agentic benchmark scores (AA-Briefcase, Terminal-Bench, GDPval-AA) and preview-only availability.
+- **Reasoning: 60/100.** Deep thinking enabled by default with adjustable `reasoning_effort` (low/medium/xhigh); marketed as "complex reasoning" flagship. Capped by zero verified GPQA/HLE/LCR/CritPt/AA Index scores for this preview model.
+- **Context window: 95/100.** 1M token context (393K max output shared budget) — top tier. Only capped by models with 2M+ windows (e.g., GPT-6 Sol, Muse Wonder) and lack of MRCR/RULER/GraphWalks retrieval verification at length.
+- **Multimodal: 65/100.** Text, image, video input declared on Model Studio; supports vision understanding tasks. Capped by zero public multimodal benchmark scores and no audio modality (unlike Qwen3.8-Omni-Flash).
+- **Coding: 58/100.** Listed for "coding" and "complex reasoning" on Model Studio; Function Calling and structured output support agentic coding. Capped by zero verified SWE-bench/LiveCodeBench/SciCode scores for this preview model.
+- **Cost efficiency: 45/100.** Token Plan subscription only (Credits-based); no per-token public pricing or free tier. Accessibility limited by subscription model and short preview window.
+- **Overall Score: 67/100.** Mean of (58+60+95+65+58)/5 = 67.2 → 67. Best-fit: high-context multimodal frontier preview model with strong claimed capabilities but zero public benchmark verification; scores are provisional pending independent evaluation and GA release.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-11
-- Method: Public internet research of official Alibaba Cloud Model Studio listings and model metadata; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-13
+- Method: Public internet research via official Alibaba Cloud Model Studio documentation (help.aliyun.com); scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - [Alibaba Cloud Model Studio: Recommended models (qwen4-max-preview)](https://www.alibabacloud.com/help/en/model-studio/models)
-  - [Alibaba Cloud Model Studio pricing](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [Alibaba Cloud Model Studio: qwen4-max-preview](https://help.aliyun.com/zh/model-studio/qwen4-max-preview)
+  - [Alibaba Cloud Model Studio: Token Plan Overview](https://help.aliyun.com/zh/model-studio/token-plan-overview)
+  - [Alibaba Cloud Model Studio: Model Selection (qwen4-max-preview listed)](https://help.aliyun.com/zh/model-studio/models)
 
 ---

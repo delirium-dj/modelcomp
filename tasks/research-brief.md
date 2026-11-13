@@ -103,10 +103,13 @@ every inline list you may have seen quoted in older docs.
    influence), only then compare — same verdict → write nothing; genuinely
    new verified evidence → write the fresh file, then retire the twin (one
    file, one user confirmation popup). Never touch another agent's twin.
-7. Your own file >7 days old (Signature date) + genuinely new evidence → do
-   NOT overwrite; emit
-   `ENRICH-PROPOSAL: <slug> | old <date>/<Overall> | new evidence <URLs> | delta`
-   in your final summary and advance.
+7. Re-research / Enrichment (own file only): (a) Maintenance first: check existing
+   links in your file's `## Signature` (`- Reference URLs:`) for score/benchmark
+   changes (counts as "maintenance"); (b) Expand online: find more sources online
+   independently without peeking at peer files; only adding new source links counts
+   as "successful new search"; (c) If scores change or new evidence found, emit
+   `ENRICH-PROPOSAL: <slug> | old <date>/<Overall> | maintenance: <status> | new search: <URLs> | delta`
+   in your final summary and advance; second pass on user-approved slugs only.
 
 ## 6. Never-do list (absolute)
 

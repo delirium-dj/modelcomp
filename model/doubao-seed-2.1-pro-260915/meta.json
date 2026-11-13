@@ -1,0 +1,9 @@
+{
+  "id": "opencode/doubao-seed-2.1-pro-260915",
+  "name": "Doubao Seed 2.1 Pro 260915",
+  "short": "Doubao Seed 2.1 Pro 260915 model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

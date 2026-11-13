@@ -84,7 +84,7 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    webfetch/curl the known official URLs directly (RULES.md § Web-research
    fallback) — never substitute local repo files for public-web evidence.
    Skip existing <YOUR_STEM>.md files; never overwrite/edit/delete in-pass.
-   Own file >7d old (Signature date) with new verified evidence → ENRICH-PROPOSAL, advance.
+   Re-research / Enrichment flow (own file only): when tasked with re-research, (1) re-check existing links from your file's ## Signature (- Reference URLs:) first for score changes (maintenance); (2) search online for additional sources independently without reading peer .md files; only adding new source links counts as a successful new search; (3) emit ENRICH-PROPOSAL (old <date>/<Overall> | maintenance: <status> | new search: <URLs> | delta) and advance. Overwrites happen second-pass on user approval only.
 4. Retired/parked/deleted/merged/alias identities are NEVER queued, researched, or
    written — their one roster is `model-aliases.generated.md` (repo root, auto-generated):
    drop any listed slug or stem even when the audit finds the folder on disk missing your file,
@@ -210,16 +210,14 @@ For each queued slug, in order:
       genuinely new verified evidence (real benchmarks the twin lacked, or its
       scores were placeholders) → write the fresh `<Your_Filename>`, then delete
       the twin. Never rename a twin back without new evidence backing the change.
-    - Enrichment of an existing `<Your_Filename>` (approval-gated, own file only):
-      never overwrite during the pass. If the folder already contains your own
-      `<Your_Filename>` AND its Signature date (`Provided by: **...** — YYYY-MM-DD`)
-      is older than 7 days AND fresh search surfaced genuinely new verified
-      evidence that would change scores (new benchmark numbers with sources,
-      corrected error with source, new pricing/context with source — rewording
-      alone never qualifies): do NOT write; emit an `ENRICH-PROPOSAL` line
-      (`<slug> | old <date>/<Overall> | new evidence <URLs> | expected delta`)
-      in your final summary and advance. Overwrite happens only in a second pass
-      over explicitly user-approved slugs, updating the Signature date.
+    - Re-research & Enrichment of an existing `<Your_Filename>` (approval-gated, own file only):
+      never overwrite during the pass. When requested to re-research an existing model file, or when evaluating an own file older than 7 days for enrichment, follow the strict two-phase protocol:
+      1. **Maintenance (re-check existing source links first):** Open your OWN file (`model/<slug>/<Your_Filename>`), extract the links listed under `- Reference URLs:` in the `## Signature` section, and re-fetch/inspect those links first for possible changes in scoring, updated benchmark figures, or revisions on existing sources. Re-checking information from links you already provided counts as **"maintenance"** (maintaining verified integrity).
+      2. **Independent online expansion (find more sources online):** Next, search online for *more* sources on your own — strictly without looking into other agents' `.md` files (`model/<slug>/*.md`) in the folder or repo (zero influence preserved) — to expand the knowledge data in your own file. Only discovering and adding **new sources of information (new external links)** not previously present in your Reference URLs list counts as a **"successful new search"**.
+      3. **Knowledge expansion & Signature contract:** Incorporate maintenance updates and newly found benchmarks into the file's model card, raw benchmarks, and normalized scores. In `## Signature`: update the Signature date (`Provided by: ... — YYYY-MM-DD UTC`), update `Method:` (describing maintenance of existing links + independent search for new sources), retain valid existing URLs, and append newly discovered external URLs under `- Reference URLs:`.
+      4. **Proposal format & Overwrite gating:** Do NOT overwrite in an unapproved pass. Emit an `ENRICH-PROPOSAL` line:
+         `ENRICH-PROPOSAL: <slug> | old <date>/<Overall> | maintenance: <existing URLs checked & status> | new search: <new URLs & benchmarks> | expected delta`
+         in your final summary and advance. Overwrite happens only in a second pass over explicitly user-approved slugs, updating the Signature date and Reference URLs.
 4. **Advance** only after the file is written — or after an explicit leave-it-excluded
    decision — or after logging an `ENRICH-PROPOSAL` (incremental save = interrupt-safe).
 5. **Combined single pass:** audit → queue → one-by-one in one delegation. A "first five"
@@ -245,9 +243,9 @@ For each queued slug, in order:
 1. **Audit all subdirectories in scope** without exception (production: `model/` only; full mode: `model/` + `models_voice/`; incl. empty/new folders).
 2. **Highest-Overall-first** per Step 1; discoveries append at end. A "first five" cap is the same queue with limit N=5.
 3. **Incremental save (one-by-one)** — write each file before moving on.
-4. **Zero influence:** never read peer findings before/during research (only `model-queue.md` — or, in fallback, the single Overall line of `average.md` — for ordering, plus the template). Own existing `<Your_Filename>` may be read only to extract its Signature date for the 7-day age check — never copy its numbers.
+4. **Zero influence:** never read peer findings before/during research (only `model-queue.md` — or, in fallback, the single Overall line of `average.md` — for ordering, plus the template). Own existing `<Your_Filename>` may be read only to extract its Signature date for the 7-day age check and its existing Reference URLs under `## Signature` for the Step 1 re-research maintenance check — never copy peer numbers, and NEVER open peer agents' files.
 5. **No hallucination:** missing raw benchmark = `no verified public score found`, with source on every number.
-6. **No silent overwrites:** create `<Your_Filename>` only where missing/newly discovered. Existing files are never overwritten in-pass; enrichment is proposal-only (`ENRICH-PROPOSAL`), second pass only on explicitly user-approved slugs (own file, >7d old, new verified evidence, Signature date updated).
+6. **No silent overwrites:** create `<Your_Filename>` only where missing/newly discovered. Existing files are never overwritten in-pass; re-research and enrichment follow the two-phase protocol (Maintenance of existing `## Signature` links first, then independent online expansion; only adding new links counts as "successful new search"). Enrichment is proposal-only (`ENRICH-PROPOSAL`), second pass only on explicitly user-approved slugs (own file, new verified evidence or maintenance changes, Signature date and Reference URLs updated).
 7. **Template compliance:** follow `model-report-TEMPLATE.md` structure strictly.
 8. **Forward slashes only** in paths (`tasks/research.md`, `model/<slug>/`).
 9. **Self-exclusion (no verified data):** if a folder's model yielded zero
@@ -257,9 +255,13 @@ For each queued slug, in order:
 10. **Twin re-research:** procedure in Step 3.3 — draft first, compare after;
     same verdict → write nothing; new evidence → write fresh, delete the
     twin. Never rename back without new evidence; never open another agent's
-    twin at any point. **Enrichment twin:** existing `<Your_Filename>` older than
-    7 days (Signature date) with new verified evidence → `ENRICH-PROPOSAL`, never
-    in-pass overwrite; approved slugs only, second pass.
+    twin at any point. **Re-research & Enrichment protocol:** existing `<Your_Filename>`
+    older than 7 days (Signature date) or explicitly queued for re-research: (1) re-check
+    existing `## Signature` `- Reference URLs:` first for score changes (counts as
+    **maintenance**); (2) search online for additional sources independently without
+    reading peer `.md` files (only adding new source links counts as **successful new
+    search**); (3) expand knowledge data in own file; emit `ENRICH-PROPOSAL`, never in-pass
+    overwrite; approved slugs only, second pass.
 11. **Agent-implies-model backfill:** if a reporting agent — any `SourceKey` in
     `src/data/models.ts`, or any signed `Provided by:` identity you meet — has no
     `model/<slug>/` folder, scaffold it on the spot: normalize the slug per

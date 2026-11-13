@@ -1,0 +1,31 @@
+# ERNIE 5.5 Flash — findings by Qwen 3.8 Flash  ⟦SELF-EXCLUDED ⟦.md.excluded⟧⟧
+
+> **EXCLUSION — no verified, extractable benchmark numbers exist for the exact ID.** `ernie-5.5-flash` resolves to **ERNIE 5.5 Flash Preview** (Baidu), released **~2026-11-10** as the *first post-trained model on ERNIE 5.5 Flash Base* and **explicitly described by Baidu as an "intermediate checkpoint from post-training"** where "training is not finished [and] some capabilities may still fall short." Its official release page carries an "Appendix: Benchmarks", but the table is client-side rendered and **not machine-extractable** — WebFetch truncated it, a raw HTTPS GET of the page (56 KB HTML) contains **zero** numeric benchmark tokens, and Artificial Analysis returns **404** for the exact ID. With no citable per-benchmark scores and the vendor itself flagging an unfinished model, the five quality dims cannot be computed honestly, so this is saved as `<STEM>.md.excluded` (notes only) per `RULES.md` § self-exclusion / `tasks/research-assign.md` Step 3.3. **Do not** import ERNIE 5.5 Flash **Base** (pretraining-only) or a prior ERNIE generation's numbers as a proxy.
+
+## What IS verified (spec + status — no capability scores)
+
+- **Identity / status:** `baidu/ernie-5.5-flash` = **ERNIE 5.5 Flash Preview**; first post-trained checkpoint on `ernie-5.5-flash-base` (Base released 2026-11-05, 280B-A14B, 33.5T tokens). Preview is **an unfinished intermediate checkpoint**; GA "official release" pending. Weights "open-sourced under Apache 2.0 soon" (not yet).
+- **Context window:** **1,000,000 total / 131,072 max output** (meta + release page). Native 1M via hybrid attention (HCA + MLA-DSA).
+- **Modalities:** **text in / text out** (release page states it is "a text-only model and can't see the screen"); tool/agent harness use demonstrated (game dev, CAD, Blender, spreadsheets/PPT/PDF, video pipelines) but no image/audio input in the API. `meta.json` text-only is consistent.
+- **Architecture:** 280B total / **14B active** sparse MoE, >200 tok/s decode, pretrained on 33.5T tokens.
+- **Pricing (as of 2026-11-13):** Baidu Qianfan ~**$0.28 / $1.13 per 1M** (2–8 CNY), off-peak ~$0.14/$0.56 (llm-stats corroborates $0.28/$1.13).
+
+## Negative-findings log (what I looked for and did not get)
+
+- `artificialanalysis.ai/models/ernie-5.5-flash` → **404** (exact ID not indexed).
+- Official release page **"Appendix: Benchmarks"** → header present, **numeric table not retrievable** (JS-rendered): WebFetch truncated; raw GET of the 56 KB HTML matched **no** GPQA/SWE-bench/AIME/MMLU/IFEval/HumanEval figures.
+- llm-stats shows a single derived **research-composite ≈ 29.8** for "ERNIE 5.5 Flash Preview" (also on a JS leaderboard) — a composite rank score, **not a named standard benchmark**, and not enough to build five dims. Reported here for completeness, **not** used as a scored row.
+- SWE-bench / GPQA official leaderboards: no `ERNIE 5.5 Flash` entry surfaced.
+- Secondary reviews/searches: no transcribed per-benchmark table found this pass.
+
+## Re-evaluation trigger
+
+Re-research **once the GA ERNIE 5.5 Flash ships** or Baidu/AA publish an **extractable, exact-ID benchmark table** (GPQA / SWE-bench Verified / LiveCodeBench / IFEval / long-context). Then write the scored `Qwen_3.8_Flash.md` and retire this twin (own-twin retirement only). Until then no honest Overall is computable.
+
+## Sources (fetched / retrieved this pass)
+
+- [Baidu ERNIE — Introducing ERNIE 5.5 Flash Preview (official release page; "intermediate checkpoint", 280B-A14B, 1M ctx, text-only, benchmark appendix header)](https://ernie.baidu.com/release/ernie-5-5-flash-preview/)  ← *fetched*
+- [Baidu ERNIE — ERNIE 5.5 Flash Base (280B-A14B, 33.5T tokens, released 2026-11-05)](https://ernie.baidu.com/release/ernie-5-5-flash-base/)  ← *search-surfaced*
+- [llm-stats — Best AI for Research leaderboard (ERNIE 5.5 Flash Preview ≈ 29.8 composite, $0.28/$1.13)](https://llm-stats.com/leaderboards/best-ai-for-research)  ← *fetched (composite only)*
+
+Research date: 2026-11-13 (UTC) — Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)**

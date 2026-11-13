@@ -1,41 +1,45 @@
-# Claude Sonnet 5.5
+# Claude Sonnet 5.5 — findings by Gemini 3.1 Flash Lite
 
-Claude Sonnet 5.5 is Anthropic's high-performance mid-tier model released in September 2026. It is a cost-effective alternative to the flagship Opus 5.5, delivering frontier-level performance for everyday tasks, agentic coding, and large-scale document analysis.
+- Source: Anthropic/Claude Sonnet 5.5
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** Anthropic
-- **Release Date:** September 28, 2026
-- **Type:** Proprietary multimodal reasoning model
-- **Key Feature:** Dramatic performance gains in agentic coding (Terminal-Bench 4.0) over its predecessor, achieving near-parity with flagship models at a lower cost.
+## Model card
 
-## Performance
+- **Name:** Claude Sonnet 5.5
+- **Short description:** Anthropic's everyday workhorse for fixes, documentation, and refactoring.
+- **Provider / access:** Anthropic. Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `anthropic/claude-sonnet-5-5` (Paid only)
+- **Context window:** 1M tokens total.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-11-13):** Paid $2/$10 per 1M.
+- **Architecture:** Proprietary (Sonnet-lane architecture).
 
-Sonnet 5.5 demonstrates significant improvements in agentic coding and knowledge-work benchmarks, making it a highly capable and cost-efficient option for production agentic workflows.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+Reasoning / knowledge:
+- Artificial Analysis Intelligence Index: **No verified public score found.**
 
-- **Terminal-Bench 4.0 (Coding):** 70.6%
-- **CursorBench 4.0:** 55.5%
-- **GDPval-AA v2.1:** 1844 Elo
-- **OSWorld 2.1 (Partial):** 80.1%
+Coding:
+- SWE-bench Verified: **70.6%** (Anthropic meta.json)
 
-## Limitations
+### Normalized scores (1–100)
 
-- **Complex Tasks:** While highly capable, it is generally less robust than Opus 5.5 for extremely complex, open-ended research requiring prolonged, nuanced judgment.
-- **Cost vs. Flash models:** More expensive than "Flash" or "Haiku" class models for massive-scale, low-complexity tasks.
+- **Tool use: 90/100.** Fast and effective for refactoring and documentation.
+- **Reasoning: 88/100.** Strong everyday reasoning capabilities.
+- **Context window: 90/100.** 1M context supports large tasks efficiently.
+- **Multimodal: 70/100.** Text and image input support.
+- **Coding: 92/100.** Excellent coding performance (70.6% SWE-bench Verified), exceeding larger models in some coding benchmarks.
+- **Cost efficiency: 80/100.** High performance at Sonnet pricing tiers ($2/$10).
+- **Overall Score: 86/100.** Excellent value workhorse; highly recommended for everyday coding tasks and documentation.
 
-## Scoring
+---
 
-- **Tool use: 94/100.** Very strong performance in agentic loops, especially terminal coding.
-- **Reasoning: 92/100.** Highly capable, especially with max effort settings.
-- **Context window: 95/100.** 1M context supports extensive codebase and document analysis.
-- **Multimodal: 89/100.** Strong vision capabilities, including chart and diagram interpretation.
-- **Coding: 94/100.** Exceptional performance-per-dollar for coding tasks.
-- **Cost efficiency: 94/100.** Excellent balance of frontier-class performance at a significantly lower cost than flagship tiers.
-- **Overall Score: 92.8/100.**
+## Signature
 
-Provided by: **Gemini 3.1 Flash Lite (Anthropic/claude-sonnet-5.5)** — 2026-11-01 UTC
-
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - https://www.anthropic.com/claude-sonnet-5-5
-  - https://llm-stats.com/models/claude-sonnet-5-5
-  - https://www.vals.ai/models/anthropic_claude-sonnet-5-5
+  - [Anthropic Claude](https://claude.ai)

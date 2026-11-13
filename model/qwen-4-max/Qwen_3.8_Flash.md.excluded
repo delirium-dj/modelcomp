@@ -1,0 +1,32 @@
+# Qwen 4 Max — findings by Qwen 3.8 Flash  ⟦SELF-EXCLUDED ⟦.md.excluded⟧⟧
+
+> **EXCLUSION — no verified public benchmark exists for the exact ID.** `qwen-4-max` resolves to **Qwen4-Max-Preview** (Alibaba/Qwen), released **2026-11-11**, a fixed **two-week preview retiring 2026-11-25**. As of research (2026-11-13) **Alibaba has published no benchmark scores and no independent lab has measured it** — so the five quality dims cannot be computed from evidence and no `Overall` is honest here. Per `RULES.md` § self-exclusion / `tasks/research-assign.md` Step 3.3, saved as `<STEM>.md.excluded` (notes only; scores inside are ignored). **Do not** substitute Qwen3.8-Max numbers or the unverified social-media figures / the "Kalmia"/"Qoduck" stealth links — Alibaba has confirmed none of those as Qwen4-Max (identity + lineage proxy prohibited).
+
+## What IS verified (spec only, no capability scores)
+
+- **Identity / status:** `qwen4-max-preview`, the flagship of the four Qwen 4 tiers Alibaba named at Apsara (Sept 2026); preview Nov 11 → Nov 25 2026, model retired after, no GA date announced.
+- **Context window:** **1M tokens** total; **up to 393,216 output tokens shared between thinking and the final answer** (Alibaba model page, via Yotta). ⚠️ **`meta.json` conflict:** folder lists **"2M / 128K out"** — the vendor spec is **1M / 393K**; curation should correct `meta.json`.
+- **Modalities:** text + image + **video** in; text out. Thinking on by default (low/medium/**xhigh**, xhigh default); function calling + web search + built-in tools; JSON object/schema; OpenAI Chat Completions/Responses + Anthropic Messages compatible.
+- **Pricing:** ⚠️ **no per-token price** during preview (Token Plan credit subscription only: Lite $3/mo launch, Standard $18, Pro $43; preview carries a limited-time 80%-off credit rate). `meta.json` lists **~$2.50 / $10.00 per 1M** — **not a published vendor price**; treat `meta.json` pricing as a scaffolded guess.
+- **Benchmarks:** **none published** (vendor or independent) as of 2026-11-12 — this is the entire reason for the exclusion.
+- **Architecture:** proprietary, closed, **parameters not published**, no open weights (the 27B tier is the one Alibaba has described as open-weights).
+
+## Negative-findings log (what I looked for and did not find)
+
+- Artificial Analysis model page `.../models/qwen-4-max` → **404** (exact ID not yet indexed).
+- BenchLM model page `.../models/qwen-4-max` → **404** (not yet covered).
+- SWE-bench / official leaderboards: no `qwen4-max` entry.
+- Scores circulating on X/Reddit and the anonymous Arena "Kalmia" / Qoder "Qoduck" models → **explicitly unverified / unconfirmed as Qwen4-Max** (Yotta). Not usable as evidence.
+
+## Re-evaluation trigger
+
+Re-research **after 2026-11-25 GA** or as soon as Alibaba or an independent lab (AA / BenchLM / official SWE-bench) publishes exact-ID numbers. If genuinely new verified evidence appears, write the scored `Qwen_3.8_Flash.md` and retire this `.md.excluded` twin (own-twin retirement only).
+
+## Sources
+
+- [Yotta Labs — Qwen 4 Max Preview: specs, benchmarks, pricing, how to access (explicit "no benchmarks published", 1M ctx, preview window, meta-conflict corroboration)](https://www.yottalabs.ai/post/qwen-4-max-specs-benchmarks-pricing-how-to-access)  ← *fetched*
+- [LLM Stats — Qwen4-Max-Preview (release 2026-11-11, proprietary, multimodal)](https://llm-stats.com/models/qwen4-max-preview)  ← *fetched*
+- [Datanorth — "Alibaba's Qwen4-Max is open for testing until 25 November, with no benchmark scores published"](https://datanorth.ai/news/alibaba-qwen4-max-preview)  ← *search-surfaced*
+- [AI Release Tracker — Qwen4-Max Preview (1M context, released 2026-11-11)](https://aireleasetracker.com/model/qwen/qwen4-max-preview)  ← *search-surfaced (fetch returned 429)*
+
+Research date: 2026-11-13 (UTC) — Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)**

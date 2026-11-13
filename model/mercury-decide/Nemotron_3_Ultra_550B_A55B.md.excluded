@@ -1,7 +1,7 @@
 # Mercury Decide — findings by Nemotron 3 Ultra 550B A55B
 
 - Source: Inception Labs (`inception/mercury-decide`)
-- Date: 2026-11-11 (UTC)
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -9,12 +9,12 @@
 
 - **Name:** Mercury Decide
 - **Short description:** Inception Labs' diffusion-based System One decision model for structured classification, confidence estimation, and agentic routing via typed log-probabilities. Tuned strictly for typed choices and binary routing; not designed for conversational open-ended generation.
-- **Provider / access:** Inception Labs API (`inception/mercury-decide`), endpoint: `v1/decisions`. OpenAI API compatible. Only input tokens billed; output tokens reported but not charged.
+- **Provider / access:** Inception Labs API (`inception/mercury-decide`), endpoint: `v1/decisions`. OpenAI API compatible. Only input tokens billed; output tokens reported but not charged. Does not support chat completions, streaming, or tool calling.
 - **Release / knowledge:** Release date not publicly specified; diffusion-based classification model; knowledge cutoff not publicly specified.
 - **IDs:** `inception/mercury-decide` (Inception Labs API); no free ID on OpenCode Zen or OpenRouter.
 - **Context window:** 64,000 total (per Inception Labs docs)
-- **Modalities:** Text in; structured decision output (binary probabilities, categorical choices, ordinal scores, exact span extraction) — text/JSON/image input supported per docs
-- **Pricing (as of 2026-11-11):** $0.02 per 1M input tokens (50% off regular $0.04); output tokens not charged. No free tier.
+- **Modalities:** Text, JSON, image in; structured decision output (binary probabilities, categorical choices, ordinal scores, exact span extraction). No conversational text output.
+- **Pricing (as of 2026-11-13):** $0.02 per 1M input tokens (50% off regular $0.04); output tokens not charged. No free tier.
 - **Architecture:** Diffusion-based LLM (dLLM) for classification; proprietary.
 
 ### Raw benchmarks found
@@ -24,19 +24,20 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found (specialized decision model, not evaluated on AA)
+- Terminal-Bench 4.0: no verified public score found
 - Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
+- GDPval-AA v2.1: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
 - GPQA Diamond: no verified public score found
-- HLE: no verified public score found
+- HLE-Diamond: no verified public score found
 - LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- CritPt v2 (Hard Subset): no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
@@ -53,30 +54,26 @@ Long context:
 
 Multimodal:
 
-- Text/JSON/image input supported per docs for decision tasks; no verified public multimodal benchmark scores found.
+- Text/JSON/image input supported for decision tasks per docs; no verified public multimodal benchmark scores found.
 
 ### Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-> **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 20/100.** Specialized `v1/decisions` endpoint for structured classification/routing (not general tool calling); capped by zero public Terminal-Bench, Tau, GDPval, or Toolathon verification.
-- **Reasoning: 25/100.** "System One decision model" with calibrated probabilities; capped by zero public GPQA/HLE/LCR/CritPt/AA Index scores and narrow classification focus.
-- **Context window: 50/100.** 64K context (mid-tier); capped by lack of MRCR/RULER/GraphWalks verification.
-- **Multimodal: 35/100.** Text/JSON/image input supported for decision tasks per docs; capped by zero public multimodal benchmarks and narrow decision-output scope.
-- **Coding: 15/100.** Not designed for coding tasks (conversational or agentic); capped by zero public SWE-bench, LiveCodeBench, SciCode verification and decision-only endpoint.
-- **Cost efficiency: 90/100.** $0.02/1M input only (output free) — extremely cost-efficient for classification workloads; no free tier.
-- **Overall Score: 29/100.** Mean of (20 + 25 + 50 + 35 + 15) / 5 = 29. Best fit: ultra-specialized diffusion-based decision/classification model; narrow scope and zero public benchmarks limit general utility scores.
+- **Tool use: 18/100.** Specialized `v1/decisions` endpoint for structured classification/routing (not general tool calling); does not support tool calling, streaming, or chat completions. Capped by zero public Terminal-Bench, Tau, GDPval, or Toolathon verification.
+- **Reasoning: 23/100.** "System One decision model" with calibrated probabilities for binary/categorical/ordinal decisions; capped by zero public GPQA/HLE/LCR/CritPt/AA Index scores and narrow classification focus.
+- **Context window: 48/100.** 64K context (mid-tier); capped by lack of MRCR/RULER/GraphWalks verification.
+- **Multimodal: 33/100.** Text/JSON/image input supported for decision tasks per docs; capped by zero public multimodal benchmarks and narrow decision-output scope (no generative text output).
+- **Coding: 13/100.** Not designed for coding tasks (conversational or agentic); endpoint only returns structured decisions. Capped by zero public SWE-bench, LiveCodeBench, SciCode verification and decision-only endpoint.
+- **Cost efficiency: 88/100.** $0.02/1M input only (output free) — extremely cost-efficient for classification workloads; no free tier.
+- **Overall Score: 27/100.** Mean of (18+23+48+33+13)/5 = 27. Best fit: ultra-specialized diffusion-based decision/classification model; narrow scope (no chat, no tools, no generative output) and zero public benchmarks limit general utility scores.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-11
-- Method: Public internet research of Inception Labs API documentation and model specifications; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-13
+- Method: Public internet research via official Inception Labs API documentation (docs.inceptionlabs.ai); scores are normalized 1–100 interpretations, not official vendor scores. Zero verified public benchmarks exist for this model.
 - Reference URLs:
   - [Inception Labs Models Documentation (Mercury Decide)](https://docs.inceptionlabs.ai/get-started/models)
   - [Inception Labs Website](https://inceptionlabs.ai/)

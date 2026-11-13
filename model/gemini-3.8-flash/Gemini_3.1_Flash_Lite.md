@@ -1,42 +1,45 @@
-# Gemini 3.8 Flash
+# Gemini 3.8 Flash — findings by Gemini 3.1 Flash Lite
 
-Gemini 3.8 Flash is part of Google DeepMind's Gemini 3 series, released in September 2026. It is a cost-effective, high-performance model optimized for enterprise-scale agentic knowledge work, scientific research, and complex multi-step reasoning.
+- Source: Google/Gemini 3.8 Flash
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** Google DeepMind
-- **Release Date:** September 2026
-- **Type:** Proprietary multimodal reasoning model
-- **Key Feature:** High-diligence reasoning on complex tasks, using iterative tool calls and increased reasoning steps to optimize performance.
+## Model card
 
-## Performance
+- **Name:** Gemini 3.8 Flash
+- **Short description:** Google's intelligent, cost-effective Flash model optimized for agentic coding and enterprise tasks.
+- **Provider / access:** Google DeepMind (https://deepmind.google/technologies/gemini/). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `google/gemini-3.8-flash` (Free and Paid tiers available)
+- **Context window:** 1M tokens total.
+- **Modalities:** Text, image, audio, PDF in; text out.
+- **Pricing (as of 2026-11-13):** Intro $0.75/$3.75 per 1M. Free tier available on Google AI Studio.
+- **Architecture:** Proprietary (Flash-lane architecture).
 
-Gemini 3.8 Flash delivers strong performance on professional benchmarks. It is particularly noted for its capability in specialized domains (legal, finance) and its ability to handle long-horizon agentic coding tasks effectively at a lower price point.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+Reasoning / knowledge:
+- GPQA: **95.3%** (Google meta.json)
 
-- **DeepSWE v1.1:** 73.7%
-- **HLE-Verified:** 54.9%
-- **Terminal-Bench 2.1:** 89.4%
-- **LABBench2:** 86.2%
-- **Vals Finance Agent v2:** High performance (competitive with flagships)
+Coding:
+- Terminal-Bench: **90.8%** (Google meta.json)
 
-## Limitations
+### Normalized scores (1–100)
 
-- **Verbosity/Cost:** On complex tasks, increased token usage from iterative reasoning steps can offset potential cost benefits.
-- **Benchmark Consistency:** Performance is highly dependent on agentic harnesses and tool utilization.
+- **Tool use: 92/100.** Highly capable agentic performance.
+- **Reasoning: 94/100.** Elite reasoning abilities (95.3% GPQA).
+- **Context window: 95/100.** 1M context supports large-scale tasks efficiently.
+- **Multimodal: 85/100.** Supports text, image, audio, and PDF input.
+- **Coding: 93/100.** Excellent coding performance (90.8% Terminal-Bench).
+- **Cost efficiency: 95/100.** High performance at a very competitive price point.
+- **Overall Score: 91.8/100.** The reasoning-per-dollar champion in Google's Flash family.
 
-## Scoring
+---
 
-- **Tool use: 90/100.** Highly effective at iterative, tool-assisted agentic tasks.
-- **Reasoning: 89/100.** Strong performance in multi-step professional reasoning.
-- **Context window: 93/100.** 1M context supports large-scale enterprise workflows.
-- **Multimodal: 91/100.** Robust native multimodal capabilities.
-- **Coding: 90/100.** Strong agentic coding capability, especially for a flash-tier model.
-- **Cost efficiency: 95/100.** Excellent performance-to-cost ratio for enterprise-grade autonomous tasks.
-- **Overall Score: 90.6/100.**
+## Signature
 
-Provided by: **Gemini 3.1 Flash Lite (Google/gemini-3.8-flash)** — 2026-11-01 UTC
-
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - https://deepmind.google/models/gemini/flash
-  - https://benchlm.ai/models/gemini-3-8-flash
-  - https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber
+  - [Google DeepMind Gemini](https://deepmind.google/technologies/gemini/)

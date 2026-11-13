@@ -46,6 +46,43 @@ override.
   researches deeper; only with genuinely new verified evidence does it write
   the fresh `<YOUR_STEM>.md` — and only that own twin may then go. Nothing
   else, ever.
+- **Re-research protocol — Maintenance vs. Successful new search (absolute):**
+  When an agent is requested to re-research a model (or evaluate an existing
+  file for enrichment), it MUST follow a strict two-phase protocol:
+  1. **Phase 1: Maintenance (re-check existing source links first):** The agent
+     opens its OWN file (`model/<subject>/<YOUR_STEM>.md` or `.md.excluded`),
+     extracts the links listed under `- Reference URLs:` in the `## Signature`
+     block, and fetches/checks those existing links first for possible changes in
+     scoring, revised benchmarks, updated leaderboards, or deprecations.
+     Re-checking information from links the agent already provided counts as
+     **"maintenance"** (verifying that recorded evidence still holds or noting
+     updates). Any score adjustments derived from existing links are recorded as
+     maintenance score revisions.
+  2. **Phase 2: Independent online expansion (find more sources online):**
+     Next, the agent conducts fresh public-web research to discover *more*
+     sources online and expand the knowledge data in its own file. Strict
+     zero-influence isolation applies: it must search entirely on its own,
+     **without looking into other agents' `.md` files (`model/<slug>/*.md`)**
+     in the folder or repository. Local peer files are strictly forbidden
+     evidence (`RULES.md` § *Web-research fallback*).
+  3. **Classification & Accounting rule:**
+     - Re-checking info from links already provided in its signature counts
+       strictly as **"maintenance"**.
+     - Only finding and adding a **genuinely new source of information
+       (new URLs/links)** not previously present in its Reference URLs list
+       counts as a **"successful new search"**.
+  4. **Updating knowledge data & Signature block:** The agent incorporates both
+     maintenance findings and new search discoveries into the file's model card,
+     raw benchmarks, and normalized scores. In `## Signature`: it retains valid
+     existing links, appends all newly discovered external URLs under
+     `- Reference URLs:`, updates the Signature run date (`Provided by: ... —
+     <YYYY-MM-DD UTC>`), and describes both maintenance and new search in
+     `Method:`.
+  5. **Proposals & Overwrite gating:** Existing files are never silently
+     overwritten in an unapproved batch pass. If scores change or new evidence
+     is found, emit an `ENRICH-PROPOSAL` detailing maintenance vs. new search
+     findings in the final summary; overwriting occurs only in a second pass on
+     explicitly user-approved slugs.
 - Below-gate and out-of-top-10 reports stay on disk, in git, and on the site;
   the rater gate only filters `average.md` means. Enforcement is automatic:
   `pnpm sync` FAILs on any git-tracked `model/**/*.md(.excluded)` missing
@@ -318,11 +355,14 @@ override.
 - **No self-investigation:** a delegated agent never derives its own identity,
   STEM, or score from the repo — the kickoff message supplies the STEM
   (identity resolution: `tasks/research-assign.md`) — and never reads peer
-  findings files to learn scores (zero-influence: `tasks/research.md`). The
-  queue file is the only permitted roster/score source; in fallback (queue
-  missing/stale) read only the single `- **Overall Score:` line of each
-  `average.md`. Forbidden/redirected identities have their own single file:
-  `model-aliases.generated.md`.
+  findings files to learn scores (zero-influence: `tasks/research.md`). Own
+  existing `<Your_Filename>` may only be opened to extract its Signature date
+  (for the 7-day age check) and its existing `- Reference URLs:` (for the Step 1
+  re-research maintenance check) — never copy peer numbers, and NEVER open peer
+  agents' files. The queue file is the only permitted roster/score source; in
+  fallback (queue missing/stale) read only the single `- **Overall Score:` line
+  of each `average.md`. Forbidden/redirected identities have their own single
+  file: `model-aliases.generated.md`.
 - Full per-rater dimensions live only in `src/data/scores.generated.ts`
   (numbers only, ~500 KB — grep targeted keys, never read whole); the
   human-facing overview table is `model-comparison.md`.

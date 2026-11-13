@@ -41,7 +41,6 @@
 89.2 gpt-5.6-terra
 89.1 claude-opus-4.6
 89 deepseek-v4.1-flash
-89 gemini-4-hydrogen
 89 muse-spark-1.1
 88.8 claude-sonnet-5
 88.8 gpt-6-sol
@@ -64,6 +63,7 @@
 86.6 inkling-small
 86.6 qwen-3.8-27b
 86.6 step-5-preview
+86.4 gemini-4-hydrogen
 86.4 gpt-5.2
 86.3 kimi-k2.6
 86.1 grok-4.7
@@ -147,12 +147,13 @@
 73.4 beam
 73.4 claude-sonnet-3.5
 72.7 nemotron-3-ultra-free
+72.6 doubao-seed-2.1-pro-260915
 72.3 qwen-3-max
 72.1 hy3
 72 ling-3.2-flash
-71.7 agnes-3.0-flash
 71.3 agnes-2.5-flash
 71.2 qwen-3.7-flash
+70.6 agnes-3.0-flash
 70.5 longcat-2.0
 70.2 diffusiongemma-26b-a4b
 70.2 glm-5.1
@@ -205,7 +206,8 @@
 55 mercury-2.5
 54.8 gemma-4-e2b
 54.5 glm-4.5-flash
-54 glyph-cluster
+54.1 glyph-cluster
+53.4 egg-alpha
 53.3 ling-3.0-tiny
 50.1 nemotron-3.5-bolt-e4b
 48.6 codestral-25.08

@@ -1,7 +1,7 @@
 # Glyph Cluster — findings by Nemotron 3 Ultra 550B A55B
 
 - Source: Stealth / Microsoft AI / MAI Research (`stealth/glyph-cluster`)
-- Date: 2026-11-11 (UTC)
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
@@ -12,9 +12,9 @@
 - **Provider / access:** OpenRouter (`stealth/glyph-cluster`), Vercel AI Gateway. Free preview tier ($0/$0/$0).
 - **Release / knowledge:** Release date not publicly specified; attributed to Microsoft AI / MAI research telemetry; knowledge cutoff not publicly specified.
 - **IDs:** `stealth/glyph-cluster` (OpenRouter, Vercel AI Gateway); no free ID on OpenCode Zen.
-- **Context window:** 256,000 total / 256,000 max output (per meta.json)
-- **Modalities:** Text in; text out; reasoning (test-time reasoning per meta.json)
-- **Pricing (as of 2026-11-11):** Free preview tier ($0/$0/$0 via Vercel AI Gateway & OpenRouter). No paid tiers publicly listed.
+- **Context window:** 256,000 total / 256,000 max output (per provider metadata)
+- **Modalities:** Text in; text out; reasoning (test-time reasoning per provider metadata)
+- **Pricing (as of 2026-11-13):** Free preview tier ($0/$0/$0 via Vercel AI Gateway & OpenRouter). No paid tiers publicly listed.
 - **Architecture:** Proprietary; attributed to Microsoft AI / MAI research; parameter count not disclosed.
 
 ### Raw benchmarks found
@@ -24,19 +24,20 @@
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
+- Terminal-Bench 4.0: no verified public score found
 - Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: no verified public score found
+- GDPval-AA v2.1: no verified public score found
 - Claw-Eval / ClawProBench: no verified public score found
 - Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
 
 Reasoning / knowledge:
 
 - GPQA Diamond: no verified public score found
-- HLE: no verified public score found
+- HLE-Diamond: no verified public score found
 - LCR / MLCR: no verified public score found
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- CritPt v2 (Hard Subset): no verified public score found
+- Artificial Analysis Intelligence Index: no verified public score found
 - Omniscience Accuracy / Hallucination Rate: no verified public score found
 
 Coding:
@@ -53,30 +54,26 @@ Long context:
 
 Multimodal:
 
-- Text-only per meta.json; no verified public multimodal benchmark scores found.
+- Text-only per provider metadata; no verified public multimodal benchmark scores found.
 
 ### Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
 
-> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
-> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
-> **NEVER include Cost efficiency** — scored independently.
-
-- **Tool use: 40/100.** "Tested on multi-step software engineering workflows" per meta.json; capped by zero public Terminal-Bench, Tau, GDPval, or Toolathon verification and stealth routing without committed SLAs.
-- **Reasoning: 45/100.** "Test-time reasoning" and "multi-step software engineering workflows" claimed; capped by zero public GPQA/HLE/LCR/CritPt/AA Index scores and timeout sensitivity on pass@1 tests noted in meta.json.
+- **Tool use: 38/100.** "Tested on multi-step software engineering workflows" per provider metadata; capped by zero public Terminal-Bench, Tau, GDPval, or Toolathon verification and stealth routing without committed SLAs.
+- **Reasoning: 43/100.** "Test-time reasoning" and "multi-step software engineering workflows" claimed; capped by zero public GPQA/HLE/LCR/CritPt/AA Index scores.
 - **Context window: 55/100.** 256K context (mid-tier); capped by lack of MRCR/RULER/GraphWalks retrieval verification at length.
-- **Multimodal: 15/100.** Text-only per meta.json; 15 is the floor for text-only models.
-- **Coding: 40/100.** Tested on multi-step software engineering workflows; capped by zero public SWE-bench, LiveCodeBench, SciCode verification.
+- **Multimodal: 15/100.** Text-only per provider metadata; 15 is the floor for text-only models.
+- **Coding: 38/100.** Tested on multi-step software engineering workflows; capped by zero public SWE-bench, LiveCodeBench, SciCode verification.
 - **Cost efficiency: 100/100.** Free preview tier ($0/$0/$0) — maximum cost efficiency score.
-- **Overall Score: 38/100.** Mean of (40 + 45 + 55 + 15 + 40) / 5 = 39 → 38 (half-up). Best fit: anonymous stealth model with free access but zero public benchmark verification; text-only and stealth routing limit confidence in scores.
+- **Overall Score: 38/100.** Mean of (38+43+55+15+38)/5 = 37.8 → 38. Best fit: anonymous stealth model with free access but zero public benchmark verification; text-only and stealth routing limit confidence in scores.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-11
-- Method: Public internet research of OpenRouter/Vercel AI Gateway stealth model listings and model metadata; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-13
+- Method: Public internet research of OpenRouter/Vercel AI Gateway stealth model listings and provider metadata; scores are normalized 1–100 interpretations, not official vendor scores. Zero verified public benchmarks exist for this model.
 - Reference URLs:
   - [OpenRouter](https://openrouter.ai)
   - [Vercel AI Gateway](https://vercel.com/ai/gateway)

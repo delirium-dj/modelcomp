@@ -11,7 +11,7 @@
 - **Multimodal: 20.4/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Coding: 58.5/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
 - **Cost efficiency: 97.3/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
-- **Overall Score: 54/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
+- **Overall Score: 54.1/100.** Mean of 8 qualifying reporting source(s) (raters with own Overall > 84.9).
 
 ---
 

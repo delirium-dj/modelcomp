@@ -29,9 +29,10 @@ overwritten.
 
 For each `model/<slug>/<STEM>.md.excluded`:
 
-1. **Identify (read-only):** read the twin, that folder's `meta.json`, and
-   `average.md` to identify the model. Never copy the twin's scores or its
-   (possibly placeholder) numbers.
+1. **Identify & check existing links (read-only):** read the twin, that folder's
+   `meta.json`, and `average.md` to identify the model. If the twin has existing
+   `- Reference URLs:` under `## Signature`, check those links first for possible
+   changes/updates (maintenance). Never copy the twin's scores or its (possibly placeholder) numbers.
 2. **Research — minimum bar:** perform AT LEAST 5 independent web research
    attempts, of which AT LEAST 3 must be *successful* (a page with concrete
    model specs or benchmark numbers for THIS exact model/ID). A direct

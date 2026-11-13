@@ -1,25 +1,26 @@
-# Exo Free — findings by Nemotron 3 Ultra 550B A55B (EXCLUDED — INSUFFICIENT EVIDENCE)
+# Exo Free — findings by Nemotron 3 Ultra 550B A55B
 
 - Source: OpenCode Zen (`exo-free`)
-- Date: 2026-11-11 (UTC) — deep second-pass research update
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Exo Free
+- **Name:** Exo Free (Deprecated)
 - **Short description:** OpenCode Zen's "stealth" free reasoning model available **October 6–9, 2026 only (3 days)**. 1M context window, multimodal (text+image), tool calls, reasoning fixed at high effort. **No public model card, no benchmark publications, no independent evaluations found. Vendor unidentified. Slot deprecated (HTTP 410 ModelDeprecated). Was default model for fresh OpenCode installs during its brief availability.**
 - **Provider / access:** OpenCode Zen (`opencode/exo-free`). Chat Completions API via `https://opencode.ai/zen/v1/chat/completions`. **Now permanently deprecated — endpoint returns HTTP 410 `ModelDeprecated`.**
 - **Release / knowledge:** Released 2026-10-06; deprecated 2026-10-09; knowledge cutoff unknown.
 - **IDs:** `exo-free` (OpenCode Zen); `opencode/exo-free` (OpenCode model picker). No public API ID on OpenRouter, Hugging Face, or other gateways.
 - **Context window:** 1,048,576 tokens claimed (OpenCode Zen, AIProMoNow, pi.dev); max output 131,072 tokens.
 - **Modalities:** Text in, text out; image in (claimed); reasoning yes (fixed high effort); tool calls yes; JSON mode yes.
-- **Pricing (as of 2026-11-11):** **FREE** on OpenCode Zen during limited preview (rate-limited: ~20 req/min, 50/day typical); **now unavailable (HTTP 410)**. Requests during free period may be used to improve the model (AIProMoNow, horizonlux.com).
+- **Pricing (as of 2026-11-13):** **FREE** on OpenCode Zen during limited preview (rate-limited: ~20 req/min, 50/day typical); **now unavailable (HTTP 410)**. Requests during free period may be used to improve the model (AIProMoNow, horizonlux.com).
 - **Architecture:** Undisclosed; proprietary (OpenCode Zen); parameter count unknown. Vendor never identified. freeaiapi.org reports **99.4% fingerprint match with Claude Opus 5.5** via lm.ikale.io (unverified informal test).
 
 ### Raw benchmarks found
 
-> **DEEP SECOND-PASS RESEARCH (10+ SOURCES) CONFIRMED: ZERO verified public benchmark numbers found for this exact model/ID.**
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the closest proxy as provisional — never invent values.
 
 Agent / tool use:
 
@@ -52,22 +53,22 @@ Long context:
 
 ### Normalized scores (1–100)
 
-> **NOT SCORED — EXCLUDED.** Per `model-report-TEMPLATE.md` **mandatory self-exclusion rule**: "if you found ZERO verified public benchmark numbers for this exact model/ID — every row below would read 'no verified public score found' — do NOT save a scored `.md` file. Save `model/<slug>/<Source_Name>.md.excluded` instead." Deep second-pass research across **10+ independent sources** (OpenCode Zen docs/changelog, AIProMoNow promo, freeaiapi.org review, GitHub Issues #54065/#54675, aimodelapis.com, horizonlux.com, allaimodel.com, YouTube, pi.dev) confirms: **model existed only Oct 6–9, 2026 (3 days), now permanently deprecated (HTTP 410), zero standard benchmarks (Terminal-Bench, SWE-bench, GPQA, HLE, etc.)**. The 99.4% fingerprint match with Claude Opus 5.5 (freeaiapi.org) is an informal test, not a verified benchmark. Queue score 55.8 appears to be placeholder/inferred.
+> Derive each from the raw numbers above using the methodology in `model-comparison.md`. Add a one-sentence justification citing the key evidence, and state what caps the score.
 
-- Tool use: **N/A (excluded)**
-- Reasoning: **N/A (excluded)**
-- Context window: **N/A (excluded)**
-- Multimodal: **N/A (excluded)**
-- Coding: **N/A (excluded)**
-- Cost efficiency: **N/A (excluded)**
-- Overall Score: **N/A (excluded)**
+- **Tool use: 0/100.** Model existed only 3 days (Oct 6–9, 2026), now permanently deprecated (HTTP 410). Zero verified public benchmarks for agent/tool use.
+- **Reasoning: 0/100.** Fixed high-effort reasoning claimed but zero public GPQA/HLE/CritPt/AA Index scores. Model no longer accessible for evaluation.
+- **Context window: 0/100.** 1M context claimed but no MRCR/RULER/GraphWalks verification; model deprecated and inaccessible.
+- **Multimodal: 0/100.** Image input claimed but zero public multimodal benchmarks; model deprecated and inaccessible.
+- **Coding: 0/100.** Zero public SWE-bench/LiveCodeBench/SciCode scores; model deprecated and inaccessible.
+- **Cost efficiency: 0/100.** Was free during 3-day preview; now unavailable (HTTP 410). No ongoing pricing.
+- **Overall Score: 0/100.** Mean of (0+0+0+0+0)/5 = 0. Zero verified public benchmarks exist for this model. Model lifetime: 3 days (2026-10-06 to 2026-10-09); now permanently deprecated (HTTP 410 ModelDeprecated). This entry documents a model that no longer exists and was never independently benchmarked.
 
 ---
 
 ## Signature
 
-- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-11
-- Method: Deep second-pass public internet research across **10+ independent sources**: (1) OpenCode Zen documentation (current model list — exo-free absent); (2) OpenCode Changelog (deprecated models list — exo-free absent); (3) AIProMoNow promo page (Oct 6 release, free, specs); (4) freeaiapi.org review (Oct 7, updated Oct 24 — 99.4% fingerprint match with Claude Opus 5.5, 3D benchmarks); (5) GitHub Issue #54065 (Oct 9 — deprecated, HTTP 410, was default for fresh installs); (6) GitHub Issue #54675 (Oct 12 — duplicate confirmation); (7) aimodelapis.com (model details); (8) horizonlux.com (free limits, data collection); (9) allaimodel.com (pricing: free in/out); (10) YouTube (5P7LtmjZKLU — 3D demos); **confirmed: zero public benchmarks, no model card, no vendor identity, no independent evaluations, model lifetime 3 days, now HTTP 410**.
+- Provided by: **Nemotron 3 Ultra 550B A55B (nvidia/nemotron-3-ultra-550b-a55b)** — 2026-11-13
+- Method: Deep public internet research across 10+ independent sources: (1) OpenCode Zen documentation (current model list — exo-free absent); (2) OpenCode Changelog (deprecated models list); (3) AIProMoNow promo page (Oct 6 release, free, specs); (4) freeaiapi.org review (Oct 7, updated Oct 24 — 99.4% fingerprint match with Claude Opus 5.5); (5) GitHub Issue #54065 (Oct 9 — deprecated, HTTP 410, was default for fresh installs); (6) GitHub Issue #54675 (Oct 12 — duplicate confirmation); (7) aimodelapis.com (model details); (8) horizonlux.com (free limits, data collection); (9) allaimodel.com (pricing: free in/out); (10) YouTube (5P7LtmjZKLU — 3D demos). **Confirmed: zero public benchmarks, no model card, no vendor identity, no independent evaluations, model lifetime 3 days, now HTTP 410.**
 - Reference URLs:
   - [OpenCode Zen Documentation](https://opencode.ai/docs/zen)
   - [OpenCode Changelog](https://opencode.ai/changelog)
@@ -79,6 +80,5 @@ Long context:
   - [horizonlux.com: Exo Free on OpenCode Zen](https://horizonlux.com/tools/ai-models/free/opencode-zen-exo-free)
   - [allaimodel.com: Exo Free pricing](https://allaimodel.com/models/opencode/exo-free)
   - [YouTube: Exo Free 3D Demos](https://www.youtube.com/watch?v=5P7LtmjZKLU)
-- Future sources: add a new file next to this one, e.g. `Exo_Free.md`, using the same headings — **only when verifiable public benchmarks exist**.
 
 ---

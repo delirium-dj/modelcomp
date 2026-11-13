@@ -1,0 +1,30 @@
+# Agnes 2.5 Flash — findings by Qwen 3.8 Flash  ⟦SELF-EXCLUDED ⟦.md.excluded⟧⟧
+
+> **EXCLUSION — no verified public benchmark exists for the exact ID.** `agnes-2.5-flash` (Agnes AI's generally-available flash-tier model) has **no measured capability benchmark** from any reachable source this pass: the official GA API doc publishes **specs only, zero scores**; the only HuggingFace artifact under this name is a **base (pre-trained, non-instruction-tuned) checkpoint with no capability table**; Artificial Analysis returned **404** for the exact ID; and a numbers-focused search surfaced no BenchLM / llm-stats / leaderboard row. With no exact-ID measured row, the five quality dims can't be computed honestly, so this is saved as `<STEM>.md.excluded` (notes only; any numbers inside are ignored) per `RULES.md` § self-exclusion / `tasks/research-assign.md` Step 3.3. **Do not** score it by analogy to Agnes 3.0 Flash or the Agnes 2.5 Pro Alpha (different models).
+
+## What IS verified (spec only — no capability scores)
+
+- **Identity:** `agnes-2.5-flash`, Agnes AI's **generally-available** flash-tier model, "upgraded from the deprecated `agnes-2.0-flash`" (OpenAI-compatible drop-in model-name swap). ⚠️ **`meta.json` conflict:** id `opencode/agnes-2.5-flash` but the short line attributes it to **"Sapiens AI"** — the vendor is **Agnes AI** (apihub.agnes-ai.com); curation should fix the publisher name.
+- **Context window:** **512K total / 65.5K max output** (official API doc). (The HF **base** checkpoint extends to 1,048,576 via YaRN, but that is the non-instruct base, not the GA chat API — do not conflate.)
+- **Modalities:** text + image-URL in; text out. Tool calling, streaming, adaptive **thinking mode** (`budget_tokens`, ~2048 start for coding). No audio, no non-text output.
+- **Pricing:** **$0.05 / $0.15 per 1M in/out**, cached input **$0.005/1M**; "Angel User Trial" $0 across the board.
+- **Architecture (from the base repo):** 202B-param sparse MoE, **~16B active/token**, 48 layers, 6-of-160 routed + 1 shared expert, MLA + sparse top-512 indexer, hyper-connections, FP8 checkpoint (~190 GB). Apache 2.0. **This is the base model — the GA instruct API's internals are not separately disclosed.**
+
+## Negative-findings log (searched, not found)
+
+- Artificial Analysis `.../models/agnes-2.5-flash` → **404** (not indexed).
+- Official docs `wiki.agnes-ai.com/en/docs/agnes-25-flash` → **no benchmark table** (capability prose only).
+- HuggingFace `Agnes-AI/Agnes-2.5-Flash-Base` → **base model, no capability benchmarks** (explicitly "no SFT/RLHF").
+- Web search for measured `Agnes 2.5 Flash` GPQA/SWE-bench/MMLU/IFEval numbers → only generic benchmark landing pages, **no exact-ID score**.
+- AA article "Agnes AI releases Agnes 2.5 Pro Alpha" is about a **different** model (2.5 **Pro Alpha**, Coding Index 58.8) — not usable for the flash ID.
+
+## Re-evaluation trigger
+
+Re-research as soon as Artificial Analysis / BenchLM / llm-stats index the exact GA `agnes-2.5-flash` ID with measured rows, or Agnes AI ships an **instruct** HF card with a benchmark table. Then write the scored `Qwen_3.8_Flash.md` and retire this twin (own-twin retirement only).
+
+## Sources (spec only; fetched this pass)
+
+- [Agnes AI official docs — Agnes 2.5 Flash overview + Limits & Pricing (512K/65.5K, $0.05/$0.15, tools, thinking)](https://wiki.agnes-ai.com/en/docs/agnes-25-flash)  ← *fetched*
+- [Hugging Face — Agnes-AI/Agnes-2.5-Flash-Base (202B/~16B MoE base, no capability benchmark)](https://huggingface.co/Agnes-AI/Agnes-2.5-Flash-Base)  ← *fetched*
+
+Research date: 2026-11-13 (UTC) — Provided by: **Qwen 3.8 Flash (qwen/qwen-3.8-flash)**
