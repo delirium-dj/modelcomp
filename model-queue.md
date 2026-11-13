@@ -70,9 +70,9 @@
 86 qwen-3.6-plus
 85.9 Inkling
 85.9 deepseek-v4-vision-exp
+85.8 gemini-4-hydrogen
 85.6 deepseek-v4.1-flash-1017
 85.6 qwen-3.8-flash-next
-85.5 gemini-4-hydrogen
 85.5 qwen-3.5-plus
 85.3 seed-2.0-pro
 85.2 deepseek-v4-pro

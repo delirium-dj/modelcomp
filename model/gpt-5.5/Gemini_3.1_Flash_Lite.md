@@ -9,13 +9,13 @@
 
 - **Name:** GPT-5.5
 - **Short description:** OpenAI's foundational flagship model for coding and computer use.
-- **Provider / access:** OpenAI. Chat Completions API.
+- **Provider / access:** OpenAI (https://openai.com). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `openai/gpt-5.5`
-- **Context window:** 1.05M total; 128K tokens max output.
+- **Context window:** 1.05M total; 128K tokens output.
 - **Modalities:** Text, image in; text out.
 - **Pricing (as of 2026-11-13):** Paid-tier pricing.
-- **Architecture:** Proprietary.
+- **Architecture:** Proprietary (Flagship architecture).
 
 ### Raw benchmarks found
 
@@ -28,13 +28,13 @@ Coding:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Reliable all-round flagship for coding and computer use.
-- **Reasoning: 93/100.** Strong reasoning performance (93.6% GPQA).
-- **Context window: 95/100.** Massive 1.05M context.
-- **Multimodal: 70/100.** Text and image input support.
+- **Tool use: 90/100.** Dependable flagship performance.
+- **Reasoning: 92/100.** Strong reasoning (93.6% GPQA).
+- **Context window: 95/100.** 1.05M capacity.
+- **Multimodal: 70/100.** Text/image support.
 - **Coding: 92/100.** Elite coding capabilities (82.7% TB 2.0).
-- **Cost efficiency: 50/100.** Solid all-rounder; superseded by newer models on cost/capability.
-- **Overall Score: 88/100.** A reliable foundational flagship for diverse tasks, now primarily a compatibility default.
+- **Cost efficiency: 50/100.** Superseded by newer models.
+- **Overall Score: 87.8/100.** Reliable all-round flagship for diverse tasks, serves as compatibility default.
 
 ---
 

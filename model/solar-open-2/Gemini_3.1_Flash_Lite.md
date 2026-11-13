@@ -8,30 +8,29 @@
 ## Model card
 
 - **Name:** Solar Open 2
-- **Short description:** Upstage's 250B/15B MoE open-weight model for Korean language and coding tasks.
+- **Short description:** Upstage's 250B/15B-active open-weights MoE for Korean-sovereignty tasks and coding.
 - **Provider / access:** Upstage (https://huggingface.co/upstage/Solar-Open2-250B). Upstage Solar License.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `upstage/Solar-Open2-250B`
 - **Context window:** 1M tokens total.
 - **Modalities:** Text in/out.
-- **Pricing (as of 2026-11-13):** Open-weights.
+- **Pricing (as of 2026-11-13):** Open-weights / self-host.
 - **Architecture:** MoE (250B total / 15B active).
 
 ### Raw benchmarks found
 
 - LiveCodeBench v6: **92.4%** (Upstage meta.json)
 - SWE-bench Verified: **70.4%** (Upstage meta.json)
-- Korean benchmark average: **85.4%** (Upstage meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Strong performance in coding and research.
-- **Reasoning: 85/100.** Solid performance in complex tasks.
-- **Context window: 90/100.** 1M context supports large-scale coding.
+- **Tool use: 88/100.** Solid coding and research.
+- **Reasoning: 88/100.** Good reasoning.
+- **Context window: 90/100.** 1M capacity.
 - **Multimodal: 15/100.** Text-only.
-- **Coding: 92/100.** Excellent coding (92.4% LiveCodeBench v6).
+- **Coding: 94/100.** Elite coding (92.4% LiveCodeBench).
 - **Cost efficiency: 100/100.** Open-weights.
-- **Overall Score: 73.4/100.** A powerful, specialist model for Korean-language and coding tasks.
+- **Overall Score: 75/100.** Powerful, cost-effective coding model with 1M context.
 
 ---
 

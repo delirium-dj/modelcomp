@@ -8,14 +8,14 @@
 ## Model card
 
 - **Name:** GPT-5.4 Pro
-- **Short description:** OpenAI's high-compute research model for abstract puzzles and expert software tasks.
-- **Provider / access:** OpenAI. Responses-only API.
+- **Short description:** OpenAI's high-compute research model for abstract puzzles and expert-level software tasks.
+- **Provider / access:** OpenAI (https://openai.com). Chat Completions API (Responses-only).
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
-- **IDs:** `openai/gpt-5.4-pro` (Paid only)
-- **Context window:** 1.05M total; 128K tokens max output.
+- **IDs:** `opencode/gpt-5.4-pro` (Paid-tier)
+- **Context window:** 1.05M total; 128K tokens output.
 - **Modalities:** Text, image in; text out.
-- **Pricing (as of 2026-11-13):** $30/$180 per 1M.
-- **Architecture:** Proprietary (GPT-5 lane).
+- **Pricing (as of 2026-11-13):** Paid $30/$180 per 1M.
+- **Architecture:** Proprietary (high-compute tier).
 
 ### Raw benchmarks found
 
@@ -27,12 +27,12 @@ Reasoning / knowledge:
 ### Normalized scores (1–100)
 
 - **Tool use: 90/100.** High-compute reasoning for complex queries.
-- **Reasoning: 96/100.** Elite reasoning capabilities (94.4% GPQA).
-- **Context window: 95/100.** Massive 1.05M window.
-- **Multimodal: 70/100.** Text and image input support.
-- **Coding: 92/100.** Strong coding capabilities in complex scenarios.
-- **Cost efficiency: 10/100.** Extremely high-cost specialist.
-- **Overall Score: 88.6/100.** A powerful, high-compute research specialist with extreme pricing.
+- **Reasoning: 95/100.** Elite-tier reasoning (94.4% GPQA).
+- **Context window: 95/100.** 1.05M capacity.
+- **Multimodal: 70/100.** Text/image support.
+- **Coding: 92/100.** Strong specialist coding.
+- **Cost efficiency: 10/100.** Extreme pricing.
+- **Overall Score: 88.4/100.** Powerful, high-compute model for complex research and high-stakes reasoning.
 
 ---
 

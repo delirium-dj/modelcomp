@@ -1,36 +1,44 @@
 # Gemma 4 31B — findings by Gemini 3.1 Flash Lite
 
-- Source: Google `gemma-4-31b`
-- Date: 2026-10-08 (UTC)
+- Source: Google/Gemma 4 31B
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemma 4 31B
-- **Short description:** Powerful, mid-sized open-model for high-performance applications.
-- **Provider / access:** Open weights / Google API.
-- **Context window:** 128,000.
-- **Modalities:** Text/Image.
+- **Short description:** Google's 30.7B dense open-weights model for local reasoning and coding.
+- **Provider / access:** Google (https://huggingface.co/google/gemma-4-31B-it). Apache 2.0 open-weights.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `google/gemma-4-31b-it` (Open-weights)
+- **Context window:** 128K tokens.
+- **Modalities:** Text in/out only.
+- **Pricing (as of 2026-11-13):** Open-weights / self-host free.
+- **Architecture:** Dense (30.7B).
 
 ### Raw benchmarks found
 
-- MMLU: **81.0%**
-- HumanEval: **78.0%**
+Reasoning / knowledge:
+- AIME: **89.2%** (Google meta.json)
+- Codeforces: **2150** Elo (Google meta.json)
+- MMMU-Pro: **76.9%** (Google meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** Capable tool integration.
-- **Reasoning: 82/100.** Strong reasoning performance for its size.
-- **Context window: 82/100.** Robust context.
-- **Multimodal: 78/100.** Good multimodal input support.
-- **Coding: 81/100.** Excellent coding proficiency.
-- **Cost efficiency: 88/100.** Highly cost-effective.
-- **Overall Score: 80.6/100.** An outstanding mid-sized open model.
+- **Tool use: 80/100.** Efficient reasoning and tool use.
+- **Reasoning: 88/100.** Strong reasoning performance (89.2% AIME).
+- **Context window: 75/100.** 128K capacity.
+- **Multimodal: 15/100.** Text-only.
+- **Coding: 90/100.** Elite-tier coding (2150 Codeforces Elo).
+- **Cost efficiency: 100/100.** Open-weights / self-hostable.
+- **Overall Score: 69.6/100.** Excellent open-weight model for local reasoning and high-performance coding tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Google DeepMind Gemma](https://ai.google.dev/gemma)

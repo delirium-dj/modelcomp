@@ -1,36 +1,42 @@
 # Grok 4 Fast — findings by Gemini 3.1 Flash Lite
 
-- Source: xAI `grok-4-fast`
-- Date: 2026-10-08 (UTC)
+- Source: xAI/Grok 4 Fast
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 4 Fast
-- **Short description:** Low-latency, optimized variant of the Grok 4 reasoning model.
-- **Provider / access:** xAI API.
-- **Context window:** 64,000.
-- **Modalities:** Text.
+- **Short description:** xAI's high-efficiency flagship reasoning model with 2M context.
+- **Provider / access:** xAI (https://x.ai). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `opencode/grok-4-fast` (Deprecated)
+- **Context window:** 2,000,000; 30,000 max output.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-11-13):** Paid $0.20/$0.50 per 1M; cached $0.05.
+- **Architecture:** Proprietary (Fast-lane reasoning).
 
 ### Raw benchmarks found
 
-- MMLU: **82.0%**
-- HumanEval: **78.0%**
+Reasoning / knowledge:
+- AIME: **92%** (xAI meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 80/100.** Efficient tool-calling.
-- **Reasoning: 82/100.** Strong reasoning for speed-focused model.
-- **Context window: 78/100.** Capable context window.
-- **Multimodal: 60/100.** Text-only.
-- **Coding: 80/100.** Reliable fast coding performance.
-- **Cost efficiency: 90/100.** Highly efficient.
-- **Overall Score: 76/100.** The premier high-speed reasoning model.
+- **Tool use: 85/100.** Efficient tool calling.
+- **Reasoning: 88/100.** Strong reasoning performance.
+- **Context window: 100/100.** 2M capacity.
+- **Multimodal: 70/100.** Text/image support.
+- **Coding: 85/100.** Capable for high-volume tasks.
+- **Cost efficiency: 100/100.** Extremely low cost for flagship capability.
+- **Overall Score: 88/100.** Cost-effective, high-throughput agent model.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [xAI](https://x.ai)

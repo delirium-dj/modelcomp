@@ -8,32 +8,29 @@
 ## Model card
 
 - **Name:** GPT-6.1 Sol
-- **Short description:** OpenAI's 1.05M-context reasoning and coding specialist for agentic workloads.
+- **Short description:** OpenAI's updated reasoning/coding specialist (1.05M context) for high-volume agentic work.
 - **Provider / access:** OpenAI (https://openai.com). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
-- **IDs:** `openai/gpt-6.1-sol`
+- **IDs:** `openai/gpt-6.1-sol` (Paid-tier)
 - **Context window:** 1,050,000 total; 128K tokens max output.
 - **Modalities:** Text, image in; text out.
-- **Pricing (as of 2026-11-13):** Paid $2/$10 per 1M; cached $0.10.
+- **Pricing (as of 2026-11-13):** Paid $2.00/$10.00 per 1M (Standard); cached $0.10.
 - **Architecture:** Proprietary (GPT-6 lane).
 
 ### Raw benchmarks found
-
-Reasoning / knowledge:
-- No verified public score found.
 
 Coding:
 - DeepSWE: **75.2%** (OpenAI meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 93/100.** Optimized for complex agentic coding tasks.
-- **Reasoning: 91/100.** Strong performance in agentic environments.
+- **Tool use: 93/100.** Elite agentic coding performance.
+- **Reasoning: 90/100.** Strong performance in agentic scenarios.
 - **Context window: 95/100.** 1.05M total context.
-- **Multimodal: 70/100.** Text and image input support.
-- **Coding: 94/100.** High-performance coding specialist (75.2% DeepSWE).
-- **Cost efficiency: 90/100.** Very competitive pricing including cached input.
-- **Overall Score: 88.6/100.** Highly efficient agentic coding specialist; outstanding cost/performance.
+- **Multimodal: 70/100.** Text/image support.
+- **Coding: 95/100.** Top-tier coding (75.2% DeepSWE).
+- **Cost efficiency: 95/100.** Excellent pricing/token value.
+- **Overall Score: 88.6/100.** Highly efficient agentic coding specialist.
 
 ---
 

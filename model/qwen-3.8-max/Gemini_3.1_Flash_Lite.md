@@ -8,14 +8,14 @@
 ## Model card
 
 - **Name:** Qwen 3.8 Max
-- **Short description:** Alibaba's flagship multimodal MoE (2.4T/95B) model for agents.
+- **Short description:** Alibaba's flagship multimodal MoE (2.4T total / 95B-active) for coding and reasoning agents.
 - **Provider / access:** Alibaba (https://qwenlm.github.io). Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `alibaba/qwen3-8-max`
-- **Context window:** 1M total; 131K tokens max output.
+- **Context window:** 1M total; 131K output.
 - **Modalities:** Text, image, video in; text out.
-- **Pricing (as of 2026-11-13):** Paid $2/$6 per 1M.
-- **Architecture:** Multimodal MoE (2.4T total / 95B active).
+- **Pricing (as of 2026-11-13):** Paid $2.00/$6.00 per 1M (one-time 1M-token free quota).
+- **Architecture:** Multimodal MoE (2.4T total / 95B-active).
 
 ### Raw benchmarks found
 
@@ -27,13 +27,13 @@ Coding:
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** Elite-tier agentic coding and visual reasoning.
-- **Reasoning: 93/100.** Strong reasoning performance (93.7% GPQA).
-- **Context window: 95/100.** 1M context with competitive output.
-- **Multimodal: 95/100.** Strong text, image, and video reasoning.
-- **Coding: 91/100.** Solid agentic coding performance.
-- **Cost efficiency: 90/100.** Very competitive pricing for a flagship MoE.
-- **Overall Score: 93.2/100.** Highly capable multimodal flagship model with exceptional value-to-performance.
+- **Tool use: 92/100.** Frontier agentic capabilities.
+- **Reasoning: 93/100.** Strong reasoning (93.7% GPQA).
+- **Context window: 95/100.** 1M context.
+- **Multimodal: 95/100.** Elite multimodal (Text, image, video).
+- **Coding: 91/100.** Strong coding assistant.
+- **Cost efficiency: 90/100.** Exceptional value for flagship-class model.
+- **Overall Score: 93.2/100.** Powerful, multimodal flagship MoE with market-leading value-to-performance.
 
 ---
 

@@ -8,14 +8,14 @@
 ## Model card
 
 - **Name:** GPT-5.5 Pro
-- **Short description:** OpenAI's high-stakes research model featuring extra-compute reasoning for complex queries.
-- **Provider / access:** OpenAI (https://openai.com). Chat Completions API.
+- **Short description:** OpenAI's high-compute reasoning tier for complex research tasks.
+- **Provider / access:** OpenAI. Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
-- **IDs:** `opencode/gpt-5.5-pro`
-- **Context window:** 1.05M total; 128K tokens max output.
+- **IDs:** `opencode/gpt-5.5-pro` (Paid-tier)
+- **Context window:** 1.05M total; 128K output.
 - **Modalities:** Text, image, file in; text out.
-- **Pricing (as of 2026-11-13):** $30/$180 per 1M. Paid.
-- **Architecture:** Proprietary (GPT-5 lane).
+- **Pricing (as of 2026-11-13):** Paid $30/$180 per 1M.
+- **Architecture:** Proprietary (high-compute tier).
 
 ### Raw benchmarks found
 
@@ -23,18 +23,18 @@ Reasoning / knowledge:
 - BrowseComp: **90.1%** (OpenAI meta.json)
 
 Coding:
-- TB 2.0: **82.7%** (OpenAI meta.json)
+- Terminal-Bench 2.0: **82.7%** (OpenAI meta.json)
 - Expert-SWE: **73.1%** (OpenAI meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 92/100.** Extremely reliable for high-stakes agentic work.
-- **Reasoning: 95/100.** Elite-tier reasoning and research capability.
-- **Context window: 95/100.** Massive 1.05M window.
-- **Multimodal: 70/100.** Text, image, and file support.
-- **Coding: 91/100.** Strong coding abilities (82.7% TB 2.0).
-- **Cost efficiency: 20/100.** Extreme pricing; reserved for high-stakes decisions.
-- **Overall Score: 88.6/100.** Elite specialist for high-stakes decision-making and research.
+- **Tool use: 90/100.** Reliable for research tasks.
+- **Reasoning: 92/100.** High-performance reasoning.
+- **Context window: 95/100.** 1.05M context.
+- **Multimodal: 70/100.** Text/image support.
+- **Coding: 90/100.** Strong coding assistant.
+- **Cost efficiency: 10/100.** Premium research-grade pricing.
+- **Overall Score: 87.4/100.** Powerful high-compute model for research, with high-tier pricing.
 
 ---
 

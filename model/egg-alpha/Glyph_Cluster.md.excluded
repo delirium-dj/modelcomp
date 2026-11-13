@@ -1,0 +1,42 @@
+# Egg Alpha — findings by Glyph Cluster
+
+- Source: Unknown / not verified (slug: `egg-alpha`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Egg Alpha (unverified)
+- **Short description:** No verified public model card found for this exact model/ID. The slug `egg-alpha` appears to be a codename/stealth identifier, but no authoritative vendor page, API listing, or benchmark record for this exact identifier could be confirmed from public sources during this pass.
+- **Provider / access:** No verified public endpoint or provider ID found.
+- **Release / knowledge:** No verified public release date or knowledge cutoff found.
+- **IDs:** No verified public model ID found.
+- **Context window:** No verified public value found.
+- **Modalities:** No verified public value found.
+- **Pricing (as of 2026-11-13):** No verified public pricing found.
+- **Architecture:** No verified public details found.
+
+### Raw benchmarks found
+
+Zero verified public benchmark numbers were found for this exact model/ID. Per research rules, this file is self-excluded (notes only, not scored).
+
+- Agent / tool use: no verified public score found
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no verified public score found
+
+### Normalized scores (1–100)
+
+Not assigned. No scored report is possible without verified public benchmark evidence.
+
+---
+
+## Signature
+
+- Provided by: **Glyph Cluster (kilocode/glyph-cluster-free)** — 2026-11-13 UTC
+- Method: Fresh public-web research attempt for this exact model/ID. Web search returned HTTP 402/quota errors; fallback used direct fetches (`webfetch`/`Invoke-WebRequest`) of public model catalogs and attempted vendor/aggregator URLs. No verifiable primary source, model card, or benchmark data for `egg-alpha` was retrieved. Local repository files were not used as evidence.
+- Reference URLs: only URLs actually fetched this pass.
+  - [OpenRouter Models](https://openrouter.ai/models)
+  - [Artificial Analysis Models](https://artificialanalysis.ai/models)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

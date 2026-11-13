@@ -19,4 +19,4 @@
 
 - Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, Gemini 3.8 Flash, GLM 5.3 Flash.
 - Average from top 3 by Overall Score: Claude Sonnet 4.6, Gemini 3.8 Flash, GLM 5.3 Flash.
-- Ignored below-gate rater(s): Ernie 5.5 Flash, Flint, Inkling 2 Small.
+- Ignored below-gate rater(s): Ernie 5.5 Flash, Flint, Gemini 3.1 Flash Lite, Iceman, Inkling 2 Small.

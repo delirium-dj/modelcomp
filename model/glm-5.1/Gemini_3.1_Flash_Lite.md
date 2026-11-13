@@ -19,19 +19,18 @@
 
 ### Raw benchmarks found
 
-Coding:
 - SWE-bench Pro: **58.4%** (Z.ai meta.json)
 - Terminal-Bench 2.1: **56.9%** (Z.ai meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 85/100.** Designed for multi-hour agentic coding.
-- **Reasoning: 82/100.** Solid reasoning performance.
+- **Tool use: 82/100.** Solid for agentic coding.
+- **Reasoning: 80/100.** Consistent reasoning.
 - **Context window: 75/100.** 200K capacity.
 - **Multimodal: 15/100.** Text-only.
-- **Coding: 86/100.** Capable for multi-hour sessions (58.4% SWE-bench Pro).
-- **Cost efficiency: 80/100.** Competitive pricing.
-- **Overall Score: 68.6/100.** Reliable long-hour agentic coding model.
+- **Coding: 85/100.** Reliable long-hour coding.
+- **Cost efficiency: 70/100.** Good pricing.
+- **Overall Score: 67.4/100.** Reliable long-hour coding assistant, now superseded.
 
 ---
 
