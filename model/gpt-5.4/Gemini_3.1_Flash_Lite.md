@@ -1,36 +1,43 @@
 # GPT-5.4 — findings by Gemini 3.1 Flash Lite
 
-- Source: OpenAI `gpt-5.4`
-- Date: 2026-10-28 (UTC)
+- Source: OpenAI/GPT-5.4
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-5.4
-- **Short description:** Strong model with enhanced coding, computer use, and context management.
-- **Provider / access:** OpenAI API.
-- **Context window:** 1,000,000.
-- **Modalities:** Text/Image.
+- **Short description:** OpenAI's professional computer-use model.
+- **Provider / access:** OpenAI (https://openai.com). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `openai/gpt-5.4` (Paid only)
+- **Context window:** ~1M tokens total; 128K tokens max output.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-11-13):** Paid-tier pricing ($1.25-$2.50/$7.50-$15.00).
+- **Architecture:** Proprietary (GPT-5 lane).
 
 ### Raw benchmarks found
 
-- BigLaw Bench: **91%**
-- OSWorld Verified: **75%**
+- GPQA: **93.3%** (OpenAI meta.json)
+- Terminal-Bench: **81.8%** (OpenAI meta.json)
+- SWE-Pro: **59.1%** (OpenAI meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Exceptional capability for computer-use tasks.
-- **Reasoning: 89/100.** Strong analytical reasoning.
-- **Context window: 92/100.** Robust management of large context.
-- **Multimodal: 86/100.** High-quality multimodal processing.
-- **Coding: 90/100.** Excellent coding capabilities.
-- **Cost efficiency: 82/100.** Competitive performance.
-- **Overall Score: 89/100.** A powerhouse model for coding and agentic computer use.
+- **Tool use: 90/100.** Native computer-use capabilities.
+- **Reasoning: 92/100.** Strong reasoning (93.3% GPQA).
+- **Context window: 90/100.** 1M context.
+- **Multimodal: 70/100.** Text and image support.
+- **Coding: 89/100.** Solid coding assistant.
+- **Cost efficiency: 50/100.** Superseded by newer generations.
+- **Overall Score: 86.2/100.** Proven computer-use workhorse, superseded by later 5.5/5.6 releases.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-28
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI](https://openai.com)

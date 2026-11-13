@@ -1,0 +1,15 @@
+{
+  "id": "openai/gpt-6.2-astra",
+  "name": "GPT-6.2 Astra",
+  "short": "OpenAI's advanced GPT-6.2 Astra flagship reasoning and multimodal agent model with 1.05M context and advanced frontier capability.",
+  "contextWindow": "1,050,000 (1M) / 128K out",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Paid API tier pricing",
+  "noFreeId": true,
+  "officialUrl": "https://openai.com",
+  "pricingLinks": [
+    "https://openai.com/api/pricing/"
+  ],
+  "standout": "Next-generation GPT-6.2 reasoning flagship with massive context window and top-tier multi-agent capability.",
+  "tradeoff": "Premium API pricing and access tiers required for frontier capability."
+}

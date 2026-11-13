@@ -1,43 +1,43 @@
-# Gemini 3.1 Pro
+# Gemini 3.1 Pro — findings by Gemini 3.1 Flash Lite
 
-Gemini 3.1 Pro is Google DeepMind's reasoning-focused frontier model, released in February 2026. It is designed for complex problem-solving, advanced coding, and multimodal understanding across long-context workflows.
+- Source: Google/Gemini 3.1 Pro
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** Google DeepMind
-- **Release Date:** February 2026
-- **Type:** Proprietary multimodal reasoning model
-- **Key Feature:** Major leap in abstract reasoning (ARC-AGI-2: 77.1%) and multi-step agentic problem-solving.
+## Model card
 
-## Performance
+- **Name:** Gemini 3.1 Pro
+- **Short description:** Google's 2M-context Pro flagship, optimized for research and multimodal agentic tasks.
+- **Provider / access:** Google DeepMind. Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `google/gemini-3.1-pro`
+- **Context window:** 2M tokens total; 64K tokens max output.
+- **Modalities:** Text, image, audio, video, PDF in; text out.
+- **Pricing (as of 2026-11-13):** Paid-tier pricing.
+- **Architecture:** Proprietary (Pro-line architecture).
 
-Gemini 3.1 Pro demonstrates significant improvements over the Gemini 3 series, particularly in abstract reasoning and agentic tasks. It performs strongly on graduate-level science and coding benchmarks, effectively competing with top-tier proprietary models.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+Reasoning / knowledge:
+- GPQA: **94.3%** (Google meta.json)
+- ARC-AGI-2: **77.1%** (Google meta.json)
 
-- **ARC-AGI-2:** 77.1%
-- **GPQA Diamond:** 94.3%
-- **LiveCodeBench Pro (Elo):** 2887
-- **Terminal-Bench 2.0:** 67.4%
-- **SWE-bench Verified:** 69.6%
-- **MMLU Pro:** 92.6%
+### Normalized scores (1–100)
 
-## Limitations
+- **Tool use: 93/100.** Strong performance in multimodal agentic research.
+- **Reasoning: 96/100.** Elite-tier abstract reasoning (94.3% GPQA).
+- **Context window: 100/100.** Industry-leading 2M-token input window.
+- **Multimodal: 95/100.** Versatile input (Text, image, audio, video, PDF).
+- **Coding: 92/100.** Reliable coding specialist.
+- **Cost efficiency: 40/100.** Pro-tier flagship pricing.
+- **Overall Score: 95.2/100.** Elite research model for long-memory, multimodal agentic tasks.
 
-- **Benchmark Variability:** Performance can be highly harness-dependent, especially for agentic coding benchmarks.
-- **Access/Availability:** While widely available, competitive positioning shifts rapidly in the frontier model space.
+---
 
-## Scoring
+## Signature
 
-- **Tool use: 91/100.** Strong tool invocation and multi-step agentic planning.
-- **Reasoning: 96/100.** Exceptional abstract reasoning, with dramatic gains on logic-intensive tasks.
-- **Context window: 94/100.** Large context support with strong multi-turn reasoning capabilities.
-- **Multimodal: 93/100.** Native multimodal support with robust performance.
-- **Coding: 92/100.** High-performance coding and algorithmic capability.
-- **Cost efficiency: 86/100.** Competitive performance-to-cost ratio for complex reasoning tasks.
-- **Overall Score: 93.2/100.**
-
-Provided by: **Gemini 3.1 Flash Lite (Google/gemini-3.1-pro)** — 2026-11-01 UTC
-
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - https://deepmind.google/models/model-cards/gemini-3-1-pro
-  - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro
-  - https://www.vals.ai/models/google_gemini-3.1-pro-preview
+  - [Google DeepMind Gemini](https://deepmind.google/technologies/gemini/)

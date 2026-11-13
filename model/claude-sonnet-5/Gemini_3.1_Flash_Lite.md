@@ -1,36 +1,41 @@
 # Claude Sonnet 5 — findings by Gemini 3.1 Flash Lite
 
-- Source: Anthropic `claude-sonnet-5`
-- Date: 2026-10-29 (UTC)
+- Source: Anthropic/Claude Sonnet 5
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Sonnet 5
-- **Short description:** High-performance reasoning and agentic model.
-- **Provider / access:** Anthropic API.
-- **Context window:** 200,000.
-- **Modalities:** Text/Image.
+- **Short description:** Anthropic's foundational Sonnet model for everyday coding.
+- **Provider / access:** Anthropic. Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `anthropic/claude-sonnet-5` (Paid only)
+- **Context window:** 1M tokens total.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-11-13):** Paid-tier pricing.
+- **Architecture:** Proprietary (Sonnet architecture).
 
 ### Raw benchmarks found
 
-- SWE-bench Pro: **63.2%**
-- Terminal-Bench 2.1: **80.4%**
+- No verified public score found.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Strong agentic utilization.
-- **Reasoning: 89/100.** High-performance reasoning.
-- **Context window: 88/100.** Robust context.
-- **Multimodal: 88/100.** Reliable multimodal.
-- **Coding: 90/100.** Competitive coding performance.
-- **Cost efficiency: 88/100.** Good value proposition.
-- **Overall Score: 88.5/100.** A premier high-performance reasoning model.
+- **Tool use: 88/100.** Reliable everyday coding.
+- **Reasoning: 87/100.** Solid reasoning.
+- **Context window: 90/100.** 1M context.
+- **Multimodal: 70/100.** Text/image support.
+- **Coding: 90/100.** Strong everyday coding.
+- **Cost efficiency: 70/100.** Competitive pricing.
+- **Overall Score: 85/100.** Reliable foundational model; largely superseded.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Anthropic Claude](https://claude.ai)

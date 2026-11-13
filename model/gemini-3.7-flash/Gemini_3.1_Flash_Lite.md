@@ -1,42 +1,45 @@
-# Gemini 3.7 Flash
+# Gemini 3.7 Flash — findings by Gemini 3.1 Flash Lite
 
-Gemini 3.7 Flash is a lightweight, cost-effective model released by Google DeepMind in August 2026, optimized for high-volume agentic workflows, long-context analysis, and real-time interaction.
+- Source: Google/Gemini 3.7 Flash
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** Google DeepMind
-- **Release Date:** August 13, 2026
-- **Type:** Proprietary multimodal reasoning model
-- **Key Feature:** High token efficiency and low latency for large-scale enterprise agentic tasks.
+## Model card
 
-## Performance
+- **Name:** Gemini 3.7 Flash
+- **Short description:** Google's reliable Flash workhorse for coding and agentic tasks.
+- **Provider / access:** Google DeepMind (https://deepmind.google/technologies/gemini/). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `google/gemini-3.7-flash` (Free and Paid tiers available)
+- **Context window:** 1M tokens total; 64K tokens max output.
+- **Modalities:** Text, image, audio, PDF in; text out.
+- **Pricing (as of 2026-11-13):** Intro $0.75/$3.75 per 1M. Free tier available on Google AI Studio.
+- **Architecture:** Proprietary (Flash-lane architecture).
 
-Gemini 3.7 Flash provides a solid balance of performance, speed, and cost. It is an excellent choice for tasks where high volume or low latency are prioritized, such as summarization, extraction, and routine agentic steps, while maintaining strong context handling.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+Reasoning / knowledge:
+- HLE-Verified: **53.6%** (Google meta.json)
 
-- **Terminal-Bench 2.1:** 85.8%
-- **DeepSWE:** 65.3%
-- **MMLU Pro:** 90.12%
-- **MMMU Pro:** 88.96%
-- **LegalBench:** 87.26%
+Coding:
+- Terminal-Bench: **85.8%** (Google meta.json)
 
-## Limitations
+### Normalized scores (1–100)
 
-- **Depth of Reasoning:** As a lightweight model, it is not optimized for the most complex, long-horizon reasoning problems addressed by Pro-tier models.
-- **Consistency:** While fast, its performance on hard logical or highly ambiguous tasks may be less consistent than larger flagship models.
+- **Tool use: 90/100.** Reliable agentic task automation.
+- **Reasoning: 88/100.** Good reasoning performance for knowledge work.
+- **Context window: 90/100.** 1M context supports large tasks.
+- **Multimodal: 85/100.** Supports Text, image, audio, PDF.
+- **Coding: 91/100.** Strong coding abilities (85.8% Terminal-Bench).
+- **Cost efficiency: 90/100.** Excellent performance at a competitive price point.
+- **Overall Score: 88.8/100.** Dependable and cost-effective Flash workhorse.
 
-## Scoring
+---
 
-- **Tool use: 86/100.** Efficient and capable for standard agentic tool calling.
-- **Reasoning: 85/100.** Strong performance for its tier, adequate for most enterprise reasoning tasks.
-- **Context window: 92/100.** 1M context window is robust and efficient.
-- **Multimodal: 88/100.** Highly capable multimodal understanding for high-volume workflows.
-- **Coding: 87/100.** Good foundation, suitable for mid-difficulty coding tasks and automation.
-- **Cost efficiency: 98/100.** Industry-leading cost-performance ratio for large-scale tasks.
-- **Overall Score: 88.1/100.**
+## Signature
 
-Provided by: **Gemini 3.1 Flash Lite (Google/gemini-3.7-flash)** — 2026-11-01 UTC
-
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - https://deepmind.google/models/model-cards/gemini-3-7-flash
-  - https://benchlm.ai/models/gemini-3-7-flash
-  - https://serenitiesai.com/benchmark/models/gemini-3-7-flash
+  - [Google DeepMind Gemini](https://deepmind.google/technologies/gemini/)

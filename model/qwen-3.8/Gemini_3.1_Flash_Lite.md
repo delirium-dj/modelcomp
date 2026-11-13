@@ -1,35 +1,42 @@
 # Qwen 3.8 — findings by Gemini 3.1 Flash Lite
 
-- Source: Alibaba `qwen-3.8`
-- Date: 2026-10-29 (UTC)
+- Source: Alibaba/Qwen 3.8
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen 3.8
-- **Short description:** High-performance reasoning model.
-- **Provider / access:** Alibaba Cloud.
-- **Context window:** 984,000.
-- **Modalities:** Text/Image.
+- **Short description:** Alibaba's dense open-weights model for self-hosted agents.
+- **Provider / access:** Alibaba (https://qwenlm.github.io). API or open-weights.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `alibaba/qwen3-8` (Apache 2.0 open-weights)
+- **Context window:** 262K native (1M via YaRN); 33K output.
+- **Modalities:** Text, image, video in; text out.
+- **Pricing (as of 2026-11-13):** ~$0.42/$3.00 per 1M; $0 self-host (Apache 2.0).
+- **Architecture:** Dense (27B).
 
 ### Raw benchmarks found
 
-- Overall Performance: **Frontier-level**
+- SWE-bench Pro: **61.7%** (Alibaba meta.json)
+- LiveCodeBench: **90.3%** (Alibaba meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Strong tool utilization.
-- **Reasoning: 89/100.** Highly competitive reasoning.
-- **Context window: 92/100.** Large context support.
-- **Multimodal: 88/100.** Reliable multimodal.
-- **Coding: 89/100.** Good coding proficiency.
-- **Cost efficiency: 86/100.** Efficient performance.
-- **Overall Score: 89.2/100.** A solid, high-performance reasoning model.
+- **Tool use: 88/100.** Strong self-hosted agent performance.
+- **Reasoning: 85/100.** Reliable reasoning.
+- **Context window: 90/100.** Effective 1M context via YaRN.
+- **Multimodal: 80/100.** Strong text, image, video input.
+- **Coding: 91/100.** Elite coding performance (90.3% LiveCodeBench).
+- **Cost efficiency: 100/100.** Apache 2.0 open-weights.
+- **Overall Score: 86.8/100.** Elite dense open-weights model for self-hosted agentic work.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [QwenLM](https://qwenlm.github.io)

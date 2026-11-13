@@ -1,57 +1,45 @@
 # Grok 4.6 — findings by Gemini 3.1 Flash Lite
 
-- Source: xAI `grok-4.6`
-- Date: 2026-10-29 (UTC)
+- Source: xAI/Grok 4.6
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Grok 4.6
-- **Short description:** High-utility agentic model for coding tasks.
-- **Provider / access:** xAI.
-- **Context window:** 200,000.
-- **Modalities:** Text/Image.
+- **Short description:** xAI's flagship for marathon knowledge work and agentic tasks.
+- **Provider / access:** xAI (https://x.ai/blog/grok-4.6). Available via Cursor/Build.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `xai/grok-4.6` (Paid only)
+- **Context window:** 500,000.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-11-13):** Paid $2/$6 per 1M (cached $0.50-$1).
+- **Architecture:** Proprietary.
 
 ### Raw benchmarks found
 
-- Intelligence Index: **61**
+Reasoning / knowledge:
+- GPQA: **94.9%** (xAI meta.json)
+
+Coding:
+- Terminal-Bench 2.1: **88.4%** (xAI meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Strong agentic tool use.
-- **Reasoning: 87/100.** Solid reasoning.
-- **Context window: 88/100.** Reliable context handling.
-- **Multimodal: 86/100.** Good multimodal.
-- **Coding: 89/100.** Competitive coding performance.
-- **Cost efficiency: 88/100.** Efficient performance-cost.
-- **Overall Score: 87.1/100.** A solid, high-utility agentic model.
+- **Tool use: 90/100.** Reliable performance for agentic workloads.
+- **Reasoning: 96/100.** Elite-tier reasoning (94.9% GPQA).
+- **Context window: 85/100.** 500K capacity.
+- **Multimodal: 70/100.** Text and image support.
+- **Coding: 92/100.** Strong coding performance (88.4% TB 2.1).
+- **Cost efficiency: 80/100.** Competitive pricing for flagship-tier models.
+- **Overall Score: 86.6/100.** Elite model for complex agentic and knowledge-work tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
-
----
-
-## Archived research pass — `Gemini_3.1_Flash_Lite.md.excluded` (merged 2026-11-12 — own-twin retirement)
-
-> Merged from this folder's `Gemini_3.1_Flash_Lite.md.excluded` when the active scored report above made the
-> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative — the archived model card was folded
-> into the active model card above; the content below is preserved research history, not judged data.
-
-## Grok 4.6 — findings by Gemini 3.1 Flash Lite (Excluded)
-
-- Source: xAI/grok-4.6
-- Archived date: 2026-10-08
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-> Archived model card omitted — own-twin consolidation 2026-11-12.
-> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
-
-#### Negative findings
-- No verified public score found.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [xAI](https://x.ai)

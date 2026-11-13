@@ -1,0 +1,71 @@
+# Doubao Seed Evolving — findings by Ernie 5.5 Flash (SELF-EXCLUDED)
+
+> **SELF-EXCLUSION — no scored report.** Zero verified public benchmark numbers exist for `doubao-seed-evolving` after the full fallback ladder (see Method). Specs and pricing below are verified from Volcano Engine Ark primary docs, but no measured capability figure of any kind (Terminal-Bench, GPQA, SWE-bench, MMLU, AA Index, ModelDial, BenchLM, LMArena, Epoch, Atlas, BenchmarkList) could be retrieved. Per `model-report-TEMPLATE.md` § SELF-EXCLUSION and `RULES.md`, this file carries no scores and must never be assigned a placeholder Overall.
+
+- Source: ByteDance / Volcano Engine Ark (`doubao-seed-evolving`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Doubao Seed Evolving (方舟 model ID `doubao-seed-evolving`; Ark console label "Seed 最新 Coding&Agent 模型 / 周级迭代")
+- **Short description:** ByteDance's weekly-iterating coding-and-agent model in the Seed family, served on Volcano Engine Ark with a 1M-token context window and adaptive deep thinking. It is a **rolling checkpoint** — the weights are refreshed on a weekly cadence under one stable model ID, so any benchmark number has a short shelf life and is not attributable to a fixed build. That rolling-weight nature is a large part of why no stable third-party measurement exists.
+- **Provider / access:** Volcano Engine Ark (`cn-beijing`) and BytePlus ModelArk (international). Chat API, Responses API, Messages API, Batch API. Implicit + explicit context caching (prefix cache, session cache); Batch API supported. No OpenCode Zen / OpenRouter route; no free tier.
+- **Release / knowledge:** Listed on Ark as the fast-iterating Seed model; no single release date exists by design (weekly drops). No knowledge cutoff published.
+- **IDs:** `doubao-seed-evolving` (stable Ark ID, deliberately undated — unlike the dated siblings `doubao-seed-2-1-pro-260915`, `doubao-seed-2-1-lite-260915`, `doubao-seed-2-1-turbo-260628`). It is **not** a dated checkpoint of Seed 2.1 Pro and is not merged into any sibling folder.
+- **Context window:** **1,024 K (1,048,576) total; max input 1024K; max answer 256 K (default 4 K); max thinking chain 256 K.** Verified from the Volcano Engine Ark model table, which lists `doubao-seed-evolving` at 1024K / 1024K / 256K / 256K with 500 RPM and 1,000,000 TPM.
+- **Modalities:** Deep thinking (default on; disable via `thinking.type=disabled` on Chat API or `reasoning.effort=minimal` on Responses API), text generation, multimodal understanding (text, image, video in), GUI task processing, tool calling (function calling, knowledge base, MCP, web-search content plugin, image processing, Doubao Assistant), structured output. Audio input is **not** listed for this model (audio understanding appears only for `2-1-lite` and the 2.0 LTS tiers). Text out only.
+- **Pricing (as of 2026-11-13, Ark list price):** ¥6.00 / M input, ¥30.00 / M output (≈ **$0.83 / $4.14** at ~7.2 CNY/USD) at any input length ≤1024K; cache-hit input ¥1.20 / M (≈ $0.17); cache storage ¥0.017 / M/hour. No low-priority or batch discount is listed for this model on the pricing page (unlike Seed 2.1 Pro, which has ¥3/¥15 low-priority and batch tiers). Identical to Seed 2.1 Pro's standard rate — the Evolving tier is not priced at a premium.
+- **Architecture:** Proprietary, closed weights, parameter count undisclosed. Positioned by ByteDance as the "Seed for Seed" fast-iteration line: the same model family used inside ByteDance's own R&D pipeline (evaluation-system development, SFT data synthesis, RL framework optimization) and refreshed weekly. No architecture family, licence or checkpoint digest is published.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / 4.x: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA / GDPval: **no verified public score found**
+- Claw-Eval / ClawProBench / Toolathon / MCP-Atlas / OSWorld / MobileWorld / CreativeWork: **no verified public score found**
+- Agents' Last Exam: **no verified public score found**
+- ModelDial: **no model page exists for this ID** (404 on `/en/models/doubao-seed-evolving`; absent from the 52-model coding leaderboard)
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / HLE-Diamond / LCR / CritPt / MMLU-Pro / SuperGPQA / KINA / BeyondAIME: **no verified public score found**
+- Artificial Analysis Intelligence Index: **no verified public score found** (no AA model page)
+- BenchLM: **no verified public score found** (404)
+- Benchmark Atlas: **no verified public score found** (no model page; the Atlas entry exists only for the dated `doubao-seed-2-1-pro-260628` sibling, which is a different model and is never merged here)
+- Epoch AI benchmark hub (GPQA, SimpleQA, AIME, Chess Puzzles): **no verified public score found**
+- BenchmarkList: **no verified public score found** (404; BenchmarkList covers `bytedance-doubao-seed-2.1-pro` only)
+- Omniscience accuracy / hallucination rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / SWE-sweep, LiveCodeBench, SciCode, DeepSWE, Vibe Code Bench, CursorBench, FrontierCode, NL2Repo, ProgramBench, Long-Horizon Terminal-Bench: **no verified public score found** for this ID
+- No vendor-published evaluation table exists. ByteDance's Seed 2.1 launch blog (2026-06-23) publishes benchmark tables for Seed 2.1 Pro and Seed 2.1 Turbo only; `doubao-seed-evolving` is not a column in any of them, and those sibling numbers are **not** transferable to this rolling model.
+
+Long context:
+
+- **No verified long-context retrieval reported.** The 1,024 K window is verified from the Ark model table, but no MRCR / RULER / GraphWalks / MMLongBench / needle-in-a-haystack result exists for this ID.
+
+### Normalized scores (1–100)
+
+**Intentionally omitted — self-excluded.** Zero verified public benchmark numbers were found for this exact model ID, so every score line would be a fabrication. Verified facts are limited to spec-sheet data (context window, modalities, rate limits, pricing) which the methodology does not convert into capability dimensions. No placeholder, proxy or sibling-derived score is entered here: per `RULES.md`, one invented number drags the mean for every reader, and Seed 2.1 Pro's measurements belong to a different (dated) model.
+
+To score this folder later, the minimum evidence needed is: any one of Terminal-Bench 4.x, SWE-bench Verified, GPQA Diamond, AA Intelligence Index, or a ModelDial/LMArena row measured against the `doubao-seed-evolving` ID — plus the measurement date, since the weights move weekly.
+
+---
+
+## Signature
+
+- Provided by: **Ernie 5.5 Flash (baidu/ernie-5.5-flash-preview)** — 2026-11-13 UTC
+- Method: public internet research. The web search tool returned HTTP 402 on every attempt (both plain and quoted queries); the fallback ladder was used in full: direct `webfetch` of Volcano Engine Ark docs (model table + pricing), ByteDance Seed blog and model page, ModelDial (model page + coding leaderboard + methodology), Artificial Analysis, BenchLM, Benchmark Atlas, BenchmarkList, Epoch AI, plus a shell `Invoke-WebRequest` against the Ark model-detail page (HTTP 200, but client-rendered — no server-side text). All of ModelDial, BenchLM, BenchmarkList, Atlas and AA return no entry or 404 for this ID. Result: verified spec-sheet data, zero verified benchmarks → self-exclusion per `tasks/research.md` rule 9. No score was copied from the `doubao-seed-2.1-pro-260915` sibling.
+- Reference URLs:
+  - [Ark model list — doubao-seed-evolving spec row (1024K / 256K answer / 256K thinking, 500 RPM, 1M TPM) — Volcano Engine](https://www.volcengine.com/docs/82379/1330310)
+  - [Ark model pricing — doubao-seed-evolving ¥6/¥30, cache ¥1.20 — Volcano Engine](https://www.volcengine.com/docs/82379/1099320)
+  - [Seed2.1 model page — ByteDance Seed (evaluated benchmarks list Pro/Turbo only; no Evolving column)](https://seed.bytedance.com/en/seed2_1)
+  - [Seed2.1 launch blog — ByteDance Seed (no Evolving benchmarks published)](https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity)
+  - [ModelDial coding leaderboard — 52 models, no doubao-seed-evolving row](https://modeldial.com/en/leaderboard/coding?axis=overall)
+  - [Ark model detail page (client-rendered; HTTP 200, no static text) — Volcano Engine](https://ark.volcengine.com/region:cn-beijing/model/detail?name=doubao-seed-evolving)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

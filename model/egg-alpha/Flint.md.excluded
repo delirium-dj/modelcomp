@@ -1,0 +1,49 @@
+# Egg Alpha — findings by Flint
+
+- Source: ModelDial (`egg-alpha`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Egg Alpha
+- **Short description:** Anonymous stealth coding model evaluated by ModelDial on its private benchmark suite; the only accessible public trace is ModelDial's model page, which reports a default-configuration overall score of 76.4 with notable frontend-interaction (78) and knowledge-and-reasoning (90) performance; backend engineering scored 65.
+- **Provider / access:** Anonymous / unverified provider — no vendor name, no API host, no public pricing; evaluated via ModelDial's private evaluation pipeline (API cost N/A, evaluation time 32m 52s).
+- **Release / knowledge:** Not disclosed; tested 2026-11-04 (best tested effort), page published 2026-11-02.
+- **IDs:** `unverified/egg-alpha` (ModelDial model ID).
+- **Context window:** ~128,000 tokens (estimated pending official vendor disclosure).
+- **Modalities:** Text in / text out.
+- **Pricing (as of 2026-11-13):** Unpriced / stealth slot; no public pricing table.
+- **Architecture:** Not disclosed.
+
+### Raw benchmarks found
+
+- no verified public score found — Egg Alpha (`egg-alpha`)
+
+Coding:
+
+- Backend engineering: **65/100** (ModelDial private suite, default) — contracts/boundaries, retries/failures, CI/adversarial review, transactions/consistency, caching/regression scored 10/20, 14/20, 15/20, 17/20, 9/20.
+- Frontend interaction: **78/100** (ModelDial private suite, default).
+- Knowledge & reasoning: **90/100** (ModelDial private suite, default).
+
+Long context / agent / tool use / multimodal: no verified public score found.
+
+### Cross-source comparison
+
+- Official sources: ModelDial's own model page and evaluation methodology pages (fetched this pass) — the reported numbers come from ModelDial's private suite, which is not a standardized public benchmark and was not independently reproduced; the provider remains anonymous.
+- Independent coverage: no independent, reproducible standardized public benchmark number for `egg-alpha` was retrieved.
+
+### Normalized scores (1–100)
+
+- SELF-EXCLUSION: zero verified public benchmark numbers found for the Egg Alpha subject identity (`egg-alpha`) in independently accessible public sources as of 2026-11-13; the only retrieved evaluation is ModelDial's private benchmark suite (not a standardized public benchmark, not independently verified), scored Overall 76.4 with dims Backend engineering 65 / Frontend interaction 78 / Knowledge & reasoning 90; no scored file written and no dimension scores assigned.
+
+## Signature
+
+- Provided by: **Flint** — 2026-11-13
+- Method: Fresh public-web research this pass (web search unavailable — HTTP 402 → webfetch fallback per RULES.md § Web-research fallback; ModelDial Egg Alpha model page, ModelDial evaluation methodology / datasets pages).
+- Reference URLs:
+  - [ModelDial — Egg Alpha](https://modeldial.com/en/models/egg-alpha)
+  - [ModelDial — Egg Alpha evaluation tasks / methodology](https://modeldial.com/en/datasets)
+
+- Future sources: add a new file next to this one, e.g. `Flint_2.md`, using the same headings.

@@ -1,5 +1,28 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-13 (2) — gemini-quota-retry: infinite retry mode without emergency brake cutoff
+
+1. **User request.** Gemini models (especially on Free/metered tiers) frequently drop quota error messages:
+   `"You exceeded your current quota, please check your plan and billing details... * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 250000, model: gemini-3.1-flash-lite, description: Generate content input tokens per minute limit exceeded on Free Tier... Please retry in 23.47967277s."`
+   The user observed that while `.opencode/plugins/gemini-quota-retry.ts` worked for some time sending `"please continue"`, it stopped after a certain amount of time or number of attempts. The user requested that the plugin message Gemini models infinitely right after their retry limit in seconds.
+2. **Root cause.**
+   - `gemini-quota-retry.ts` had `const MAX_CONSECUTIVE = 20`. Once a session accumulated 20 consecutive quota failures (about 8 minutes of ~25s windows), the emergency brake latched (`stopped.add(sessionID)`) and permanently killed retries for that session.
+   - `MAX_WAIT_MS` was capped at 10 minutes (`10 * 60_000`), which prematurely clamped long hints.
+   - `pending.delete(sessionID)` was executed in `sendContinue`'s `finally` block instead of at timer fire. Because `ctx.session.prompt` awaits the entire agent turn (per `.agents/rules.md` line 163-168), holding `pending` locked during the turn caused subsequent quota errors to be dropped silently as duplicate attempts.
+   - `RETRY_HINT` only handled `retry [in]`, missing `retry after` variations.
+   - Session ID resolution missed `data.info?.sessionID` and `data.part?.sessionID`, and lacked `message.updated` / `message.part.updated` listeners.
+3. **Fix applied.**
+   - Removed the `MAX_CONSECUTIVE` limit and the `stopped` Set latch, enabling **infinite retries** on consecutive Gemini quota 429 errors.
+   - Unlocking of `pending` moved to timer fire immediately before `sendContinue`, ensuring subsequent errors during turn execution are never blocked.
+   - Raised `MAX_WAIT_MS` to 24h to avoid premature retries on longer hints while avoiding 32-bit setTimeout overflow; retained safe `MARGIN_MS = 2_000` (2s grace) to message right after the provider's retry window has reopened.
+   - Regex updated to handle `retry (in|after)` and JSON `retryDelay` formats.
+   - Added robust sessionID resolution and `message.updated`/`message.part.updated` error listeners.
+   - Added direct error recovery in `sendContinue` so synchronous rejections by `ctx.session.prompt` immediately trigger `onError` and schedule the next retry even if no event is dispatched.
+   - Added `.opencode/tsconfig.json` and `.opencode/types/opencode-plugin.d.ts` so the TypeScript language service in VSCode / Antigravity IDE resolves `@opencode/plugin` and its types with zero errors.
+4. **Verification.** Verified with `bun build --no-bundle .opencode/plugins/gemini-quota-retry.ts` and `tsc --project .opencode/tsconfig.json --noEmit` (exit code 0, 0 errors). Verified via offline test harness simulating 25 consecutive quota failure events: all 25 scheduled correctly and fired `"please continue"` after ~25.5s without any brake engaging.
+5. **Next steps.** Handover command for user: `pnpm sync && pnpm build.types:direct && pnpm build:direct`.
+
+
 ## 2026-11-13 — MIRROR_ROUTED_SLUGS guard: mirror-routed models can no longer also exist under model/
 
 1. **The question, verified rather than assumed.** After routing `glm-5.3-flashx-legal` to `models_legal/`, the

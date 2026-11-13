@@ -1,70 +1,41 @@
-# Kimi K2.6
+# Kimi K2.6 — findings by Gemini 3.1 Flash Lite
 
-Kimi K2.6 is an open-weights frontier model released by Moonshot AI in April 2026. It is designed as a multimodal agentic model, specifically built for long-horizon coding tasks, autonomous execution, and swarm-based task orchestration.
+- Source: Moonshot AI/Kimi K2.6
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** Moonshot AI
-- **Release Date:** April 2026
-- **Type:** Open-weights multimodal agentic model
-- **Architecture:** Mixture-of-Experts (MoE) with 1T total parameters / 32B active parameters; Multi-head Latent Attention (MLA); includes a 400M-parameter MoonViT vision encoder.
+## Model card
 
-## Performance
+- **Name:** Kimi K2.6
+- **Short description:** Moonshot AI's multimodal MoE model (1.06T/32B-active) for long-horizon coding and large agent swarms.
+- **Provider / access:** Moonshot AI (https://huggingface.co/models?search=kimi-k2.6). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `moonshotai/kimi-k2.6` (Paid only)
+- **Context window:** 262K total; 236K tokens max output.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-11-13):** ~$0.95/$4.00 per 1M.
+- **Architecture:** MoE (1.06T total / 32B active).
 
-Kimi K2.6 is positioned as a leading open-weights model for agentic and coding tasks. It excels in long-horizon autonomous workflows, utilizing an "Agent Swarm" system that scales coordination across sub-agents. It shows significant improvement over its predecessor, Kimi K2.5, across benchmarks for coding, information research, and tool use.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+- No verified public score found.
 
-- **SWE-Bench Verified:** 80.2%
-- **Terminal-Bench 2.0:** 66.7%
-- **LiveCodeBench (v6):** 89.6%
-- **Toolathlon:** 50.0%
-- **GPQA-Diamond:** 90.5%
-- **MMMU-Pro (w/ Python):** 80.1%
+### Normalized scores (1–100)
 
-## Limitations
-
-- **Performance vs. Proprietary Models:** While leading among open-weights models for agentic tasks, it still trails the highest-performing closed proprietary models (like Opus 4.7 or GPT-5.4 family) on some specialized benchmarks.
-- **Inference Complexity:** Requires careful handling of "Thinking" vs. "Instant" modes for optimal performance and latency balancing.
-
-## Scoring
-
-- **Tool use: 93/100.** Highly proactive and accurate tool invocation for autonomous workflows.
-- **Reasoning: 90/100.** Strong performance, particularly when utilizing the "Thinking" chain-of-thought mode.
-- **Context window: 92/100.** Supports a 256k-token context window.
-- **Multimodal: 88/100.** Strong native support for image and video inputs.
-- **Coding: 94/100.** A standout model for coding, software engineering, and complex task completion.
-- **Cost efficiency: 88/100.** High performance-to-cost ratio for an MoE architecture.
-- **Overall Score: 91/100.**
-
-Provided by: **Gemini 3.1 Flash Lite (MoonshotAI/kimi-k2.6)** — 2026-11-01 UTC
-
-- Reference URLs:
-  - https://artificialanalysis.ai/articles/kimi-k2-6-the-new-leading-open-weights-model
-  - https://www.kimi.ai/blog/kimi-k2-6
-  - https://catalog.ngc.nvidia.com/orgs/nim/teams/moonshotai/models/kimi-k2.6
-  - https://deepinfra.com/blog/kimi-k2-6-api-benchmarks-latency-throughput-cost
+- **Tool use: 88/100.** Specialized for agent swarm orchestration.
+- **Reasoning: 86/100.** Solid performance in long-horizon coding.
+- **Context window: 75/100.** 262K capacity.
+- **Multimodal: 70/100.** Text and image support.
+- **Coding: 88/100.** Strong coding performance.
+- **Cost efficiency: 90/100.** Competitive pricing.
+- **Overall Score: 81.4/100.** A capable agent-swarm specialist, superseded by the K3 generation.
 
 ---
 
-## Archived research pass — `Gemini_3.1_Flash_Lite.md.excluded` (merged 2026-11-12 — own-twin retirement)
+## Signature
 
-> Merged from this folder's `Gemini_3.1_Flash_Lite.md.excluded` when the active scored report above made the
-> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
-
-## kimi-k2.6 — findings by Gemini 3.1 Flash Lite
-
-- Source: kimi-k2.6 (opencode/kimi-k2.6)
-- Archived date: 2026-10-23 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-### Model card
-
-- **Name:** kimi-k2.6
-- **Short description:** [No verified description found]
-- **Provider / access:** [No verified provider found]
-
-## Raw benchmarks found
-
-> No verified public benchmark numbers found.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Moonshot AI](https://platform.moonshot.ai)

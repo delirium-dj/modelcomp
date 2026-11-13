@@ -1,29 +1,35 @@
 # Mercury Edit 2 — findings by Inkling 2 Small
 
-- Source: Inception Labs (`mercury-edit-2`)
-- Date: 2026-11-10 (UTC)
+- Source: Inception Labs (`inception/mercury-edit-2`)
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Mercury Edit 2
-- **Short description:** Inception Labs' purpose-built diffusion LLM for next-edit prediction (and FIM autocomplete) — latency-sensitive code-suggestion for the fastest parts of the coding workflow. Registered in Zed's edit-prediction system as a provider. Not a general chat model.
-- **Provider / access:** Inception Platform API (`v1/fim/completions`, `v1/edit/completions`); integrations: Zed (edit prediction), ProxyAI; hosted only (no weights).
-- **Release / knowledge:** 2026-10-19/29 (blog post date differs from Zed docs; latest known is Oct 2026; "published Oct 29, 2026" frontmatter, zed's docs list it as early 2026-10 launch); knowledge cutoff not published.
-- **IDs:** `mercury-edit-2`
-- **Context window:** BenchLM says 128K; the official Inception models table lists `FIM: 32K` / `NextEdit: 32K`, max output 8,192 — conflict noted, docs more specific (32K).
-- **Modalities:** text in → text out; reasoning NO (non-reasoning); no tool calling; companion auto-complete FIM endpoint.
-- **Pricing (as of 2026-11-10):** $0.25 / 1M input, $0.75 / 1M output, cached input $0.025 / 1M; new accounts get 10M free tokens; Zed users get 1 free month via a public API key (per launch post).
-- **Architecture:** proprietary diffusion LLM (dLLM); KTO preference-aligned to accepted/rejected edits; parameter count undisclosed.
+- **Short description:** Inception Labs' diffusion LLM purpose-built for next-edit prediction and code autocomplete — FIM (`v1/fim/completions`) and NextEdit (`v1/edit/completions`) endpoints; parallel denoising for low-latency Tab completions; KTO-aligned with human edit-preference data. Available on the Inception Platform and integrated in Zed. Text-only, specialized — not a general chat model.
+- **Provider / access:** Inception API — `https://api.inceptionlabs.ai/v1` — endpoints `v1/fim/completions` and `v1/edit/completions`; also callable from Zed's edit-prediction providers; launched 2026-10-29 (blog; GA on the platform).
+- **Release / knowledge:** 2026-10-29 (Introducing Mercury Edit 2). Knowledge cutoff not published.
+- **IDs:** `mercury-edit-2` (Inception Platform). Listed on OpenRouter as `inception/mercury-edit-2` per third-party trackers (specs only, no eval rows).
+- **Context window:** FIM 32K / NextEdit 32K total; max output 8,192 (Inception docs, verified 2026-11-13; third-party trackers list 128K/8K — official docs win).
+- **Modalities:** text in; text out. No tool calling, no structured outputs, no image input — specialized completion endpoints only.
+- **Pricing (as of 2026-11-13):** $0.25 in / $0.75 out per 1M; cached input $0.025. New accounts get 10M free tokens; Zed users get one free month of Mercury Edit 2 suggestions.
+- **Architecture:** proprietary diffusion LLM (dLLM); parameter count not published.
 
 ### Raw benchmarks found
 
-ZERO verified public benchmark numbers for this exact model/ID. Every row below is intentionally empty — the vendor's own comparison chart exists only as an image on the launch post (no machine-readable numbers), and BenchLM tracks "coming soon" (0 of 812).
+Inception's launch blog reports relative results only — **no absolute scores are published for this exact ID**:
+
+- Edits accepted **48% more often** than its predecessor; **27% more selective** in edits shown (KTO-aligned; internal measurement)
+- Quality claim: "superior quality and speed to alternatives" on a four-benchmark internal suite — Instinct (continuedev), FIM (openai/human-eval-infilling, validated by running test cases), Next-edit Prediction (NEP, lurf21), plus one internal next-edit benchmark; final quality = average of the four; alternatives included custom next-edit models and speed-optimized frontier models. **No numbers disclosed.**
+- Speed: end-to-end latency measured on "a set of representative requests"; Mercury Edit 2 faster than alternatives — **no absolute latency published**
+- SWE-bench / Terminal-Bench / LiveCodeBench / HumanEval-infilling absolute% / AA-Index: no verified public score found
+- SerenitiesAI and BenchLM list the model (pricing/specs only; zero task-score rows; "specifications last checked 2026-09-14")
 
 Agent / tool use:
 
-- no verified public score found
+- no verified public score found (no tools/structured outputs supported — specialized FIM/NextEdit endpoints)
 
 Reasoning / knowledge:
 
@@ -31,35 +37,30 @@ Reasoning / knowledge:
 
 Coding:
 
-- no verified public score found. Vendor qualitative claims only: edits accepted **48% more often** and **27% more selective** after KTO alignment (launch post); benchmark probes: Instinct (continuedev/instinct-data), FIM (openai/human-eval-infilling), Next-Edit Prediction (lurf21/NextEditPrediction), one internal — ranked "superior quality and speed" vs custom next-edit models and speed-optimized frontier models, per vendor; no numbers published.
+- no verified public absolute score found (official positioning: next-edit/autocomplete; vendor-internal relative gains only: +48% accept rate, +27% selectivity)
 
 Long context:
 
-- 32K FIM / 32K NextEdit per official models table (BenchLM: 128K — conflict noted); no verified public long-context retrieval score found
-
-Multimodal:
-
-- Text-only — no verified public multimodal evidence exists.
+- 32K FIM/NextEdit window per official docs; no verified public long-context retrieval score found
 
 ### Normalized scores (1–100)
 
-Not scored — zero verified public benchmark numbers exist for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Re-research when Inception or a third party publishes the four next-edit benchmark results as numbers (FIM/Instinct/NEP/internal).
+Not scored — zero verified public absolute benchmark numbers exist for `mercury-edit-2`. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Re-research if Inception publishes absolute numbers (or a third party runs FIM/NEP/Instinct publicly).
 
-- **Tool use: 15/100.** placeholder — no evidence
+- **Tool use: 15/100.** placeholder — no evidence (no tool support by design)
 - **Reasoning: 15/100.** placeholder — no evidence
-- **Context window: 15/100.** placeholder — no evidence
-- **Multimodal: 15/100.** placeholder — no evidence
-- **Coding: 15/100.** placeholder — no evidence (vendor quality claims noted, unverified)
-- **Cost efficiency: 15/100.** placeholder — no evidence (pricing: $0.25/$0.75 noted for context)
-- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — no verified public evaluation data.
+- **Context window: 15/100.** placeholder — no evidence (32K; unmeasured)
+- **Multimodal: 15/100.** placeholder — no evidence (text-only)
+- **Coding: 15/100.** placeholder — no absolute evidence (relative vendor-internal gains only: +48% accept rate)
+- **Cost efficiency: 15/100.** placeholder — $0.25/$0.75 list, cheap, but not scoreable without evaluated quality
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: try as a low-cost next-edit/autocomplete backend in Zed; not evaluable against chat/coding benchmarks.
 
 ## Signature
 
-- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
-- Method: public internet research (Inception Labs launch blog, Inception models docs table, BenchLM); ZERO verified public benchmark numbers found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-13 UTC
+- Method: public internet research; web search returned HTTP 402 (quota), so the fallback ladder was used — one simpler retry (402 again), then direct `webfetch` of DuckDuckGo HTML results, the official Inception Labs models doc (specs/pricing) and the Mercury Edit 2 launch blog (relative-only results, zero absolute numbers), plus SerenitiesAI/BenchLM listings (specs only). ZERO verified public absolute benchmark numbers found — saved as self-excluded per project rules; scores inside are placeholders and are ignored. No local repository files were used as evidence beyond the slug's own meta.json for identification.
 - Reference URLs:
-  - [Introducing Mercury Edit 2 — Inception Labs](https://www.inceptionlabs.ai/blog/introducing-mercury-edit-2)
-  - [Mercury Edit 2 — Inception models docs](https://docs.inceptionlabs.ai/get-started/models)
-  - [Mercury Edit 2 — BenchLM](https://benchlm.ai/models/mercury-edit-2)
-  - [Zed AI edit prediction docs](https://zed.dev/docs/ai/edit-prediction#mercury-coder)
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+  - [Inception Labs: Models (Mercury Edit 2 specs & pricing)](https://docs.inceptionlabs.ai/get-started/models)
+  - [Inception Labs blog: Introducing Mercury Edit 2 (2026-10-29)](https://www.inceptionlabs.ai/blog/introducing-mercury-edit-2)
+  - [SerenitiesAI: Mercury Edit 2 catalogue entry (pricing/specs only)](https://serenitiesai.com/benchmark/models/mercury-edit-2)
+- Future sources: add a new file next to this one, e.g. `Inkling_2_Small_2.md`, using the same headings.

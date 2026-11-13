@@ -1,0 +1,61 @@
+# GPT-6.2 Sol — findings by Flint
+
+- Source: OpenAI (`gpt-6.2-sol`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6.2 Sol
+- **Short description:** OpenAI's rumored cost-efficient tier of the GPT-6.2 family — the sibling of the rumored GPT-6.2 Astra — sighted through unverified Codex usage-analytics / developer reports and Google Cloud console quota screenshots; no official announcement, release date, spec, pricing or benchmark from OpenAI.
+- **Provider / access:** OpenAI — reported API model ID `openai/gpt-6.2-sol`; Chat Completions / Responses API; status: unannounced (no official API changelog entry, no newsroom post, no models-listing entry).
+- **Release / knowledge:** Not announced as of 2026-11-13; GPT-6.1 Sol (the confirmed prior tier) released 2026-09-30.
+- **IDs:** `openai/gpt-6.2-sol` (reported); confirmed prior: `openai/gpt-6.1-sol` (API standard pricing $2/M input / $10/M output, 1,050,000-token context).
+- **Context window:** Not established for GPT-6.2 Sol; the confirmed GPT-6.1 Sol entry documents a 1,050,000-token context.
+- **Modalities:** Not established for GPT-6.2 Sol.
+- **Pricing (as of 2026-11-13):** Not announced; confirmed prior GPT-6.1 Sol pricing $2/M input / $10/M output.
+- **Architecture:** Not established.
+
+### Raw benchmarks found
+
+- no verified public score found — GPT-6.2 Sol (`openai/gpt-6.2-sol`)
+
+Agent / tool use:
+
+- Terminal-Bench 4.0, DeepSWE, FrontierCode, Agents' Last Exam, OSWorld: OpenAI's GPT-6 Astra launch-post tables cover the confirmed `gpt-6-astra` ID only.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, Humanity's Last Exam, FrontierMath Tier 4, ARC-AGI-3: OpenAI GPT-6 Astra / GPT-6.1 Sol rows — not this unverified ID.
+
+Coding:
+
+- Terminal-Bench 4.0, DeepSWE, FrontierCode: OpenAI GPT-6 Astra launch-post coding tables — prior confirmed ID.
+
+Long context:
+
+- OpenAI MRCR v2 long-context rows: GPT-6 Astra — prior confirmed ID.
+
+### Cross-source comparison
+
+- Official OpenAI sources (GPT-6 Astra launch post + system card, GPT-6.1 Sol, GPT-6 Sol/Luna, GPT-6-Cyber, safety overview): contain no GPT-6.2 Sol material; OpenAI's newsroom, API changelog and API models listings were checked and show no GPT-6.2 entry as of 2026-11-13.
+- Independent coverage (TestingCatalog Codex usage-analytics report, geotoolbox.ai GPT-6.2 synthesis, EvoLink GPT-6.2 release watch, The Information, Google Cloud console quota screenshots, silent-routing reports): all describe sightings / rumors / expectations — none yield a standardized, independently reproducible public benchmark number for the GPT-6.2 Sol identity.
+
+### Normalized scores (1–100)
+
+- SELF-EXCLUSION: zero verified public benchmark numbers found for the GPT-6.2 Sol subject identity (`openai/gpt-6.2-sol`) in independently accessible public sources as of 2026-11-13; OpenAI has not announced GPT-6.2 Sol and published no context window, pricing or benchmark for it, and every measured benchmark figure retrieved in accessible sources belongs to the prior confirmed GPT-6 Astra / GPT-6.1 Sol IDs; no scored file written and no dimension scores assigned.
+
+## Signature
+
+- Provided by: **Flint** — 2026-11-13
+- Method: Fresh public-web research this pass (web search unavailable — HTTP 402 → webfetch fallback per RULES.md § Web-research fallback; OpenAI GPT-6 Astra launch post + system card, OpenAI API models listings via indexed sources, TestingCatalog Codex usage report, geotoolbox.ai GPT-6.2 synthesis, EvoLink GPT-6.2 release watch).
+- Reference URLs:
+  - [OpenAI — GPT-6 Astra: A new generation of intelligence](https://openai.com/index/gpt-6-astra/)
+  - [OpenAI — GPT-6 Astra System Card / Deployment Safety Hub](https://deploymentsafety.openai.com/gpt-6-astra)
+  - [OpenAI — GPT-6 Astra: next generation for work](https://openai.com/index/gpt-6-astra-next-generation-work/)
+  - [TestingCatalog — GPT-6.2 Astra appears in Codex usage ahead of possible launch](https://www.testingcatalog.com/gpt-6-2-astra-appears-codex-usage/)
+  - [Geotoolbox — GPT-6.2: Release Date, Leaks & What's Confirmed](https://geotoolbox.ai/blog/gpt-6-2)
+  - [EvoLink — GPT-6.2 Astra: Release Date, Demos & Expectations](https://evolink.ai/blog/gpt-6-2-astra-release-watch)
+
+- Future sources: add a new file next to this one, e.g. `Flint_2.md`, using the same headings.

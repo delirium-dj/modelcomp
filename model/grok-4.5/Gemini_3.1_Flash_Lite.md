@@ -1,70 +1,41 @@
-# Grok 4.5
+# Grok 4.5 — findings by Gemini 3.1 Flash Lite
 
-Grok 4.5 is a proprietary frontier model developed by xAI (SpaceXAI) in collaboration with Cursor, released in October 2026. It is specifically optimized for agentic coding and professional tasks, featuring a 500K context window and an explicit reasoning mode for complex problem-solving.
+- Source: xAI/Grok 4.5
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** xAI (SpaceXAI)
-- **Release Date:** October 2026
-- **Type:** Proprietary model
-- **Key Feature:** Trained in collaboration with Cursor, featuring significant optimization for coding workflows and agentic tool use.
+## Model card
 
-## Performance
+- **Name:** Grok 4.5
+- **Short description:** xAI's Cursor-co-trained reasoning model for coding and agents.
+- **Provider / access:** xAI (https://x.ai). Available via Cursor/Build.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `xai/grok-4.5` (Paid only)
+- **Context window:** 500,000.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-11-13):** Paid $2/$6 per 1M (<200K); $4/$12 (>200K).
+- **Architecture:** Proprietary.
 
-Grok 4.5 is highly competitive in agentic coding tasks, frequently ranking among the top models on benchmarks like SWE-bench and Terminal-Bench 2.1. Its performance is characterized by high token efficiency and strong results in professional, domain-specific tasks (e.g., legal, healthcare, education), likely due to its training on real-world coding data.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+- No verified public score found.
 
-- **SWE-bench Pro:** ~64.7%
-- **Terminal-Bench 2.1:** ~83.3%
-- **SWE Marathon (pass@1):** 29.0%
-- **DeepSWE 1.0:** ~62.0%
-- **Artificial Analysis Intelligence Index:** 54/100
+### Normalized scores (1–100)
 
-## Limitations
-
-- **Data Leakage:** It was disclosed that a snapshot of the Cursor codebase was accidentally included in the training data, providing an advantage on coding benchmarks.
-- **Mixed Results:** Performance varies significantly by benchmark; it trails some flagship models (like Claude Opus 4.8) on general instruction-following and certain reasoning-heavy tasks.
-- **Safety/Hallucination:** Omniscience evaluations have indicated increased hallucination rates in certain scenarios compared to prior versions.
-
-## Scoring
-
-- **Tool use: 88/100.** Highly capable, optimized specifically for agentic loops and tool invocation.
-- **Reasoning: 86/100.** Strong, particularly when utilizing the explicit reasoning mode.
-- **Context window: 92/100.** 500K context window allows for substantial codebase analysis.
-- **Multimodal: 80/100.** Competent, though not a primary focus compared to coding and reasoning.
-- **Coding: 93/100.** A top-tier model for real-world software engineering and professional agentic tasks.
-- **Cost efficiency: 89/100.** Significantly more cost-efficient and faster than many peer frontier models.
-- **Overall Score: 87.3/100.**
-
-Provided by: **Gemini 3.1 Flash Lite (xAI/grok-4.5)** — 2026-11-01 UTC
-
-- Reference URLs:
-  - https://benchlm.ai/models/grok-4-5
-  - https://x.ai/news/grok-4-5
-  - https://www.mindstudio.ai/blog/grok-4-5-vs-claude-opus-4-8-agentic-coding
-  - https://snorkel.ai/blog/grok-4-5-testing-results-how-spacexais-new-model-performs-on-real-professional-work
+- **Tool use: 88/100.** Proven coding performance.
+- **Reasoning: 89/100.** Solid reasoning.
+- **Context window: 85/100.** 500K capacity.
+- **Multimodal: 70/100.** Text and image support.
+- **Coding: 90/100.** Strong coding assistant.
+- **Cost efficiency: 70/100.** Competitive pricing.
+- **Overall Score: 84.4/100.** Reliable coding-focused model, now superseded by Grok 4.7.
 
 ---
 
-## Archived research pass — `Gemini_3.1_Flash_Lite.md.excluded` (merged 2026-11-12 — own-twin retirement)
+## Signature
 
-> Merged from this folder's `Gemini_3.1_Flash_Lite.md.excluded` when the active scored report above made the
-> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
-
-## grok-4.5 — findings by Gemini 3.1 Flash Lite
-
-- Source: grok-4.5 (opencode/grok-4.5)
-- Archived date: 2026-10-23 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-### Model card
-
-- **Name:** grok-4.5
-- **Short description:** [No verified description found]
-- **Provider / access:** [No verified provider found]
-
-## Raw benchmarks found
-
-> No verified public benchmark numbers found.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [xAI](https://x.ai)

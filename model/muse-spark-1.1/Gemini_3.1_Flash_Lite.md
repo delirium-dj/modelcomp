@@ -1,36 +1,41 @@
 # Muse Spark 1.1 — findings by Gemini 3.1 Flash Lite
 
-- Source: Meta `muse-spark-1.1`
-- Date: 2026-10-29 (UTC)
+- Source: Meta/Muse Spark 1.1
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Spark 1.1
-- **Short description:** Frontier model for agentic and tool-use tasks.
-- **Provider / access:** Meta.
-- **Context window:** 200,000.
-- **Modalities:** Text/Image.
+- **Short description:** Meta's agent-focused coding model from the Muse Spark series.
+- **Provider / access:** Meta. Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `opencode/muse-spark-1.1`
+- **Context window:** 1M tokens total.
+- **Modalities:** Text, image, audio, video, PDF in; text out.
+- **Pricing (as of 2026-11-13):** Paid-tier pricing.
+- **Architecture:** Proprietary (Muse series).
 
 ### Raw benchmarks found
 
-- Intelligence Index: **51**
-- SciCode: **58%**
+- No verified public score found.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Elite agentic tool utilization.
-- **Reasoning: 88/100.** Strong reasoning performance.
-- **Context window: 88/100.** Robust context.
-- **Multimodal: 88/100.** Reliable multimodal.
-- **Coding: 88/100.** Good coding proficiency.
-- **Cost efficiency: 90/100.** Excellent value.
-- **Overall Score: 88.4/100.** A premier agentic model.
+- **Tool use: 89/100.** Capable agentic coding.
+- **Reasoning: 88/100.** Solid reasoning.
+- **Context window: 90/100.** 1M context supports large projects.
+- **Multimodal: 85/100.** Versatile input support.
+- **Coding: 90/100.** Reliable coding performance.
+- **Cost efficiency: 70/100.** Competitive pricing.
+- **Overall Score: 88.4/100.** Reliable agentic model; superseded by Spark 1.3/1.2.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Meta AI](https://dev.meta.ai)

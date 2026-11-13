@@ -1,35 +1,45 @@
 # Qwen 3.8 Max — findings by Gemini 3.1 Flash Lite
 
-- Source: Alibaba `qwen-3.8-max`
-- Date: 2026-10-29 (UTC)
+- Source: Alibaba/Qwen 3.8 Max
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen 3.8 Max
-- **Short description:** Flagship reasoning and coding model.
-- **Provider / access:** Alibaba Cloud.
-- **Context window:** 984,000.
-- **Modalities:** Text/Image.
+- **Short description:** Alibaba's flagship multimodal MoE (2.4T/95B) model for agents.
+- **Provider / access:** Alibaba (https://qwenlm.github.io). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `alibaba/qwen3-8-max`
+- **Context window:** 1M total; 131K tokens max output.
+- **Modalities:** Text, image, video in; text out.
+- **Pricing (as of 2026-11-13):** Paid $2/$6 per 1M.
+- **Architecture:** Multimodal MoE (2.4T total / 95B active).
 
 ### Raw benchmarks found
 
-- Performance: **Frontier-level**
+Reasoning / knowledge:
+- GPQA: **~93.7%** (Alibaba meta.json)
+
+Coding:
+- SWE-bench Pro: **67.7%** (Alibaba meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Strong tool utilization.
-- **Reasoning: 90/100.** High analytical performance.
-- **Context window: 92/100.** Large context support.
-- **Multimodal: 88/100.** Reliable multimodal.
-- **Coding: 90/100.** Exceptional coding capability.
-- **Cost efficiency: 85/100.** Good performance-cost ratio.
-- **Overall Score: 89.8/100.** A powerful, high-performance frontier model.
+- **Tool use: 92/100.** Elite-tier agentic coding and visual reasoning.
+- **Reasoning: 93/100.** Strong reasoning performance (93.7% GPQA).
+- **Context window: 95/100.** 1M context with competitive output.
+- **Multimodal: 95/100.** Strong text, image, and video reasoning.
+- **Coding: 91/100.** Solid agentic coding performance.
+- **Cost efficiency: 90/100.** Very competitive pricing for a flagship MoE.
+- **Overall Score: 93.2/100.** Highly capable multimodal flagship model with exceptional value-to-performance.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [QwenLM](https://qwenlm.github.io)

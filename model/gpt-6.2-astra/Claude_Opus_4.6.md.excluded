@@ -1,0 +1,59 @@
+# GPT-6.2 Astra — findings by Claude Opus 4.6
+
+- Source: OpenAI (`openai/gpt-6.2-astra`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6.2 Astra
+- **Short description:** OpenAI's next-iteration GPT-6.2 Astra flagship reasoning and multimodal agent model, spotted in cloud infrastructure leaks and model tracker strings. Appears to be a minor-version update to GPT-6 Astra with enhanced capabilities. Not yet officially announced.
+- **Provider / access:** OpenAI API (`openai/gpt-6.2-astra`). Paid API tier. Not yet officially released as of November 2026.
+- **Release / knowledge:** Unreleased / preview. References found in cloud console filters and community model scrapers. No official OpenAI announcement.
+- **IDs:** `openai/gpt-6.2-astra` (no Free ID)
+- **Context window:** 1,050,000 tokens (1M) input / 128,000 tokens max output — per meta.json.
+- **Modalities:** Text + image in; text out — per meta.json.
+- **Pricing (as of 2026-11-13):** Paid API tier pricing (specific pricing not publicly disclosed for 6.2 variant; GPT-6 Astra priced at $10/$50 per 1M).
+- **Architecture:** Proprietary OpenAI. Likely builds on GPT-6 Astra architecture. No open weights, no disclosed parameter counts.
+
+### Raw benchmarks found
+
+> **SELF-EXCLUSION TRIGGERED:** Zero verified public benchmark numbers were found for this exact model/ID. GPT-6.2 Astra has not been officially announced or released by OpenAI. The version string "gpt-6.2-astra" appears only in infrastructure leaks, cloud console filters, and community model scrapers. No official benchmark scorecard, technical report, or evaluation data exists for this specific iteration.
+
+Agent / tool use:
+
+- Terminal-Bench: no verified public score found
+- SWE-bench / SWE-sweep: no verified public score found
+- Toolathon / MCP-Atlas: no verified public score found
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- MMLU: no verified public score found
+- ARC-AGI: no verified public score found
+
+Coding:
+
+- LiveCodeBench: no verified public score found
+- SWE-bench Verified: no verified public score found
+
+Long context:
+
+- 1M context per meta.json. No retrieval benchmarks found.
+
+### Negative findings summary
+
+GPT-6.2 Astra is an unreleased model iteration. All publicly documented benchmarks belong to the predecessor GPT-6 Astra (ARC-AGI-3 99.9%, FrontierMath T4 98%, OSWorld 72.6%, Terminal-Bench Science 64.6%, ExploitBench 100%). These are NOT transferable to the 6.2 designation. No independent evaluation or official announcement exists for GPT-6.2 Astra.
+
+---
+
+## Signature
+
+- Provided by: **Claude Opus 4.6 (anthropic/claude-opus-4.6)** — 2026-11-13
+- Method: Public internet research (OpenAI, evolink.ai, Reddit, YouTube, cloud infrastructure trackers); zero verified benchmarks found for this specific version — saved as `.md.excluded`.
+- Reference URLs:
+  - [OpenAI — GPT-6 Astra (predecessor)](https://openai.com)
+  - [evolink.ai — GPT-6.2 infrastructure references](https://evolink.ai)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

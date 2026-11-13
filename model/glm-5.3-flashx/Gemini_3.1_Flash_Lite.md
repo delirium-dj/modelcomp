@@ -1,58 +1,41 @@
 # GLM 5.3 FlashX — findings by Gemini 3.1 Flash Lite
 
-- Source: ZhipuAI `glm-5.3-flashx`
-- Date: 2026-10-29 (UTC)
+- Source: Z.ai/GLM 5.3 FlashX
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM 5.3 FlashX
-- **Short description:** Highly efficient model for cost-sensitive coding tasks.
-- **Provider / access:** ZhipuAI.
-- **Context window:** 128,000.
-- **Modalities:** Text/Image.
+- **Short description:** Low-latency serving variant (~200 tok/s) of GLM 5.3 Flash for multimodal coding.
+- **Provider / access:** Z.ai (https://open.zhipuai.cn). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `opencode/glm-5.3-flashx`
+- **Context window:** 1M tokens total; 128K output.
+- **Modalities:** Text, image, video in; text out.
+- **Pricing (as of 2026-11-13):** Paid $0.37/$1.25 per 1M.
+- **Architecture:** Same MoE weights as Flash.
 
 ### Raw benchmarks found
 
-- Intelligence Index: **52**
+- No verified public score found.
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Capable agentic use.
-- **Reasoning: 87/100.** Solid reasoning.
-- **Context window: 85/100.** Standard context.
-- **Multimodal: 85/100.** Reliable multimodal.
-- **Coding: 89/100.** Strong coding proficiency.
-- **Cost efficiency: 95/100.** Superior efficiency.
-- **Overall Score: 86.4/100.** An excellent, efficient coding model.
+- **Tool use: 90/100.** Optimized for low-latency coding assistance.
+- **Reasoning: 86/100.** Solid reasoning (shared with Flash).
+- **Context window: 90/100.** 1M context.
+- **Multimodal: 80/100.** Text, image, video support.
+- **Coding: 90/100.** High-speed coding assistance.
+- **Cost efficiency: 90/100.** Excellent pricing for streaming-heavy tasks.
+- **Overall Score: 87.2/100.** Optimal Flash-class variant for low-latency, streaming-heavy coding agents.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
-
----
-
-## Archived research pass — `Gemini_3.1_Flash_Lite.md.excluded` (merged 2026-11-12 — own-twin retirement)
-
-> Merged from this folder's `Gemini_3.1_Flash_Lite.md.excluded` when the active scored report above made the
-> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative — the archived model card was folded
-> into the active model card above; the content below is preserved research history, not judged data.
-
-## glm-5.3-flash-x — findings by Gemini 3.1 Flash Lite
-
-- Source: glm-5.3-flash-x (opencode/glm-5.3-flash-x)
-- Archived date: 2026-10-23 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-> Archived model card omitted — own-twin consolidation 2026-11-12.
-> Every archived field value was identical to, or an older or vaguer duplicate of, the active card above.
-
-## Raw benchmarks found
-
-> No verified public benchmark numbers found.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Z.ai](https://open.zhipuai.cn/)

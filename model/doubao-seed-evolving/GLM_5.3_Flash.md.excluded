@@ -1,0 +1,52 @@
+# Doubao Seed Evolving — findings by GLM 5.3 Flash
+
+- Source: ByteDance / Volcano Engine Ark (`doubao-seed-evolving`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> SELF-EXCLUSION (per `model-report-TEMPLATE.md` / `tasks/research.md` Rule 9):
+> zero verified public benchmark numbers exist for this exact model ID — the
+> official Ark model page and model-list documentation publish capabilities and
+> limits only, ModelDial's 57-model harness (snapshot 2026-11-13) does not
+> include it, and search fallbacks (DuckDuckGo transport failures, Bing
+> unrelated hits) surfaced no third-party evaluation. Saved as `.md.excluded`
+> with verified facts below for future re-research; no scores are claimed.
+
+## Model card
+
+- **Name:** Doubao Seed Evolving
+- **Short description:** ByteDance's continuously-updating Coding & Agent model on Volcano Engine Ark, served under a single stable model ID that "高频迭代，持续进化" (iterates at high frequency, continuously evolving its coding and agent capabilities) — Ark's 首推 (top-recommended) text-generation entry, with first-class integration pages for Claude Code, Codex, Trae, DeepSeek Harness, Pi, OpenCode and OpenClaw.
+- **Provider / access:** Volcano Engine Ark, model ID `doubao-seed-evolving`; Chat Completions (`/chat/completions`), Responses (`/responses`), Messages (`/messages`), Tokenization endpoints; online + batch inference; explicit and implicit context caching; model fine-tuning offered. Rate limits per the model list: max 500 RPM / 1,000,000 TPM.
+- **Release / knowledge:** live on Ark as of the 2026-11-13 docs fetch (model-list "Last Updated" Nov 2026); no fixed release date — the ID is a moving pointer to the latest weekly checkpoint. Knowledge cutoff not stated.
+- **IDs:** `doubao-seed-evolving` (the only ID — deliberately version-less).
+- **Context window:** 1,024K (1M) tokens total; max input 1,024K; max output 256K; max thinking chain 256K — verified from both the Ark model page and model list.
+- **Modalities:** text, image, and video input → text output; deep thinking enabled by default with efforts low/medium/high/minimal; structured output; tools (Responses API): Function Call, web search (联网搜索), knowledge base, MCP. Implicit + explicit (prefix/session) caching.
+- **Pricing (as of 2026-11-13):** not verified in this pass (Ark pricing page not fetched; no per-token figure on the fetched surfaces).
+- **Architecture:** not published — parameter count, MoE structure and per-week checkpoint identity unverified; the "evolving" ID means measured figures can only be cited against a fetch date.
+
+### Raw benchmarks found
+
+Agent / tool use: no verified public score found
+
+Reasoning / knowledge: no verified public score found
+
+Coding: no verified public score found (coding/agent capability is the vendor's headline positioning — "周级迭代" weekly iteration — but no harness numbers are published on any fetched surface; ModelDial's snapshot 2026-11-13 does not list the model)
+
+Long context: no long-context retrieval reported (1M window official; no MRCR / RULER / GraphWalks value published)
+
+### Normalized scores (1–100)
+
+Not computed — self-excluded per the zero-verified-benchmarks rule (`RULES.md`; template SELF-EXCLUSION). Verified capability specs (1M context, omni-vision input, tool suite, agent-harness integrations) are specs, not measured benchmark rows, and never justify inventing scores. Re-research trigger: the first ModelDial/AA/independent row for `doubao-seed-evolving`, or a vendor benchmark table — cite against the fetch date given the weekly-iteration ID.
+
+---
+
+## Signature
+
+- Provided by: **GLM 5.3 Flash (z-ai/glm-5.3-flash)** — 2026-11-13
+- Method: public internet research via the fallback ladder (Volcano Engine Ark model-detail page and model-list documentation fetched directly; ModelDial leaderboard coverage check; DuckDuckGo transport failed twice, Bing returned unrelated hits); scores are omitted per self-exclusion rules, not normalized interpretations.
+- Reference URLs:
+  - [Volcano Engine Ark — Doubao-Seed-Evolving model detail page (capabilities, 1024K limits, tool suite, agent integrations)](https://ark.volcengine.com/region:cn-beijing/model/detail?Id=doubao-seed-evolving)
+  - [Volcano Engine Ark — model list documentation (recommended-models table, rate limits)](https://www.volcengine.com/docs/82379/1330310)
+  - [ModelDial — coding rankings (coverage check: no doubao-seed-evolving entry, snapshot 2026-11-13)](https://modeldial.com/en/leaderboard/coding?axis=overall)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

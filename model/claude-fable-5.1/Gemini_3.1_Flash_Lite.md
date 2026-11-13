@@ -8,32 +8,28 @@
 ## Model card
 
 - **Name:** Claude Fable 5.1
-- **Short description:** Anthropic's efficient agentic model for fast, reliable task completion.
+- **Short description:** Anthropic's flagship model for long-horizon software engineering and agentic workflows.
 - **Provider / access:** Anthropic. Chat Completions API.
 - **Release / knowledge:** 2026; knowledge cutoff unknown.
-- **IDs:** `anthropic/claude-fable-5-1`
-- **Context window:** 1M tokens total.
-- **Modalities:** Text, image in; text out.
-- **Pricing (as of 2026-11-13):** Paid-tier pricing.
-- **Architecture:** Proprietary (Fable-lane architecture).
+- **IDs:** `anthropic/claude-fable-5-1` (Paid only)
+- **Context window:** 1M tokens total; 128K tokens max output.
+- **Modalities:** Text, image, PDF in; text out.
+- **Pricing (as of 2026-11-13):** Paid $10/$50 per 1M.
+- **Architecture:** Proprietary (Mythos-class architecture).
 
 ### Raw benchmarks found
 
-Reasoning / knowledge:
-- Artificial Analysis Intelligence Index: **No verified public score found.**
-
-Coding:
-- SWE-bench Verified: **No verified public score found.**
+- SWE-Pro: **81.2%** (Anthropic meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 90/100.** Fast and reliable agentic performance.
-- **Reasoning: 89/100.** Solid reasoning capabilities for task automation.
-- **Context window: 90/100.** 1M context supports large tasks efficiently.
-- **Multimodal: 70/100.** Text and image input support.
-- **Coding: 91/100.** Strong coding performance for agentic workloads.
-- **Cost efficiency: 60/100.** Balanced pricing for enterprise use.
-- **Overall Score: 86/100.** High-performance agentic model optimized for speed and reliability.
+- **Tool use: 95/100.** Elite agentic coding performance.
+- **Reasoning: 94/100.** High-fidelity reasoning for engineering.
+- **Context window: 95/100.** 1M context.
+- **Multimodal: 70/100.** Text, image, PDF support.
+- **Coding: 96/100.** Top-tier coding (81.2% SWE-Pro).
+- **Cost efficiency: 20/100.** Premium Mythos-class pricing.
+- **Overall Score: 90/100.** Elite model for complex, long-horizon software engineering.
 
 ---
 

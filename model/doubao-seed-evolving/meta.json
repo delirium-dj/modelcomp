@@ -1,0 +1,14 @@
+{
+  "id": "bytedance/doubao-seed-evolving",
+  "name": "Doubao Seed Evolving",
+  "short": "ByteDance's weekly-iterating coding and agent model in the Doubao Seed family on Volcano Engine Ark, with 1M context and adaptive reasoning.",
+  "contextWindow": "1,024,000 total; 256,000 max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "Volcano Engine Ark tier pricing",
+  "officialUrl": "https://www.volcengine.com",
+  "pricingLinks": [
+    "https://www.volcengine.com"
+  ],
+  "standout": "Weekly fast-evolving checkpoint optimized for agentic coding and live iteration on Volcano Engine Ark.",
+  "tradeoff": "Rapidly updating weights require continuous re-evaluation; stability varies across weekly drops."
+}

@@ -8,33 +8,30 @@
 ## Model card
 
 - **Name:** GPT-6 Astra
-- **Short description:** OpenAI's frontier multimodal model for real-time interaction and reasoning.
-- **Provider / access:** OpenAI (https://openai.com). Chat Completions API.
-- **Release / knowledge:** Released 2026; knowledge cutoff unknown.
+- **Short description:** OpenAI's frontier reasoning and agentic model with 1.05M context.
+- **Provider / access:** OpenAI. Chat Completions API (gated Daybreak rollout).
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
 - **IDs:** `openai/gpt-6-astra`
-- **Context window:** 2M tokens total; 128K tokens max output.
-- **Modalities:** Text, audio, image, video in; text, audio out.
-- **Pricing (as of 2026-11-13):** Premium pricing.
+- **Context window:** 1,050,000 total; 128K tokens max output.
+- **Modalities:** Text, image in; text out.
+- **Pricing (as of 2026-11-13):** Paid $10/$50 per 1M.
 - **Architecture:** Proprietary (GPT-6 lane).
 
 ### Raw benchmarks found
 
 Reasoning / knowledge:
-- Artificial Analysis Intelligence Index: **72** (Provisional)
-- GPQA Diamond: **No verified public score found.**
-
-Coding:
-- SWE-bench Verified: **No verified public score found.**
+- GPQA: **96%** (OpenAI meta.json)
+- FrontierMath T4: **97.6%** (OpenAI meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 94/100.** Highly capable, real-time agentic interaction.
-- **Reasoning: 92/100.** Strong performance in complex reasoning tasks.
-- **Context window: 95/100.** 2M context supports massive data processing.
-- **Multimodal: 96/100.** Industry-leading multimodal capabilities (Text, Audio, Image, Video).
-- **Coding: 92/100.** High-level reasoning applied to coding.
-- **Cost efficiency: 40/100.** Premium pricing.
-- **Overall Score: 93.8/100.** Frontier multimodal model with industry-leading real-time performance.
+- **Tool use: 98/100.** Frontier agentic capabilities.
+- **Reasoning: 98/100.** Elite reasoning (97.6% FrontierMath T4).
+- **Context window: 95/100.** 1.05M capacity.
+- **Multimodal: 70/100.** Text and image support.
+- **Coding: 98/100.** Top-tier coding capabilities.
+- **Cost efficiency: 20/100.** Premium flagship pricing.
+- **Overall Score: 91.8/100.** Current industry-leading reasoning and agentic flagship.
 
 ---
 

@@ -1,0 +1,64 @@
+# Doubao Seed Evolving — findings by Flint
+
+- Source: ByteDance Seed / Volcengine Ark (`bytedance/doubao-seed-evolving`)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Doubao Seed Evolving
+- **Short description:** ByteDance Seed's continuously updated agentic coding / office model, served under the unified `bytedance/doubao-seed-evolving` model ID as the "Evolving" line of the Seed2.1 family (Pro / Turbo lineage) optimized for coding, office work and productivity enhancement, integrated into ByteDance's Volcano Agent Plan with weekly capability updates.
+- **Provider / access:** ByteDance Seed / Volcengine Ark — API model ID `bytedance/doubao-seed-evolving` (Ark, unified Evolving ID); Chat API + Responses API; deep thinking enabled by default (reasoning_effort default high).
+- **Release / knowledge:** Seed2.1 family released 2026-06-23; the Evolving serving line tracks weekly updates on the unified ID; knowledge cutoff not established.
+- **IDs:** `bytedance/doubao-seed-evolving` (unified Evolving ID) / lineage to the Seed2.1 Pro (`doubao-seed-2.1-pro-260915`) and Turbo (`doubao-seed-2.1-turbo-260628`) checkpoints.
+- **Context window:** ~256,000 tokens context (ZenMux / modelbenchmark.io); max output 256K per one source vs 128K per another (HopBase) — conflicting values, not cleanly verified for this ID.
+- **Modalities:** Text in / text out; multimodal understanding (image, video) plus coding / office agentic use; deep thinking (reasoning).
+- **Pricing (as of 2026-11-13):** same price tier as Seed2.1 Pro ≈ $0.89 input / $4.45 output per 1M tokens (Ark / Volcengine); cache read ≈ $0.18 / 1M; free on volcengine-coding-plan; paid on Ark.
+- **Architecture:** Proprietary; serving variant within the Seed2.1 family.
+
+### Raw benchmarks found
+
+- no verified public score found — Doubao Seed Evolving (`bytedance/doubao-seed-evolving`)
+
+Agent / tool use:
+
+- Terminal-Bench, GDPVal, Agent Startup Bench, Workspace Bench, NL2Repo-Bench: ByteDance published Seed2.1 Pro / Turbo benchmark rows (official Seed tech blog, fetched this pass) — those IDs are the Pro / Turbo checkpoints, not the unified Evolving serving ID.
+
+Reasoning / knowledge:
+
+- Beyond AI Reasoning, SuperGPQA, KINAKnowledge: Seed2.1 Pro / Turbo official rows — not this evolving ID.
+
+Coding:
+
+- Terminal Bench, SWE-Atlas, NL2Repo-Bench, DeepSWE: Seed2.1 Pro / Turbo official rows — not this evolving ID.
+
+Long context:
+
+- MMLongBench / MRCR-style long-context rows: Seed2.1 Pro / Turbo official rows — not this evolving ID.
+
+### Cross-source comparison
+
+- Official ByteDance sources (Seed2.1 model card / tech blog / Ark model list, deep-thinking and pricing docs, fetched this pass): publish benchmark tables for the Seed2.1 Pro and Turbo checkpoints only; the unified `doubao-seed-evolving` ID is described as a continuously updated serving line with weekly evolution but no checkpoint-specific standardized benchmark numbers of its own.
+- Independent coverage (modelbenchmark.io specs/benchmarks page, ZenMux provider page, HopBase docs, BestHub hands-on evaluation of the evolving line): no standardized, independently replicated benchmark number for the exact evolving ID.
+
+### Normalized scores (1–100)
+
+- SELF-EXCLUSION: zero verified public benchmark numbers found for the Doubao Seed Evolving subject identity (`bytedance/doubao-seed-evolving`) in independently accessible public sources as of 2026-11-13; official ByteDance benchmark rows belong to the Seed2.1 Pro / Turbo checkpoint IDs and independent coverage published no standardized benchmark for the unified evolving ID; no scored file written and no dimension scores assigned.
+
+## Signature
+
+- Provided by: **Flint** — 2026-11-13
+- Method: Fresh public-web research this pass (web search unavailable — HTTP 402 → webfetch fallback per RULES.md § Web-research fallback; ByteDance Seed 2.1 model card / tech blog / Ark docs, modelbenchmark.io, ZenMux, HopBase, BestHub hands-on evaluation).
+- Reference URLs:
+  - [ByteDance Seed — Seed2.1](https://seed.bytedance.com/en/seed2_1)
+  - [ByteDance Seed — Seed2.1 tech blog](https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity)
+  - [Volcengine Ark — Model list (doubao-seed-2-1-pro-260915)](https://ark.volcengine.com/region:cn-beijing/docs/model-list)
+  - [Volcengine Ark — Deep thinking (doubao-seed-2-1-pro-260915)](https://ark.volcengine.com/region:cn-beijing/docs/deep-thinking)
+  - [Volcengine Ark — Model pricing](https://ark.volcengine.com/region:cn-beijing/docs/model-pricing)
+  - [modelbenchmark.io — Doubao Seed Evolving](https://modelbenchmark.io/models/doubao-seed-evolving)
+  - [ZenMux — ByteDance: Doubao-Seed-Evolving](https://zenmux.ai/bytedance/doubao-seed-evolving)
+  - [HopBase — Doubao Seed Evolving](https://hop-base.com/en/docs/models/doubao-seed-evolving)
+  - [BestHub — Doubao-Seed-Evolving Tested: Coding, Multimodal, and Long-Horizon Agent Skills](https://www.besthub.dev/articles/doubao-seed-evolving-tested-coding-multimodal-and-long-horizon-agent-skills-cff0a66af42a)
+
+- Future sources: add a new file next to this one, e.g. `Flint_2.md`, using the same headings.

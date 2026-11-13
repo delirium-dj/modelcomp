@@ -1,40 +1,45 @@
 # DeepSeek V4 Pro — findings by Gemini 3.1 Flash Lite
 
-- Source: DeepSeek `deepseek-v4-pro`
-- Date: 2026-10-18 (UTC)
+- Source: DeepSeek/DeepSeek V4 Pro
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** DeepSeek V4 Pro
-- **Short description:** High-capability flagship reasoning model.
-- **Provider / access:** DeepSeek API.
-- **Context window:** 128,000.
-- **Modalities:** Text.
+- **Short description:** DeepSeek's open-weights flagship MoE (1.6T total / 49B-active) for reasoning and software engineering.
+- **Provider / access:** DeepSeek (https://www.deepseek.com). Chat Completions API / Open-weights.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `opencode/deepseek-v4-pro` (MIT license)
+- **Context window:** 1M tokens total; 384K tokens max output.
+- **Modalities:** Text in/out.
+- **Pricing (as of 2026-11-13):** Paid ~$1.32/$3.96 peak per 1M; free self-host.
+- **Architecture:** MoE (1.6T total / 49B-active).
 
 ### Raw benchmarks found
-- MMLU: **88.0%**
-- HumanEval: **85.0%**
 
-### Status update
-- **Note:** Maintains its position as a top-tier model for technical tasks. Scores are maintained.
+Reasoning / knowledge:
+- GPQA: **92.8%** (DeepSeek meta.json)
+
+Coding:
+- SWE-bench: **96.4%** (DeepSeek meta.json)
+
+### Normalized scores (1–100)
+
+- **Tool use: 95/100.** Exceptional performance in complex software engineering.
+- **Reasoning: 95/100.** Elite reasoning (92.8% GPQA).
+- **Context window: 95/100.** 1M context.
+- **Multimodal: 15/100.** Text-only.
+- **Coding: 98/100.** Industry-leading coding (96.4% SWE-bench).
+- **Cost efficiency: 100/100.** Open-weights / self-hostable.
+- **Overall Score: 79.6/100.** Frontier-grade open-weights model for software engineering and reasoning.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
-
-
-### Normalized scores (1–100)
-
-- **Tool use: 70/100**
-- **Reasoning: 75/100**
-- **Context window: 75/100**
-- **Multimodal: 70/100**
-- **Coding: 75/100**
-- **Cost efficiency: 90/100**
-
-- **Overall Score: 73/100**
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [DeepSeek](https://www.deepseek.com)

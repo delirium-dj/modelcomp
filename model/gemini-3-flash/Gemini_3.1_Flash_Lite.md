@@ -1,35 +1,45 @@
 # Gemini 3 Flash — findings by Gemini 3.1 Flash Lite
 
-- Source: Google `gemini-3-flash`
-- Date: 2026-10-29 (UTC)
+- Source: Google/Gemini 3 Flash
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3 Flash
-- **Short description:** Fast and cost-efficient frontier intelligence.
-- **Provider / access:** Google.
-- **Context window:** 1,000,000.
-- **Modalities:** Text/Image.
+- **Short description:** Google's Flash preview model for interactive coding and analysis.
+- **Provider / access:** Google DeepMind. Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `google/gemini-3-flash`
+- **Context window:** 1M tokens total; 65K tokens max output.
+- **Modalities:** Text, image, audio in; text out.
+- **Pricing (as of 2026-11-13):** Paid $0.50/$3.00 per 1M.
+- **Architecture:** Proprietary (Flash architecture).
 
 ### Raw benchmarks found
 
-- SWE-bench Verified: **78%**
+Reasoning / knowledge:
+- GPQA: **90.4%** (Google meta.json)
+
+Coding:
+- SWE-bench: **78%** (Google meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Strong tool utilization.
-- **Reasoning: 88/100.** High-performance reasoning.
-- **Context window: 95/100.** Excellent long-context handling.
-- **Multimodal: 86/100.** Effective multimodal.
-- **Coding: 90/100.** Elite coding proficiency.
-- **Cost efficiency: 95/100.** Elite cost-performance.
-- **Overall Score: 89.6/100.** A top-tier, efficient frontier model.
+- **Tool use: 87/100.** Good for interactive coding and analysis.
+- **Reasoning: 89/100.** Strong reasoning (90.4% GPQA).
+- **Context window: 90/100.** 1M context.
+- **Multimodal: 80/100.** Text, image, audio support.
+- **Coding: 88/100.** Reliable coding assistant.
+- **Cost efficiency: 90/100.** Competitive pricing.
+- **Overall Score: 86.8/100.** Dependable interactive coding model, superseded by later Flash variants.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+- [Google DeepMind Gemini](https://deepmind.google/technologies/gemini/)

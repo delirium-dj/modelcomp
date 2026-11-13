@@ -1,42 +1,41 @@
-# Claude Opus 5
+# Claude Opus 5 — findings by Gemini 3.1 Flash Lite
 
-Claude Opus 5 is a frontier-class model released by Anthropic in July 2026, setting new baselines for agentic coding, scientific research, and complex knowledge work.
+- Source: Anthropic/Claude Opus 5
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** Anthropic
-- **Release Date:** July 24, 2026
-- **Type:** Proprietary multimodal reasoning model
-- **Key Feature:** Exceptional reasoning capabilities for life sciences, organic chemistry, and repository-scale software engineering.
+## Model card
 
-## Performance
+- **Name:** Claude Opus 5
+- **Short description:** Anthropic's long-autonomous coding model.
+- **Provider / access:** Anthropic. Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `anthropic/claude-opus-5` (Paid only)
+- **Context window:** 1M tokens total; 128K tokens max output.
+- **Modalities:** Text, image, PDF in; text out.
+- **Pricing (as of 2026-11-13):** Paid $5/$25 per 1M.
+- **Architecture:** Proprietary (Opus architecture).
 
-Claude Opus 5 is highly effective at multi-step autonomous research, particularly in high-stakes scientific and engineering tasks. It shows strong coherence in long-horizon workflows and advanced reasoning across diverse domains.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+- SWE-Pro: **79.2%** (Anthropic meta.json)
 
-- **ARC-AGI-3 (Mean Reward):** 44.4%
-- **Frontier-Bench v0.1:** Leading performance
-- **LABBench2:** 84.2%
-- **HealthBench (Raw):** 67.1%
-- **Toolathlon Verified Pass@3:** 87.0%
+### Normalized scores (1–100)
 
-## Limitations
+- **Tool use: 90/100.** Strong agentic planning and execution capabilities.
+- **Reasoning: 90/100.** Reliable reasoning for multi-step coding projects.
+- **Context window: 95/100.** 1M context supports extensive projects.
+- **Multimodal: 70/100.** Supports text, image, and PDF input.
+- **Coding: 92/100.** Strong specialist coding abilities (79.2% SWE-Pro).
+- **Cost efficiency: 40/100.** Premium pricing ($5/$25 per 1M).
+- **Overall Score: 87.4/100.** Powerful coding specialist, currently superseded by Opus 5.5.
 
-- **Benchmark Margins:** As a frontier model, benchmark performance is extremely high, and small margins are often not indicative of large real-world performance differences compared to competing flagship models.
-- **Production Cost:** As a high-effort frontier model, it is expensive to use in high-volume production agentic pipelines.
+---
 
-## Scoring
+## Signature
 
-- **Tool use: 95/100.** Leading capability for high-stakes, multi-step agentic workflows.
-- **Reasoning: 96/100.** Frontier-level scientific and technical reasoning.
-- **Context window: 96/100.** 1M context with high retrieval and coherence.
-- **Multimodal: 92/100.** Sophisticated multimodal capabilities for scientific and complex data.
-- **Coding: 95/100.** Exceptional performance in complex, iterative coding and scientific research.
-- **Cost efficiency: 78/100.** High performance, but requires significant compute for complex tasks.
-- **Overall Score: 94.8/100.**
-
-Provided by: **Gemini 3.1 Flash Lite (Anthropic/claude-opus-5)** — 2026-11-01 UTC
-
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - https://www.anthropic.com/news/claude-opus-5
-  - https://benchlm.ai/models/claude-opus-5
-  - https://www.vellum.ai/blog/claude-opus-5-benchmarks-explained
+  - [Anthropic Claude](https://claude.ai)

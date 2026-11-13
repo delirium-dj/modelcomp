@@ -1,17 +1,60 @@
-# Mai Experimental Test - self-exclusion (no verified public benchmarks)
+# Mai Experimental Test — findings by Inkling 2 Small
 
-- Source: Microsoft (`mai-experimental-test`)
-- Date: 2026-10-05 (UTC)
+- Source: OpenCode (Zen) — claimed `opencode/mai-experimental-test`; Microsoft MAI lineage claimed
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Negative findings - why this file is `.md.excluded`
+## Model card
 
-As of 2026-10-05, no verified public model, benchmark, or pricing exists for `mai-experimental-test`:
+- **Name:** Mai Experimental Test (placeholder slot, not a model)
+- **Short description:** An OpenCode sandbox placeholder. The folder's own meta.json already records the outcome: "a documented absence: the sandbox slot name outlived the model behind it … the id resolves nowhere: no registry lists it, Microsoft's MAI catalogue does not include it, and Zen serves no MAI model."
+- **Provider / access:** claimed: OpenCode experimental Microsoft MAI sandbox slot. Verified: **absent** — live OpenCode Zen `/v1/models` (86 entries, checked 2026-11-13) has no mai entry; models.dev catalog (checked 2026-11-13) has no `mai-experimental-test`; Microsoft's official MAI catalog (microsoft.ai/models, checked 2026-11-13) lists only MAI Thinking 1, MAI Code 1 Flash, MAI Image 2.6, MAI Transcribe 2, MAI Voice 2, MAI Cyber 1.1 Flash and Frontier Tuning — no experimental test slot.
+- **Release / knowledge:** none — never a released model.
+- **IDs:** `opencode/mai-experimental-test` (claimed; resolves nowhere).
+- **Context window:** claimed 128,000 total (meta.json only).
+- **Modalities:** claimed text in/out only (meta.json only).
+- **Pricing (as of 2026-11-13):** "Experimental tier pricing — no published rate" (meta.json); no price exists.
+- **Architecture:** none published; no weights, no parameters.
 
-- `mai-experimental-test` does not resolve to any published Microsoft MAI model. The publicly documented MAI line is MAI-Thinking-1, MAI-Code-1-Flash, MAI-Image-2.5/2.6, MAI-Voice-2, MAI-Transcribe-1.5/2 — none is listed or aliased as "mai-experimental-test".
-- No artificial-analysis row, Vals AI entry, or OpenRouter/ModelRouter `mai-experimental-test` ID exists.
-- The folder's metadata is a scaffold placeholder ("Mai Experimental Test model evaluation entry.", 128K generic spec) with no provider, ID, or pricing.
-- Every verifiable MAI finding therefore cannot be attributed to this exact slug; writing scores would be invention.
+### Raw benchmarks found
 
-If Microsoft later publishes a model matching this slug, re-research and file a real scored report.
+ZERO verified public benchmark numbers found for `opencode/mai-experimental-test` — the slot is not a model. Confirmed via: live OpenCode Zen model list (no MAI entry), models.dev full catalog (no match), the official Microsoft AI model catalog (no experimental/test slot; no "MAI Experimental Test" anywhere). No benchmark of any kind can exist for an unreleased placeholder.
+
+Agent / tool use:
+
+- no verified public score found
+
+Reasoning / knowledge:
+
+- no verified public score found
+
+Coding:
+
+- no verified public score found
+
+Long context:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark numbers exist for `Mai Experimental Test`. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. There is nothing to re-research until Microsoft or OpenCode publishes an actual model behind this or a successor slot.
+
+- **Tool use: 15/100.** placeholder — no evidence
+- **Reasoning: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence (128K claim unverified)
+- **Multimodal: 15/100.** placeholder — no evidence
+- **Coding: 15/100.** placeholder — no evidence
+- **Cost efficiency: 15/100.** placeholder — no price exists
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — placeholder slot; use MAI Thinking 1 or MAI Code 1 Flash instead.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-13 UTC
+- Method: public internet research; web search returned HTTP 402 (quota), so the fallback ladder was used — one simpler retry (402 again), then direct `webfetch` of the official Microsoft AI model catalog and shell `curl` of the full models.dev catalog and the live OpenCode Zen model list. ZERO verified public benchmarks (or any public surface) found for the exact claimed ID — saved as self-excluded per project rules; scores inside are placeholders and are ignored. No local repository files were used as evidence beyond the slug's own meta.json for identification.
+- Reference URLs:
+  - [Microsoft AI — official model catalog (no experimental test slot)](https://microsoft.ai/models/)
+  - [OpenCode Zen models endpoint (live catalog; no mai entry)](https://opencode.ai/zen/v1/models)
+  - [models.dev (MIT license catalog; no mai-experimental-test)](https://models.dev/)
+- Future sources: add a new file next to this one, e.g. `Inkling_2_Small_2.md`, using the same headings.

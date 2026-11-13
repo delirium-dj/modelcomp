@@ -1,0 +1,15 @@
+{
+  "id": "openai/gpt-6.2-sol",
+  "name": "GPT-6.2 Sol",
+  "short": "OpenAI's GPT-6.2 Sol mainstream reasoning model tuned for efficient agentic coding and complex math execution at mid-tier pricing.",
+  "contextWindow": "1,050,000 total (128K output)",
+  "modalities": "Text, image, file in; text out",
+  "pricingNote": "Standard API tier pricing",
+  "noFreeId": true,
+  "officialUrl": "https://openai.com",
+  "pricingLinks": [
+    "https://openai.com/api/pricing/"
+  ],
+  "standout": "Mainstream GPT-6.2 Sol balancing high reasoning accuracy with cost-efficient agentic execution.",
+  "tradeoff": "Superseded by later specialized iterations for specific frontier workloads."
+}

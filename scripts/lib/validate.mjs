@@ -59,6 +59,7 @@ export const MIRROR_ROUTED_SLUGS = new Map([
   // Cybersecurity domain (RULES.md cyber routing: `-cyber` suffix).
   ["gemini-3.8-flash-cyber", "models_cybersecurity"],
   ["gpt-5.6-cyber", "models_cybersecurity"],
+  ["gpt-6-cyber", "models_cybersecurity"],
   // Voice/speech domain (RULES.md voice routing: realtime / TTS / STT-first).
   ["gemini-3.8-live", "models_voice"],
   ["gpt-live-1-astra", "models_voice"],
@@ -904,6 +905,7 @@ export const CASE_LAW_NOTES = new Map([
   ["ling-3.0-flash-sante", "health domain routing (RULES.md, `-sante` suffix) — lives in models_health/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
   ["gemini-3.8-flash-cyber", "cybersecurity domain routing (RULES.md, `-cyber` suffix) — lives in models_cybersecurity/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
   ["gpt-5.6-cyber", "cybersecurity domain routing (RULES.md, `-cyber` suffix) — lives in models_cybersecurity/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
+  ["gpt-6-cyber", "cybersecurity domain routing (RULES.md, `-cyber` suffix) — lives in models_cybersecurity/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
   ["gemini-3.8-live", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
   ["gpt-live-1-astra", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],
   ["gpt-realtime-2", "voice/speech routing (RULES.md) — lives in models_voice/, never under model/. Mirror tree unscored by pnpm sync today (audit E2)"],

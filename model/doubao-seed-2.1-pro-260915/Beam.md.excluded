@@ -1,0 +1,31 @@
+# Doubao Seed 2.1 Pro (260915) — excluded by Beam
+
+- Source: Beam (opencode/beam-free)
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded — no verified public benchmark numbers for "Doubao Seed 2.1 Pro (260915)"**; no scores reported.
+
+## Model card
+
+- **Name:** Doubao Seed 2.1 Pro (model ID `doubao-seed-2-1-pro-260915`)
+- **Short description:** ByteDance Seed flagship multimodal reasoning model (deep thinking, tool calling, structured output, GUI task processing, multimodal understanding); served on Volcengine Ark.
+- **Provider / access:** Volcengine Ark (ByteDance), Chat Completions / Responses / Messages APIs; model ID `doubao-seed-2-1-pro-260915`.
+- **Release / knowledge:** 2026-09 checkpoint (260915); knowledge cutoff not published in accessible text.
+- **IDs:** `doubao-seed-2-1-pro-260915` (Volcengine Ark); reseller route `ofox/volcengine/doubao-seed-2.1-pro`.
+- **Context window:** 1,048,576 total; 262,144 max output (Volcengine Ark published limits for this ID).
+- **Modalities:** text + image in; text out; deep thinking, tool calling, structured output (json_schema), multimodal understanding, GUI task processing.
+- **Pricing (as of 2026-11-13):** Volcengine Ark per-token price not in accessible text; reseller (ofox/models.dev) lists $0.7072 / $3.536 per 1M (input/output), cached read $0.1416, cached write $0.002.
+- **Architecture:** proprietary; parameter count and weights undisclosed.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for Doubao Seed 2.1 Pro (260915) in any first-party or independent source in accessible text: Volcengine Ark publishes capability and context limits only; no Artificial Analysis / BenchLM / Epoch AI / Vals AI / SWE-bench / Terminal-Bench / GPQA / LiveCodeBench / MRCR row for this exact ID, and no standardized eval card published by ByteDance Seed in accessible text.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-13
+- Method: public internet research (Volcengine Ark model listing + models.dev aggregator); no standardized benchmark numbers for this exact ID found in accessible text, so no scores reported.
+- Reference URLs:
+  - [Volcengine Ark — model listing (doubao-seed-2-1-pro-260915)](https://ark.volcengine.com/region:cn-beijing/docs/text-generation)
+  - [models.dev — ofox/volcengine/doubao-seed-2.1-pro](https://models.dev)
+- Future sources: if verified benchmarks appear for this exact ID, add `Beam.md` with the standard headings; do not edit this exclusion.

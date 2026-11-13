@@ -16,13 +16,14 @@
 //    input tokens per minute limit exceeded on Free Tier ...
 //    Please retry in 23.331327004s."
 //
-// Two things separate this plugin from its siblings:
+// How this plugin behaves:
 //   1. The provider TELLS US how long to wait ("Please retry in 23.33s"), so we
-//      wait that long instead of a fixed delay - plus a small margin for the
-//      round trip, because the countdown started when Google built the error.
-//   2. A quota window can be a minute (TPM/RPM) or a whole day (RPD). Short
-//      hints are worth honouring; a hard daily cap is not, so the wait is
-//      clamped and the brake stops the loop instead of spinning all night.
+//      wait that long instead of a fixed delay - plus a small margin (2s) for
+//      the round trip, because the countdown started when Google built the error.
+//   2. Infinite retry mode: Gemini models on free or metered tiers frequently hit
+//      the 250k input token per minute (TPM) limit during long-running tasks.
+//      Instead of giving up after a fixed number of attempts, this plugin keeps
+//      messaging Gemini models indefinitely right after each retry window expires.
 //
 // Recovery is identical to the other retry plugins: wait, then send
 // "please continue" so the agent resumes the existing task from history.
@@ -37,8 +38,7 @@
 //     console instead.
 //   * V2 emits `session.error` and then still lets the session go idle, so a
 //     plain idle is NOT proof of a healthy turn - `errorSeen` remembers that a
-//     quota failure just happened, otherwise the brake counter would be wiped
-//     after every attempt and the brake would never engage.
+//     quota failure just happened, so the attempt counter is not wiped prematurely.
 
 import { Plugin } from "@opencode/plugin"
 
@@ -53,22 +53,17 @@ const MATCHES = [
 
 // Grace added to the provider's own hint, covering our round trip + clock skew.
 // Waiting exactly 23.33s would retry a fraction of a second too early and burn
-// an attempt on a window that has not reopened yet.
+// an attempt on a window that has not reopened yet. A 2-second grace ensures we fire
+// right after Google's rate-limit window has genuinely reopened.
 const MARGIN_MS = 2_000
 
-// Never sleep longer than this on a single hint. A hint past 10 minutes is a
-// daily/billing cap, not a rolling window - the brake below handles those.
-const MAX_WAIT_MS = 10 * 60_000
+// Safe maximum wait time per single retry hint. For rolling windows (TPM/RPM), hints are
+// typically under a minute. We cap at 24 hours to avoid 32-bit signed integer overflow in setTimeout.
+const MAX_WAIT_MS = 24 * 60 * 60_000
 
 // Used when the error carries no hint at all. 60s matches the TPM/RPM window,
 // which is the overwhelmingly common case for this error.
 const FALLBACK_WAIT_MS = 60_000
-
-// Emergency brake: stop after this many CONSECUTIVE quota failures.
-// 20 attempts at ~25s of real-world hints is roughly 8 minutes of recovery,
-// which covers TPM/RPM exhaustion. A hard daily cap (or a billing problem)
-// would just keep failing, so the brake trips and stays silent.
-const MAX_CONSECUTIVE = 20
 
 // The tiny message we send. One nudge resumes the task from history, exactly
 // like typing "continue" by hand - and it costs almost no input tokens, which
@@ -80,13 +75,13 @@ const CONTINUE_TEXT = "please continue"
 // `session.status` retry events: while the built-in retry is running there is
 // nothing for us to do, and nudging on top of it would double-send prompts.
 
-// Parse the provider's own "retry in Ns" hint. Handles both the human sentence
-//   Please retry in 23.331327004s.
-// and Google's JSON field
-//   "retryDelay": "23s"
+// Parse the provider's own "retry in Ns" hint. Handles:
+//   - "Please retry in 23.331327004s."
+//   - "Please retry after 23.33s."
+//   - Google's JSON field: "retryDelay": "23s"
 // Returns the LONGEST hint found (a payload can quote several models), already
-// clamped and padded with the margin. `null` when there is no hint at all.
-const RETRY_HINT = /retry(?:delay)?(?:\s+in)?["'\s:]*([\d.]+)\s*s(?:ec(?:onds?)?)?\b/gi
+// padded with the margin. `null` when there is no hint at all.
+const RETRY_HINT = /retry(?:delay)?(?:\s+(?:in|after))?["'\s:]*([\d.]+)\s*s(?:ec(?:onds?)?)?\b/gi
 
 function hintedWaitMs(text: string): number | null {
   let bestSeconds = 0
@@ -125,12 +120,10 @@ export default Plugin.define({
     // A Map of sessionID -> armed timer, so we can cancel a pending nudge and
     // never start two timers for the same session.
     const timers = new Map<string, ReturnType<typeof setTimeout>>()
-    // Sessions with a nudge already scheduled.
+    // Sessions with a nudge currently scheduled in a setTimeout.
     const pending = new Set<string>()
-    // Consecutive quota failures per session (no clean turn in between).
+    // Consecutive quota failures per session (no clean turn in between), tracked for diagnostic logging.
     const consecutive = new Map<string, number>()
-    // Sessions where the brake tripped; stays latched until a clean turn.
-    const stopped = new Set<string>()
     // Sessions whose current turn died on a provider error, so the following
     // `session.idle` must NOT reset the failure streak.
     const errorSeen = new Set<string>()
@@ -143,43 +136,37 @@ export default Plugin.define({
       }
     }
 
-    // A genuinely clean turn: unlock everything and forget the streak.
+    // A genuinely clean turn: unlock everything and reset the attempt counter.
     const resetSession = (sessionID: string): void => {
       clearTimer(sessionID)
       pending.delete(sessionID)
       consecutive.delete(sessionID)
-      stopped.delete(sessionID)
     }
 
+    // Nudge the model with "please continue" so it picks up where it left off.
     const sendContinue = async (sessionID: string): Promise<void> => {
       try {
         await ctx.session.prompt({ sessionID, text: CONTINUE_TEXT })
         log("info", `sent "${CONTINUE_TEXT}" (${sessionID})`)
       } catch (error) {
-        // Session deleted, provider still refusing, ... : just unlock so the
-        // next quota error can schedule again.
+        // Session deleted, network hiccup, or provider still refusing:
+        // log the warning and check if the rejection itself was a quota error.
         log("warn", `could not nudge session: ${String(error)}`)
-      } finally {
-        pending.delete(sessionID)
+        // If the prompt call failed synchronously with a quota error, trigger onError
+        // so that the next retry is scheduled even if no OpenCode event was dispatched.
+        onError(sessionID, { message: String(error) })
       }
     }
 
+    // Schedules a retry after the provider's hinted wait time (plus safety margin).
     const scheduleRetry = (sessionID: string, waitMs: number, hintSeconds: number | null): void => {
-      if (pending.has(sessionID) || stopped.has(sessionID)) return
+      // Step 1: Prevent duplicate timers for the same session while one is already queued.
+      if (pending.has(sessionID)) return
 
+      // Step 2: Track consecutive attempts for visibility.
+      // NOTE: We do NOT enforce an emergency brake here because the user wants infinite retries.
+      // Long research sessions on Gemini models will keep nudging indefinitely until the task succeeds.
       const used = consecutive.get(sessionID) ?? 0
-
-      if (used >= MAX_CONSECUTIVE) {
-        stopped.add(sessionID)
-        pending.delete(sessionID)
-        log(
-          "error",
-          `quota 429 ${MAX_CONSECUTIVE}x in a row, brake ON. This looks like a hard daily cap or a billing problem - ` +
-            `check https://ai.dev/rate-limit or switch model/provider, then start a new session.`,
-        )
-        return
-      }
-
       pending.add(sessionID)
       consecutive.set(sessionID, used + 1)
 
@@ -187,35 +174,43 @@ export default Plugin.define({
       const source = hintSeconds === null ? "no hint, TPM window" : `hint ${hintSeconds}s + ${MARGIN_MS / 1_000}s margin`
       log(
         "warn",
-        `quota 429 (${source}): sending "${CONTINUE_TEXT}" in ${waitSeconds}s (${used + 1}/${MAX_CONSECUTIVE}) (${sessionID})`,
+        `quota 429 (${source}): sending "${CONTINUE_TEXT}" in ${waitSeconds}s (attempt ${used + 1}) (${sessionID})`,
       )
-      if (hintSeconds !== null && hintSeconds * 1_000 + MARGIN_MS > MAX_WAIT_MS) {
-        log("warn", `hint was longer than ${MAX_WAIT_MS / 60_000}min; waiting the clamped ${waitSeconds}s instead`)
-      }
 
+      // Step 3: Arm the timer to wait until right after the retry window expires.
       const timer = setTimeout(() => {
         timers.delete(sessionID)
+        // Hardening rule (.agents/rules.md line 163): Unlock `pending` immediately when the timer fires!
+        // `ctx.session.prompt` awaits the entire agent turn (which can take minutes).
+        // If we held `pending` locked during the turn, any new quota error during that turn
+        // would be ignored. Deleting before the prompt allows new quota failures to schedule smoothly.
+        pending.delete(sessionID)
         void sendContinue(sessionID)
       }, waitMs)
       timers.set(sessionID, timer)
     }
 
     const onError = (sessionID: string, data: Record<string, any>): void => {
+      // Step 1: Extract all strings from the error payload.
       const strings: string[] = []
       collectStrings(data, strings)
       const raw = strings.join("\n")
       const text = raw.toLowerCase()
 
+      // Step 2: Check if this error is actually a Gemini quota 429.
       if (!MATCHES.some((fragment) => text.includes(fragment))) return
 
+      // Step 3: Ensure we have a valid session ID to nudge.
       if (!sessionID) {
         log("warn", `matched a quota 429 but the event carried no sessionID head=${text.slice(0, 200)}`)
         return
       }
 
-      // The turn died on a provider error: keep the streak even if an idle follows.
+      // Step 4: The turn died on a provider error: remember it so that the upcoming
+      // `session.idle` does not falsely reset our attempt streak.
       errorSeen.add(sessionID)
 
+      // Step 5: Parse Google's "Please retry in X.Xs" hint and schedule the retry.
       const hinted = hintedWaitMs(raw)
       scheduleRetry(sessionID, hinted ?? FALLBACK_WAIT_MS, hinted === null ? null : (hinted - MARGIN_MS) / 1_000)
     }
@@ -226,11 +221,19 @@ export default Plugin.define({
           try {
             const raw = (event ?? {}) as Record<string, any>
             const data = (raw.data ?? raw.properties ?? {}) as Record<string, any>
-            const sessionID = String(data.sessionID ?? data.session?.id ?? data.sessionId ?? "")
+            // Robust sessionID resolution covering all OpenCode 2.x event shapes (.agents/rules.md line 169)
+            const sessionID = String(
+              data.sessionID ??
+                data.session?.id ??
+                data.sessionId ??
+                data.info?.sessionID ??
+                data.part?.sessionID ??
+                data.part?.sessionId ??
+                "",
+            )
 
             if (raw.type === "session.step.failed" || raw.type === "session.execution.failed") {
-              // OpenCode 2.2 names for a provider failure; the text is on
-              // `data.error`. 2.0/2.1 used `session.error` (kept below).
+              // OpenCode 2.2 names for a provider failure; the text is on `data.error`.
               onError(sessionID, (data.error ?? data) as Record<string, any>)
               continue
             }
@@ -253,7 +256,26 @@ export default Plugin.define({
             }
 
             if (raw.type === "session.error") {
+              // Legacy 2.0/2.1 event name fallback.
               onError(sessionID, data)
+              continue
+            }
+
+            if (raw.type === "message.updated") {
+              // Handle structured error attached directly to an assistant message.
+              const info = data.info
+              if (info?.error && String(info.type ?? info.role ?? "") === "assistant") {
+                onError(sessionID, info.error)
+              }
+              continue
+            }
+
+            if (raw.type === "message.part.updated") {
+              // Handle retry part errors.
+              const part = data.part
+              if (part?.type === "retry" && part.error) {
+                onError(sessionID || String(part.sessionID ?? part.sessionId ?? ""), part.error)
+              }
               continue
             }
 
@@ -264,6 +286,7 @@ export default Plugin.define({
                 // armed timer, only drop the marker.
                 continue
               }
+              // A clean idle turn means previous retries succeeded! Reset session state.
               resetSession(sessionID)
               continue
             }

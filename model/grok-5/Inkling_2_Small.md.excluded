@@ -1,30 +1,60 @@
-# Grok 5 — self-exclusion (model not publicly released)
+# Grok 5 — findings by Inkling 2 Small
 
-- Source: xAI (`grok-5`)
-- Date: 2026-10-02 (UTC)
+- Source: SpaceXAI / xAI (`grok-5`)
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Negative findings — why this file is `.md.excluded`
+## Model card
 
-As of 2026-10-02, Grok 5 has not shipped publicly and no verified benchmark row exists for the ID:
+- **Name:** Grok 5 (unreleased)
+- **Short description:** xAI/SpaceXAI's next-generation large language model, successor to the Grok 4 line; in training since at least January 2026. Not released and not callable as of 2026-11-13.
+- **Provider / access:** none — no API route, no picker entry, no weights. Current SpaceXAI API serves `grok-4.5`, `grok-4.6`, `grok-4.7` (+ Grok Voice / Imagine families). Grok 4.8 finished its first training stage per Musk (2026-11-10), with a limited Grok Bot test expected the week of 2026-11-10; Grok 5 "two or three months" after that → early 2027, past the "within 2026" target.
+- **Release / knowledge:** not released. xAI's only official references: Jan 2026 Series E funding announcement ("Grok 5 is training", reported to be on the Colossus 2 cluster); Musk statements (Aug 2026 "within 2026"; Nov 10, 2026 "two or three months"). No cutoff disclosed.
+- **IDs:** `grok-5` (reserved/announced only; never served). No opencode/Zen entry, no gateway listing.
+- **Context window:** unpublished (community rumor: 1.5–2M; unverified, not evidence).
+- **Modalities:** undisclosed (Grok 4 line: text/image in, text out, reasoning).
+- **Pricing (as of 2026-11-13):** none — model not available on any plan or API.
+- **Architecture:** undisclosed. Musk claims ~6T parameters (Nov 2025, Baron Capital event) — his claim, unverified; some leaks say 6–10T (rumor). Training on Colossus 2 reported.
 
-- No model card, spec sheet, benchmark table, or API pricing has been published by xAI.
-- No row on the AA Intelligence Index, Vals AI boards, SWE-bench, LiveBench, or tbench for `grok-5` exists.
-- The only public benchmarks-circulated claim is an unverified leak ("Project Valis", 45.1% on a "Zeitgeist reasoning exam") that flags as unreliable on every tracking site.
-- xAI's stated roadmap as of Sep 14, 2026 places Grok 4.7 as the current flagship and Grok 4.8 (2.5T, finishing training week of Sep 14) and Grok 4.9 between shipped Grok 4.7 and Grok 5. There is no public API or ChatGPT/X access for Grok 5.
+### Raw benchmarks found
 
-## Model noted for identification
+ZERO verified public benchmark numbers exist for `grok-5` — the model has never shipped, so no evaluation of any kind is possible. Confirmed via xAI's news page (no Grok 5 announcement; latest posts are Grok Voice 3.0, 2026-10-14, and The X Subscription, 2026-10-12), SpaceXAI API docs (serves grok-4.5/4.6/4.7 only), and independent trackers (GrokMag, checked 2026-11-10). All "Grok 5" numbers circulating online trace to Musk's verbal claims with no primary artifacts, no harness, and no reproducible table.
 
-- **Name:** Grok 5
-- **Lab:** xAI (SpaceXAI post-merger)
-- **Status:** In training on Colossus 2; rumored variants 6T/10T MoE; "AGI" claims are marketing, not measurements.
-- **Confirmed by xAI:** Trained on Colossus 2 since January 2026 (Series E announcement).
-- **Rumored:** 6T/10T parameters, multimodal native, 1.5–2M context. None confirmed.
-- **Pricing:** Not published.
+Agent / tool use:
 
-## Decision
+- no verified public score found — model not released
 
-No scored `Fledge_Alpha.md` was written — no verified public benchmarks exist for the exact model/ID. Re-run research when xAI ships a public launch post (launch post should carry first-party benchmark cells) or the AA Intelligence Index lists a Grok 5 entry.
+Reasoning / knowledge:
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02
+- no verified public score found — model not released
+
+Coding:
+
+- no verified public score found — model not released
+
+Long context:
+
+- no verified public score found — model not released
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark numbers exist for `grok-5`. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Re-research upon an official xAI/SpaceXAI release (news post, API docs listing, model-picker presence).
+
+- **Tool use: 15/100.** placeholder — no evidence (unreleased)
+- **Reasoning: 15/100.** placeholder — no evidence (unreleased)
+- **Context window: 15/100.** placeholder — no evidence (1.5–2M rumor only)
+- **Multimodal: 15/100.** placeholder — no evidence (unreleased)
+- **Coding: 15/100.** placeholder — no evidence (unreleased)
+- **Cost efficiency: 15/100.** placeholder — no price exists (unreleased)
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — unreleased as of 2026-11-13.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-13 UTC
+- Method: public internet research; web search returned HTTP 402 (quota), so the fallback ladder was used — one simpler retry (402 again), then direct `webfetch` of DuckDuckGo HTML results and the GrokMag Grok 5 tracker (checked 2026-11-10). ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored. No local repository files were used as evidence.
+- Reference URLs:
+  - [SpaceXAI API — current served models (grok-4.5/4.6/4.7)](https://x.ai/api)
+  - [GrokMag: Grok 5 tracker — not out yet, every promise and rumor (checked 2026-11-10)](https://grokmag.com/grok-5/)
+  - [Grokipedia: Grok 5 (Series E context)](https://grokipedia.com/page/Grok_5)
+- Future sources: add a new file next to this one, e.g. `Inkling_2_Small_2.md`, using the same headings.

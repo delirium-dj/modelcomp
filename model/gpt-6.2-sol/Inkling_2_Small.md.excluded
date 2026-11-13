@@ -1,0 +1,60 @@
+# GPT-6.2 Sol — findings by Inkling 2 Small
+
+- Source: OpenAI (`openai/gpt-6.2-sol`) — unreleased
+- Date: 2026-11-13 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6.2 Sol (unreleased — sightings only)
+- **Short description:** OpenAI's rumored mid-tier successor to GPT-6.1 Sol. As of 2026-11-13 it has never shipped: the model does not appear in OpenAI's API changelog (checked through 2026-11-05 entries), model docs, or pricing pages; the only traces are a Google Cloud Console Quotas-page sighting of `gpt-6.2-sol` (2026-11-04, user report), Codex usage breakdowns mentioning `gpt-6.2-astra`/`gpt-6.2-sol` (Nov 1–2), and a The Information report (paywalled) that GPT-6.2 "could come as soon as Friday" in Astra, Sol and Cyber versions.
+- **Provider / access:** none — not announced, not callable, no API route. OpenAI itself has said nothing.
+- **Release / knowledge:** not released. GPT-6 Sol released 2026-09-22 ($2/$10); GPT-6.1 Sol 2026-09-29 ($2/$0.10 cached/$10; ~matches GPT-6 Astra at lower cost); GPT-6 Cyber 2026-11-05. GPT-6.2 has no date.
+- **IDs:** `gpt-6.2-sol` (seen on Google Cloud quotas; unconfirmed; OpenAI has published no ID).
+- **Context window:** unpublished (meta.json claims 1.05M / 128K out — unverified, not evidence).
+- **Modalities:** unpublished (presumed text/image/file in, text out, reasoning).
+- **Pricing (as of 2026-11-13):** none published. (GPT-6.1 Sol: $2 in / $10 out per 1M; prompts >272K tokens priced at higher rates.)
+- **Architecture:** unpublished.
+
+### Raw benchmarks found
+
+ZERO verified public benchmark numbers exist for `gpt-6.2-sol` — the model has never shipped. The OpenAI API changelog (checked 2026-11-13, all entries through Nov 5, 2026) contains no gpt-6.2 model; OpenAI's model docs and The Information report describe timing only, no specs. Any "GPT-6.2" benchmark circulating online traces to unattributed posts with no primary artifact.
+
+Agent / tool use:
+
+- no verified public score found — unreleased
+
+Reasoning / knowledge:
+
+- no verified public score found — unreleased
+
+Coding:
+
+- no verified public score found — unreleased
+
+Long context:
+
+- no verified public score found — unreleased
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark numbers exist for `gpt-6.2-sol`. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Re-research upon an official OpenAI release (news post, changelog entry, model-docs listing, or API access).
+
+- **Tool use: 15/100.** placeholder — no evidence (unreleased)
+- **Reasoning: 15/100.** placeholder — no evidence (unreleased)
+- **Context window: 15/100.** placeholder — no evidence
+- **Multimodal: 15/100.** placeholder — no evidence (unreleased)
+- **Coding: 15/100.** placeholder — no evidence (unreleased)
+- **Cost efficiency: 15/100.** placeholder — no price exists
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — unreleased as of 2026-11-13. Until it ships, GPT-6.1 Sol is the equivalent tier.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-13 UTC
+- Method: public internet research; web search returned HTTP 402 (quota), so the fallback ladder was used — one simpler retry (402 again), then direct `webfetch` of DuckDuckGo HTML results, the TeamoRouter GPT-6.2 Sol/Astra status blog (2026-11-05) and the official OpenAI API changelog (checked through 2026-11-05; no gpt-6.2 entry). ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored. No local repository files were used as evidence beyond the slug's own meta.json for identification.
+- Reference URLs:
+  - [OpenAI API changelog (checked 2026-11-13 — no gpt-6.2 entry)](https://developers.openai.com/api/docs/changelog)
+  - [TeamoRouter: GPT-6.2 Sol — release status, Google Cloud quotas sighting, The Information report (2026-11-05)](https://teamorouter.com/blogs/gpt-6-2-sol)
+  - [TechCrunch: OpenAI launches GPT-6.1 Sol (2026-09-29)](https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/)
+- Future sources: add a new file next to this one, e.g. `Inkling_2_Small_2.md`, using the same headings.

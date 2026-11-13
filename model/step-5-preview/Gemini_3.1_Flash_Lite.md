@@ -1,36 +1,45 @@
 # Step 5 Preview — findings by Gemini 3.1 Flash Lite
 
-- Source: Community `step-5-preview`
-- Date: 2026-10-08 (UTC)
+- Source: StepFun/Step 5 Preview
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Step 5 Preview
-- **Short description:** Highly active experimental reasoning model series widely used in the community.
-- **Provider / access:** Community / Various API endpoints.
-- **Context window:** 128,000.
-- **Modalities:** Text/Image.
+- **Short description:** StepFun's MoE (600B/27B) model optimized for agentic coding and knowledge-work research.
+- **Provider / access:** StepFun (https://stepfun.com). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `stepfun/step-5-preview`
+- **Context window:** 1M tokens total; 64K tokens max output.
+- **Modalities:** Text, image, video in; text out.
+- **Pricing (as of 2026-11-13):** Paid $1.00/$2.70 per 1M; cache $0.10.
+- **Architecture:** MoE (600B total / 27B active).
 
 ### Raw benchmarks found
 
-- MMLU: **88.0%**
-- HumanEval: **86.0%**
+Reasoning / knowledge:
+- HLE: **46.5%** (StepFun meta.json)
+
+Coding:
+- Terminal-Bench 4.0: **33.3%** (StepFun meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 89/100.** Strong tool integration.
-- **Reasoning: 90/100.** High-quality reasoning.
-- **Context window: 88/100.** Capable context.
-- **Multimodal: 85/100.** Strong visual processing.
-- **Coding: 89/100.** Excellent coding proficiency.
-- **Cost efficiency: 80/100.** Competitive for frontier-class capability.
-- **Overall Score: 88.2/100.** A premier experimental model series for technical tasks.
+- **Tool use: 82/100.** Capable for experimental research.
+- **Reasoning: 80/100.** Reasonable performance.
+- **Context window: 90/100.** 1M capacity.
+- **Multimodal: 80/100.** Text, image, video support.
+- **Coding: 75/100.** Useful for experiments (TB4 33.3%).
+- **Cost efficiency: 90/100.** Competitive pricing.
+- **Overall Score: 81.4/100.** Useful experimental model for agentic and research tasks.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Aggregated performance metrics from community implementations and public leaderboards.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [StepFun](https://www.stepfun.com)

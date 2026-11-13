@@ -63,7 +63,6 @@
 86.6 inkling-small
 86.6 qwen-3.8-27b
 86.6 step-5-preview
-86.4 gemini-4-hydrogen
 86.4 gpt-5.2
 86.3 kimi-k2.6
 86.1 grok-4.7
@@ -73,6 +72,7 @@
 85.9 deepseek-v4-vision-exp
 85.6 deepseek-v4.1-flash-1017
 85.6 qwen-3.8-flash-next
+85.5 gemini-4-hydrogen
 85.5 qwen-3.5-plus
 85.3 seed-2.0-pro
 85.2 deepseek-v4-pro
@@ -105,6 +105,7 @@
 80.2 qwen-4-max
 80.1 qwen-3.5-27b
 80 gpt-5.4-mini
+79.5 doubao-seed-evolving
 79.5 kimi-k2.8-preview
 79.4 muse-ember
 79.3 glm-5.3
@@ -112,6 +113,7 @@
 78.7 minimax-m3.1-flash
 78.7 qwen-3.5-flash
 78.7 union-alpha
+78.5 gpt-6.2-astra
 78.4 gemini-2.5-flash
 78.3 qwen-3.5-35b-a3b
 78.1 muse-glimmer-30b
@@ -126,6 +128,7 @@
 76.5 gemma-4-12b-unified
 76.1 ling-3.0-flash-vl
 76.1 ternary-bonsai-2-27b
+75.9 gpt-6.2-sol
 75.9 inkling-2-small
 75.6 mistral-medium-3.5
 75.2 gpt-5.4-nano
@@ -136,6 +139,7 @@
 74.7 mimo-v2.5-pro
 74.6 claude-haiku-4.5
 74.5 longcat-2.5
+74.4 doubao-seed-2.1-pro-260915
 73.9 hy4
 73.8 nemotron-3.5-bolt-74b-a9b
 73.7 grok-build-0.1
@@ -146,7 +150,6 @@
 73.6 ternary-bonsai-27b
 73.4 beam
 73.4 claude-sonnet-3.5
-73.1 doubao-seed-2.1-pro-260915
 72.7 nemotron-3-ultra-free
 72.3 qwen-3-max
 72.1 hy3
@@ -207,8 +210,8 @@
 54.8 gemma-4-e2b
 54.5 glm-4.5-flash
 54.1 glyph-cluster
-53.8 egg-alpha
 53.3 ling-3.0-tiny
+52.5 egg-alpha
 50.1 nemotron-3.5-bolt-e4b
 48.6 codestral-25.08
 48.3 iceman

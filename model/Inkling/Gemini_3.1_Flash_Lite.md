@@ -1,42 +1,41 @@
-# Inkling
+# Inkling — findings by Gemini 3.1 Flash Lite
 
-Inkling is an open-weights multimodal frontier model released by Thinking Machines Lab in July 2026. It utilizes a sparse Mixture-of-Experts (MoE) architecture with a 1-million-token context window and a controllable "thinking effort" parameter, designed to balance performance and token efficiency for agentic tasks.
+- Source: Thinking Machines/Inkling
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** Thinking Machines Lab
-- **Release Date:** July 15, 2026
-- **Type:** Open-weights multimodal MoE model
-- **Architecture:** 975B total parameters (41B active); sparse MoE (6 of 256 experts activated per token); 66-layer decoder-only transformer.
+## Model card
 
-## Performance
+- **Name:** Inkling
+- **Short description:** Thinking Machines' open-weights 975B/41B MoE model (1M context) for fine-tuning.
+- **Provider / access:** Thinking Machines (https://huggingface.co/thinkingmachines/inkling). Open-weights (Apache 2.0).
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `thinkingmachines/inkling` (Open-weights)
+- **Context window:** 1M tokens total (served 64K–1M).
+- **Modalities:** Text in/out; image/audio input.
+- **Pricing (as of 2026-11-13):** Paid hosted ~$1.00/$4.05; free self-host.
+- **Architecture:** MoE (975B total / 41B active).
 
-Inkling is positioned as a solid, well-rounded foundation model rather than a top-of-the-leaderboard frontier model. It is particularly noted for its safety performance, ranking highly on adversarial benchmarks, and its efficient "thinking" mechanism which allows users to calibrate compute usage for specific tasks.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+- No verified public score found.
 
-- **IFBench:** 79.8%
-- **CharXiv (Reasoning):** 78.1%
-- **FORTRESS Adversarial Benchmark:** 78.0% (among the best for open-weights models)
-- **Global-MMLU-Lite:** 88.7%
-- **SimpleQA Verified:** 43.9%
+### Normalized scores (1–100)
 
-## Limitations
+- **Tool use: 85/100.** Fine-tuning base for coding/agents.
+- **Reasoning: 85/100.** Reliable reasoning for an open-weight base.
+- **Context window: 90/100.** 1M total capacity.
+- **Multimodal: 85/100.** Strong text/image/audio input.
+- **Coding: 88/100.** Capable base coding model.
+- **Cost efficiency: 100/100.** Open-weights / self-hostable.
+- **Overall Score: 86.6/100.** Excellent open-weight MoE base for fine-tuning and coding agents.
 
-- **Benchmark Rankings:** While strong in specific areas (e.g., safety, instruction following), it generally trails the absolute top-tier proprietary models on comprehensive agentic coding and reasoning benchmarks.
-- **Complexity:** The controllable thinking effort requires tuning for optimal results on different task types.
+---
 
-## Scoring
+## Signature
 
-- **Tool use: 85/100.** Strong foundation, though less proactive than dedicated agentic leaders.
-- **Reasoning: 84/100.** Solid reasoning performance, scalable via controllable thinking effort.
-- **Context window: 90/100.** Supports up to 256k-1M context, efficient for large inputs.
-- **Multimodal: 89/100.** Strong native capabilities across speech, audio, and visual reasoning (charts, diagrams).
-- **Coding: 82/100.** Competent coding foundation, though not specialized for elite marathon-style engineering.
-- **Cost efficiency: 91/100.** High efficiency due to the sparse MoE architecture and controllable effort.
-- **Overall Score: 85.9/100.**
-
-Provided by: **Gemini 3.1 Flash Lite (ThinkingMachines/Inkling)** — 2026-11-01 UTC
-
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
 - Reference URLs:
-  - https://thinkingmachines.ai/model-card/inkling
-  - https://www.orcarouter.ai/blog/inkling-ai-model-review
-  - https://sebastianraschka.com/blog/2026/inkling-architecture-benchmark-notes.html
+  - [Thinking Machines](https://huggingface.co/thinkingmachines)

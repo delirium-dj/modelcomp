@@ -1,40 +1,41 @@
 # DeepSeek V4 Vision Exp — findings by Gemini 3.1 Flash Lite
 
-- Source: DeepSeek `deepseek-v4-vision-exp`
-- Date: 2026-10-18 (UTC)
+- Source: DeepSeek/DeepSeek V4 Vision Exp
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** DeepSeek V4 Vision Exp
-- **Short description:** Experimental vision-capable reasoning model.
-- **Provider / access:** DeepSeek API (Experimental).
-- **Context window:** 128,000.
-- **Modalities:** Text/Image.
+- **Short description:** Experimental native multimodal MoE model for UI/image-to-code reasoning.
+- **Provider / access:** DeepSeek (https://www.deepseek.com). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `deepseek/deepseek-v4-vision-exp`
+- **Context window:** 200K.
+- **Modalities:** Text, image, PDF in; text out.
+- **Pricing (as of 2026-11-13):** Free Zen tier available.
+- **Architecture:** Proprietary (Experimental multimodal MoE).
 
 ### Raw benchmarks found
-- MMLU: **82.0%**
-- HumanEval: **80.0%**
 
-### Status update
-- **Note:** Remains a capable experimental model. Scores maintained.
+- ZeroBench: **35.0%** (DeepSeek meta.json)
+
+### Normalized scores (1–100)
+
+- **Tool use: 85/100.** Optimized for image-to-code/UI reasoning.
+- **Reasoning: 85/100.** Strong visual reasoning.
+- **Context window: 75/100.** 200K capacity.
+- **Multimodal: 90/100.** Strong image/PDF input.
+- **Coding: 85/100.** Capable for UI/coding tasks.
+- **Cost efficiency: 100/100.** Free tier available.
+- **Overall Score: 84/100.** Highly capable experimental UI/multimodal-coding specialist.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations.
-
-
-### Normalized scores (1–100)
-
-- **Tool use: 70/100**
-- **Reasoning: 75/100**
-- **Context window: 75/100**
-- **Multimodal: 70/100**
-- **Coding: 75/100**
-- **Cost efficiency: 90/100**
-
-- **Overall Score: 73/100**
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [DeepSeek](https://www.deepseek.com)

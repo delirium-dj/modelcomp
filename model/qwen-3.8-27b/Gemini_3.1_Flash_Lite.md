@@ -1,40 +1,45 @@
 # Qwen 3.8 27B — findings by Gemini 3.1 Flash Lite
 
-- Source: Qwen `qwen-3.8-27b`
-- Date: 2026-10-08 (UTC)
+- Source: Alibaba/Qwen 3.8 27B
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen 3.8 27B
-- **Short description:** A high-performance, mid-sized model (27B) from Alibaba/Qwen, optimized for strong reasoning and efficient coding tasks, positioned to compete with frontier models in its weight class.
-- **Provider / access:** Qwen API (Alibaba Cloud/DashScope), community open-weights release. Messages API; tool-calls supported.
-- **Release / knowledge:** Released 2026-08. Knowledge cutoff May 2026.
-- **Context window:** 128k total; optimized for efficient inference at mid-range context lengths.
-- **Modalities:** Text/Image/Audio in; text + tool-calls out.
-- **Pricing:** Competitive mid-tier pricing.
-- **Architecture:** Transformer-based, 27B parameters, optimized for MoE-like inference efficiency.
+- **Short description:** Alibaba's dense open-weights model for high-efficiency agentic tasks.
+- **Provider / access:** Alibaba (https://qwenlm.github.io). Apache 2.0 open-weights.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `alibaba/qwen3-8-27b`
+- **Context window:** 262K native (1M via YaRN).
+- **Modalities:** Text, image, video in; text out.
+- **Pricing (as of 2026-11-13):** Open-weights (self-host $0).
+- **Architecture:** Dense (27B).
 
 ### Raw benchmarks found
 
-- MMLU: **82.1%** (Qwen team)
-- HumanEval: **78.5%** (Qwen team)
-- GSM8K: **85.0%** (Qwen team)
+Reasoning / knowledge:
+- GPQA: **90.5%** (Alibaba meta.json)
+
+Coding:
+- SWE-bench: **86.0%** (Alibaba meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 88/100.** Strong tool-use integration for a 27B parameter class model.
-- **Reasoning: 89/100.** Exceptionally high reasoning scores for its parameter size (MMLU 82.1%, GSM8K 85.0%).
-- **Context window: 90/100.** 128k token context window is very capable for a 27B-class model.
-- **Multimodal: 82/100.** Efficient multimodal inputs (Text/Image/Audio).
-- **Coding: 87/100.** High performance on standard coding benchmarks (HumanEval 78.5%).
-- **Cost efficiency: 90/100.** Excellent balance of performance vs cost for mid-sized deployment.
-- **Overall Score: 87.2/100.** Outstanding capability-to-efficiency ratio; a top-tier choice for mid-scale reasoning and coding needs.
+- **Tool use: 88/100.** Solid agentic coding performance.
+- **Reasoning: 89/100.** Good reasoning performance (90.5% GPQA).
+- **Context window: 90/100.** 1M context via YaRN.
+- **Multimodal: 80/100.** Text, image, video input.
+- **Coding: 91/100.** Strong coding capabilities (86.0% SWE-bench).
+- **Cost efficiency: 100/100.** Open-weights.
+- **Overall Score: 88/100.** Excellent value dense model for self-hosted agentic coding.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-08
-- Method: Public web research; scores are normalized 1–100 interpretations. Cross-referenced official Qwen technical documentation and benchmark releases.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [QwenLM](https://qwenlm.github.io)

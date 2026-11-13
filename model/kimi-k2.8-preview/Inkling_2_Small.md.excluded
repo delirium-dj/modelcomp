@@ -1,31 +1,62 @@
-# Kimi K2.8 Preview — self-exclusion (no verified public benchmarks)
+# Kimi K2.8 Preview — findings by Inkling 2 Small
 
-- Source: Moonshot AI (`kimi-k2.8-preview`)
-- Date: 2026-10-02 (UTC)
+- Source: Moonshot AI / Kimi (`kimi-for-coding`, "K2.8 Preview")
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Negative findings — why this file is `.md.excluded`
+## Model card
 
-As of 2026-10-02, no verified public benchmark scores exist for `kimi-k2.8-preview` (Moonshot's Sept 11, 2026 Kimi Code Preview). Specifically:
+- **Name:** Kimi K2.8 Preview (served as `kimi-for-coding` in Kimi Code)
+- **Short description:** Moonshot AI's coding and agent model behind the `kimi-for-coding` ID in Kimi Code — Moonshot positions it as "performance close to K3 with more efficient thinking", aimed at code completion and routine development tasks. Preview; not open weights; API-only via Kimi Code membership.
+- **Provider / access:** Kimi Code (Moonshot AI), subscription membership only — Kimi Code Console (`https://www.kimi.com/code/console`), Base URLs `https://api.kimi.com/coding/v1` (China) / `https://api.kimi.ai/coding/v1` (overseas) for OpenAI Responses/Chat Completions, or Anthropic-compatible `https://api.kimi.com/coding/` / `https://api.kimi.ai/coding/`. Plus tier and above; 1M context window requires Plus/legacy Allegretto+. Not available on OpenCode Zen, OpenRouter, or as a pay-per-token public API (checked 2026-11-13).
+- **Release / knowledge:** 2026-09-11 (rolled out to all Kimi Code users; model ID unchanged). Moonshot has not published a knowledge cutoff.
+- **IDs:** `kimi-for-coding` (Kimi Code membership; third-party tools must use this ID). Mistyped IDs fall back to K2.8 Preview without thinking. Not listed under a standalone `kimi-k2.8-preview` API route.
+- **Context window:** up to 1,048,576 tokens (Plus tier and above; 1M for higher tiers). Thinking effort `low` / `high` / `max`, default `max`; disable-thinking requests are served by K2.8 Preview without thinking.
+- **Modalities:** text / image / video in → text out; reasoning yes (default `max`); tool calling in Kimi Code clients; multimodal input per Kimi Code model table (image, video).
+- **Pricing (as of 2026-11-13):** Kimi Code membership subscription only — no pay-per-token price published; exact plan pricing is on the Kimi Code pricing page and is not restated here. Not free; not open weights.
+- **Architecture:** undisclosed — Moonshot published no parameter count, architecture, or model card for this ID.
 
-- No first-party benchmark table has been published by Moonshot for K2.8 Preview. Moonshot's Kimi Code docs name `kimi-for-coding` and route it to the same checkpoint family, but ship no scored evals.
-- No Artificial Analysis, vals.ai, tbench.ai, DeepSWE, LiveBench, SWE-bench, or arcprize.org row exists for it as of 2026-10-02 (LLM Stats tracks "28 reported for Kimi K2.6 · 0 for Kimi K2.8 Preview").
-- One widely-shared community comparison (@notjazii, X, 2026-09-11) reports a single-task run with no scored methodology — not sufficient for a normalized score.
-- A single third-party gateway card lists indicative $1/$4 per 1M tokens; Moonshot has not published an official PAYG rate card for this checkpoint, so cost rows would also be unsupported.
+### Raw benchmarks found
 
-## Model noted for identification
+ZERO verified public benchmark numbers found for `kimi-for-coding` / Kimi K2.8 Preview (the exact model/ID). Moonshot's only public performance claim is "close to Kimi K3 with more efficient thinking" (no numbers, no harness). Confirmed via: Kimi Code official model-configuration docs and What's New page; BenchmarkList (0 benchmark rows, "0 score rows", price not published, released 2026-09-11); BenchLM 404 (no page); LLM Stats (specs and latency, no benchmark table); Stealth Models (no measured entry); DuckDuckGo search for benchmark queries (no primary-source results). No values are reproducible for this exact ID.
 
-- **Name:** Kimi K2.8 Preview
-- **Lab:** Moonshot AI
-- **Released:** 2026-09-11 (preview through Q4 2026)
-- **Positioning:** Mid-tier Kimi Code model between K3 and K2.7 Code; advertised as approaching K3 with more efficient thinking than K2.7 Code.
-- **Context:** 1,048,576 tokens (K3 is 262K in Kimi Code for Plus tier; K2.8 unlocks 1M); thinking low/high/max, max default; non-thinking requests route to K2.8.
-- **Modalities:** Text + image + video input, text out (Moonshot docs).
-- **Pricing:** None officially published; one gateway card at $1/$4 (APIMaster, unconfirmed).
+Agent / tool use:
 
-## Decision
+- no verified public score found
 
-Because no verified public benchmark numbers exist for this exact model/ID, no scored `Fledge_Alpha.md` was written. Re-run the research once any of AA, vals.ai, tbench.ai, DeepSWE, or LiveBench publish a K2.8 Preview row, or Moonshot publishes a first-party benchmark table.
+Reasoning / knowledge:
 
-- Provided by: **Fledge Alpha (opencode/fledge-alpha-free)** — 2026-10-02
+- no verified public score found
+
+Coding:
+
+- no verified public score found (official positioning: close-to-K3 coding with more efficient thinking; unmeasured)
+
+Long context:
+
+- 1M-token context for Plus-tier+ members per Kimi Code docs; no verified public long-context retrieval score found
+
+### Normalized scores (1–100)
+
+Not scored — zero verified public benchmark numbers exist for `kimi-for-coding` / K2.8 Preview. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Re-research when Moonshot or a third party publishes benchmark numbers for this exact ID.
+
+- **Tool use: 15/100.** placeholder — no evidence (tool use inside Kimi Code clients noted; unmeasured)
+- **Reasoning: 15/100.** placeholder — no evidence (`low`/`high`/`max` thinking, default `max`; unmeasured)
+- **Context window: 15/100.** placeholder — no evidence (1M ctx per Kimi Code docs; not benchmark-measured)
+- **Multimodal: 15/100.** placeholder — no evidence (image/video in per Kimi Code docs; unmeasured)
+- **Coding: 15/100.** placeholder — no evidence ("close to K3" is a vendor claim, not a measurement)
+- **Cost efficiency: 15/100.** placeholder — no per-token price exists (membership-only)
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable on evidence yet — Kimi Code membership users only, no published benchmarks.
+
+## Signature
+
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-13 UTC
+- Method: public internet research; web search returned HTTP 402 (quota), so the fallback ladder was used — one simpler retry (402 again), then direct `webfetch` of DuckDuckGo HTML results, the official Kimi Code docs (model configuration, What's New), BenchmarkList, LLM Stats, and Stealth Models. ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored. No local repository files were used as evidence.
+- Reference URLs:
+  - [Kimi Code Docs: Model Configuration (model IDs, K2.8 Preview specs)](https://www.kimi.com/code/docs/en/kimi-code/models.html)
+  - [Kimi Code Docs: What's New (K2.8 Preview rollout, 2026-09-11)](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html)
+  - [BenchmarkList: Kimi K2.8 Preview (0 benchmarks, API-only)](https://benchmarklist.com/models/moonshotai-kimi-k2.8-preview/)
+  - [LLM Stats: Kimi K2.8 Preview (specs, no benchmark table)](https://llm-stats.com/models/kimi-k2.8)
+  - [Kimi K2.8 Preview review — hokai.io (Moonshot published no benchmark scores)](https://hokai.io/hub/models/kimi-k2.8-preview)
+- Future sources: add a new file next to this one, e.g. `Inkling_2_Small_2.md`, using the same headings.

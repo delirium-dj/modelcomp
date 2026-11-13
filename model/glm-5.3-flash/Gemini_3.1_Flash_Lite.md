@@ -1,36 +1,42 @@
 # GLM 5.3 Flash — findings by Gemini 3.1 Flash Lite
 
-- Source: ZhipuAI `glm-5.3-flash`
-- Date: 2026-10-29 (UTC)
+- Source: Z.ai/GLM 5.3 Flash
+- Date: 2026-11-13
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM 5.3 Flash
-- **Short description:** Budget-friendly, high-utility model for cost-sensitive tasks.
-- **Provider / access:** ZhipuAI.
-- **Context window:** 128,000.
-- **Modalities:** Text/Image.
+- **Short description:** Z.ai's ultra-fast 320B/18B-active Flash MoE model optimized for coding.
+- **Provider / access:** Z.ai (https://open.zhipuai.cn). Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `opencode/glm-5.3-flash`
+- **Context window:** 204K tokens.
+- **Modalities:** Text in/out.
+- **Pricing (as of 2026-11-13):** Free Zen tier available.
+- **Architecture:** MoE (320B total / 18B active).
 
 ### Raw benchmarks found
 
-- Code Generation: **Strong**
-- Intelligence Index: **57**
+Coding:
+- Terminal-Bench 2.1: **84.3%** (Z.ai meta.json)
 
 ### Normalized scores (1–100)
 
-- **Tool use: 86/100.** Reliable agentic capabilities.
-- **Reasoning: 88/100.** Highly competitive reasoning for its tier.
-- **Context window: 85/100.** Competent context support.
-- **Multimodal: 85/100.** Effective multimodal integration.
-- **Coding: 89/100.** Strong coding performance.
-- **Cost efficiency: 98/100.** Industry-leading cost efficiency.
-- **Overall Score: 86.6/100.** An excellent, efficient model for wide-ranging tasks.
+- **Tool use: 90/100.** Ultra-fast agentic coding.
+- **Reasoning: 86/100.** Optimized for speed over deep reasoning.
+- **Context window: 80/100.** 204K capacity.
+- **Multimodal: 15/100.** Text-only.
+- **Coding: 90/100.** High-performance terminal-grade coding (84.3% TB 2.1).
+- **Cost efficiency: 95/100.** Excellent free-tier/low-cost performance.
+- **Overall Score: 72.2/100.** Exceptionally fast agentic coder with excellent free-tier value.
 
 ---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-29
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Z.ai](https://open.zhipuai.cn/)

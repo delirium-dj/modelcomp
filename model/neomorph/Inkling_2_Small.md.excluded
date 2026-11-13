@@ -1,25 +1,25 @@
 # Neomorph — findings by Inkling 2 Small
 
-- Source: OpenCode Console / unknown (`neomorph`)
-- Date: 2026-11-10 (UTC)
+- Source: OpenCode (Zen) — claimed `opencode/neomorph`, experimental
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Neomorph
-- **Short description:** Stealth-class codename tracked by this dataset (OpenCode Console free-tier pattern). No vendor model card, announcement, or tracked leaderboard entry found as of 2026-11-10; identity undisclosed.
-- **Provider / access:** OpenCode Console free route (presumed); not verified.
-- **Release / knowledge:** unknown.
-- **IDs:** `neomorph` (as tracked by this dataset; vendor confirmation not found)
-- **Context window:** unknown.
-- **Modalities:** unknown.
-- **Pricing (as of 2026-11-10):** likely free; unverified.
-- **Architecture:** unknown.
+- **Name:** Neomorph (unverified, claimed OpenCode Zen experimental model)
+- **Short description:** Nothing publicly verifiable. The folder's `meta.json` claims an "OpenCode Zen experimental model (64K ctx, $0.50/$1.50) with modular sub-network architecture and structured-output focus". No such model appears on the live OpenCode Zen catalog, in models.dev, or in any public launch/docs surface found this pass.
+- **Provider / access:** claimed: OpenCode Zen (`opencode/neomorph`, $0.50/$1.50 per 1M in/out). Verified: **absent** — live Zen `/v1/models` (86 entries, checked 2026-11-13) has no neomorph; models.dev full catalog (checked 2026-11-13) has no neomorph provider/model entry. "Neomorph" on the public web resolves only to a biotech (molecular glue degraders), game plugins and biology terms.
+- **Release / knowledge:** claimed (experimental); undated and unverifiable.
+- **IDs:** `opencode/neomorph` (claimed; not present in the live catalog).
+- **Context window:** claimed 64,000 total / 4,096 max output (meta.json only).
+- **Modalities:** claimed text in/out (meta.json only).
+- **Pricing (as of 2026-11-13):** claimed $0.50/$1.50 per 1M (meta.json only; "provider documentation" link not found anywhere).
+- **Architecture:** claimed "modular sub-network architecture" (meta.json only) — unverifiable.
 
 ### Raw benchmarks found
 
-ZERO verified public benchmark scores found. Every row below is intentionally empty.
+ZERO verified public benchmark numbers found for `opencode/neomorph` (the exact claimed ID). Confirmed via: live OpenCode Zen model list (86 entries; no neomorph), models.dev full catalog (no entry), DuckDuckGo HTML search (`"neomorph" opencode` — only biotech/gaming/biology results), OpenRouter models API (no neomorph). No callable model, no docs, no evaluation exists in any public source reachable this pass.
 
 Agent / tool use:
 
@@ -27,7 +27,7 @@ Agent / tool use:
 
 Reasoning / knowledge:
 
-- no verified public score found (BenchLM 404; models.dev catalog grep: no matches; HF search: nothing)
+- no verified public score found
 
 Coding:
 
@@ -37,26 +37,24 @@ Long context:
 
 - no verified public score found
 
-Multimodal:
-
-- no verified public score found
-
 ### Normalized scores (1–100)
 
-Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design.
+Not scored — zero verified public benchmark numbers exist for `Neomorph`. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Re-research only if the model appears on a live catalog or a launch post surfaces.
 
 - **Tool use: 15/100.** placeholder — no evidence
 - **Reasoning: 15/100.** placeholder — no evidence
-- **Context window: 15/100.** placeholder — no evidence
+- **Context window: 15/100.** placeholder — no evidence (64K claim unverified)
 - **Multimodal: 15/100.** placeholder — no evidence
 - **Coding: 15/100.** placeholder — no evidence
-- **Cost efficiency: 15/100.** placeholder — no evidence
-- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — no verified public information.
+- **Cost efficiency: 15/100.** placeholder — claimed $0.50/$1.50; source unverifiable
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — no public evidence the model exists or is callable.
 
 ## Signature
 
-- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
-- Method: public internet research (OpenCode Console, BenchLM, Hugging Face, models.dev); ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored.
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-13 UTC
+- Method: public internet research; web search returned HTTP 402 (quota), so the fallback ladder was used — one simpler retry (402 again), then direct `webfetch` of DuckDuckGo HTML results, direct shell `curl` of the full models.dev catalog and the OpenRouter models API, and the live OpenCode Zen model list. ZERO verified public benchmarks (or any public surface) found for the exact claimed ID — saved as self-excluded per project rules; scores inside are placeholders and are ignored. No local repository files were used as evidence beyond the slug's own meta.json for identification.
 - Reference URLs:
-  - [OpenCode Console — Models](https://opencode.ai/models)
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+  - [OpenCode Zen models endpoint (live catalog; no neomorph)](https://opencode.ai/zen/v1/models)
+  - [models.dev (MIT license catalog; no neomorph)](https://models.dev/)
+  - [neomorph.com — unrelated biotech (checked 2026-11-13)](https://neomorph.com/)
+- Future sources: add a new file next to this one, e.g. `Inkling_2_Small_2.md`, using the same headings.

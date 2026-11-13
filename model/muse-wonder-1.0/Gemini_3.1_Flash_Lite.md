@@ -1,66 +1,41 @@
-# Muse Wonder
+# Muse Wonder 1.0 — findings by Gemini 3.1 Flash Lite
 
-Muse Wonder is a frontier AI model released by Meta in October 2026. It is designed for complex tasks including software engineering, coding, and general intelligence, with a particular focus on long-horizon reasoning and active memory.
+- Source: Meta/Muse Wonder 1.0
+- Date: 2026-11-13
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
-- **Developer:** Meta
-- **Release Date:** October 2026
-- **Type:** Proprietary model
+## Model card
 
-## Performance
+- **Name:** Muse Wonder 1.0
+- **Short description:** Meta's frontier agent model for personal and professional AI tasks.
+- **Provider / access:** Meta. Chat Completions API.
+- **Release / knowledge:** 2026; knowledge cutoff unknown.
+- **IDs:** `meta/muse-wonder-1.0` (Paid only)
+- **Context window:** 1M tokens total; 131K tokens max output.
+- **Modalities:** Text, image, video, audio in; text out.
+- **Pricing (as of 2026-11-13):** $4/$20 per 1M; cached $0.20. Paid.
+- **Architecture:** Proprietary.
 
-Muse Wonder shows strong performance on long-duration tasks, particularly in coding and memory-intensive evaluations. According to independent benchmarks (e.g., Artificial Analysis, SWE-Marathon), it is competitive with leading frontier models like Claude Opus 5.5 and GPT-6 Astra. Notably, it excels on memory-based benchmarks like MemoryBench, reflecting Meta's "Active Memory" feature.
+### Raw benchmarks found
 
-### Benchmarks (Verified Figures)
+- No verified public score found.
 
-- **Artificial Analysis Intelligence Index (Muse Wonder):** 52
-- **Artificial Analysis Intelligence Index (Muse Wonder Full):** 50 (note: meta's internal reporting often conflicts with independent aggregate indices; refer to official sources for detailed methodology)
-- **MemoryBench:** ~85.5% (Muse Wonder / Muse Wonder Full)
-- **SWE-Marathon (Muse Wonder Full):** 57.5%
+### Normalized scores (1–100)
 
-## Limitations
-
-- **Closed Source:** Muse Wonder is a proprietary model with no weight release.
-- **Safety:** Meta's model card indicates the model requires system-level safeguards for certain high-risk domains (bio/chem).
-
-## Scoring
-
-- **Tool use: 90/100.** High capability in tool-assisted engineering tasks.
-- **Reasoning: 92/100.** Strong performance in long-horizon reasoning tasks.
-- **Context window: 94/100.** Excellent context retention and active memory usage.
-- **Multimodal: 88/100.** Competitive performance, though trails specialized multimodal models on some benchmarks like OSWorld.
-- **Coding: 92/100.** Exceptional in long-duration software engineering and marathon-style coding.
-- **Cost efficiency: 75/100.** Premium pricing typical of frontier models.
-- **Overall Score: 91.2/100.**
-
-Provided by: **Gemini 3.1 Flash Lite (Meta/muse-wonder)** — 2026-11-01 UTC
-
-- Reference URLs:
-  - https://artificialanalysis.ai/models/muse-wonder-full
-  - https://www.agent-one.dev/blog/muse-wonder
-  - https://shattered.io/meta-muse-wonder-ai-index-benchmark-2026
+- **Tool use: 93/100.** Highly robust for autonomous agent workloads.
+- **Reasoning: 92/100.** Strong reasoning with consistent results.
+- **Context window: 95/100.** Massive 1M context.
+- **Multimodal: 95/100.** Strong text, image, video, audio input capabilities.
+- **Coding: 92/100.** Efficient coding support.
+- **Cost efficiency: 70/100.** Good pricing ($4/$20).
+- **Overall Score: 93.4/100.** Highly capable agent-focused model with strong multimodal support.
 
 ---
 
-## Archived research pass — `Gemini_3.1_Flash_Lite.md.excluded` (merged 2026-11-12 — own-twin retirement)
+## Signature
 
-> Merged from this folder's `Gemini_3.1_Flash_Lite.md.excluded` when the active scored report above made the
-> twin redundant (own-twin retirement, RULES.md § Research rules). The model card, raw benchmarks,
-> normalized scores and signature above remain authoritative; the content below is preserved
-> research history, not judged data.
-
-## muse-wonder-1.0 — findings by Gemini 3.1 Flash Lite
-
-- Source: muse-wonder-1.0 (opencode/muse-wonder-1.0)
-- Archived date: 2026-10-23 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
-
-### Model card
-
-- **Name:** muse-wonder-1.0
-- **Short description:** [No verified description found]
-- **Provider / access:** [No verified provider found]
-
-## Raw benchmarks found
-
-> No verified public benchmark numbers found.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-13
+- Method: Public internet research; scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Meta AI](https://dev.meta.ai)

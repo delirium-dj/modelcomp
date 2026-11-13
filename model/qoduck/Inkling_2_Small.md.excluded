@@ -1,25 +1,30 @@
 # Qoduck — findings by Inkling 2 Small
 
-- Source: Alibaba Cloud / Qoder (`qoduck`)
-- Date: 2026-11-10 (UTC) — deep second pass 2026-11-10
+- Source: Alibaba / Qoder (stealth picker entry `Qoduck`)
+- Date: 2026-11-13 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qoduck
-- **Short description:** Alibaba Cloud's anonymous "stealth model" shipped inside the Qoder International desktop app on 2026-11-07. Official wording: "a stealth model whose identity has yet to be disclosed" — no model card, no weights, no API, no benchmark table. Individual-use promotional drop, not a public release. Community fingerprint analysis places it in the Qwen family (tokenizer match); it is widely speculated to be Qwen4-27B, but Alibaba has confirmed nothing.
-- **Provider / access:** Qoder International desktop app, individual tiers only (Free / Pro Trial / Lite / Pro / Pro+ / Ultra); NOT available via Qoder IDE, JetBrains plugin, CLI, Teams/Enterprise, or any public API/endpoint. `lmodel` upstream routing key per reverse-engineered client catalogs (unverified).
-- **Release / knowledge:** 2026-11-07 (promo window "yet to be determined"; originally announced as ending 2026-11-11 10:00 UTC+8, extendible at Qoder's discretion).
-- **IDs:** none public. Served only as "Qoduck" in the Qoder model picker; upstream key `lmodel` reported by gateway reverse-engineering (unconfirmed).
-- **Context window:** ~1,000,000 tokens — community/client-reported (Kie.ai, stealthmodels.com); NOT stated in Qoder's docs. Treat as unverified.
-- **Modalities:** text/code in, text/code out; "multimodal inputs observed" per community testing only — unconfirmed. Reasoning yes (Thinking Intensity slider incl. "Extreme", tokens covered by 0.0x promo rate).
-- **Pricing (as of 2026-11-10):** promotional 0.0× Credit rate inside the daily free allowance (no Credits, even at max thinking intensity); after the allowance, standard 0.5× Credit multiplier ≈ flagship tier (same factor as Qwen3.8-Max; Qwen3.8-Flash sits at 0.1× per Qoder's rate card). No per-token price exists.
-- **Architecture:** undisclosed. Speculation splits between (a) dense 27B (~35 GB at Q8, "Qwen4-27B" reading from @teortaxesTex, disputed by OrcaRouter's own arithmetic), and (b) sparse MoE with a learned n-gram/MTP memory (Flash-Next-style precursor, Qwen3.8-Flash-Next config confirms `qwen4_exp` architecture exists upstream). Kernel PRs (analytics-zoo #22 vLLM-XPU, t-head/pla #11) name "Qwen4-27B dense" and "Qwen4.0-Max" — preparation artifacts, not a release, no end-to-end run.
+- **Name:** Qoduck (stealth model, identity undisclosed by Alibaba/Qoder)
+- **Short description:** Anonymous stealth coding model inside Alibaba's Qoder (International) platform, launched 2026-11-07. Qoder states its identity "has yet to be disclosed". Community speculation points at Qwen 4 (tokenizer quirks match Qwen's; Qoder price parity with Qwen3.8-Max; optional 1M-token window) — none of this is confirmed by Alibaba, and the name has been withdrawn after the promo window.
+- **Provider / access:** Qoder International (individual accounts only; Teams/Enterprise ineligible) — model picker entry `Qoduck`. Free daily allowance during the promo 2026-11-07 → 2026-11-11 10:00 (UTC+8), then removed from the picker ("Qoduck will be removed when the promotion ends"). After the promo, standard Credit rate 0.5×. Not available via API, OpenCode Zen, OpenRouter, or pay-per-token.
+- **Release / knowledge:** 2026-11-07 (Qoder International picker). Removed from the picker 2026-11-11. No knowledge cutoff disclosed.
+- **IDs:** `Qoduck` (Qoder International picker only). No API ID, no weights, no listing in public gateways verified.
+- **Context window:** 1M tokens reported by users (unconfirmed by Alibaba); Qoder picker lists no spec.
+- **Modalities:** text / coding (Qoder coding IDE context) in → text out; high thinking intensity supported (0.0× credits within promo); tools inside Qoder agent. Image/video input unconfirmed.
+- **Pricing (as of 2026-11-13):** free daily allowance during promo (ended); otherwise 0.5× Qoder Credits. No public per-token price. Individual Qoder accounts only.
+- **Architecture:** undisclosed — no parameters, no weights, no license.
 
 ### Raw benchmarks found
 
-ZERO verified public benchmark scores found — for this exact model/ID, anywhere. Confirmed across 11 successful independent searches/lookups on 2026-11-10 (official docs, OpenAI/xAI/HF/models.dev/BenchLM catalogs, HN, GitHub, and independent press). Leaked "Qwen4 = 82% SWE-bench" / "53 on AA" claims all trace to no primary source (Stealth Models leak audit, 2026-11-02: "Count the footprints. Do not count the guesses as scores.").
+ZERO verified public benchmark numbers found for `Qoduck` (the exact picker ID). What exists:
+
+- Qoder official event page: identity undisclosed; no specs, no benchmarks, no end-of-life notes beyond promo end (2026-11-11); individual users only.
+- Community/tester claims (X/blog coverage): tokenizer quirks match Qwen's; "beat every released Qwen on a knowledge check" (unsourced, single tester); pixel-art city demo faster than DeepSeek V4.1 Flash; normal Qoder price parity with Qwen3.8-Max; users can switch it to a 1M-token window. No harness, no reproducible table, no numbers accepted as evidence.
+- Stealth Models: Qoduck named as unconfirmed Qwen4-family look-alike (tokenizer match is circumstantial; Arena "Kerria"/"Kalmia" sightings likewise unconfirmed) — no StealthMark entry.
+- BenchLM / LLM Stats / BenchmarkList: no page / no rows (checked 2026-11-13 via search).
 
 Agent / tool use:
 
@@ -31,50 +36,30 @@ Reasoning / knowledge:
 
 Coding:
 
-- no verified public score found (press anecdote only: "surpasses Qwen 3.8 Max" claims anecdotal, not benchmark-verified; Kie.ai: "no formal, reproducible benchmark results (SWE-bench/HumanEval) have been released")
+- no verified public score found (positioning: coding stealth; tester claims only, unverified)
 
 Long context:
 
-- no verified public score found (~1M ctx is a client-catalog observation, not a measurement)
-
-Multimodal:
-
-- no verified public score found
-
-### Conflicting claims compared (2nd pass)
-
-- Official docs: identity undisclosed, promo Nov 7 → Nov 11 10:00 UTC+8 (docs page fetched 2026-11-10), end date "yet to be determined" — the 2026-11-10 snapshot still shows Nov 11 10:00 UTC+8 as the end.
-- kie.ai (Nov 8): tokenizer match w/ Qwen, 1M ctx, `lmodel` key, outperforms "all previously released Qwen models" — anecdotal, single tester, unreproducible.
-- OrcaRouter (Nov 9): methodical byte-math takedown of the Qwen4-27B reading — 35 GB at Q8 is NOT reproducible from published Qwen3.8-27B weights (~29–31 GB incl. vision tower); the "+6 GB table" also fits wider backbone / more layers / MoE; conclusion: "this is a wish, not a measurement"; no model card, no weights, no API as of 2026-11-09.
-- StartupFortune (Nov 8): "No independent benchmark has been published that I could find"; promo is not a pricing strategy; Qwen4 rumour is explicitly only a rumour.
-- Stealth Models leak audit (Nov 2): every circulating Qwen4 number is untraceable; Qwen4 NOT released as of 2026-11-10; QwenHF org has zero Qwen4 weights; OpenRouter lists none; Model Studio lists none.
-- Qwen official teaser (Nov 6): "The becoming begins" — no model name; Qwen Code v0.26.3/v0.26.5 pre-sizes qwen4 IDs at 1M ctx.
-
-Net: identity, size, architecture, context window, benchmarks — all unverified. No evidence supports a scored report. If Qoder/Alibaba publishes identity + weights/card, re-research then.
+- no verified public score found (1M window reported by users, unconfirmed)
 
 ### Normalized scores (1–100)
 
-Not scored — zero verified public benchmark evidence exists for this exact model/ID. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design.
+Not scored — zero verified public benchmark numbers exist for `Qoduck`. Per the self-exclusion rule, this file is saved as `.md.excluded` and scores inside are ignored by design. Re-research if and when Alibaba names the model (reveal/merge) or publishes a benchmark table for this exact ID.
 
 - **Tool use: 15/100.** placeholder — no evidence
-- **Reasoning: 15/100.** placeholder — no evidence
-- **Context window: 15/100.** placeholder — no evidence (client-catalog ~1M noted, unmeasured)
+- **Reasoning: 15/100.** placeholder — no evidence (high thinking intensity supported per Qoder docs; unmeasured)
+- **Context window: 15/100.** placeholder — no evidence (1M reported; unconfirmed, unmeasured)
 - **Multimodal: 15/100.** placeholder — no evidence
-- **Coding: 15/100.** placeholder — no evidence
-- **Cost efficiency: 15/100.** placeholder — promo 0.0x credits noted for context; no per-token price exists
-- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — stealth promo only, identity undisclosed.
+- **Coding: 15/100.** placeholder — no evidence (stealth coding positioning; tester anecdotes only)
+- **Cost efficiency: 15/100.** placeholder — free promo ended 2026-11-11; 0.5× credit rate thereafter
+- **Overall Score: 15/100.** placeholder — not a real capability estimate; file is self-excluded. Best fit: not selectable — stealth model removed from the Qoder picker after the 2026-11-11 promo end.
 
 ## Signature
 
-- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-10 UTC
-- Method: deep second-pass public research (11 independent sources/lookups on 2026-11-10: official Qoder docs ×2 snapshots, kie.ai, OrcaRouter, aicoder.com, StartupFortune, BestHub, Stealth Models, HN Algolia, HF API, GitHub API); ZERO verified public benchmarks found — remains self-excluded; scores inside are placeholders and are ignored.
+- Provided by: **Inkling 2 Small (thinkingmachines/inkling-2-small)** — 2026-11-13 UTC
+- Method: public internet research; web search returned HTTP 402 (quota), so the fallback ladder was used — one simpler retry (402 again), then direct `webfetch` of DuckDuckGo HTML results and the official Qoder International event page (docs.qoder.com/events/qoduck-free). ZERO verified public benchmarks found — saved as self-excluded per project rules; scores inside are placeholders and are ignored. No local repository files were used as evidence.
 - Reference URLs:
-  - [Qoduck: Try the Stealth Model Free for a Limited Time — Qoder docs](https://docs.qoder.com/events/qoduck-free)
-  - [What Is QoDuck? Specs, Limits, and Qoder Access — kie.ai](https://kie.ai/blog/what-is-qoduck)
-  - [Qoduck Leak: Alibaba's Stealth Model Looks Like Qwen 4 — OrcaRouter](https://www.orcarouter.ai/blog/qoduck-qwen4-27b-leak)
-  - [Qoduck stealth model daily free 0x credits — aicoder.com](https://aicoder.com/news/news-20261107-qoder-qoduck-stealth-model-daily-free-0x-credits)
-  - [Alibaba's Qoder makes a mystery coding model called Qoduck free to use — StartupFortune](https://startupfortune.com/alibabas-qoder-makes-a-mystery-coding-model-called-qoduck-free-to-use/)
-  - [Alibaba's Secret Qoduck Model Free on Qoder — BestHub](https://www.besthub.dev/articles/alibaba-s-secret-qoduck-model-free-on-qoder-is-this-qwen-4-max-preview-7074169af65e)
-  - [Qwen 4 family guide / leak audit — Stealth Models](https://stealthmodels.com/qwen-4)
-  - [qoder2api-hub (upstream `lmodel` routing key) — GitHub](https://github.com/shuishuipingan/qoder2api-hub)
-- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+  - [Qoduck: Try the Stealth Model Free for a Limited Time — Qoder International docs](https://docs.qoder.com/events/qoduck-free)
+  - [Stealth Models: Qwen 4 family guide (Qoduck as unconfirmed look-alike, 2026-11-07)](https://stealthmodels.com/qwen-4)
+  - [aitoolranked: Qoder's Qoduck — free stealth coding model](https://aitoolranked.com/news/qoder-qoduck-stealth-model-free)
+- Future sources: add a new file next to this one, e.g. `Inkling_2_Small_2.md`, using the same headings.
