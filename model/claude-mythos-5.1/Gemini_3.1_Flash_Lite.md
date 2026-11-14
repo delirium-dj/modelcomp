@@ -41,11 +41,11 @@
   - [Anthropic Claude](https://claude.ai)
 
 ## Scores
-- **Tool use: 0/100**
-- **Reasoning: 0/100**
-- **Context window: 0/100**
-- **Multimodal: 0/100**
-- **Coding: 0/100**
-- **Cost efficiency: 0/100**
-- **Overall Score: 0/100**
+- **Tool use: 94/100.** High-fidelity tool use for restricted defense research.
+- **Reasoning: 92/100.** Strong reasoning.
+- **Context window: 95/100.** 1M context.
+- **Multimodal: 70/100.** Text/image support.
+- **Coding: 94/100.** Strong coding capabilities.
+- **Cost efficiency: 20/100.** Restricted professional pricing.
+- **Overall Score: 89/100.** Elite-tier specialist model for authorized cyber/bio research.
 

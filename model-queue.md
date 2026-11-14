@@ -55,6 +55,7 @@
 87.2 grok-4.6
 87 ember-1
 87 minimax-m3
+86.9 gemini-4-hydrogen
 86.8 qwen-3.7-plus
 86.8 qwen-3.8-omni-flash
 86.7 claude-sonnet-4.6
@@ -63,7 +64,6 @@
 86.6 inkling-small
 86.6 qwen-3.8-27b
 86.6 step-5-preview
-86.4 gemini-4-hydrogen
 86.4 gpt-5.2
 86.3 kimi-k2.6
 86.1 grok-4.7

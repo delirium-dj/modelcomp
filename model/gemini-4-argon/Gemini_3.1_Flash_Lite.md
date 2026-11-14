@@ -45,11 +45,11 @@ Coding:
   - [Google DeepMind Gemini](https://deepmind.google/technologies/gemini/)
 
 ## Scores
-- **Tool use: 0/100**
-- **Reasoning: 0/100**
-- **Context window: 0/100**
-- **Multimodal: 0/100**
-- **Coding: 0/100**
-- **Cost efficiency: 0/100**
-- **Overall Score: 0/100**
+- **Tool use: 95/100.** Industry-leading agentic coding performance.
+- **Reasoning: 93/100.** Excellent performance on enterprise research tasks (68.9% Vals Index).
+- **Context window: 98/100.** Massive-output window (262K initial) and 1M total context.
+- **Multimodal: 90/100.** Strong support for text, image, and video input.
+- **Coding: 96/100.** Top-tier coding capabilities (77.9% DeepSWE).
+- **Cost efficiency: 40/100.** Premium pricing ($4/$20 per 1M).
+- **Overall Score: 94/100.** Frontier model currently setting the standard for long-horizon coding and research.
 

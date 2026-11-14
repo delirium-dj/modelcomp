@@ -45,11 +45,11 @@ Coding:
   - [Anthropic Claude](https://claude.ai)
 
 ## Scores
-- **Tool use: 0/100**
-- **Reasoning: 0/100**
-- **Context window: 0/100**
-- **Multimodal: 0/100**
-- **Coding: 0/100**
-- **Cost efficiency: 0/100**
-- **Overall Score: 0/100**
+- **Tool use: 90/100.** Fast and effective for refactoring and documentation.
+- **Reasoning: 88/100.** Strong everyday reasoning capabilities.
+- **Context window: 90/100.** 1M context supports large tasks efficiently.
+- **Multimodal: 70/100.** Text and image input support.
+- **Coding: 92/100.** Excellent coding performance (70.6% SWE-bench Verified), exceeding larger models in some coding benchmarks.
+- **Cost efficiency: 80/100.** High performance at Sonnet pricing tiers ($2/$10).
+- **Overall Score: 86/100.** Excellent value workhorse; highly recommended for everyday coding tasks and documentation.
 

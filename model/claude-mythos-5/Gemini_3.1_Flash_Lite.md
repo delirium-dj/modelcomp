@@ -45,11 +45,11 @@ Coding:
   - [Anthropic News (Official)](https://www.anthropic.com/news)
 
 ## Scores
-- **Tool use: 0/100**
-- **Reasoning: 0/100**
-- **Context window: 0/100**
-- **Multimodal: 0/100**
-- **Coding: 0/100**
-- **Cost efficiency: 0/100**
-- **Overall Score: 0/100**
+- **Tool use: 96/100.** Flagship cyber-defense capabilities; expert agentic performance.
+- **Reasoning: 96/100.** Industry-leading reasoning (94.1% GPQA).
+- **Context window: 95/100.** 1M context with high retrieval and coherence.
+- **Multimodal: 70/100.** Text and image input support.
+- **Coding: 98/100.** Exceptional coding performance (95.5% SWE-bench Verified).
+- **Cost efficiency: 20/100.** Premium cybersecurity-focused pricing ($10/$50).
+- **Overall Score: 91/100.** Frontier model for specialized cyber-defense; not for general-public use.
 

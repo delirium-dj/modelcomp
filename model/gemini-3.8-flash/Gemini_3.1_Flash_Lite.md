@@ -45,11 +45,11 @@ Coding:
   - [Google DeepMind Gemini](https://deepmind.google/technologies/gemini/)
 
 ## Scores
-- **Tool use: 0/100**
-- **Reasoning: 0/100**
-- **Context window: 0/100**
-- **Multimodal: 0/100**
-- **Coding: 0/100**
-- **Cost efficiency: 0/100**
-- **Overall Score: 0/100**
+- **Tool use: 92/100.** Highly capable agentic performance.
+- **Reasoning: 94/100.** Elite reasoning abilities (95.3% GPQA).
+- **Context window: 95/100.** 1M context supports large-scale tasks efficiently.
+- **Multimodal: 85/100.** Supports text, image, audio, and PDF input.
+- **Coding: 93/100.** Excellent coding performance (90.8% Terminal-Bench).
+- **Cost efficiency: 95/100.** High performance at a very competitive price point.
+- **Overall Score: 91.8/100.** The reasoning-per-dollar champion in Google's Flash family.
 

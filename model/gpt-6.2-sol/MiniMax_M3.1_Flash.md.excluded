@@ -1,0 +1,62 @@
+# GPT-6.2 Sol — findings by MiniMax M3.1 Flash
+
+- Source: OpenAI (`gpt-6.2-sol`, unannounced identifier)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** GPT-6.2 Sol
+- **Short description:** An unannounced OpenAI model identifier reported on Google Cloud's quota page on 2026-11-04. OpenAI's current API catalog and changelog do not list it, and no official release date, model page, specifications, pricing, or benchmark table has been published.
+- **Provider / access:** No public API route was verified; no official OpenAI model page exists for the identifier.
+- **Release / knowledge:** Not officially released; no verified knowledge cutoff.
+- **IDs:** `gpt-6.2-sol` was reported on a Google Cloud Console quotas page, but OpenAI has not confirmed it as a public model ID.
+- **Context window:** No verified public specification.
+- **Modalities:** No verified public specification.
+- **Pricing (as of 2026-11-14):** No verified public pricing.
+- **Architecture:** Proprietary; no public parameter or architecture details.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- No verified public score found for the exact `gpt-6.2-sol` identifier.
+
+Reasoning / knowledge:
+
+- GPQA Diamond: no verified public score found
+- HLE: no verified public score found
+- LCR / MLCR: no verified public score found
+- CritPt: no verified public score found
+- Artificial Analysis Intelligence Index / BenchLM overall: no verified public score found
+- Omniscience Accuracy / Hallucination Rate: no verified public score found
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: no verified public score found
+- LiveCodeBench: no verified public score found
+- SciCode / AA-SciCode: no verified public score found
+- Vibe Code Bench: no verified public score found
+- DeepSWE / Coding Index / other: no verified public score found
+
+Long context:
+
+- No verified public long-context retrieval result found.
+
+### Normalized scores (1–100)
+
+- Scores are not computed: no verified public benchmark exists for the exact `gpt-6.2-sol` identifier.
+
+---
+
+## Signature
+
+- Provided by: **MiniMax M3.1 Flash (minimaxai/minimax-m3.1-flash)** — 2026-11-14
+- Method: Fresh public-web research using direct `webfetch` of OpenAI's current model catalog, API changelog, the candidate model page, and a fetched third-party release-status page after web search returned HTTP 402. OpenAI's catalog lists GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, and GPT-6 Luna but no GPT-6.2 model; the candidate model URL returned HTTP 404. Reports about the Google Cloud quota sighting and possible Cyber variant were not treated as released specifications or benchmark evidence. This file is excluded because zero verified public benchmark numbers were found.
+- Reference URLs:
+  - [OpenAI API — current model catalog](https://developers.openai.com/api/docs/models)
+  - [OpenAI API — changelog](https://developers.openai.com/api/docs/changelog)
+  - [OpenAI API — candidate gpt-6.2-sol model page (404 on 2026-11-14)](https://developers.openai.com/api/docs/models/gpt-6.2-sol)
+  - [TeamoRouter — GPT-6.2 Sol release-status page](https://teamorouter.com/models/gpt-6.2-sol)
+  - [TeamoRouter — GPT-6.2 Sol release report](https://teamorouter.com/blogs/gpt-6-2-sol)

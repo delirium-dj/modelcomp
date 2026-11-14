@@ -45,11 +45,11 @@ Coding:
   - [Anthropic Claude](https://claude.ai)
 
 ## Scores
-- **Tool use: 0/100**
-- **Reasoning: 0/100**
-- **Context window: 0/100**
-- **Multimodal: 0/100**
-- **Coding: 0/100**
-- **Cost efficiency: 0/100**
-- **Overall Score: 0/100**
+- **Tool use: 92/100.** High-fidelity tool use for complex agentic tasks.
+- **Reasoning: 90/100.** Strong performance in long-horizon reasoning.
+- **Context window: 95/100.** 1M context with high coherence.
+- **Multimodal: 70/100.** Text and image input support.
+- **Coding: 94/100.** Strong specialist coding abilities (66.4% TB4).
+- **Cost efficiency: 40/100.** Premium Opus-lane pricing.
+- **Overall Score: 88.2/100.** Current industry leader for long-horizon autonomous engineering.
 

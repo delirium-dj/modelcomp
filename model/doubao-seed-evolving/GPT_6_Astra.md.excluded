@@ -1,0 +1,55 @@
+# Doubao-Seed-Evolving — findings by GPT 6 Astra
+
+- Source: ByteDance / Volcengine Ark `doubao-seed-evolving`
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Doubao-Seed-Evolving
+- **Short description:** A continuously updated Seed model route for coding and agent workflows. Version changes occur server-side; results need an evaluation date or pinned implementation to identify what was actually tested.
+- **Provider / access:** Volcengine Ark, with OpenAI-compatible Chat/Responses and Anthropic-compatible interfaces, as described in the [official guide](https://www.volcengine.com/docs/82379/2549861).
+- **Release / knowledge:** Official changelog starts **2026-06-23**; latest update on the fetched guide is **2026-11-05**. Knowledge cutoff not disclosed.
+- **IDs:** `doubao-seed-evolving`; no separate immutable snapshot ID or Zen Free ID verified.
+- **Context window:** Official **1024K context / 1024K maximum input / 256K maximum output / 256K reasoning-content limit**. These are documented ceilings, not an additive input-plus-output allowance or retrieval measurement.
+- **Modalities:** Text, images, video and documents in; text out. Official guide explicitly excludes audio understanding, including a video's audio track. Thinking, function calling, caching and structured output are supported.
+- **Pricing (as of 2026-11-14):** [ChengRang's source-linked review](https://chengrang.com/tools/en/seed-evolving.html) reports **CNY 6 input / 30 output / 1.2 cache-hit per 1M tokens**, plus **CNY 0.017 per 1M cached tokens/hour** storage. These are secondary claims; a readable primary tariff was not verified here and no USD conversion is assumed.
+- **Architecture:** Proprietary rolling service; parameter count and released weights not verified.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench, Tau3/Tau2, GDPval-AA, Claw-Eval/ClawProBench, Toolathlon and MCP-Atlas: no verified public score found for a dated Evolving implementation.
+- Official update notes describe better planning, tool execution and factual consistency, but give no numerical benchmark results.
+
+Reasoning / knowledge:
+
+- [The Known Good](https://theknowngood.com/models/doubao-seed-evolving/) displays **GPQA Diamond 93** and **Mock AIME 2024–25 99**, attributed to ingested Epoch data. No evaluation date, immutable model version, harness, uncertainty or directly retrievable Epoch row was established. These are preserved as secondary, rounded tracker claims, not treated as verified results for the November-5 implementation.
+- HLE, LCR/MLCR, CritPt, independent Intelligence Index and Omniscience accuracy/hallucination rate: no verified public score found.
+
+Coding:
+
+- SWE-bench Verified/SWE-Pro, LiveCodeBench, SciCode, Vibe Code Bench and DeepSWE: no verified exact-route public score found. Scores for Seed 2.0/2.1 or other ByteDance models are not substituted.
+
+Long context:
+
+- No measured MRCR/RULER/GraphWalks retrieval result found. The 1024K specification is not a quality benchmark.
+
+### Normalized scores (1–100)
+
+**Self-excluded: insufficient attributable benchmark evidence for a complete Overall.** The official identity and specifications are verified, but the rolling route's component scores and evaluation configuration are not. No placeholder dimensions or Overall are assigned.
+
+---
+
+## Signature
+
+- Provided by: **GPT 6 Astra (agentrouter/gpt-6-astra)** — 2026-11-14
+- Method: Fresh DuckDuckGo public search after the configured search returned HTTP 402; direct official documentation and secondary-source checks. Ark's model/leaderboard pages yielded no readable body; shell Invoke-WebRequest recovered an HTML application shell without attributable results. The separate Volcengine documentation URL was readable. No peer findings or local dataset values were used as evidence.
+- Reference URLs:
+  - [Volcengine: official Seed-Evolving guide and changelog](https://www.volcengine.com/docs/82379/2549861)
+  - [Ark: model page, application-shell access only](https://ark.volcengine.com/region:cn-beijing/model/detail?name=doubao-seed-evolving)
+  - [ChengRang: secondary specifications and pricing claims](https://chengrang.com/tools/en/seed-evolving.html)
+  - [The Known Good: limited, configuration-unspecified benchmark claims](https://theknowngood.com/models/doubao-seed-evolving/)
+- Future sources: add a separate signed findings file using the same headings.

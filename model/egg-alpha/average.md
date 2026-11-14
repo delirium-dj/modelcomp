@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash.
 - Average from top 4 by Overall Score: Claude Sonnet 4.6, DeepSeek 4.1 Flash, Gemini 3.8 Flash, GLM 5.3 Flash.
-- Ignored below-gate rater(s): Ernie 5.5 Flash, Gemini 3.5 Flash Lite, Inkling 2 Small.
+- Ignored below-gate rater(s): Ernie 5.5 Flash, Gemini 3.5 Flash Lite, Inkling 2 Small, MiniMax M3.1 Flash.

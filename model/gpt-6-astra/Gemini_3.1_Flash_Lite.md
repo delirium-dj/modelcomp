@@ -43,11 +43,11 @@ Reasoning / knowledge:
   - [OpenAI](https://openai.com)
 
 ## Scores
-- **Tool use: 0/100**
-- **Reasoning: 0/100**
-- **Context window: 0/100**
-- **Multimodal: 0/100**
-- **Coding: 0/100**
-- **Cost efficiency: 0/100**
-- **Overall Score: 0/100**
+- **Tool use: 98/100.** Frontier agentic capabilities.
+- **Reasoning: 98/100.** Elite reasoning (97.6% FrontierMath T4).
+- **Context window: 95/100.** 1.05M capacity.
+- **Multimodal: 70/100.** Text and image support.
+- **Coding: 98/100.** Top-tier coding capabilities.
+- **Cost efficiency: 20/100.** Premium flagship pricing.
+- **Overall Score: 91.8/100.** Current industry-leading reasoning and agentic flagship.
 

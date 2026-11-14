@@ -43,11 +43,11 @@ Reasoning / knowledge:
   - [Google DeepMind Gemini](https://deepmind.google/technologies/gemini/)
 
 ## Scores
-- **Tool use: 0/100**
-- **Reasoning: 0/100**
-- **Context window: 0/100**
-- **Multimodal: 0/100**
-- **Coding: 0/100**
-- **Cost efficiency: 0/100**
-- **Overall Score: 0/100**
+- **Tool use: 92/100.** Strong agentic research capability.
+- **Reasoning: 95/100.** Elite-tier abstract reasoning (94.3% GPQA).
+- **Context window: 100/100.** Industry-leading 2M-token window.
+- **Multimodal: 95/100.** Versatile multimodal support (Text, image, audio, video, PDF).
+- **Coding: 91/100.** Strong coding assistant for large repositories.
+- **Cost efficiency: 60/100.** Paid-tier flagship pricing.
+- **Overall Score: 94.6/100.** Elite research-focused model with unmatched context capacity and multimodal versatility.
 

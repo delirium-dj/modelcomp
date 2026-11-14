@@ -41,11 +41,11 @@
   - [Anthropic Claude](https://claude.ai)
 
 ## Scores
-- **Tool use: 0/100**
-- **Reasoning: 0/100**
-- **Context window: 0/100**
-- **Multimodal: 0/100**
-- **Coding: 0/100**
-- **Cost efficiency: 0/100**
-- **Overall Score: 0/100**
+- **Tool use: 95/100.** Elite agentic coding performance.
+- **Reasoning: 94/100.** High-fidelity reasoning for engineering.
+- **Context window: 95/100.** 1M context.
+- **Multimodal: 70/100.** Text, image, PDF support.
+- **Coding: 96/100.** Top-tier coding (81.2% SWE-Pro).
+- **Cost efficiency: 20/100.** Premium Mythos-class pricing.
+- **Overall Score: 90/100.** Elite model for complex, long-horizon software engineering.
 
