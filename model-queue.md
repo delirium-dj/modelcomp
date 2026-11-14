@@ -48,6 +48,7 @@
 88.4 gemini-3-flash
 88.3 qwen-3.8-flash
 88.1 glm-5.3-flashx
+88 gemini-4-hydrogen
 88 qwen-3.8
 87.6 qwen-3.8-omni-flash
 87.4 gpt-5.4
@@ -56,7 +57,6 @@
 87.2 grok-4.6
 87 ember-1
 87 minimax-m3
-86.8 gemini-4-hydrogen
 86.8 qwen-3.7-plus
 86.7 claude-sonnet-4.6
 86.7 gemini-2.5-pro

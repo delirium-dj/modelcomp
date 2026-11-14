@@ -1,0 +1,64 @@
+# GPT-6.2 Astra — findings by GPT-6.1 Sol
+
+- Source: OpenAI-associated reported Codex telemetry label `gpt-6.2-astra`; public model release not verified.
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Status: **Self-excluded: telemetry reports do not establish a released, version-pinned model or verified quality benchmarks.**
+
+## Model card
+
+- **Name:** GPT-6.2 Astra (reported name; not verified as a publicly released model).
+- **Short description:** Third-party observers report this label in some Codex usage analytics while the picker still displayed GPT-6 Astra. Such reports may indicate testing or routing, but do not independently identify the weights, configuration or model behind a particular demonstration.[1][2]
+- **Provider / access:** Reported limited Codex routing, not a verified selectable API endpoint. The freshly retrieved OpenAI public model index and live OpenRouter/Zen catalogs exposed no exact `gpt-6.2-astra` entry. No authenticated inference or account-specific access test was performed.[3][4][5]
+- **Release / knowledge:** No official release date or knowledge cutoff verified. The observer articles are dated **2026-11-02**; that is a reporting date, not a release date. Today's direct exact model-page attempt returned **404** through both webfetch and PowerShell.[1][2]
+- **IDs:** `gpt-6.2-astra` is reported in telemetry. No native public route, snapshot ID or Zen Free ID verified. It is not silently equated with `gpt-6-astra`, GPT-6.1 Sol, or the separately rumoured Betelgeuse name.[1][2][3]
+- **Context window:** Unverified for this exact subject. No predecessor's input/output limits are inherited.
+- **Modalities:** Unverified. A reported 3D demonstration does not establish native video/image output, supported input types or reproducible tool-call capabilities.[1]
+- **Pricing (as of 2026-11-14):** No exact public token tariff, cached-input rate or free allocation verified. Subscription usage percentages and rumoured price reductions are not model pricing evidence.[1][2]
+- **Architecture:** Exact architecture, parameters, weights and license unverified. Official OpenAI Hugging Face search for `gpt-6.2` returned no model artifact.[6]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1/4.x, Tau2/Tau3, GDPval-AA, Claw-Eval/ClawProBench, Toolathon, MCP-Atlas and SWE Atlas Codebase QnA: **no verified public score found** for this exact subject.
+- Codex consumption shares reported in screenshots are **usage/routing observations**, not successful-task percentages or independent benchmark trials.[1][2]
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR/MLCR, CritPt, Artificial Analysis Intelligence Index and Omniscience accuracy/hallucination rate: **no verified public score found**.
+- Unconfirmed index/parameter claims concerning a separate rumoured name were discarded; neither their measurements nor alias equivalence were verified.[2]
+
+Coding:
+
+- SWE-bench Verified/Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE and Coding Index: **no verified public score found**.
+- Anecdotal game/3D demos lack a reproducibly pinned responding model and representative task harness; they are not a coding benchmark.[1]
+
+Long context:
+
+- MRCR, RULER, GraphWalks, full-window recall and the exact token limit: **no verified public score found** or exact specification established.
+
+### Normalized scores (1–100)
+
+**Not assigned.** No exact-model numerical quality benchmark was verified, and the model's public serving identity/specifications remain unresolved. No five-axis Overall, sibling transfer or placeholder number is written.
+
+### Access and evidence audit
+
+The configured search integration returned HTTP 402, including its simpler retry. Direct DuckDuckGo HTML search subsequently worked and supplied observer/reseller-status articles, which were fetched in full. Fresh primary OpenAI model-index and live gateway checks found no exact public listing; the candidate OpenAI model page and BenchLM profile returned 404, both confirmed via shell HTTP fallback. These findings are bounded public-access checks, not proof that an internal model does not exist or that all web access is blocked. No repository model metadata or other reporters' files supplied evidence.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-14 UTC
+- Method: Independent public-web research using direct official/catalog HTTP fetches, webfetch of DuckDuckGo-discovered articles and PowerShell HTTP confirmation after search HTTP 402. Secondary telemetry reports are labelled as such, not promoted to released-model specifications or measured performance. Notes-only self-exclusion; no peer findings read.
+- Reference URLs:
+  - [1 — TestingCatalog observer report](https://www.testingcatalog.com/gpt-6-2-astra-appears-codex-usage/)
+  - [2 — OmniaKey status and rumour provenance review](https://omniakey.com/blog/gpt-6-2-astra)
+  - [3 — Current OpenAI public model index](https://developers.openai.com/api/docs/models)
+  - [4 — Live OpenRouter model catalog](https://openrouter.ai/api/v1/models)
+  - [5 — Live Zen model catalog](https://opencode.ai/zen/v1/models)
+  - [6 — Official OpenAI artifact query](https://huggingface.co/api/models?author=openai&search=gpt-6.2&limit=100)
+  - [7 — Live exact-name DuckDuckGo search](https://html.duckduckgo.com/html/?q=%22GPT-6.2+Astra%22)
+- Future sources: preserve these notes; a scored report requires genuinely new verified exact-model quality evidence.

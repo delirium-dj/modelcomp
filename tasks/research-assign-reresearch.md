@@ -1,12 +1,12 @@
-# Re-research assignment — batch enrichment delegator (canonical)
+# Re-research assignment — batch delegator (canonical)
 
 > **MISSION — a batch, not one file.** This assignment is a QUEUE: re-research
 > EVERY eligible report you own, `model/<subject-folder>/<YOUR_STEM>.md` — not
 > just one, and not just your own model folder. One reviewed report = one
 > queue step. **Propose mode writes zero files**: a complete run is measured by
 > reports reviewed, not files written. Done means every eligible file has an
-> outcome (`ENRICH-PROPOSAL` or `NO-CHANGE`), an explicit kickoff cap is
-> reached, or every remaining file is blocked with a recorded access failure.
+> outcome line (`ENRICH-PROPOSAL`, `NO-CHANGE`, or `BLOCKED`), or an explicit
+> kickoff cap is reached.
 
 `AGENT_SOURCE_STEM: <STEM>` — pinned STEM for this delegation (placeholder: the orchestrator pins the real value per run via the kickoff message; never leave a stale value here).
 
@@ -16,7 +16,7 @@
 
 > **READ-ONLY for re-research agents:** never edit this file (or any file under `tasks/`, `RULES.md`, `.agents/`, `model-report-TEMPLATE.md`). The only file you may write is your own `<STEM>.md`, and only in an approved `MODE: apply` pass. A STEM override belongs in the kickoff message, never here.
 
-Assigned reporter (derived: STEM with `_` -> space). Task: follow this file plus `RULES.md` § *Research rules* — **Re-research protocol** (maintenance vs. successful new search) and `tasks/research.md` Step 3.3. One active STEM at a time; a recovery re-delegation resumes the remaining queue.
+Assigned reporter (derived: STEM with `_` -> space). Task: follow this file plus `RULES.md` § *Research rules* — **Re-research protocol** (maintenance vs. successful new search) and `tasks/research.md` § *Report generation & save* — "Re-research & Enrichment of an existing `<Your_Filename>`". One active STEM at a time; a recovery re-delegation resumes the remaining queue.
 
 ## Identity resolution (no file edit required — first match wins)
 
@@ -52,11 +52,11 @@ Assigned reporter (derived: STEM with `_` -> space). Task: follow this file plus
    b. **Maintenance first:** re-fetch the existing reference links (primary vendor/official + benchmark leaderboards first; record any link that cannot be re-fetched). Re-checking evidence you already cited counts as **maintenance**. If `- Reference URLs:` is missing, treat that as a maintenance gap and propose verified links.
    c. **Independent expansion:** run at least one fresh search for a source not already listed — strictly without opening peer `.md` files. Only a genuinely new, actually fetched URL counts as a **successful new search**.
    d. **Classify the outcome:**
-      - **`ENRICH-PROPOSAL`** if a score changes, a new verified benchmark/source is found, an existing source materially changed, or a factual spec/pricing/context correction is warranted.
+      - **`ENRICH-PROPOSAL`** if the evidence would change a score, a new verified benchmark/source is found, an existing source materially changed or a listed link is dead, or a factual spec/pricing/context correction is warranted.
       - **`NO-CHANGE`** if every existing link still supports the recorded evidence and no new verified source was found.
    e. **Never overwrite, edit or delete in propose mode.** Emit the outcome line and advance to the next queued file.
-5. **Apply mode (second pass only):** only when the kickoff says `MODE: apply` AND lists `APPROVED: <slug>, ...`. The kickoff must also carry the approved proposal lines or the exact approved changes — never invent an unapproved change. For each approved slug, apply ONLY those approved changes: update the model card/benchmarks/scores, update the date on the `Provided by:` line to today UTC (keep your display/vendor ID), append newly verified URLs to `## Signature`, and describe maintenance + new search in `Method:`. Recompute `Overall Score` as the half-up mean of the five quality dims (Cost excluded). Never touch a non-approved file, `meta.json`, or `average.md`, and never delete anything. If the approved evidence is no longer verifiable, skip it and report why. Zero-influence applies in both modes: never open peer findings files.
-6. **Web access fallback (absolute):** search `402`/quota/outage -> one simpler retry, then `webfetch` the known official/leaderboard URLs, then shell `curl`/`Invoke-WebRequest`; cite only URLs actually fetched. No retrievable evidence -> keep the existing file unchanged and record the access failure; a global outage -> `WEB-ACCESS-BLOCKED` summary. Never substitute local files for public-web evidence.
+5. **Apply mode (second pass only):** only when the kickoff says `MODE: apply` AND lists `APPROVED: <slug>, ...`. In this mode the `APPROVED` list is the queue; `R`/staleness is ignored. The kickoff must also carry the approved proposal lines or the exact approved changes — never invent an unapproved change. For each approved slug, apply ONLY those approved changes: update the model card/benchmarks/scores, update the date on the `Provided by:` line to today UTC (keep your display/vendor ID), append newly verified URLs to `## Signature`, and describe maintenance + new search in `Method:`. Recompute `Overall Score` as the half-up mean of the five quality dims (Cost excluded). Never touch a non-approved file, `meta.json`, or `average.md`, and never delete anything. If the approved evidence is no longer verifiable, skip it and report why. Zero-influence applies in both modes: never open peer findings files.
+6. **Web access fallback (absolute):** search `402`/quota/outage -> one simpler retry, then `webfetch` the known official/leaderboard URLs, then shell `curl`/`Invoke-WebRequest`; cite only URLs actually fetched. No retrievable evidence -> keep the existing file unchanged and record a `BLOCKED` outcome; a global outage -> `WEB-ACCESS-BLOCKED` summary. Never substitute local files for public-web evidence.
 7. **No builds:** do NOT run `pnpm sync`, `pnpm build.types` or `pnpm build`. Propose mode needs no build at all; apply mode hands the command to the user.
 
 ## Outcome formats (use exactly these prefixes in the final summary)
@@ -64,15 +64,17 @@ Assigned reporter (derived: STEM with `_` -> space). Task: follow this file plus
 ```text
 ENRICH-PROPOSAL: <slug> | old <YYYY-MM-DD>/<Overall> | maintenance: <URLs checked & status> | new search: <new URLs & benchmarks> | delta <old Overall -> new Overall>
 NO-CHANGE: <slug> | checked <YYYY-MM-DD> | maintenance: <URLs checked & status> | new search: <attempts, no new verified source>
+BLOCKED: <slug> | reason: <402/quota/outage/...> | attempted: <search + webfetch/curl routes tried>
 ```
 
 One line per reviewed file. `old <date>/<Overall>` uses the file's own `Overall Score` line — never `average.md`. Never invent a benchmark, price, context window or score. Every proposed number needs the URL actually fetched this pass.
 
 ## Completion test (run before claiming done)
 
-- **Propose mode:** every file in `R` has exactly one outcome line. `reviewed < R` is an incomplete run — zero writes is normal, incomplete review is not. Re-run the wildcard listing and compare its file count with your outcome lines before reporting.
+- **Propose mode:** every file in `R` has exactly one outcome line (`ENRICH-PROPOSAL`, `NO-CHANGE`, or `BLOCKED`). `reviewed < R` is an incomplete run — zero writes is normal, incomplete review is not. Re-run the wildcard listing and confirm every file in `R` is covered (files outside `R` — too new or not in the kickoff list — need no outcome).
 - **Apply mode:** every slug in `APPROVED` is updated or explicitly skipped with a reason. Re-open each updated file and confirm today's UTC date in its `Signature`.
-- The run also ends on an explicit kickoff cap, or when every remaining file is blocked with a recorded access failure. One reviewed file with `R > 1` is never "the whole assignment".
+- The run also ends on an explicit kickoff cap. A file with a `BLOCKED` line counts as reviewed; a blocked folder never justifies stopping the rest of the queue.
+- One reviewed file with `R > 1` is never "the whole assignment".
 
 ## Kickoff template (copy when delegating)
 
@@ -82,13 +84,22 @@ RERESEARCH: stale
 MODE: propose
 ```
 
-Explicit targets and the approved second pass:
+Explicit targets (propose):
 
 ```text
 AGENT_SOURCE_STEM: <STEM> — you re-research model/<slug>/<STEM>.md
 RERESEARCH: gpt-5.5, claude-opus-5.5
-MODE: apply
-APPROVED: gpt-5.5, claude-opus-5.5
+MODE: propose
 ```
 
-Never copy this file to `tasks/<stem>.md`; one canonical delegator serves every reporter. If `RERESEARCH` is omitted, treat it as `stale`; if `MODE` is omitted, treat it as `propose`. Apply mode hands over `pnpm sync && pnpm build.types:direct && pnpm build:direct` (POSIX: `pnpm sync && pnpm build.types && pnpm build`); propose mode needs no build.
+Approved second pass (paste the proposal lines you approved):
+
+```text
+AGENT_SOURCE_STEM: <STEM> — you re-research model/<slug>/<STEM>.md
+MODE: apply
+APPROVED: gpt-5.5, claude-opus-5.5
+APPROVED PROPOSALS:
+ENRICH-PROPOSAL: <slug> | old <YYYY-MM-DD>/<Overall> | maintenance: <...> | new search: <...> | delta <...>
+```
+
+Never copy this file to `tasks/<stem>.md`; one canonical delegator serves every reporter. In propose mode, an omitted `RERESEARCH` means `stale` and an omitted `MODE` means `propose`; in apply mode the `APPROVED` list is the queue and staleness is ignored. Apply mode hands over `pnpm sync && pnpm build.types:direct && pnpm build:direct` (POSIX: `pnpm sync && pnpm build.types && pnpm build`); propose mode needs no build.

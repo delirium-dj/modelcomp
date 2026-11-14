@@ -1,0 +1,70 @@
+# Doubao Seed 2.1 Pro 260915 — findings by GPT-6.1 Sol
+
+- Source: ByteDance / Volcengine Ark `doubao-seed-2-1-pro-260915`
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Status: **Self-excluded: exact serving specifications are verified; numerical family benchmarks could not be pinned to this dated snapshot.**
+
+## Model card
+
+- **Name:** Doubao Seed 2.1 Pro 260915.
+- **Short description:** ByteDance's dated Pro endpoint for long-context coding, visual understanding and agent workflows. Native documentation distinguishes this **1024K** version from the older **256K** `doubao-seed-2-1-pro-260628`; a generic Seed2.1 Pro benchmark is not automatically a result for both.[1][5]
+- **Provider / access:** Volcengine Ark; the model list covers Chat, Responses and Messages protocols and documents function/tool and structured-output capabilities. TeamoRouter additionally lists an undated reseller alias `doubao-seed-2.1-pro`, which is not independently treated here as a version-pinned evaluation.[1][5]
+- **Release / knowledge:** The family launch article is dated **2026-06-23**. The exact native ID ends in `260915`, but no separately verified release announcement or knowledge cutoff was found for that snapshot; a suffix is not a release-date citation.[2][6]
+- **IDs:** Exact native **`doubao-seed-2-1-pro-260915`**. The older `...-260628`, Turbo, Lite and rolling `doubao-seed-evolving` are not interchangeable benchmark subjects. No matching OpenRouter route or verified Zen Free ID was established.[1][7]
+- **Context window:** Native **1024K** context / maximum input; maximum answer **256K** with **4K default**, maximum reasoning content **256K**. These are advertised limits, not measured full-window retention or an additive input/output/reasoning budget.[1]
+- **Modalities:** Text, image/video/document understanding and text generation; deep thinking, GUI task support, tools and structured output are documented. Exact native audio understanding and non-text generation were not verified for this Pro snapshot.[1][6]
+- **Pricing (as of 2026-11-14):** Native regular online Pro price row is **CNY 6 input / CNY 30 output / CNY 1.20 cached input per 1M tokens**, plus **CNY 0.017 per 1M cached tokens per hour** storage, for **0–1024K** input. Currency is yuan, not dollars. The reseller's historical discount is not substituted for today's native tariff, and no $0 inference was assumed.[4][5]
+- **Architecture:** Hosted proprietary model; exact total/active parameters and open-weight license were not verified for this snapshot. The fetched family card does not by itself establish a measured native snapshot ID.[3]
+
+### Raw benchmarks found
+
+**Attribution boundary:** The official Seed2.1 product page has separate **Pro** and **Turbo** columns, but does not identify the measured Pro as `doubao-seed-2-1-pro-260915`. Its linked article carries a June launch date and its downloaded model-card text did not supply a verified mapping to the September-suffixed endpoint. The following numbers are therefore **family-level provisional proxies only, not this snapshot's scored evidence**.[2][3]
+
+Agent / tool use:
+
+- Family **Seed2.1 Pro** public-table values: Terminal Bench 2.1 **71.0**, Workspace Bench **53.0**, Agent Startup Bench **68.8**. Harness and exact serving-version attribution remain unresolved here.[2]
+- Exact dated-snapshot Terminal-Bench, Tau2/Tau3, GDPval-AA, Claw-Eval/ClawProBench, Toolathon, MCP-Atlas and SWE Atlas QnA: **no verified public score found**.
+
+Reasoning / knowledge:
+
+- Family Pro table: SuperGPQA **70.8**, BeyondAIME **87.0**. These are not a verified GPQA Diamond/HLE result for 260915.[2]
+- Exact-snapshot GPQA Diamond, HLE, LCR/MLCR, CritPt, Intelligence Index and Omniscience: **no verified public score found**. The inspected AA public model index did not expose an exact Pro snapshot record.[7]
+
+Coding:
+
+- Family Pro table: NL2Repo-Bench **47.0**, SWE-Atlas debugging **35.2**. Neither is silently relabelled as SWE-bench Verified/Pro or a 260915 measurement.[2]
+- Exact-snapshot SWE-bench Verified/Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE and Coding Index: **no verified public score found**.
+
+Long context / multimodal:
+
+- Family Pro **MMLongBench-128K 78.3** and **MMMU-Pro 81.6 (82.7 with tools)** are published proxies. A 128K multimodal task result is neither million-token retention nor proof that it was measured on 260915.[2]
+- Exact-snapshot MRCR, RULER, GraphWalks and full-window retrieval: **no verified public score found**.
+
+### Normalized scores (1–100)
+
+**Not assigned.** The family has genuine measured evidence and the dated native endpoint has genuine specifications, but the source-to-snapshot mapping is not verified. Combining those two facts into a five-axis Overall would introduce unsupported precision. No arbitrary scores, undated-reseller transfer or older-snapshot benchmarks are used.
+
+### Evidence audit
+
+After search-integration HTTP 402, live DuckDuckGo exact-ID search supplied the independently fetched JinDaGe identity page and TeamoRouter integration article. These confirm serving/specification distinctions, not new representative performance trials. The official product page, launch article and **73-page** linked family PDF were retrieved; PDF text extraction inspected the introduction and searched for explicit dated-ID attribution. Official Ark model/pricing rows were independently fetched. A legacy numeric docs route did not expose the exact row on one retrieval, so the current published `/docs/ark/model-list` route was used successfully. No peer reports, local metadata or dataset scores were consulted.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-14 UTC
+- Method: Independent public-web research with direct webfetch, live exact-ID DuckDuckGo search, HTTP extraction of current vendor model/pricing rows, and PowerShell/PDF text-extraction fallback after search HTTP 402. Family benchmarks are retained as explicitly unscored proxies because the exact measured snapshot was not verified. Notes-only self-exclusion.
+- Reference URLs:
+  - [1 — Official native model list, dated IDs and limits](https://www.volcengine.com/docs/ark/model-list?lang=zh)
+  - [2 — Official Seed2.1 product page and family benchmark table](https://seed.bytedance.com/en/seed2_1)
+  - [3 — Official Seed2.1 family model card](https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/seed2.1/Seed2_1_Model_Card.pdf)
+  - [4 — Official Ark Pro pricing](https://www.volcengine.com/docs/ark/model-pricing?lang=zh)
+  - [5 — TeamoRouter native-version and reseller-alias distinction](https://teamorouter.com/blogs/doubao-seed-2-1-pro-api)
+  - [6 — JinDaGe exact-ID integration boundaries](https://jindage.com/en/models/wiki/volcengine-doubao-seed-2-1-pro-260915)
+  - [7 — Live AA model index](https://artificialanalysis.ai/models)
+  - [8 — Live OpenRouter model catalog](https://openrouter.ai/api/v1/models)
+  - [9 — Official family launch article](https://seed.bytedance.com/en/blog/seed2-1-officially-released-advancing-ai-productivity)
+  - [10 — Live exact-snapshot search](https://html.duckduckgo.com/html/?q=%22doubao-seed-2-1-pro-260915%22+benchmark)
+- Future sources: preserve this record; exact dated-ID benchmark attribution is required before producing a scored report.

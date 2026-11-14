@@ -199,7 +199,7 @@ reports, and the website stay consistent.
 
 ## Findings workflow
 
-- Delegation: one canonical delegator `tasks/research-assign.md` — its Identity resolution chain sets the STEM (kickoff line -> pinned line -> validated self-identification against `sources.generated.ts` -> ask). Never create per-stem `tasks/<stem>.md` copies.
+- Delegation: one canonical delegator per mode — `tasks/research-assign.md` for new/missing reports, `tasks/research-assign-reresearch.md` for re-research/enrichment. Both use the same Identity resolution chain (kickoff line -> pinned line -> validated self-identification against `sources.generated.ts` -> ask). Never create per-stem `tasks/<stem>.md` copies.
 - **Batch scope:** one delegation is the whole missing-set — one `<Source_Name>.md` in every `model/<slug>/` folder lacking it, in `model-queue.md` order. The agent's own model folder is one queue item, never the whole assignment; a one-report run while the queue still has items is incomplete (`tasks/research-assign.md` § Completion test; `RULES.md` § *Research rules* — **Batch scope**).
 - One file per agent per model: `model/<slug>/<Source_Name>.md` (e.g. `Big_Pickle.md`), self-contained: model card → raw benchmarks → normalized scores → signature block.
 - New agents start from `model-report-TEMPLATE.md` and research independently (no reading other agents' files first).

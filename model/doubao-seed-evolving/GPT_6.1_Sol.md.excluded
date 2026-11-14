@@ -1,0 +1,63 @@
+# Doubao Seed Evolving — findings by GPT-6.1 Sol
+
+- Source: ByteDance / Volcengine Ark `doubao-seed-evolving`
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Status: **Self-excluded: the exact live model and specifications are verified, but no exact-model numerical quality benchmark was found.**
+
+## Model card
+
+- **Name:** Doubao Seed Evolving / Seed-Evolving.
+- **Short description:** ByteDance's rolling-update Seed model for coding and agent workflows. Its single Model ID automatically receives new model versions; it is not a reproducibly pinned checkpoint and must not inherit the scores of a dated Seed 2.1 Pro snapshot.[1][2]
+- **Provider / access:** Volcengine Ark. Official documentation describes Chat, Responses and Messages API access, OpenAI/Anthropic-compatible protocols, function calling and third-party agent integration. No authenticated inference was performed.[1][2]
+- **Release / knowledge:** Official changelog starts **2026-06-23**; **1M** context was added July 14; newest listed update is **2026-11-05**. These are rollout/update dates. No exact knowledge cutoff was verified.[1]
+- **IDs:** Native **`doubao-seed-evolving`**. The inspected OpenRouter and Zen catalogs exposed no matching route; in particular no Zen Free ID was verified. Catalog absence is not proof of nonexistence—the native route is documented.[1][5][6]
+- **Context window:** Native docs advertise **1024K** context and maximum input; maximum output **256K**, maximum reasoning content **256K**. The main model table lists **4K** default answer length. These are separate documented limits, not a promise of input plus output plus reasoning budgets added together; no measured retrieval result was found.[1][2]
+- **Modalities:** Text, image, video and document understanding; text generation. The exact model guide explicitly excludes audio understanding, including a video's audio track. Thinking defaults on at **high** effort, with none/minimal/low/medium/high/xhigh/max settings; structured output, functions and caching are documented. Advertised tools do not establish task-success percentages.[1]
+- **Pricing (as of 2026-11-14):** Native regular online pricing lists **CNY 6 input / CNY 30 output / CNY 1.20 cache-hit input per 1M tokens**, with **CNY 0.017 per 1M cached tokens per hour** storage and the input-length band **0–1024K**. These are yuan prices, not US dollars; no currency conversion, free token tariff or unlimited subscription was inferred.[3]
+- **Architecture:** Proprietary hosted model; exact total/active parameters, open-weight license and a version-pinned artifact were not verified. The official ByteDance-Seed Hugging Face query returned no Evolving checkpoint.[1][4]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1/4.x, Tau2/Tau3, GDPval-AA, Claw-Eval/ClawProBench, Toolathon, MCP-Atlas and SWE Atlas Codebase QnA: **no verified public score found** for `doubao-seed-evolving`.
+- The November 5 guide describes improved planning, verification, tool calls and lower latency/cost **qualitatively**. It supplies no numerical success rate, benchmark harness or measured speed reduction.[1]
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR/MLCR, CritPt, Intelligence Index and Omniscience accuracy/hallucination rate: **no verified public score found** for the exact rolling ID.
+
+Coding:
+
+- SWE-bench Verified/Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE and Coding Index: **no verified public score found**. “Coding & Agent” positioning and regular upgrades are not benchmark results.[1]
+
+Long context:
+
+- **1024K** is an advertised serving limit. MRCR, RULER, GraphWalks or another exact-model retrieval measurement: **no verified public score found**.[1][2]
+
+### Normalized scores (1–100)
+
+**Not assigned.** Zero exact-model numerical quality benchmarks were verified, so neither dimension scores nor Overall are fabricated. Specifications, prices and qualitative improvements do not supply measured quality. Any future evaluation must record its date and the rolling model version actually served.
+
+### Access and evidence audit
+
+The search integration returned HTTP 402, including its simpler retry. Direct official Seed pages and the Ark model list were retrieved; the list supplied the actual Seed-Evolving guide and pricing links. Official-publisher Hugging Face and live gateway queries were empty for this exact model. A candidate BenchLM profile returned 404, confirmed with PowerShell HTTP fetch. A live arXiv exact-name query returned unrelated uses of “seed/evolving,” not an evaluation of this ID; those papers' numbers were discarded. This is a bounded lack-of-benchmark finding, **not** a global web outage or a claim that the model does not exist.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-14 UTC
+- Method: Independent public-web research using direct webfetch, live HTTP catalog filtering and shell HTTP fallback after search HTTP 402. Exact native identity, current update history, limits, modalities and yuan pricing were checked; no peer findings, local dataset values, dated sibling benchmarks or unsupported normalized scores were used.
+- Reference URLs:
+  - [1 — Official Seed-Evolving guide and version history](https://www.volcengine.com/docs/ark/latest-model?lang=zh)
+  - [2 — Official Ark model list](https://www.volcengine.com/docs/82379/1330310)
+  - [3 — Official Ark model pricing](https://www.volcengine.com/docs/ark/model-pricing?lang=zh)
+  - [4 — Official ByteDance-Seed checkpoint query](https://huggingface.co/api/models?author=ByteDance-Seed&search=Evolving&limit=100)
+  - [5 — Live OpenRouter model catalog](https://openrouter.ai/api/v1/models)
+  - [6 — Live Zen model catalog](https://opencode.ai/zen/v1/models)
+  - [7 — Official Seed model index](https://seed.bytedance.com/en/models)
+  - [8 — Live arXiv exact-name query, no relevant model evaluation](https://export.arxiv.org/api/query?search_query=all:%22Seed-Evolving%22&start=0&max_results=5)
+- Future sources: preserve this evidence record; an independently signed scored report requires genuinely new exact-model benchmark evidence.

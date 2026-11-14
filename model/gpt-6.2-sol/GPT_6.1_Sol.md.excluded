@@ -1,0 +1,62 @@
+# GPT-6.2 Sol — findings by GPT-6.1 Sol
+
+- Source: OpenAI-associated rumoured model name; no verified public `gpt-6.2-sol` release.
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Status: **Self-excluded: no verified exact-model quality benchmark or public serving specification.**
+
+## Model card
+
+- **Name:** GPT-6.2 Sol (unconfirmed reported name).
+- **Short description:** Early-November third-party reports speculate about limited testing of an upgraded Sol. The fetched status/review articles distinguish the claim from a public release and explain that impressive demos do not identify the responding checkpoint, effort or harness.[1][2]
+- **Provider / access:** No exact selectable API/Zen/OpenRouter route verified in today's public checks. The successfully fetched OpenAI model index exposed no 6.2 Sol listing; its candidate exact model page returned **404**, independently confirmed through PowerShell. No authenticated account-specific inference was attempted.[3][4][5]
+- **Release / knowledge:** No official release date or knowledge cutoff verified. The two fetched status articles are dated **2026-11-09**; their reporting dates and prior-model launch dates are not this model's release.[1][2]
+- **IDs:** `gpt-6.2-sol` remains unverified as a callable public ID. A Codex payload reported under **Astra** does not establish Sol's identity. No Zen Free ID was verified, and GPT-6.1 Sol is not used as a substitute.[1][2][3]
+- **Context window:** Exact input/context/output limits unverified; no predecessor limits inherited.
+- **Modalities:** Exact input/output types, native media generation, thinking controls, tools and JSON capabilities unverified. Three.js demos are application artifacts, not model modality specifications.[1][2]
+- **Pricing (as of 2026-11-14):** No exact input/output/cached token tariff or model-pinned free allocation verified. No subscription-to-token conversion or earlier Sol price is substituted.
+- **Architecture:** Exact architecture, total/active parameters, weights and license unverified. The freshly fetched official OpenAI Hugging Face query returned no `gpt-6.2` artifact.[6]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1/4.x, Tau2/Tau3, GDPval-AA, Claw-Eval/ClawProBench, Toolathon, MCP-Atlas and SWE Atlas Codebase QnA: **no verified public score found**.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR/MLCR, CritPt, Intelligence Index and Omniscience accuracy/hallucination rate: **no verified public score found** for the exact reported model.
+
+Coding:
+
+- SWE-bench Verified/Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE and Coding Index: **no verified public score found**.
+- The retrieved independent review assesses the provenance and limits of a video/demo claim; it does not provide a verified model ID or a numerical controlled benchmark. Alleged superiority to Opus/Fable is not scored.[2]
+
+Long context:
+
+- Exact capacity, MRCR, RULER, GraphWalks and full-window recall: **no verified public score found** or model-specific limit verified.
+
+### Normalized scores (1–100)
+
+**Not assigned.** There is no verified exact-model numerical quality benchmark to normalize. Neither anecdotes nor earlier Sol/Astra results justify a five-axis Overall or placeholder score.
+
+### Evidence audit
+
+The search integration failed with HTTP 402, including its simpler retry. Direct DuckDuckGo HTML search worked and led to the independently retrieved provenance review. OmniaKey's status article, today's official OpenAI index, official artifact query and live gateway catalogs were also checked. Exact-page 404 was confirmed with shell HTTP fallback. These are bounded public checks, not a claim that OpenAI cannot have an internal test or that the whole web is unreachable. No other reporters' files or local dataset values were used.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-14 UTC
+- Method: Independent public-web research, direct official/catalog HTTP checks, live DuckDuckGo search, webfetch/HTTP reading of secondary provenance articles and PowerShell fallback after search HTTP 402. Reported testing is separated from verified release, serving identity and measured quality. Notes-only self-exclusion.
+- Reference URLs:
+  - [1 — OmniaKey release/rumour status](https://omniakey.com/blog/gpt-6-2-sol)
+  - [2 — AI Tools Review provenance assessment](https://aitoolsreview.co.uk/insights/gpt-6-2-sol-rumour-checked)
+  - [3 — Current OpenAI model index](https://developers.openai.com/api/docs/models)
+  - [4 — Live OpenRouter model catalog](https://openrouter.ai/api/v1/models)
+  - [5 — Live Zen model catalog](https://opencode.ai/zen/v1/models)
+  - [6 — Official OpenAI artifact query](https://huggingface.co/api/models?author=openai&search=gpt-6.2&limit=100)
+  - [7 — Live exact-name benchmark search](https://html.duckduckgo.com/html/?q=%22GPT-6.2+Sol%22+benchmark)
+- Future sources: preserve this record; a scored report requires genuinely new verified exact-model evidence.
