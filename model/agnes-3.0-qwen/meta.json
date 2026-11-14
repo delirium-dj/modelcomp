@@ -1,9 +1,14 @@
 {
-  "id": "opencode/agnes-3.0-qwen",
+  "id": "agnes-ai/agnes-3.0-qwen",
   "name": "Agnes 3.0 Qwen",
-  "short": "Agnes 3.0 Qwen model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "Agnes AI's specialized model variant based on Qwen architecture, featuring 512K context, enhanced multilingual capabilities, and native tool calling.",
+  "contextWindow": "512,000 total",
+  "modalities": "Text, image in; text out",
+  "pricingNote": "Standard Agnes AI tier pricing ($0.05/$0.15 per 1M)",
+  "officialUrl": "https://wiki.agnes-ai.com",
+  "pricingLinks": [
+    "https://wiki.agnes-ai.com"
+  ],
+  "standout": "Combines Qwen's powerful base architecture with Agnes AI's high-throughput serving and agentic tooling.",
+  "tradeoff": "Specialized variant requiring careful comparison against baseline Qwen and Agnes flagship models."
 }

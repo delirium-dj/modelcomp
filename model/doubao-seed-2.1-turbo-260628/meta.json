@@ -1,9 +1,14 @@
 {
-  "id": "opencode/doubao-seed-2.1-turbo-260628",
+  "id": "bytedance/doubao-seed-2.1-turbo-260628",
   "name": "Doubao Seed 2.1 Turbo 260628",
-  "short": "Doubao Seed 2.1 Turbo 260628 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "ByteDance's high-speed optimized checkpoint in the Seed 2.1 family on Volcano Engine Ark, tuned for low latency and high-throughput agent workflows.",
+  "contextWindow": "1,024,000 total; 128,000 max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "Volcano Engine Ark turbo tier pricing",
+  "officialUrl": "https://www.volcengine.com/docs/82379/1330310",
+  "pricingLinks": [
+    "https://www.volcengine.com/docs/82379/1330310"
+  ],
+  "standout": "Extremely high token generation throughput and low Time-To-First-Token for interactive applications.",
+  "tradeoff": "Older June 2026 snapshot superseded by later 260915 checkpoints in the Seed 2.1 lineup."
 }

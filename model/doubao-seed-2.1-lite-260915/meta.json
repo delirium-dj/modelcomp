@@ -1,9 +1,14 @@
 {
-  "id": "opencode/doubao-seed-2.1-lite-260915",
+  "id": "bytedance/doubao-seed-2.1-lite-260915",
   "name": "Doubao Seed 2.1 Lite 260915",
-  "short": "Doubao Seed 2.1 Lite 260915 model evaluation entry.",
-  "contextWindow": "128K total",
-  "modalities": "Text in/out",
-  "pricingNote": "Standard pricing",
-  "scaffolded": true
+  "short": "ByteDance's cost-optimized lightweight multimodal model in the Seed 2.1 family on Volcano Engine Ark, with 1M context and ultra-fast inference.",
+  "contextWindow": "1,024,000 total; 128,000 max output",
+  "modalities": "Text, image, video in; text out",
+  "pricingNote": "Volcano Engine Ark lite tier pricing",
+  "officialUrl": "https://www.volcengine.com/docs/82379/1330310",
+  "pricingLinks": [
+    "https://www.volcengine.com/docs/82379/1330310"
+  ],
+  "standout": "1M context window and rapid inference speed at a fraction of Pro-tier cost on Volcano Engine Ark.",
+  "tradeoff": "Reduced peak reasoning capacity on complex coding and math tasks compared to Seed 2.1 Pro."
 }

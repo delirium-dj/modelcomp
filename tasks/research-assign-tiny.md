@@ -22,8 +22,9 @@ DATE: <YYYY-MM-DD>
 
 Missing `AGENT_SOURCE_STEM`, `SUBJECT`, or `DATE` → `NEED: <missing names>`;
 stop. `AGENT_DISPLAY` defaults to STEM with `_` → space; `AGENT_ID` defaults to
-`unknown`. Prefer pinning both; `AGENT_DISPLAY` must be the registered source
-key (the default is safest).
+`unknown`. Prefer pinning both; `AGENT_DISPLAY` must be the registered display
+form of the STEM (pin it if capitalization/punctuation differs from the
+underscore default) — a foreign display FAILs `pnpm sync`'s signature tripwire.
 
 Write path: `model/<SUBJECT>/<AGENT_SOURCE_STEM>.md` — folder = subject,
 filename = reporter stem; never `model/<SUBJECT>/<SUBJECT>.md`. Check it with

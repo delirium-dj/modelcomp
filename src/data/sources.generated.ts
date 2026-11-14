@@ -230,6 +230,6 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Qwen 4 Max", label: "Qwen 4 Max", file: "Qwen_4_Max.md", slug: "qwen-4-max" },
   { key: "Ernie 5.5 Flash", label: "Ernie 5.5 Flash", file: "Ernie_5.5_Flash.md", slug: "ernie-5.5-flash" },
   { key: "Gemini 4 Hydrogen", label: "Gemini 4 Hydrogen", file: "Gemini_4_Hydrogen.md", slug: "gemini-4-hydrogen" },
-  { key: "Hy4", label: "Hy4", file: "Hy4.md" },
+  { key: "Hy4", label: "Hy4", file: "Hy4.md", slug: "hy4" },
   { key: "Hy3", label: "Hy3", file: "Hy3.md", slug: "hy3" },
 ];

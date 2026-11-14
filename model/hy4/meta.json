@@ -1,6 +1,6 @@
 {
   "id": "tencent/hy4-preview",
-  "name": "Hy4 (preview)",
+  "name": "Hy4",
   "short": "Tencent's Aug 2026 open-weight 770B/49B-active MoE (Apache 2.0, 1M ctx): vendor Terminal-Bench 2.1 85.4% vs Vals 55.1%, GPQA 92.3% - not on Zen.",
   "contextWindow": "1,000,000 (1,024,000 = 960K in + 64K out); 64,000 max out",
   "modalities": "Text in/out",

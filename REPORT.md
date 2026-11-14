@@ -1,11 +1,12 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
-## 2026-11-14 (3) — Tiny delegator for 7k-ITPM runtimes (Qwen 3.8 27B on Groq)
+## 2026-11-14 (3) — Tiny delegator for ≤8k-ITPM runtimes (Qwen 3.8 27B on Groq)
 
 1. **Why.** Delegating `tasks/research-assign.md` to Qwen 3.8 27B on Groq was rejected before any work: `Request too large … ITPM Limit 7000, Requested 8462`. The delegator alone is ~3.3 K tokens; the runtime's per-request input ceiling is 7 K.
-2. **New `tasks/research-assign-tiny.md` (~0.8 K tokens).** Pre-pinned `AGENT_SOURCE_STEM: Qwen_3.8_27B`; the kickoff pins `SUBJECT` and `DATE`; one conversation = one subject (fresh session per folder). No full-corpus reads, no queue file, no folder listing. One search max (or zero when the kickoff pins an `EVIDENCE:` block), one compact report or `.md.excluded` write, then stop.
-3. **Report contract kept parse-safe.** Exact `### Raw benchmarks found` / `### Normalized scores (1–100)` headings, all seven score labels, `Overall` = half-up mean of the five non-cost dims, bold `Provided by: **Qwen 3.8 27B (qwen/qwen3.8-27b)** — <date>` signature, fetched URLs only. Zero verified benchmarks → `.md.excluded`.
+2. **New `tasks/research-assign-tiny.md` (~1 K tokens), universal.** For any runtime with a per-request input ceiling below ~8 K tokens (Qwen 3.8 27B on Groq is the initial example). The kickoff pins `AGENT_SOURCE_STEM`, `AGENT_DISPLAY`, `AGENT_ID`, `SUBJECT`, and `DATE`; one conversation = one subject (fresh session per folder). No full-corpus reads, no queue file, no folder listing. One search max (or zero when the kickoff pins an `EVIDENCE:` block), one compact report or `.md.excluded` write, then stop.
+3. **Report contract kept parse-safe.** Exact `### Raw benchmarks found` / `### Normalized scores (1–100)` headings, all seven score labels, `Overall` = half-up mean of the five non-cost dims, bold `Provided by: **<AGENT_DISPLAY> (<AGENT_ID>)** — <date>` signature, cited URLs only. Zero verified benchmarks → `.md.excluded`.
 4. **Wiring.** `AGENTS.md` (tiered reading + directive 7 exception), `RULES.md` Batch scope exception, `.agents/rules.md` delegation, `tasks/research-assign.md` orchestrator + runtime notes (the old 131k/750k Qwen note now explicitly applies only to high-TPM deployments), `tasks/research.md` / `tasks/research-brief.md` headers, `README.md`, `.antigravity/history/project-map.md`. No `model/` files touched; no sync/build run.
+5. **No model-specific logic remains.** Qwen 3.8 27B on Groq is an example, not a dependency; any reporter with a ≤8 K-token request ceiling uses the same file.
    Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct` (POSIX: `pnpm sync && pnpm build.types && pnpm build`).
 
 ## 2026-11-14 (2) — Dedicated re-research delegator (batch, proposal-first)

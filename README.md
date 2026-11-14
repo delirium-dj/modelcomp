@@ -118,7 +118,7 @@ scripts/sync-data.mjs   deterministic sync behind `pnpm sync`
 tasks/sync-data.md      the (short) human workflow around the script
 tasks/research-assign.md the new-report research delegator (agent resolves its own STEM; paste & go)
 tasks/research-assign-reresearch.md the re-research/enrichment delegator (propose-only default; apply on approval)
-tasks/research-assign-tiny.md the ≤7k-ITPM delegator (Qwen 3.8 27B on Groq; one pinned subject per conversation)
+tasks/research-assign-tiny.md the ≤8k-ITPM delegator (any low-ceiling runtime; kickoff pins STEM/display/ID + one subject)
 tasks/research.md       the research workflow every assigned agent follows
 .agents/                tech-stack, repo rules, rate-limit notes for AI agents
 public/                 PWA manifest (brand SVG install icon) + tab favicon (Vercel avatar PNG)

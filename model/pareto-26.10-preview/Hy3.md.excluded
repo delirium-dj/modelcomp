@@ -1,0 +1,18 @@
+# Pareto-26.10-Preview — EXCLUDED (no verifiable public benchmark data)
+
+**Source:** Web research attempt (WebSearch) · **Date:** 2026-11-14 · **Reporter STEM:** Hy3
+
+## Exclusion reason
+Per the research assignment's self-exclusion rule, a scored `Hy3.md` is only written when at least one verified public benchmark exists. For `pareto-26.10-preview`, a web search returned **no model-specific public benchmark, spec sheet, vendor page, or third-party leaderboard entry** — only generic "context window / benchmark methodology" articles and an image-search stub. With zero verified public evidence, no honest scores can be assigned, so this file is written as `.md.excluded` rather than a fabricated report.
+
+## What was checked
+- Query `pareto-26.10-preview 模型 参数 benchmark 评测 上下文窗口` → results were generic LLM-benchmark explainers and a Baidu Image stub; no entity match.
+- No Artificial Analysis / ppv9 / BenchGecko / Vals / UltraBench / ARMES / ModelBeats / FrontierBenchmarks entry located.
+
+## Recommended follow-up
+If a primary source (vendor announcement, model card, or a public leaderboard row) becomes available, re-run research for this slug and replace this file with a standard `Hy3.md`.
+
+## Signature
+Provided by: **Hy3 (hy3-reporter)** — 2026-11-14 UTC
+Method: Independent web research; excluded for lack of verifiable public benchmarks. No peer `model/*/*.md` read during research.
+- Reference URLs: (none — no model-specific public sources found)

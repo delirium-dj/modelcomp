@@ -24,7 +24,7 @@ Precedence order: `RULES.md` first — on any conflict, it wins.
 - [.agents/rules.md](.agents/rules.md) — repo layout, data flow, and structural decisions. Follow them; they keep scores, site, and reports in sync.
 - [.agents/gemini-rate-limits.md](.agents/gemini-rate-limits.md) — **mandatory for Gemini agents** (5 RPM / 250 K TPM quotas). Read and apply the 15 operating rules before making any tool call.
 
-**Tiered reading (context-budget rule):** the full corpus above is ~15 K tokens on top of this file. Research-task runtimes with sub-200 K context SHOULD NOT read it all — run on [tasks/research-brief.md](tasks/research-brief.md) instead (kickoff line `BRIEF: small-context`; ~5 K tokens, same rules, `RULES.md` stays the authority). Big-context models keep the full corpus. Runtimes with a per-request input ceiling below ~8 K tokens (e.g. Qwen 3.8 27B on Groq, 7,000 ITPM) MUST use [tasks/research-assign-tiny.md](tasks/research-assign-tiny.md) — one pinned subject per conversation, ~0.8 K tokens, no full-corpus reads.
+**Tiered reading (context-budget rule):** the full corpus above is ~15 K tokens on top of this file. Research-task runtimes with sub-200 K context SHOULD NOT read it all — run on [tasks/research-brief.md](tasks/research-brief.md) instead (kickoff line `BRIEF: small-context`; ~5 K tokens, same rules, `RULES.md` stays the authority). Big-context models keep the full corpus. Runtimes with a per-request input ceiling below ~8 K tokens (e.g. Qwen 3.8 27B on Groq, 7,000 ITPM) MUST use [tasks/research-assign-tiny.md](tasks/research-assign-tiny.md) — one pinned subject per conversation, ~1 K tokens, no full-corpus reads.
 
 ## Version dots in names (agents keep missing this — read before creating any folder or file)
 
