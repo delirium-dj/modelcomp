@@ -1,0 +1,25 @@
+# GPT-6.2 Sol — excluded by Beam
+
+- Source: Beam (Beam)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no verified public benchmarks for "GPT-6.2 Sol"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** GPT-6.2 Sol (folder slug `gpt-6.2-sol`, id `openai/gpt-6.2-sol`).
+- **Finding:** OpenAI's GPT-6.2 Sol mainstream reasoning model (1.05M context, 128K output, text+image+file in, text out) served via OpenAI/OpenCode Console. No public benchmark scorecard was retrieved for this exact ID.
+- **Context window / modalities / pricing:** 1,050,000 total (128K output); text, image, file in; text out; standard API tier pricing ($2/$10 per 1M in/out on OpenCode Console).
+- **Access:** OpenAI API / OpenCode Console `gpt-6.2-sol`.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for `gpt-6.2-sol` in any first-party or independent source: no OpenAI system card row, no SWE-bench/Terminal-Bench/GPQA/HLE/LiveCodeBench/Artificial Analysis/BenchLM entry retrieved.
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-14
+- Method: checked OpenAI/OpenCode Console documentation (web search returned 402); no verified benchmark numbers retrieved; self-excluded rather than fabricate. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [OpenAI API pricing](https://openai.com/api/pricing/)
+- Future sources: if verified benchmarks appear, add `Beam.md` with the standard headings; do not edit this exclusion.

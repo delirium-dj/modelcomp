@@ -17,6 +17,10 @@ targeted — never the whole corpus.
 > folders are blocked with a recorded access failure). If you wrote one file
 > and the queue still has items, you are 1/N done — continue.
 
+> **Re-research delegation?** If the kickoff contains `RERESEARCH:` or
+> `MODE: apply`, stop reading this brief and follow
+> `tasks/research-assign-reresearch.md` instead.
+
 ## 0. Identity — your STEM (zero tool calls)
 
 Your STEM (your reporter identity, your filename stem) comes from the kickoff

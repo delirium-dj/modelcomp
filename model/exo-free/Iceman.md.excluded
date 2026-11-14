@@ -1,58 +1,67 @@
 # Exo Free — findings by Iceman
 
 - Source: OpenCode Zen stealth slot (exo-free)
-- Date: 2026-11-10 (UTC)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Exo Free
-- **Short description:** An unidentified vendor’s free OpenCode Zen stealth slot (1M context, image input) that was available briefly in Oct 2026 and is now deprecated/retired (HTTP 410), with no vendor card or published benchmarks.
-- **Provider / access:** Former OpenCode Zen free tier (`opencode/exo-free`). Local metadata states the slot is retired (HTTP 410) and the vendor was never identified.
-- **Release / knowledge:** Not officially announced; short-lived preview (~2026-10-06 to ~2026-10-09). Knowledge cutoff not stated.
+- **Short description:** Unidentified-vendor free OpenCode Zen stealth slot (`opencode/exo-free`) that was briefly available in October 2026 and is now deprecated/retired; no official vendor model card or public benchmark disclosure found.
+- **Provider / access:** Former OpenCode Zen free tier/slot. Local metadata states the slot is retired (HTTP 410 / `ModelDeprecated`) and the vendor was never identified.
+- **Release / knowledge:** Not officially announced as a stable named model; short-lived preview window (~2026-10-06 to ~2026-10-09 per local metadata). Knowledge cutoff not stated.
 - **IDs:** `exo-free`, `opencode/exo-free`.
-- **Context window:** 1,048,576 tokens total (131,072 max output) per metadata.
-- **Modalities:** Text and image input; text output.
-- **Pricing (as of 2026-11-10):** Was free $0/$0/$0 during limited preview; now deprecated/unavailable.
-- **Architecture:** Proprietary/undisclosed. Vendor and parameter count not publicly disclosed.
+- **Context window:** 1,048,576 tokens total (131,072 max output) per local metadata (unverifiable via official model card).
+- **Modalities:** Text and image input; text output (per local metadata; unverifiable).
+- **Pricing (as of 2026-11-14):** Free $0/$0/$0 during limited preview; now deprecated/unavailable.
+- **Architecture:** Proprietary/undisclosed. Vendor, checkpoint identity, and parameter count not publicly disclosed.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: The `exo-free` slot is retired/deprecated (HTTP 410 per metadata) and had no identified vendor, official model card, or published benchmark results. No independently verifiable public benchmark/spec evidence exists for this exact slot. This file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): Deep second-pass research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`/GitHub API fetches) reviewed OpenCode changelog/docs and searched GitHub issues/API and model catalogs for `exo-free`. The slot is described in local metadata as retired/deprecated with no identified vendor or official model card; no independently verifiable public benchmark/spec evidence for this exact slot was found. This file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**.
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- GPQA Diamond / HLE / AIME / AA Intelligence Index / LCR / CritPt: **no verified public score found**.
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench: **no verified public score found**.
 
 Long context:
 
-- 1M context claimed; no standalone long-context retrieval benchmark score found.
+- 1M context claimed in local metadata; no standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Image input claimed; no multimodal benchmark scores found.
+- Image input claimed in local metadata; no multimodal benchmark score found.
+
+### Source comparison / conflicts
+
+- **Availability/identity:** Local metadata and project context indicate a short-lived, retired stealth slot with unidentified vendor/checkpoint; no stable official model identity or benchmark record found.
+- **Catalog/issue coverage:** OpenCode changelog/docs and GitHub issues/API searches did not provide verifiable benchmark evidence or an official model card for `exo-free` in this pass; OpenRouter/models.dev searches did not yield a verifiable benchmarked record.
+- **Conclusion:** Metadata-only claims exist locally but are not independently verifiable for scoring.
 
 ### Normalized scores (1–100)
 
-Not provided. Retired stealth slot with no vendor disclosure or verified benchmark evidence; no scored assessment is issued and this report is self-excluded.
+Not provided. Retired stealth slot with no vendor disclosure and no independently verified benchmark/spec evidence; no scored assessment is issued and this report remains self-excluded.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent review using alternative web access (`webfetch`) to OpenCode docs/changelog and local metadata; slot retired and no verifiable benchmark source found.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`/GitHub API fetches) across OpenCode changelog/docs, GitHub issue search/API, and catalog searches (OpenRouter, models.dev), plus local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts): OpenCode changelog page, OpenCode Zen docs page, GitHub issues search UI for `exo-free`, GitHub API issue search for `exo-free`, OpenRouter models search, models.dev models search, additional OpenCode docs/changelog content fetches, local `meta.json` and prior `Iceman.md.excluded` review.
 - Reference URLs:
   - [OpenCode changelog](https://opencode.ai/changelog)
   - [OpenCode Zen docs](https://opencode.ai/docs/zen)
+  - [OpenCode GitHub issues (exo-free search)](https://github.com/anomalyco/opencode/issues?q=exo-free)
+  - [GitHub API issue search (exo-free)](https://api.github.com/search/issues?q=repo:anomalyco/opencode+exo-free)
   - Local repository metadata consulted: `model/exo-free/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

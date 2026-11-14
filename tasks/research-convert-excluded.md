@@ -3,6 +3,8 @@
 > Companion to `tasks/research.md` and `tasks/research-assign.md`. Use this when your
 > STEM still has `model/<slug>/<STEM>.md.excluded` twins and you want to re-attempt
 > conversion into scored `model/<slug>/<STEM>.md` files using fresh web research.
+> For re-research of an existing scored `.md` (maintenance/enrichment), use
+> `tasks/research-assign-reresearch.md` instead.
 > Generic — no agent name hardcoded. Identity comes from the delegator file
 > (`tasks/research-assign.md`) via its Identity resolution chain.
 

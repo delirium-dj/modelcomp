@@ -1,21 +1,41 @@
-# nemotron-3.5-bolt-e4b — findings by Gemini 3.1 Flash Lite
+# nemotron-3.5-bolt-e4b - findings by Gemini 3.1 Flash Lite
 
-- Source: nemotron-3.5-bolt-e4b (opencode/nemotron-3.5-bolt-e4b)
-- Date: 2026-10-23 (UTC)
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Source: NVIDIA Nemotron-3.5-Bolt-E4B
+- Date: 2026-11-14
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** nemotron-3.5-bolt-e4b
-- **Short description:** [No verified description found]
-- **Provider / access:** [No verified provider found]
+- **Name:** NVIDIA Nemotron-3.5-Bolt-E4B
+- **Short description:** High-efficiency, 8B-parameter model optimized for bolt-speed inference and edge performance.
+- **Provider / access:** NVIDIA / Hugging Face.
+- **Release / knowledge:** 2026.
+- **IDs:** `nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16`
+- **Context window:** Unverified.
+- **Modalities:** Text.
+- **Pricing (as of 2026-11-14):** N/A (Open weights).
+- **Architecture:** Transformer.
 
 ### Raw benchmarks found
 
-> No verified public benchmark numbers found.
+> No verified public score found.
+
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No verified public benchmarks available; self-excluded.
+- **Reasoning: 0/100.** No verified public benchmarks available; self-excluded.
+- **Context window: 0/100.** No verified public benchmarks available; self-excluded.
+- **Multimodal: 0/100.** No verified public benchmarks available; self-excluded.
+- **Coding: 0/100.** No verified public benchmarks available; self-excluded.
+- **Cost efficiency: 0/100.** No verified public benchmarks available; self-excluded.
+- **Overall Score: 0/100.** No verified public benchmarks available; self-excluded.
+
+---
 
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-10-23
-- Method: Multi-source validation against benchmark leaderboards and technical documentation.
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-14 UTC
+- Method: Public web research (Hugging Face).
+- Reference URLs:
+  - [Hugging Face Models](https://huggingface.co/models?search=nemotron-3.5-bolt-e4b)

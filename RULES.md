@@ -91,7 +91,9 @@ override.
      overwritten in an unapproved batch pass. If scores change or new evidence
      is found, emit an `ENRICH-PROPOSAL` detailing maintenance vs. new search
      findings in the final summary; overwriting occurs only in a second pass on
-     explicitly user-approved slugs.
+     explicitly user-approved slugs. Standalone batch delegation:
+     `tasks/research-assign-reresearch.md` (propose mode by default; apply mode
+     only on explicit per-slug approval).
 - Below-gate and out-of-top-10 reports stay on disk, in git, and on the site;
   the rater gate only filters `average.md` means. Enforcement is automatic:
   `pnpm sync` FAILs on any git-tracked `model/**/*.md(.excluded)` missing

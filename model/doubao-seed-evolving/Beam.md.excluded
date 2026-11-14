@@ -1,0 +1,25 @@
+# Doubao Seed Evolving — excluded by Beam
+
+- Source: Beam (Beam)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Status: **excluded - no verified public benchmarks for "Doubao Seed Evolving"**; no scores reported.
+
+## Model card
+
+- **Claimed name:** Doubao Seed Evolving (folder slug `doubao-seed-evolving`, id `bytedance/doubao-seed-evolving`).
+- **Finding:** Volcano Engine Ark lists Doubao Seed Evolving as a weekly-iterating coding/agent model (1024K context, 256K max output, deep thinking, multimodal understanding, GUI task handling, tool calling, structured output). No public benchmark scorecard (ModelDial/SWE-bench/Terminal-Bench/GPQA/etc.) was found for this exact ID.
+- **Context window / modalities / pricing:** 1,024,000 total; 256,000 max output; text, image, video in; text out; Ark tier pricing (no public per-token figure retrieved).
+- **Access:** Volcano Engine Ark `doubao-seed-evolving`.
+
+### Raw benchmarks found
+
+- No verified public benchmark score found for `doubao-seed-evolving` in any first-party or independent source: no ModelDial row, no SWE-bench/Terminal-Bench/GPQA/HLE/LiveCodeBench row, no Artificial Analysis/BenchLM entry retrieved. (Volcengine Ark page confirms capabilities/context only.)
+
+## Signature
+
+- Provided by: **Beam (opencode/beam-free)** — 2026-11-14
+- Method: checked Volcano Engine Ark model catalogue (web search returned 402). No verified benchmark numbers retrieved; self-excluded rather than fabricate. Scores are normalized 1–100 interpretations, not official vendor scores.
+- Reference URLs:
+  - [Volcano Engine Ark — model list](https://www.volcengine.com/docs/82379/1330310)
+- Future sources: if verified benchmarks appear, add `Beam.md` with the standard headings; do not edit this exclusion.

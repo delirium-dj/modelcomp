@@ -14,6 +14,10 @@
 > when it is empty, an explicit kickoff cap is reached, or remaining folders
 > are blocked with a recorded access failure.
 
+> **Re-research delegation?** If the kickoff contains `RERESEARCH:` or
+> `MODE: apply`, you are on `tasks/research-assign-reresearch.md`, not this
+> file — stop here and follow that delegator.
+
 This file defines the workflow only. Agent identity comes from the assigned
 delegator file (`tasks/research-assign.md`) via its Identity resolution chain
 (kickoff line -> pinned STEM line -> validated self-identification -> ask).
@@ -232,7 +236,7 @@ For each queued slug, in order:
       3. **Knowledge expansion & Signature contract:** Incorporate maintenance updates and newly found benchmarks into the file's model card, raw benchmarks, and normalized scores. In `## Signature`: update the Signature date (`Provided by: ... — YYYY-MM-DD UTC`), update `Method:` (describing maintenance of existing links + independent search for new sources), retain valid existing URLs, and append newly discovered external URLs under `- Reference URLs:`.
       4. **Proposal format & Overwrite gating:** Do NOT overwrite in an unapproved pass. Emit an `ENRICH-PROPOSAL` line:
          `ENRICH-PROPOSAL: <slug> | old <date>/<Overall> | maintenance: <existing URLs checked & status> | new search: <new URLs & benchmarks> | expected delta`
-         in your final summary and advance. Overwrite happens only in a second pass over explicitly user-approved slugs, updating the Signature date and Reference URLs.
+         in your final summary and advance. Overwrite happens only in a second pass over explicitly user-approved slugs, updating the Signature date and Reference URLs. For a standalone re-research/enrichment batch, delegate `tasks/research-assign-reresearch.md`.
 4. **Advance** only after the file is written — or after an explicit leave-it-excluded
    decision — or after logging an `ENRICH-PROPOSAL` (incremental save = interrupt-safe).
 5. **Combined single pass:** audit → queue → one-by-one in one delegation. A "first five"

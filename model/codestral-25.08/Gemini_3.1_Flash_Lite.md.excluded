@@ -1,27 +1,41 @@
-# Codestral 25.08 — findings by Gemini 3.1 Flash Lite
+# Codestral 25.08 - findings by Gemini 3.1 Flash Lite
 
 - Source: Mistral/Codestral 25.08
-- Date: 2026-11-06
-- Overview and scoring methodology: ../../model-comparison.md
-- Cross-model signed log: ../../model-findings.md
+- Date: 2026-11-14
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Codestral 25.08
-- **Short description:** Codestral 25.08 is a specialized iteration of Mistral's coding model family, focused on enhanced code generation and debugging accuracy.
+- **Short description:** Specialized coding iteration from Mistral.
 - **Provider / access:** Mistral API.
 - **Release / knowledge:** 2025/2026 release.
-- **IDs:** mistral/codestral-25.08
+- **IDs:** `mistral/codestral-25.08`
 - **Context window:** Not verified.
 - **Modalities:** Text/Code.
-- **Pricing (as of 2026-11-06):** Not verified.
+- **Pricing (as of 2026-11-14):** Not verified.
 - **Architecture:** Proprietary.
 
 ### Raw benchmarks found
 
 > NO VERIFIED PUBLIC SCORES FOUND
 
+### Normalized scores (1–100)
+
+- **Tool use: 0/100.** No verified public benchmarks available; self-excluded.
+- **Reasoning: 0/100.** No verified public benchmarks available; self-excluded.
+- **Context window: 0/100.** No verified public benchmarks available; self-excluded.
+- **Multimodal: 0/100.** No verified public benchmarks available; self-excluded.
+- **Coding: 0/100.** No verified public benchmarks available; self-excluded.
+- **Cost efficiency: 0/100.** No verified public benchmarks available; self-excluded.
+- **Overall Score: 0/100.** No verified public benchmarks available; self-excluded.
+
+---
+
 ## Signature
 
-- Provided by: **Gemini 3.1 Flash Lite (Mistral/codestral-25.08)** — 2026-11-06
+- Provided by: **Gemini 3.1 Flash Lite (google/gemini-3.1-flash-lite)** — 2026-11-14 UTC
 - Method: Public internet research; no verified public benchmarks found.
+- Reference URLs:
+  - [Mistral AI](https://mistral.ai)
