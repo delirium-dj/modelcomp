@@ -1,0 +1,38 @@
+{
+  "name": "Apmix",
+  "kind": "aggregator",
+  "short": "One API key and one monthly plan for 52 top models from 13 labs (Claude, GPT, Gemini, Grok, DeepSeek, Qwen, GLM, Kimi, MiniMax, Xiaomi, Nemotron, Hunyuan, Cursor), with a 4M-token free trial on two models.",
+  "officialUrl": "https://apmix.ai",
+  "hosts": ["apmix.ai", "api.apmix.ai"],
+  "catalogUrl": "https://apmix.ai/models",
+  "covers": [
+    "deepseek-v4.1-flash-1017",
+    "nemotron-3.5-super-vl"
+  ],
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "notes": "4M free tokens one-time on sign-up, shared across deepseek-v4.1-flash-1017-free and nemotron-3.5-super-vl-free. No card, no expiry.",
+      "evidenceUrl": "https://apmix.ai/pricing"
+    },
+    {
+      "name": "Starter",
+      "price": "$4.99/month",
+      "notes": "60M weighted tokens/month, 19 models, 2 API keys.",
+      "evidenceUrl": "https://apmix.ai/pricing"
+    },
+    {
+      "name": "Pro",
+      "price": "$14.99/month",
+      "notes": "200M weighted tokens/month, 40 models, 10 API keys.",
+      "evidenceUrl": "https://apmix.ai/pricing"
+    },
+    {
+      "name": "Max",
+      "price": "$29.99/month",
+      "notes": "500M weighted tokens/month, 50 models, unlimited API keys and priority routing.",
+      "evidenceUrl": "https://apmix.ai/pricing"
+    }
+  ]
+}
