@@ -1,0 +1,49 @@
+# GPT-6.2 Astra — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, canary; unlaunched, no verified benchmarks)
+
+- Source: OpenAI / GPT-6.2 Astra (`gpt-6.2-astra`, canary ID)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** As of 2026-11-14, GPT-6.2 Astra is an **unannounced canary model** — it has appeared in production telemetry, canary routing and cloud quota configs, but OpenAI has published **no launch post, model card, API docs page, price or benchmark suite** for it (verified against OpenAI's news feed and developer docs the same day). With zero verified public benchmark numbers for this exact ID, no 1–100 scores are filed; the notes below record what is verified and what is leak-grade.
+
+## Model card (verified facts only)
+
+- **Name:** GPT-6.2 Astra (canary identifier; not an official product name yet)
+- **Short description:** OpenAI's expected next-generation flagship, first surfaced as an unannounced `gpt-6.2-astra` model ID in Codex usage telemetry on 2026-10-31/11-01 (UI still showed "GPT-6 Astra", backend responses returned the 6.2 ID; canary splits of 1.6%–19.8% observed). Reported as the hardened, re-aligned successor to GPT-6.1 Astra (cancelled in late September over alignment/scope-authorization concerns). Not publicly released as of 2026-11-14.
+- **Provider / access:** none official. Canary routing within Codex/ChatGPT production accounts (Oct 31–Nov 4); identifiers surfaced briefly in Google Cloud Console quota configurations alongside `gpt-6.2-sol` on 2026-11-04 and were retracted within hours; launch window reportedly slipped on 2026-11-08 for late-stage safety reviews.
+- **Release / knowledge:** unreleased as of 2026-11-14 (OpenAI news RSS last checked 2026-11-14 shows no GPT-6.2 announcement; `developers.openai.com` has no model page for the ID — both verified).
+- **IDs:** `gpt-6.2-astra` (canary/telemetry identifier; absent from public API docs).
+- **Context window:** not published (GPT-6 Astra: 1,050,000 — do not assume for 6.2).
+- **Modalities:** not published (expect text/image like the Astra line; unverified).
+- **Pricing (as of 2026-11-14):** not announced; a single unverified community post cites $4 in / $20 out per 1M (vs GPT-6 Astra's official $10/$50).
+- **Architecture:** undisclosed; rumors (unverified) cite a ~10T-parameter sparse MoE and links to an internal "Bel" pretrain.
+
+### Raw benchmarks found
+
+- Agent / tool use: **no verified public score found** for this exact ID.
+- Reasoning / knowledge: **no verified public score found** for this exact ID.
+- Coding: **no verified public score found** for this exact ID.
+- Long context: **not published.**
+- Related official-adjacent datapoint (not attributed to the 6.2 ID by name): OpenAI's engineering post (2026-11-03) reports that "a newer internal model" scored **0.875** on BenchCAD 2.0 vs **0.594** for GPT-6 Astra at max reasoning — the strongest numeric hint of the 6.2 generation, but officially unnamed.
+- Leak-grade claims (unverified, cited as such): "+47% engineering benchmark gain" (Chinese media, unspecified metric); "even at low reasoning effort it beats GPT-6 Astra at max" (community claim via press summary); canary hands-on reports show improved frontend/SVG aesthetics vs 6.0 Astra.
+
+### Why the file is excluded (evidence trail)
+
+- Verified against primary sources on 2026-11-14: OpenAI news feed/RSS (last build 2026-11-14 06:42 GMT) contains no GPT-6.2 item; `developers.openai.com/api/docs/models/gpt-6.2-astra` returns 404; the models catalog lists GPT-6 Astra / 6.1 Sol / 6.1 Terra / 6 Luna as flagships.
+- All numeric claims found are leak- or scoop-grade (telemetry analyses, Chinese media summaries), not published evaluations; none attaches a benchmark score to the exact `gpt-6.2-astra` ID.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, zero verified benchmark numbers for the exact ID → self-exclusion; no placeholder score invented.
+- Re-research trigger: OpenAI launch post/model card/API docs for `gpt-6.2-astra` (or independent harness rows) → write a scored `DeepSeek_4.1_Flash.md` and retire this twin.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-11-14
+- Method: public internet research (OpenAI news RSS + developer docs checks, official engineering post, telemetry-leak analyses via direct fetches and fallback search engines — Sogou/Bing/Baidu — after websearch tool unavailability). Negative-result file: **canary model, zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Reference URLs:
+  - [OpenAI — News feed (no GPT-6.2 announcement as of 2026-11-14)](https://openai.com/news/rss.xml)
+  - [OpenAI — Accelerating engineering for the physical world (BenchCAD 2.0: internal model 0.875 vs GPT-6 Astra 0.594)](https://openai.com/index/accelerating-engineering-for-the-physical-world)
+  - [KIE.ai — GPT-6.2 Astra deep dive: telemetry, logs, specs (leak analysis)](https://kie.ai/blog/gpt-6-2-astra-codex-telemetry-analysis)
+  - [TheWinCentral — OpenAI tests GPT-6.2 Astra amid GPT-6 robotics dominance](https://thewincentral.com/openai-tests-gpt-6-2-astra-robotics-dominance/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once the model launches.

@@ -1,0 +1,38 @@
+# Gemini 3.6 Flash — negative findings by Gemini 4 Hydrogen (excluded)
+
+- Source: Google (`gemini-3-6-flash`)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Gemini 3.6 Flash
+- **Short description:** Google's deprecated Flash-tier multimodal reasoning model supporting text, image, speech, and video inputs with a 1M-token context window; superseded by Gemini 3.7 Flash and 3.8 Flash.
+- **Provider / access:** Google Gemini API (`gemini-3.6-flash`, 1 provider tracked on Artificial Analysis).
+- **Release / knowledge:** 2026-07-21 release; deprecated on Artificial Analysis.
+- **IDs:** `google/gemini-3.6-flash` (no Free ID on OpenCode Zen)
+- **Context window:** 1M tokens input, verified via Artificial Analysis.
+- **Modalities:** Text, image, speech, and video input; text output; reasoning enabled.
+- **Pricing (as of 2026-11-14):** $0.75 / 1M input tokens, $3.75 / 1M output tokens (80% cache discount; $0.63/1M blended 7:2:1).
+- **Architecture:** Proprietary.
+
+### Raw benchmarks found (all missing — self-excluded)
+
+- Agent / tool use: no verified public score found (N/A on Artificial Analysis Intelligence Index v5.0.1)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no long-context retrieval reported
+
+### Exclusion note
+
+Saved as `.md.excluded` per `model-report-TEMPLATE.md` self-exclusion rule: zero verified public benchmark numbers found for `gemini-3-6-flash` on Artificial Analysis.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 4 Hydrogen (google/gemini-4-hydrogen)** — 2026-11-14
+- Method: Public internet research via Artificial Analysis; excluded due to zero verified public benchmark scores.
+- Reference URLs:
+  - [Artificial Analysis — Gemini 3.6 Flash](https://artificialanalysis.ai/models/gemini-3-6-flash)

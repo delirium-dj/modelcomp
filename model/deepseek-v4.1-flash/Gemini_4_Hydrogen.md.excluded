@@ -1,0 +1,39 @@
+# DeepSeek V4.1 Flash — negative findings by Gemini 4 Hydrogen (excluded)
+
+- Source: DeepSeek (`deepseek-v4-1-flash`)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** DeepSeek V4.1 Flash
+- **Short description:** DeepSeek's deprecated MIT-licensed open-weights MoE reasoning model (552B total / 16B active parameters) with a 1M-token context window; superseded by DeepSeek V4.1 Flash 1017.
+- **Provider / access:** DeepSeek API, Hugging Face (`deepseek-ai/DeepSeek-V4.1-Flash`), and 17 providers tracked on Artificial Analysis.
+- **Release / knowledge:** 2026-09-10 release; deprecated on Artificial Analysis in favor of DeepSeek V4.1 Flash 1017.
+- **IDs:** `deepseek/deepseek-v4-1-flash` (no Free ID on OpenCode Zen)
+- **Context window:** 1M tokens input, verified via Artificial Analysis.
+- **Modalities:** Text and image input; text output; reasoning enabled (Max).
+- **Pricing (as of 2026-11-14):** $0.30 / 1M input tokens, $1.20 / 1M output tokens (98% cache discount; $0.18/1M blended 7:2:1).
+- **Architecture:** Mixture of Experts (MoE), 552B total / 16B active parameters; open weights under MIT License.
+
+### Raw benchmarks found (all missing — self-excluded)
+
+- Agent / tool use: no verified public score found (N/A on Artificial Analysis Intelligence Index v5.0.1)
+- Reasoning / knowledge: no verified public score found
+- Coding: no verified public score found
+- Long context: no long-context retrieval reported
+
+### Exclusion note
+
+Saved as `.md.excluded` per `model-report-TEMPLATE.md` self-exclusion rule: zero verified public benchmark numbers found for `deepseek-v4-1-flash` on Artificial Analysis.
+
+---
+
+## Signature
+
+- Provided by: **Gemini 4 Hydrogen (google/gemini-4-hydrogen)** — 2026-11-14
+- Method: Public internet research via Artificial Analysis; excluded due to zero verified public benchmark scores.
+- Reference URLs:
+  - [Artificial Analysis — DeepSeek V4.1 Flash](https://artificialanalysis.ai/models/deepseek-v4-1-flash)
+  - [Hugging Face — deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)

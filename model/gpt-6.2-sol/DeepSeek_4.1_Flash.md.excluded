@@ -1,0 +1,47 @@
+# GPT-6.2 Sol — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, canary; unlaunched, no verified benchmarks)
+
+- Source: OpenAI / GPT-6.2 Sol (`gpt-6.2-sol`, canary ID)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** As of 2026-11-14, GPT-6.2 Sol is a **canary (灰度) model** that is being quietly routed to some Codex/ChatGPT users but has **no launch post, model card, API docs page, official price or benchmark suite** from OpenAI (verified against OpenAI's news feed and developer docs the same day). With zero verified public benchmark numbers for this exact ID, no 1–100 scores are filed; the notes below record what is verified and what is leak/review-grade.
+
+## Model card (verified facts only)
+
+- **Name:** GPT-6.2 Sol (canary identifier; not an official product name yet)
+- **Short description:** OpenAI's expected next-generation mid-tier model (the GPT-6.2 family companion to the 6.2 Astra flagship), reported from ~2026-11-09 to be silently canary-launched ("悄悄灰度上线") — some users found themselves routed to it inside Codex/ChatGPT. Community canary reviews describe it as a large leap over GPT-6.1 Sol, unusually quota-efficient, and — per reviewers — competitive with or ahead of the GPT-6 Astra flagship on front-end/creative tasks. Official launch was still pending as of 2026-11-14 (a widely-circulated rumor pointed at a Thursday release).
+- **Provider / access:** none official. Canary routing in Codex/ChatGPT; identifiers surfaced briefly in Google Cloud Console quota configurations alongside `gpt-6.2-astra` on 2026-11-04 (retracted within hours); no public API listing as of 2026-11-14.
+- **Release / knowledge:** unreleased as of 2026-11-14 (OpenAI news RSS last checked 2026-11-14 shows no GPT-6.2 announcement; no `developers.openai.com` model page for the ID — both verified).
+- **IDs:** `gpt-6.2-sol` (canary/telemetry identifier; absent from public API docs).
+- **Context window:** not published (GPT-6.1 Sol: 1,050,000 — do not assume for 6.2).
+- **Modalities:** not published (expect text/image like the Sol line; unverified).
+- **Pricing (as of 2026-11-14):** not announced. Community canary reports note heavy quota efficiency (one reviewer: ~10 runs consumed under 10% of a $200 Pro plan's quota window); GPT-6.1 Sol's official price is $2/$10 per 1M.
+- **Architecture:** undisclosed; press summaries say Sol was trained in the same RL-heavy pipeline as the 6.2 flagship (not a distilled lightweight) — unverified.
+
+### Raw benchmarks found
+
+- Agent / tool use: **no verified public score found** for this exact ID.
+- Reasoning / knowledge: **no verified public score found** for this exact ID.
+- Coding: **no verified public score found** for this exact ID; hands-on canary review (techgogogo, 2026-11-12, Codex, max thinking) is qualitative: top-tier SVG work (pelican-on-bicycle "best turning seen", compound-bow cams drawn correctly, bow tilt for ballistics handled), clean browser-OS UI, well-received 3D racing and Trello builds; noted defects: reversed arrow fletching, an occasionally unresponsive spacebar in the space-shooter test.
+- Long context: **not published.**
+- Leak-grade claims (unverified): "huge leap over 6.1", "outperforms GPT-6 Astra" on front-end/creative work; no numeric scores attached.
+
+### Why the file is excluded (evidence trail)
+
+- Verified against primary sources on 2026-11-14: OpenAI news feed/RSS contains no GPT-6.2 item; no developer-docs model page exists for `gpt-6.2-sol`; the public model catalog still lists GPT-6.1 Sol as the mid-tier flagship.
+- All coverage found is canary hands-on (Chinese tech media / community reviewers) with no measurable scores; numeric claims are anecdotal (quota consumption).
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, zero verified benchmark numbers for the exact ID → self-exclusion; no placeholder score invented.
+- Re-research trigger: OpenAI launch post/model card/API docs for `gpt-6.2-sol` (or independent harness rows) → write a scored `DeepSeek_4.1_Flash.md` and retire this twin.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-11-14
+- Method: public internet research (OpenAI news RSS + developer docs checks, KIE.ai leak tracker, techgogogo canary hands-on review, Chinese tech-media coverage via fallback search engines — Sogou/Baidu — after websearch tool unavailability). Negative-result file: **canary model, zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Reference URLs:
+  - [OpenAI — News feed (no GPT-6.2 announcement as of 2026-11-14)](https://openai.com/news/rss.xml)
+  - [KIE.ai — GPT-6.2 Astra deep dive (tracks the GPT-6.2 Sol companion ID surfacing in cloud configs)](https://kie.ai/blog/gpt-6-2-astra-codex-telemetry-analysis)
+  - [AI产品狙击手 (techgogogo) — GPT 6.2 Sol 测评报告 (canary hands-on review)](https://www.techgogogo.com/2026/11/12/gpt-6-2-sol-review-how-capable/)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once the model launches.

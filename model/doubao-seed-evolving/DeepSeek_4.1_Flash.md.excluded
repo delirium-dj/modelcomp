@@ -1,0 +1,59 @@
+# Doubao Seed Evolving — findings by DeepSeek 4.1 Flash (SELF-EXCLUDED, no verified benchmark numbers)
+
+- Source: ByteDance Seed / Doubao-Seed-Evolving (`doubao-seed-evolving`)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+> **SELF-EXCLUSION.** Doubao-Seed-Evolving is a real, actively served ByteDance model (Volcano Engine Ark, model ID `doubao-seed-evolving`) with rich official specs and extensive third-party hands-on coverage — but **no verified public benchmark numbers were found for this exact model/ID** after extensive multi-engine research (see evidence trail). With zero measured numbers on any standard axis, no 1–100 scores are filed; the notes below are the verified facts only.
+
+## Model card (verified facts only)
+
+- **Name:** Doubao Seed Evolving (Doubao-Seed-Evolving)
+- **Short description:** ByteDance Seed's rolling, versionless flagship-tier model on Volcano Engine Ark — described by the platform as "Seed's newest Coding & Agent model, iterated weekly" (快速迭代模型, 周级迭代). It supersedes the fixed `doubao-seed-2-1-pro-*` checkpoints for teams that want continuous updates instead of version migrations.
+- **Provider / access:** Volcengine Ark (China; `doubao-seed-evolving`; CNY billing), resold by Ofox (`volcengine/doubao-seed-evolving`) and free inside the Volcengine Ark Coding Plan; Doubao / TRAE ecosystem. No OpenCode Zen route.
+- **Release / knowledge:** rolling model ID (no dated version); first surfaced publicly alongside the Seed 2.1 generation launch on 2026-06-23; the 1M-context upgrade arrived in later iterations; knowledge cutoff not published.
+- **IDs:** `doubao-seed-evolving` (Volcengine Ark) / `volcengine/doubao-seed-evolving` (Ofox).
+- **Context window:** 1,024K total (max input 1,024K); max answer 256K (default 4K); max chain-of-thought 256K; rate limits 500 RPM / 1M TPM (Ark model list).
+- **Modalities:** text, image, video in; text out; deep thinking; GUI task processing; tool calling (function calling, knowledge base, MCP, web plugin, image process); structured output; implicit + explicit (prefix/session) caching.
+- **Pricing (as of 2026-11-14):** ≈$0.8906 in / $4.453 out per 1M on Volcengine Ark (Ofox: $0.884/$4.42; coding-plan lane $0/$0). CNY list on Ark: ¥6 / ¥30 per 1M with cached input and a batch tier.
+- **Architecture:** undisclosed (proprietary), same Ark capability profile as the Seed 2.1 line; a "weekly iteration" service model rather than a frozen checkpoint.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- no verified public score found (no Terminal-Bench / Tau3 / GDPval / OSWorld / Claw-Eval row for this ID)
+- qualitative: CSDN/TRAE field reports describe end-to-end app builds, browser-agent runs and a ~18-hour-style long agent task; one 510M-token, 30K-line project build log; no scores
+
+Reasoning / knowledge:
+
+- no verified public score found (no GPQA / HLE / AA Index row)
+
+Coding:
+
+- no verified public score found (no SWE-bench / LiveCodeBench / DeepCode row)
+- qualitative: multiple hands-on reviews report very strong front-end/design generation (e.g. near-1:1 Taobao homepage recreation using PIL + headless-browser verification rounds) and repo-level coding; a wide Chinese-PDF table-extraction cross-evaluation flagged it making a "quantity" alignment error in one invoice-style table (no score)
+
+Long context:
+
+- no long-context retrieval measurement published; 1M-token input is documented on the Ark model list
+
+### Why the file is excluded (evidence trail)
+
+- Official specs and pricing were fetched and verified (Volcengine Ark model list; models.dev canonical entry).
+- Extensive third-party coverage exists — 30+ CSDN hands-on project reports, WeChat/知乎 reviews, Tencent Cloud dev-community analysis, DTinsight launch coverage — but all retrieved material is qualitative (project walkthroughs, demos, capability descriptions). No benchmark table, leaderboard row, or numeric evaluation was found for `doubao-seed-evolving`.
+- Search access this run: the websearch tool was unavailable (HTTP 402); DuckDuckGo later served bot challenges, and Sogou/Baidu intermittently rate-limited. Research used direct page fetches plus fallback search paths (Baidu mobile/desktop, Sogou, CSDN search API); all cited URLs were actually fetched.
+- Per `model-report-TEMPLATE.md` / `.agents/rules.md`, zero verified benchmark numbers for the exact ID → self-exclusion; no placeholder score invented.
+- Re-research trigger: any dated, sourced benchmark row for `doubao-seed-evolving` (vendor or independent) → write a scored `DeepSeek_4.1_Flash.md` and retire this twin.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash (deepseek-ai/deepseek-v4.1-flash)** — 2026-11-14
+- Method: public internet research (Volcengine Ark model list, models.dev, CSDN hands-on corpus via search APIs, WeChat/知乎/Tencent Cloud coverage via fallback search engines). Negative-result file: **zero verified public benchmarks for this ID — self-excluded**; no score invented.
+- Reference URLs:
+  - [Volcengine Ark — model list (official specs and limits for doubao-seed-evolving)](https://docs.volcengine.com/docs/ark/model-list)
+  - [models.dev — Seed Evolving (rolling ByteDance Seed model; providers and pricing)](https://models.opencode.ai/models/bytedance-seed/seed-evolving)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md` (scored), using the same headings once benchmarks exist.
