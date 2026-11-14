@@ -1,0 +1,14 @@
+# egg-alpha — findings by Hy3
+
+- **Source / Date:** Web search (generic LLM benchmark articles only) — 2026-11-14
+- **Status:** Excluded — no verified public AI/LLM model found under this name.
+
+## Exclusion Reason
+Multiple independent web searches for "egg-alpha" / "Egg Alpha" as an LLM, large language model, or benchmarked model returned **no** evidence of an AI model with this identifier. Results were generic LLM-benchmark explainer articles (MMLU, HumanEval, GSM8K, SWE-bench overviews) with no model named Egg Alpha. Note: a similarly-named model, **"Elephant Alpha,"** does exist — but it is the stealth codename for Ant Group's Ling-2.6-flash (a distinct slug already covered separately), not "egg-alpha." No provider, model card, benchmark, or release note for "egg-alpha" could be verified. Per the self-exclusion rule, no scored `Hy3.md` is produced.
+
+## Signature
+Provided by: **Hy3 (hy3-reporter)** — 2026-11-14 UTC
+Method: Independent web research; no peer `model/*/*.md` read during research.
+- Reference URLs:
+  - https://cloud.tencent.com/developer/article/2421617
+  - https://hub.baai.ac.cn/view/48603

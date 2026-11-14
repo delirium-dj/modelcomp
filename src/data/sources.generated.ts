@@ -110,7 +110,8 @@ export type SourceKey =
   | "Ernie 5.5 Flash"
   | "Gemini 4 Hydrogen"
   | "Hy4"
-  | "Hy3";
+  | "Hy3"
+  | "GLM 5.2";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -232,4 +233,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Gemini 4 Hydrogen", label: "Gemini 4 Hydrogen", file: "Gemini_4_Hydrogen.md", slug: "gemini-4-hydrogen" },
   { key: "Hy4", label: "Hy4", file: "Hy4.md", slug: "hy4" },
   { key: "Hy3", label: "Hy3", file: "Hy3.md", slug: "hy3" },
+  { key: "GLM 5.2", label: "GLM 5.2", file: "GLM_5.2.md", slug: "glm-5.2" },
 ];

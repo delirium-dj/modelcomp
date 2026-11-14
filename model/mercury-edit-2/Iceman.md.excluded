@@ -1,41 +1,43 @@
 # Mercury Edit 2 — findings by Iceman
 
-- Source: Inception Labs/Mercury Edit 2
-- Date: 2026-11-10 (UTC)
+- Source: Inception Labs / Mercury Edit 2 (`inception/mercury-edit-2`, `mercury-edit-2`)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Mercury Edit 2
-- **Short description:** Inception Labs’ Mercury Edit 2 is a diffusion-based next-edit prediction model for code autocomplete (FIM) and multi-line edits, specialized for low-latency editor workflows.
-- **Provider / access:** Inception Labs API. Local metadata lists `inception/mercury-edit-2`, pricing $0.25/$0.75 per 1M ($0.025 cached), and 32K context.
-- **Release / knowledge:** Inception Labs docs reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
-- **IDs:** `mercury-edit-2`, `inception/mercury-edit-2`.
-- **Context window:** 32,000 tokens total; 8,192 max output.
-- **Modalities:** Text input; text output.
-- **Pricing (as of 2026-11-10):** $0.25/$0.75 per 1M in/out ($0.025 cached) per metadata/docs.
-- **Architecture:** Proprietary diffusion-based code editing model (closed weights). Architecture/parameter count not publicly disclosed.
+- **Short description:** Inception Labs’ Mercury Edit 2 is a diffusion-based code editing model for autocomplete/fill-in-the-middle (FIM) and next-edit suggestions, optimized for low-latency editor workflows.
+- **Provider / access:** Inception Labs API (`v1/fim/completions`, `v1/edit/completions`, model `mercury-edit-2`). No verifiable AA/OpenRouter/models.dev benchmarked listing found in this pass.
+- **Release / knowledge:** Inception Labs models documentation reviewed 2026-11-14. Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `mercury-edit-2`, `inception/mercury-edit-2`, `Mercury Edit 2`.
+- **Context window:** 32,000 tokens total; 8,192 max output tokens (Inception docs).
+- **Modalities:** Text input; text output (code/edit completions).
+- **Pricing (as of 2026-11-14):** $0.25/M input, $0.025/M cached input, $0.75/M output (Inception docs/local metadata).
+- **Architecture:** Proprietary diffusion-based code editing model (closed weights). Architecture/parameter count not publicly disclosed. Local metadata references alignment/KTO context; not independently verified from accessible official docs in this pass.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: Mercury Edit 2 is a specialized FIM/next-edit endpoint model rather than a general conversational/chat benchmark target. Inception Labs docs reviewed via `webfetch` provide API usage/specs and pricing but no independently verifiable standardized benchmark numerics (e.g. SWE-bench, LiveCodeBench, HumanEval-style public suite results) for this exact model. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed Inception Labs official models documentation (including FIM and next-edit API examples/specs), OpenRouter/AA/models.dev search attempts, and local metadata/prior report. Official docs provide attributable endpoint/spec/pricing/capability information for this exact specialized model, but **no independently verifiable standardized public benchmark numerics** for this project’s general LLM comparison dimensions (Terminal-Bench/Tau/GDPval-AA/Toolathon/MCP-Atlas, GPQA/HLE/AIME/AA Intelligence Index/LCR, SWE-bench/LiveCodeBench/SciCode, multimodal benchmarks) were found. Mercury Edit 2 is a specialized FIM/next-edit code editing endpoint model rather than a general conversational/agentic coding LLM; normalizing it to the repository’s standard 1–100 LLM dimensions would be misleading/non-comparable. This file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Editor/editing workflow specialization (FIM, next-edit) supported; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Specialized for editor autocomplete and next-edit workflows via FIM/edit endpoints; not a general autonomous agentic model. Standard agent/tool benchmark numerics: **no verified public score found**.
 
 Reasoning / knowledge:
 
+- Not positioned as a general reasoning/knowledge model; no standardized reasoning/knowledge benchmark numerics found.
 - GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
 
 Coding:
 
-- Specialized for autocomplete/multi-line diffs, but SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- Specialized for code completion/multi-line edits and diffs, but no independently verifiable standardized coding benchmark numerics found for this exact model in accessible sources.
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / HumanEval-style public results: **no verified public score found**
 
 Long context:
 
-- 32K context; no standalone long-context retrieval benchmark score found.
+- 32K context / 8K max output (docs); no standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
@@ -43,15 +45,22 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-Not provided. Specialized edit model without independently verified standardized benchmark evidence in accessible sources; no scored assessment is issued and this report is self-excluded.
+Not provided. Mercury Edit 2 is a specialized FIM/next-edit model with no verified standardized public benchmark evidence for this project’s general LLM scoring dimensions; normalized general-category scores would be non-comparable/misleading. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Specs/capabilities:** Official Inception docs clearly define Mercury Edit 2 for `v1/fim/completions` and `v1/edit/completions` with 32K/8K limits and pricing $0.25/$0.75/$0.025 cached.
+- **Positioning:** Specialized code-edit/autocomplete endpoint rather than a general chat/agent coding model.
+- **Benchmarks:** No verified standardized benchmark numerics found across official docs and AA/OpenRouter/models.dev searches in this pass.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to Inception Labs docs and local metadata; no verifiable standardized benchmark numerics extracted.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Inception Labs official models/decisions/extract docs, OpenRouter/AA/models.dev search attempts, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): Inception Decisions docs (webfetch), Inception Extract docs (webfetch), Inception Mercury Decide blog attempt (404), OpenRouter Mercury Decide page fetch, OpenRouter Mercury Edit 2 page attempt (404), AA models search for mercury-decide, AA models search for mercury-edit, models.dev search for mercury-decide, models.dev search for mercury-edit, Inception mercury-edit blog attempt (404), Inception models docs/blog pages fetched in earlier batch context, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
-  - [Inception Labs models docs](https://docs.inceptionlabs.ai/get-started/models)
+  - [Models (Inception Labs docs)](https://docs.inceptionlabs.ai/get-started/models)
   - Local repository metadata consulted: `model/mercury-edit-2/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

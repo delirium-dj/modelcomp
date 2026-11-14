@@ -13,5 +13,6 @@ temp_*
 .DS_Store
 PRD/
 .qoder/
+.secrets/
 src/routes/design*
 

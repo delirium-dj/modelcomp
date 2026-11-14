@@ -1,0 +1,19 @@
+# owo-2.5 — findings by Hy3
+
+- **Source / Date:** Web search (no model found; only Ovis2.5, medical "OWO", and unrelated results) — 2026-11-14
+- **Status:** Excluded — no verified public AI/LLM model found under this name.
+
+## Exclusion Reason
+Multiple independent web searches for "owo-2.5" / "Owo 2.5" as an LLM, model, or benchmarked system returned **no** evidence of an AI model with this identifier. Results pointed to unrelated entities:
+- **Ovis2.5** — a different open-source MLLM (2B/9B) by a different lab, not "owo-2.5"
+- Medical literature on "overweight and obesity (OWO)" in preschoolers
+- Polish-language engineering PDFs
+
+No provider, model card, benchmark, or release note for "owo-2.5" could be verified. Per the self-exclusion rule, no scored `Hy3.md` is produced.
+
+## Signature
+Provided by: **Hy3 (hy3-reporter)** — 2026-11-14 UTC
+Method: Independent web research; no peer `model/*/*.md` read during research.
+- Reference URLs:
+  - https://blog.csdn.net/gitblog_01186/article/details/154974284
+  - https://pubmed.ncbi.nlm.nih.gov/35657543/

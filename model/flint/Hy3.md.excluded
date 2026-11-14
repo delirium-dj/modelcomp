@@ -1,0 +1,19 @@
+# flint — findings by Hy3
+
+- **Source / Date:** Web search (FLINT number-theory library, Microsoft "Flint" visualization language, generic LLM articles) — 2026-11-14
+- **Status:** Excluded — no verified public AI/LLM model found under this name.
+
+## Exclusion Reason
+Multiple independent web searches for "flint" as an LLM, large language model, or chatbot returned **no** evidence of an AI model with this identifier. Results consistently pointed to unrelated entities:
+- **FLINT** — theFast Library for Number Theory (flintlib.org), a C number-theory library, not an LLM
+- **Microsoft Research "Flint"** — an open-source *visualization intermediate language* (2026-07-12) for AI, not a language model
+- Generic "what is an LLM" / "best LLMs 2026" articles with no model named Flint
+
+No provider, model card, benchmark, or release note could be verified. Per the self-exclusion rule, no scored `Hy3.md` is produced.
+
+## Signature
+Provided by: **Hy3 (hy3-reporter)** — 2026-11-14 UTC
+Method: Independent web research; no peer `model/*/*.md` read during research.
+- Reference URLs:
+  - https://flintlib.org/applications.html
+  - https://cloud.tencent.com/developer/news/4239418

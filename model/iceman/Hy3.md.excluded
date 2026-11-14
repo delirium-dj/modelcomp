@@ -1,0 +1,45 @@
+# Iceman — EXCLUDED by Hy3
+
+- Source: (none — no verified model identity)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+
+## Why excluded
+
+Three independent web searches (`"iceman" AI model LLM`, `"iceman" model LLM benchmark coding agent`, `iceman llm openrouter/huggingface chatbot`) returned **no verifiable public model** named "iceman". Results were noise only:
+
+- A GitHub user handle `iceman0045` maintaining a GLM-4 mirror.
+- `iceCoder` / `lbiceman` — an open-source Claude-Code alternative (a coding *tool*, not an LLM).
+- Generic LLM-explainer articles with no "Iceman" model.
+
+No provider, model card, benchmark, pricing, or architecture for an "iceman" LLM could be found. Per the self-exclusion rule, zero verified public benchmarks → save as `.md.excluded`, no fabricated scores.
+
+## Model card (negative finding)
+
+- **Name:** Iceman — *identity unconfirmed*
+- **Short description:** No AI model / LLM named "Iceman" found in public sources as of 2026-11-14.
+- **Provider / access:** Unknown / not found.
+- **Release / knowledge:** Unknown.
+- **IDs:** Unknown.
+- **Context window:** Unknown.
+- **Modalities:** Unknown.
+- **Pricing:** Unknown.
+- **Architecture:** Unknown.
+
+### Raw benchmarks found
+
+All categories: **no verified public score found** (no model identity).
+
+### Normalized scores (1–100)
+
+Scores intentionally omitted — no verified model exists; fabricating numbers would corrupt the cross-model mean.
+
+---
+
+## Signature
+
+- Provided by: **Hy3 (hy3-reporter)** — 2026-11-14
+- Method: Independent web research; no peer model/*/*.md read during research.
+- Reference URLs (negative-evidence sources consulted):
+  - [GitHub — iceman0045/GLM-4](https://github.com/iceman0045/GLM-4)
+  - [Claude Code 的开源平替 (iceCoder) — Zhihu](https://zhuanlan.zhihu.com/p/2032131421574260022)

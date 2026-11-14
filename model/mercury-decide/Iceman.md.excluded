@@ -1,57 +1,66 @@
 # Mercury Decide — findings by Iceman
 
-- Source: Inception Labs/Mercury Decide
-- Date: 2026-11-10 (UTC)
+- Source: Inception Labs / Mercury Decide (`inception/mercury-decide`, `mercury-decide`)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Mercury Decide
-- **Short description:** Inception Labs’ Mercury Decide is a diffusion-based decision/classification model for structured choices, scoring, and extraction via the `v1/decisions` endpoint (not a chat completion model).
-- **Provider / access:** Inception Labs API. Local metadata lists `inception/mercury-decide`, pricing $0.04/1M in (structured decision output), and 64K context.
-- **Release / knowledge:** Inception Labs docs reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
-- **IDs:** `mercury-decide`, `inception/mercury-decide`.
-- **Context window:** 64,000 tokens total (local metadata).
-- **Modalities:** Text/JSON/image input for decisions per docs table context; structured decision output.
-- **Pricing (as of 2026-11-10):** $0.04/1M input (docs show 50% off to $0.02 in table at time of fetch); output tokens reported but not charged for decisions endpoint.
+- **Short description:** Inception Labs’ Mercury Decide is a diffusion-based decision model for structured classification, scoring, and extraction over shared context via the `v1/decisions` API (not a chat-completions model).
+- **Provider / access:** Inception Labs API (`POST /v1/decisions`, model `mercury-decide`). OpenRouter lists a Mercury Decide page; AA/models.dev searches did not yield a verifiable benchmarked listing in this pass.
+- **Release / knowledge:** Inception Labs models and capability documentation reviewed 2026-11-14. Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `mercury-decide`, `inception/mercury-decide`, `Mercury Decide`.
+- **Context window:** 64,000 tokens total (local metadata). Official capability docs describe request/state/question structure and limits (e.g. extract request token/body limits, image constraints) but do not restate a single standard chat context-window figure in extracted text.
+- **Modalities:** Text/JSON and image inputs supported for decision tasks per Inception docs/models table (base64 PNG/JPEG/WebP/GIF in `state`/`instructions`; images not supported in `criteria`; extract questions do not support images). Output is typed structured decision data (probabilities/choices/scores/spans), not free-form chat text.
+- **Pricing (as of 2026-11-14):** Inception docs/models table indicate input-only billing for decisions (table shows ~~$0.04~~ → **$0.02 per 1M input tokens** in discounted listing context; output tokens reported but not charged). Local metadata cites $0.04/1M input. Pricing/promotions may vary.
 - **Architecture:** Proprietary diffusion-based decision model (closed weights). Architecture/parameter count not publicly disclosed.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: Mercury Decide is a specialized decision/routing endpoint (`v1/decisions`) for classification, scoring, and extraction rather than a general chat/agent benchmark target. Inception Labs docs reviewed via `webfetch` describe capabilities, pricing, and endpoint behavior but do not provide independently verifiable standardized benchmark numerics (e.g. SWE-bench, GPQA, AIME, Terminal-Bench) for this exact model. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed Inception Labs official models and capability docs (`/get-started/models`, `/capabilities/decisions`, `/capabilities/extract`), OpenRouter/AA/models.dev search attempts, and local metadata/prior report. Official docs provide attributable endpoint/spec/capability/pricing information for this exact specialized model, but **no independently verifiable standardized public benchmark numerics** for this project’s general LLM comparison dimensions (Terminal-Bench/Tau/GDPval-AA/Toolathon/MCP-Atlas, GPQA/HLE/AIME/AA Intelligence Index/LCR, SWE-bench/LiveCodeBench/SciCode, multimodal benchmarks) were found. Mercury Decide is a specialized structured decision/extraction endpoint rather than a general chat/agent/coding model, so normalizing it to the repository’s standard 1–100 LLM dimensions would be misleading/non-comparable. This file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Designed for typed routing/classification decisions; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Designed for routing/classification/scoring/extraction decisions in software workflows (`noul`/`choice`/`score`/`extract`), not a general autonomous agentic chat model. Standard agent/tool benchmark numerics: **no verified public score found**.
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- Returns calibrated/structured probabilities and typed answers over provided state/questions; not general free-form reasoning/QA generation. Standard reasoning/knowledge benchmark numerics: **no verified public score found**.
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- Not a code-generation/chat model by design (structured decision endpoint). Standard coding benchmark numerics: **no verified public score found**.
 
 Long context:
 
-- 64K context per metadata; no standalone long-context retrieval benchmark score found.
+- 64K context stated in local metadata; request/token/image/body limits documented for endpoint usage. No standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Supports text/JSON/image inputs for decision tasks per docs table; no multimodal benchmark scores found.
+- Supports image inputs for decision tasks (with documented constraints) and text/JSON inputs per official docs; output is structured decisions/spans. No standard multimodal benchmark numerics found.
 
 ### Normalized scores (1–100)
 
-Not provided. Specialized decision model without independently verifiable standardized benchmark evidence in accessible sources; no scored assessment is issued and this report is self-excluded.
+Not provided. Mercury Decide is a specialized decision/extraction model/endpoint with no verified standardized public benchmark evidence for this project’s general LLM scoring dimensions; normalized general-category scores would be non-comparable/misleading. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Specs/capabilities:** Official Inception docs clearly define Mercury Decide as a `v1/decisions` model for `noul`/`choice`/`score`/`extract` with typed outputs, image support constraints, and extract-specific limits/behavior.
+- **Pricing:** Models/docs show input-only billing and discounted pricing presentation ($0.02/M in shown in docs context) vs local metadata ($0.04/M in); pricing/promotions may vary.
+- **Benchmarks/category:** No verified standardized benchmark numerics for this repo’s general dimensions; model category is specialized decision/routing rather than general LLM.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to Inception Labs docs and local metadata; no verifiable standardized benchmark numerics extracted.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Inception Labs official models/decisions/extract docs, OpenRouter/AA/models.dev search attempts, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): Inception Decisions docs (webfetch), Inception Extract docs (webfetch), Inception Mercury Decide blog attempt (404), OpenRouter Mercury Decide page fetch, OpenRouter Mercury Edit 2 page attempt (404), AA models search for mercury-decide, AA models search for mercury-edit, models.dev search for mercury-decide, models.dev search for mercury-edit, Inception mercury-edit blog attempt (404), Inception models docs/blog pages fetched in earlier batch context, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
-  - [Inception Labs models/docs](https://docs.inceptionlabs.ai/get-started/models)
+  - [Models (Inception Labs docs)](https://docs.inceptionlabs.ai/get-started/models)
+  - [Decisions (Inception Labs docs)](https://docs.inceptionlabs.ai/capabilities/decisions)
+  - [Extract (Inception Labs docs)](https://docs.inceptionlabs.ai/capabilities/extract)
   - Local repository metadata consulted: `model/mercury-decide/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

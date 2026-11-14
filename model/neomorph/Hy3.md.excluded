@@ -1,0 +1,45 @@
+# Neomorph — EXCLUDED by Hy3
+
+- Source: (none — no verified model identity)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+
+## Why excluded
+
+Three independent web searches (`"neomorph" AI model LLM`, `"Neomorph" LLM model AI lab`, `neomorph model huggingface / "large language model"`) returned **no verifiable public model** named "Neomorph". Results were noise only:
+
+- "Neo Lab" / "NEO Lab" — a *category* of AI lab (small founder-led research labs), not a model.
+- Biological "neomorph" (a mode-of-action term in genetics / protein-variant literature).
+- NVIDIA NeMo framework docs (unrelated acronym collision: NeMo ≠ Neomorph).
+
+No provider, model card, benchmark, pricing, or architecture for a "Neomorph" LLM could be found. Per the self-exclusion rule, zero verified public benchmarks → save as `.md.excluded`, no fabricated scores.
+
+## Model card (negative finding)
+
+- **Name:** Neomorph — *identity unconfirmed*
+- **Short description:** No AI model / LLM named "Neomorph" found in public sources as of 2026-11-14.
+- **Provider / access:** Unknown / not found.
+- **Release / knowledge:** Unknown.
+- **IDs:** Unknown.
+- **Context window:** Unknown.
+- **Modalities:** Unknown.
+- **Pricing:** Unknown.
+- **Architecture:** Unknown.
+
+### Raw benchmarks found
+
+All categories: **no verified public score found** (no model identity).
+
+### Normalized scores (1–100)
+
+Scores intentionally omitted — no verified model exists; fabricating numbers would corrupt the cross-model mean.
+
+---
+
+## Signature
+
+- Provided by: **Hy3 (hy3-reporter)** — 2026-11-14
+- Method: Independent web research; no peer model/*/*.md read during research.
+- Reference URLs (negative-evidence sources consulted):
+  - [Neo Lab — Baidu Baike](https://baike.baidu.com/item/Neo%20Lab/67713634)
+  - [NVIDIA NeMo AutoModel User Guide](https://docs.nvidia.com/nemo-framework/user-guide/25.04/automodel/llm.html)
