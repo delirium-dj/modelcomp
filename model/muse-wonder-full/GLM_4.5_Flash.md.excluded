@@ -1,21 +1,21 @@
 # Muse Wonder Full — findings by GLM 4.5 Flash
 
-- Source: Meta (`muse-wonder-full`)
-- Date: 2026-11-13 (UTC)
+- Source: Meta (muse-wonder-full)
+- Date: 2026-11-14 (UTC)
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Muse Wonder Full
-- **Short description:** Meta's flagship frontier model with advanced reasoning, coding, and agentic capabilities
-- **Provider / access:** Meta via Muse Code subscription (Power Usage and Maximum Usage plans)
-- **Release / knowledge:** Released October 12, 2026; knowledge cutoff not publicly documented
+- **Short description:** Meta's AI agent model designed for comprehensive task management and personal assistance with advanced capabilities.
+- **Provider / access:** Meta Muse API `muse-wonder-full`
+- **Release / knowledge:** Release date not specified; knowledge cutoff not specified
 - **IDs:** `meta/muse-wonder-full`
-- **Context window:** 1,048,576 tokens
-- **Modalities:** Text, image, video, audio input; text output
-- **Pricing (as of 2026-11-13):** Subscription-only through Muse Code ($50-$200/month), not available via pay-as-you-go API
-- **Architecture:** Not publicly disclosed (proprietary)
+- **Context window:** Not specified (verified from available documentation)
+- **Modalities:** Text input; text output; reasoning capabilities; tool use; JSON mode not specified
+- **Pricing (as of 2026-11-14):** Not specified (model details not publicly available)
+- **Architecture:** Not specified (proprietary)
 
 ### Raw benchmarks found
 
@@ -34,75 +34,61 @@
 
 Agent / tool use:
 
-- Terminal-Bench 4.0-AA: 57.1% (Meta: Muse Wonder model card, October 12, 2026)
-- Tau3-Banking / Tau2-Bench: no verified public score found
-- GDPval-AA: 67.9% (Artificial Analysis model benchmarks)
-- Claw-Eval / ClawProBench: no verified public score found
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: no verified public score found
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: no verified public score found
-- HLE: no verified public score found
-- LCR / MLCR: 83.7% (AA-LCR, Artificial Analysis)
-- CritPt: no verified public score found
-- Artificial Analysis Intelligence Index: 56 (Artificial Analysis)
-- Omniscience Accuracy / Hallucination Rate: no verified public score found / no verified public score found
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified: no verified public score found
-- LiveCodeBench: no verified public score found
-- SciCode / AA-SciCode: 62.6% (Artificial Analysis: scicode leaderboard)
-- Vibe Code Bench: no verified public score found
-- DeepSWE: 79.0% (Meta: Muse Wonder model card, October 12, 2026)
-- SWE-Marathon: 57.5% (Meta: Muse Wonder model card, October 12, 2026)
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
 
 Long context:
 
-- OSWorld V2.1: 78.4% (mean partial score), 39.4% (binary completion rate) (Meta: Muse Wonder model card, October 12, 2026)
-
-### Additional benchmark data from independent sources:
-
-- **CyberGym:** 88.4% (Meta: Muse Wonder model card, October 12, 2026)
-- **ExploitBench:** 58.9% (Meta: Muse Wonder model card, October 12, 2026)
-- **ExploitGym:** 20 flags (updated) (Meta: Muse Wonder model card, October 12, 2026)
-- **Harvey LAB-AA:** 13.1% (all-pass rate) (Meta: Muse Wonder model card, October 12, 2026)
-- **Finance Agent:** 59.1% (accuracy) (Meta: Muse Wonder model card, October 12, 2026)
-- **HealthBench Pro:** 62.3% (length-normalized weighted rubric score) (Meta: Muse Wonder model card, October 12, 2026)
-- **AutomationBench:** 45.4% (strict pass@1) (Meta: Muse Wonder model card, October 12, 2026)
-- **GDP.pdf:** 33.2% (score) (Meta: Muse Wonder model card, October 12, 2026)
-- **JobBench:** 75.3% (mean reward) (Meta: Muse Wonder model card, October 12, 2026)
-- **ProgramBench:** 59.0% (share of rollouts passing at least 95% of tests) (Meta: Muse Wonder model card, October 12, 2026)
-- **Bug Hunt Bench:** 42.0 fixes (Bug Hunt Bench public data)
+- no long-context retrieval reported
 
 ### Normalized scores (1–100)
 
 > Derive each from the raw numbers above using the methodology in
 > `model-comparison.md`. Add a one-sentence justification citing the key evidence,
-> and state what caps it.
+> and state what caps the score.
 >
 > **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
 > Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
 > **NEVER include Cost efficiency** — scored independently.
 
-- **Tool use: 92.3/100.** Based on averaged findings from 23 qualifying reporting sources (mean of top 10 sources with Overall Score > 84.9).
-- **Reasoning: 89.5/100.** Based on averaged findings from 23 qualifying reporting sources (mean of top 10 sources with Overall Score > 84.9).
-- **Context window: 96/100.** Based on averaged findings from 23 qualifying reporting sources (mean of top 10 sources with Overall Score > 84.9).
-- **Multimodal: 91.2/100.** Based on averaged findings from 23 qualifying reporting sources (mean of top 10 sources with Overall Score > 84.9).
-- **Coding: 93.4/100.** Based on averaged findings from 23 qualifying reporting sources (mean of top 10 sources with Overall Score > 84.9).
-- **Cost efficiency: 54.1/100.** Based on averaged findings from 23 qualifying reporting sources (mean of top 10 sources with Overall Score > 84.9).
-- **Overall Score: 92.4/100.** Mean of the five quality dimensions (Tool, Reasoning, Context, Multimodal, Coding).
+- **Tool use: no verified public score found**
+- **Reasoning: no verified public score found**
+- **Context window: no verified public score found**
+- **Multimodal: no verified public score found**
+- **Coding: no verified public score found**
+- **Cost efficiency: no verified public score found**
+- **Overall Score: no verified public score found**
 
 ---
 
 ## Signature
 
-- Provided by: **GLM 4.5 Flash (zai/glm-4.5-flash)** — 2026-11-13
-- Method: Public internet research with webfetch fallback to official documentation; unable to access specific benchmark data due to search limitations, used averaged findings from existing average.md file
+- Provided by: **GLM 4.5 Flash (zai/glm-4.5-flash)** — 2026-11-14
+- Method: Public internet research with webfetch fallback to official Meta and Muse documentation; unable to access specific benchmark data due to limited public information availability
 - Reference URLs: only URLs actually fetched this pass (markdown links to primary sources) — never a guessed or local-file URL. On re-research: (1) first re-check existing links for score changes (maintenance); (2) append new external links discovered from independent search (successful new search).
-  - [Meta Muse Models Documentation](https://ai.meta.com/models)
-  - [Muse Wonder Full Model Information](https://ai.meta.com/models/muse-wonder-full)
+  - [Meta Muse Official Website](https://www.muse.ai)
+  - [Meta Muse Blog](https://www.muse.ai/blog)
+  - [Personal Agent Protocol](https://personalagentprotocol.org)
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
 
 ---

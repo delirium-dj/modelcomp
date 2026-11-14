@@ -1,57 +1,62 @@
 # Leanstral 1.5 — findings by Iceman
 
-- Source: Mistral AI/Leanstral 1.5
-- Date: 2026-11-10 (UTC)
+- Source: Mistral AI / Leanstral 1.5
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Leanstral 1.5
-- **Short description:** Mistral AI’s Leanstral 1.5 is a 119B/6.5B-active MoE model (Apache 2.0, 256K context) specialized for formal theorem proving and Lean 4 autoformalization/code verification workflows.
-- **Provider / access:** Open weights (Apache 2.0) and Mistral API endpoint per official announcement. Local metadata lists `opencode/leanstral-1.5`, 256K context, and free/hosted pricing context.
-- **Release / knowledge:** Official Mistral AI blog/news page reviewed 2026-11-10. Knowledge cutoff not explicitly stated.
-- **IDs:** `leanstral-1.5`, `Leanstral 1.5`.
-- **Context window:** 262,144 tokens (256K) per local metadata.
-- **Modalities:** Text input/output.
-- **Pricing (as of 2026-11-10):** Free open weights ($0 self-host); hosted ~$0.15/$0.45 per 1M per local metadata.
-- **Architecture:** Sparse MoE transformer, 119B total / ~6.5B active parameters (official blog/metadata), specialized for formal reasoning/proving.
+- **Short description:** Mistral AI’s Leanstral 1.5 is an open-weights (Apache 2.0) sparse MoE model specialized for formal theorem proving, Lean 4 proof engineering, and code verification workflows.
+- **Provider / access:** Mistral AI open weights (Hugging Face) and Mistral API endpoint (`leanstral-1-5` per announcement/docs context). Local metadata lists `opencode/leanstral-1.5`.
+- **Release / knowledge:** Official Mistral announcement published **July 2, 2026** (“Leanstral 1.5: Proof Abundance for All”). Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `leanstral-1.5`, `Leanstral 1.5`, `leanstral-1-5` (API/model naming context).
+- **Context window:** 262,144 tokens (256K) per local metadata; announcement focuses on long-running proof workflows (multi-million token test-time scaling behavior reported) but does not restate a single standard API context-window figure in extracted text.
+- **Modalities:** Text input/output (formal proof/code/Lean workflows).
+- **Pricing (as of 2026-11-14):** Free open weights (Apache 2.0, $0 self-host). Local metadata notes hosted pricing context ~$0.15/$0.45; exact current hosted/API pricing should be confirmed on provider pricing pages.
+- **Architecture:** Sparse MoE transformer, **119B total / 6B active parameters** (Mistral announcement), trained for Lean 4 formal reasoning/proof engineering (mid-training, SFT, RL with CISPO).
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I reviewed the official Mistral AI announcement for Leanstral 1.5, which reports formal theorem-proving benchmarks (e.g. miniF2F, PutnamBench, FATE-H/X, FLTEval) and code-verification case studies. These are domain-specific formal-verification results and do not provide the standardized, clearly attributable benchmark suite used for this project’s general scoring dimensions (agent/tool use, general reasoning/knowledge, coding SWE/terminal suites, long-context retrieval, multimodal). No verifiable standardized scores for the required comparison dimensions were found in accessible sources. This file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed Mistral AI’s official Leanstral 1.5 announcement and related search/fetch attempts. The announcement provides attributable, verifiable **domain-specific formal theorem-proving and code-verification benchmarks** for this exact model, but **not the standardized benchmark suite used for this project’s general LLM comparison dimensions** (Terminal-Bench/Tau/GDPval-AA/Toolathon/MCP-Atlas, GPQA/HLE/AIME/AA Intelligence Index/LCR, SWE-bench/LiveCodeBench/SciCode, multimodal benchmarks). Domain results are strong but not directly comparable to this repository’s normalized scoring framework, so no normalized 1–100 general-dimension scores are issued and this file remains `.md.excluded` (notes only; scores ignored).
 
-Agent / tool use:
+Domain-specific formal proving / verification benchmarks (official, attributable):
 
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- **miniF2F:** **100%** on both validation and test sets (saturated), per Mistral announcement.
+- **PutnamBench:** **587/672** problems solved (reported at 4M-token test-time scaling context in announcement); Pass@8 scaling curve reported from 44 (50k) to 244 (200k), 493 (1M), 587 (4M).
+- **FATE-H:** **87% / 87 problems** (state-of-the-art claim in announcement context).
+- **FATE-X:** **34% / 34 problems** (state-of-the-art claim in announcement context).
+- **FLTEval:** Pass@1 improved from **21.9 → 28.9**, Pass@8 from **31.9 → 43.2** (announcement comparison).
+- **Code verification case studies:** Reported automated pipeline findings across 57 repositories (47 violated properties flagged, 11 genuine bugs, 5 previously unreported) and detailed AVL-tree/time-complexity and varinteger bug-discovery examples (qualitative/case-study evidence).
 
-Reasoning / knowledge:
+Standard project comparison dimensions:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found** (formal-proving benchmarks reported instead)
-
-Coding:
-
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
-
-Long context:
-
-- 256K context claimed; no standalone long-context retrieval benchmark score found.
-
-Multimodal:
-
-- Text-only model.
+- Agent / tool use (Terminal-Bench/Tau/GDPval-AA/Toolathon/MCP-Atlas): **no verified public score found**
+- Reasoning / knowledge (GPQA Diamond/HLE/AIME/AA Intelligence Index): **no verified public score found** (formal-proving benchmarks reported instead)
+- Coding (SWE-bench Verified/SWE-Pro/LiveCodeBench/SciCode): **no verified public score found**
+- Long context (MRCR/RULER/AA-LCR retrieval benchmarks): **no verified public score found** (256K/long proof traces discussed, but no standardized retrieval benchmark numeric)
+- Multimodal: **text-only model**; no multimodal benchmark evidence
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient verified standardized benchmark evidence for this project’s comparison dimensions; domain-specific formal proving results are not directly comparable for scoring. No scored assessment is issued and this report is self-excluded.
+Not provided. Leanstral 1.5 has strong verified domain-specific formal-proving/verification evidence, but insufficient verified standardized benchmark evidence for this project’s general comparison dimensions; normalized LLM-category scores would be non-comparable/misleading. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/specs/benchmarks:** Mistral announcement clearly identifies Leanstral 1.5 (119B/6B-active MoE, Apache 2.0, Lean 4 focus) and reports attributable formal-proving/verification results (miniF2F, PutnamBench, FATE-H/X, FLTEval, case studies).
+- **Standard-suite gap:** No verified scores found for this repo’s standard general-agent/reasoning/coding/long-context/multimodal benchmark categories.
+- **Access/pricing details:** Open weights and API availability are stated; hosted pricing details in local metadata were not fully cross-verified from a dedicated pricing page in this pass.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to official Mistral announcement; only domain-specific formal-proving benchmarks found, not standardized comparison-suite numerics.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Mistral’s official Leanstral 1.5 announcement, TypeSafe/OpenCode docs fetched in the same batch, and catalog/search attempts (Hugging Face, OpenRouter), plus local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts): TypeSafe System One docs (shell + webfetch), TypeSafe models.md (shell + webfetch), TypeSafe docs home, OpenCode Console models docs, OpenRouter/models.dev/AA searches for "jev", Mistral Leanstral 1.5 announcement (shell + webfetch), Hugging Face Leanstral model page attempt (401), OpenRouter Leanstral model page attempt (404), local `meta.json` and prior `Iceman.md.excluded` review for both batch targets.
 - Reference URLs:
   - [Leanstral 1.5 announcement (Mistral AI)](https://mistral.ai/news/leanstral-1-5)
+  - [OpenCode Console models](https://opencode.ai/docs/console/models/)
   - Local repository metadata consulted: `model/leanstral-1.5/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

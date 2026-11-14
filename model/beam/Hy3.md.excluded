@@ -1,0 +1,18 @@
+# Beam — EXCLUDED (no verified public benchmarks)
+
+**Source / Date:** Independent web research, 2026-11-14 UTC.
+**Exclusion reason:** No model-specific public benchmark, spec sheet, vendor page, or leaderboard entry was found for an AI model named "Beam." Web searches returned only generic LLM benchmark/leaderboard aggregators (codingchart.com/aicharts, aimodelsbenchmark.com) and unrelated references — notably Apache Beam (a data-processing framework, beam.incubator.apache.org) and generic benchmark explainers. Without any verified public benchmark data, no scored file is produced per the self-exclusion rule.
+
+**What was checked:** General web search for "beam AI model benchmark"; benchmark aggregator sites; Apache Beam ML documentation; public-benchmark explainer articles. None identify a distinct foundation/agent model called "Beam" with attributable specs or scores.
+
+**Recommended follow-up:** If "Beam" is a codename for a specific vendor model (or a future release), re-run research once a vendor page or benchmark entry exists and produce a scored `Hy3.md`.
+
+## Signature
+Provided by: **Hy3 (hy3-reporter)** — 2026-11-14 UTC
+Method: Independent web research; no peer `model/*/*.md` read during research.
+- Reference URLs:
+  - https://codingchart.com/
+  - https://aimodelsbenchmark.com/
+  - https://blog.csdn.net/StepNexus/article/details/152412857
+  - https://blog.csdn.net/u013250861/article/details/145385761
+  - https://beam.incubator.apache.org/documentation/ml/large-language-modeling

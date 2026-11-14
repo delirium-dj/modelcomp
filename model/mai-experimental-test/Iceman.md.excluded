@@ -1,25 +1,25 @@
 # Mai Experimental Test — findings by Iceman
 
-- Source: OpenCode/Microsoft MAI experimental sandbox slot (mai-experimental-test)
-- Date: 2026-11-10 (UTC)
+- Source: OpenCode / Microsoft MAI experimental sandbox slot (`opencode/mai-experimental-test`)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Mai Experimental Test
-- **Short description:** Local metadata describes this as an OpenCode experimental Microsoft MAI sandbox slot (128K, text-only) with no public model id, endpoint, weights, price, or benchmarks—a placeholder rather than a verifiable model.
-- **Provider / access:** OpenCode experimental tier / Microsoft MAI sandbox context (per metadata). Local metadata lists `opencode/mai-experimental-test`, `noFreeId`, and no published rate.
-- **Release / knowledge:** Not officially announced as a stable/public model. Knowledge cutoff not stated.
+- **Short description:** Local metadata describes this as an OpenCode experimental Microsoft MAI sandbox/placeholder slot (128K, text-only) without a verifiable public model ID, endpoint, weights, pricing card, or benchmark record.
+- **Provider / access:** OpenCode experimental tier / Microsoft MAI sandbox context per local metadata. No verifiable public endpoint or catalog listing found in this pass. Local metadata lists `opencode/mai-experimental-test`, `noFreeId`.
+- **Release / knowledge:** Not identified as a stable/publicly documented model in accessible sources. Knowledge cutoff not stated.
 - **IDs:** `mai-experimental-test`, `opencode/mai-experimental-test`.
-- **Context window:** 128,000 tokens total (local metadata).
-- **Modalities:** Text input/output.
-- **Pricing (as of 2026-11-10):** Experimental tier pricing; no published per-token rate.
-- **Architecture:** Undisclosed/unresolved placeholder slot. Architecture/parameter count not publicly disclosed.
+- **Context window:** 128,000 tokens total (local metadata claim; not independently verified from an official model card).
+- **Modalities:** Text input/output (local metadata claim).
+- **Pricing (as of 2026-11-14):** Experimental/placeholder context; no published per-token rate found.
+- **Architecture:** Undisclosed/unresolved placeholder slot. Architecture, parameter count, and training details not publicly disclosed/verified.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: Local metadata and OpenCode/Microsoft catalogue context indicate this is an unresolved experimental placeholder slot rather than a clearly identified, accessible public model. No official model card, endpoint, weights, or independently verifiable public benchmark/spec source for this exact identity was found. This file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed local metadata/prior report and searched accessible public sources including OpenCode Console models documentation, Microsoft AI models/news pages (access-limited/403 in this pass), OpenRouter/models.dev searches, and GitHub/search attempts. No official model card, verifiable endpoint, weights, or independently attributable public benchmark/spec source for this exact identity/slot was found. This appears to remain an unresolved experimental placeholder rather than a clearly identified evaluable model, so this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
@@ -35,23 +35,31 @@ Coding:
 
 Long context:
 
-- 128K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+- 128K context claimed in local metadata; no standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Text-only per metadata.
+- Text-only per local metadata; no multimodal capability verified.
 
 ### Normalized scores (1–100)
 
-Not provided. Placeholder/experimental slot with no verifiable model identity or benchmark evidence; no scored assessment is issued and this report is self-excluded.
+Not provided. No verifiable model identity, endpoint, official documentation, or benchmark evidence found for this exact slot; assigning normalized 1–100 scores would be speculative/misattribution-prone. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/access:** Local metadata describes an OpenCode/Microsoft MAI experimental sandbox slot, but accessible public catalogs/docs (OpenCode Console models, models.dev/OpenRouter searches) did not provide a verifiable listing for this exact ID in this pass.
+- **Specs/pricing/benchmarks:** Claimed 128K text-only context and experimental pricing context remain unverified; no benchmark evidence found.
+- **Source limitations:** Microsoft AI pages were access-limited (403) in this pass, but no corroborating public model record for this exact slot was located elsewhere.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent review using alternative web access (`webfetch`) and local metadata; no verifiable model/benchmark source found for this exact slot.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across OpenCode Console models docs, Microsoft AI pages (access-limited), OpenRouter/models.dev searches, GitHub/search attempts, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): models.dev MAI-Code-1-Flash page (shell + webfetch), OpenRouter models search for mai-code-1-flash, AA models search for mai-code, GitHub Copilot plans page, Microsoft MAI news/model page attempts (403), OpenCode Console models docs (including scan for mai-experimental), OpenRouter models search for mai-experimental, models.dev search for mai-experimental, GitHub issues API search attempt, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
-  - [Microsoft AI models](https://microsoft.ai/models/)
+  - [OpenCode Console models](https://opencode.ai/docs/console/models/)
+  - Attempted (access-limited): [Microsoft AI models](https://microsoft.ai/models/)
   - Local repository metadata consulted: `model/mai-experimental-test/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

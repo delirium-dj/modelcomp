@@ -1,41 +1,44 @@
 # MAI-Code-1-Flash — findings by Iceman
 
-- Source: Microsoft/MAI-Code-1-Flash
-- Date: 2026-11-10 (UTC)
+- Source: Microsoft / MAI-Code-1-Flash (`microsoft/mai-code-1-flash`)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** MAI-Code-1-Flash
-- **Short description:** Microsoft’s MAI-Code-1-Flash is described as a Copilot-native agentic coding model (5B active, 256K context) positioned for efficient software engineering tasks.
-- **Provider / access:** Microsoft AI / GitHub Copilot contexts per metadata. Local metadata lists `microsoft/mai-code-1-flash`, pricing $0.75/$4.50 per 1M, and `noFreeId`.
-- **Release / knowledge:** Models.dev listing and local metadata reviewed 2026-11-10. Official Microsoft announcement URL in metadata returned 404 in this pass. Knowledge cutoff listed as 2025-12 on models.dev.
-- **IDs:** `mai-code-1-flash`, `MAI-Code-1-Flash`.
-- **Context window:** 256,000 tokens total; 128,000 max output (models.dev/metadata).
-- **Modalities:** Text input/output.
-- **Pricing (as of 2026-11-10):** $0.75/$4.50 per 1M in/out (GitHub Copilot/models.dev per metadata); no first-party Microsoft price card published.
-- **Architecture:** Proprietary closed model (5B active per metadata). Architecture details not publicly disclosed in accessible sources.
+- **Short description:** Microsoft coding model positioned for fast, efficient agentic coding/developer workflows (Copilot-native context per local metadata), with large context and tool/reasoning capabilities indicated by catalog metadata.
+- **Provider / access:** Microsoft / GitHub Copilot contexts referenced in local metadata. models.dev lists the model with 0 providers in the current catalog snapshot. Local metadata lists `microsoft/mai-code-1-flash`, `noFreeId`.
+- **Release / knowledge:** models.dev lists release **2026-06-02**, updated **2026-06-08**, knowledge cutoff **2025-12**. Official Microsoft announcement URL in local metadata was inaccessible in this pass (403).
+- **IDs:** `mai-code-1-flash`, `MAI-Code-1-Flash`, `microsoft/mai-code-1-flash`.
+- **Context window:** 256,000 tokens total; 128,000 max output (models.dev/local metadata).
+- **Modalities:** Text input/output (models.dev).
+- **Pricing (as of 2026-11-14):** Local metadata cites $0.75/$4.50 per 1M in/out (GitHub Copilot/models.dev context) and notes no published Microsoft first-party price card; models.dev page did not expose provider pricing rows (0 providers listed). Treat pricing as unverified/variable by access channel.
+- **Architecture:** Proprietary closed model (weights closed per models.dev). Local metadata states "5B active" but architecture details were not independently verified from accessible official sources in this pass.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I reviewed models.dev and attempted the official Microsoft announcement URL from metadata, but the announcement returned 404 and no independently verifiable, clearly extractable standardized benchmark numerics for this exact model were obtained from accessible sources in this pass. Local metadata cites figures (e.g. SWE-Bench Pro 51.2%) but notes several evals exist only as chart images and were not independently verified here. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed models.dev (page + catalog context), OpenRouter/AA/models catalog search attempts, GitHub Copilot plans page, Microsoft news/model pages (403 in this pass), OpenCode docs, and local metadata/prior report. models.dev provides attributable specs for this exact model ID (context/output/modalities/capabilities/release/knowledge), but **no independently verifiable, extractable standardized public benchmark numerics** for this project’s comparison dimensions were obtained from accessible sources in this pass. Local metadata cites claims such as SWE-Bench Pro 51.2% and token-efficiency comparisons, but these were not independently verified from accessible official text/chart-extractable sources here. Because benchmark evidence is insufficient for comparable normalized scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
+- Catalog indicates tool-calling/reasoning capabilities (models.dev), but no standardized agent/tool benchmark numerics found.
 - Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
 
 Reasoning / knowledge:
 
+- No standardized reasoning/knowledge benchmark numerics found in accessible sources.
 - GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified public score found**
+- Positioned as a coding model, but no independently verified standardized coding benchmark numerics extracted in this pass.
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified public score found** (local metadata claim not independently verified)
 
 Long context:
 
-- 256K context supported; no standalone long-context retrieval benchmark score found.
+- 256K context / 128K output supported per models.dev; no standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
@@ -43,16 +46,24 @@ Multimodal:
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified, extractable public benchmark evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+Not provided. Insufficient independently verifiable, extractable standardized public benchmark evidence for this exact model in accessible sources; assigning normalized 1–100 scores would be speculative/misattribution-prone. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Specs:** models.dev and local metadata align on core identity/specs (256K/128K, text-only, tools/reasoning, closed weights, release/knowledge dates).
+- **Access/pricing:** models.dev shows 0 providers in current snapshot; local metadata pricing/access claims (Copilot, $0.75/$4.50, 5B active) could not be fully independently verified from accessible official sources in this pass.
+- **Benchmarks:** Local metadata cites SWE-Bench Pro/comparison claims, but accessible sources in this pass did not provide independently verifiable extractable numerics; Microsoft announcement pages were inaccessible (403).
+- **Availability:** OpenRouter/AA searches did not yield a verifiable public benchmarked listing in this pass.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to models.dev and attempted official announcement; no verifiable standardized benchmark numerics extracted.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across models.dev, OpenRouter/AA/catalog searches, GitHub Copilot plans page, Microsoft AI pages (access-limited), OpenCode docs, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): models.dev MAI-Code-1-Flash page (shell + webfetch), OpenRouter models search for mai-code-1-flash, AA models search for mai-code, GitHub Copilot plans page, Microsoft MAI news/model page attempts (403), OpenCode Console models docs, OpenRouter models search for mai-experimental, models.dev search for mai-experimental, GitHub issues API search attempt (returned unrelated/global results), local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
   - [MAI-Code-1-Flash (models.dev)](https://models.dev/models/microsoft/mai-code-1-flash)
-  - Attempted (404): `https://microsoft.ai/news/introducing-mai-code-1-flash/`
+  - Attempted (access-limited): [Microsoft AI models](https://microsoft.ai/models/)
   - Local repository metadata consulted: `model/mai-code-1-flash/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

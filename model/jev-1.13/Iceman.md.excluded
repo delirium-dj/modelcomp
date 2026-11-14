@@ -1,42 +1,66 @@
 # Jev 1.13 — findings by Iceman
 
-- Source: TypeSafe AI / Jev 1.13
-- Date: 2026-11-11 (UTC)
+- Source: TypeSafe AI / Jev 1.13 (`jev-1.13.0`)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Research status
+## Model card
 
-Self-excluded (`.md.excluded`): no verified public benchmark numbers were found for the exact model identity `jev-1.13.0` / "Jev 1.13" that map to this project's standard LLM evaluation dimensions. Official TypeSafe documentation describes Jev as a System One typed-decision model (not a text-generating LLM), with structured outputs (choice/score/noul/box depending on version) and probability/confidence-oriented behavior. Project metadata references "JevBench 1.5.4 score 72.13", but this score was not verified from a public source fetched in this run and is not a standard benchmark in this repo's scoring template; therefore no scored findings file is produced.
-
-## Verified model facts (non-benchmark)
-
-- **Name / identity:** Jev 1.13 (`jev-1.13.0`, alias context documented alongside newer versions). Project id: `opencode/jev-1.13`.
-- **Model type:** System One typed-decision model (TypeSafe) — evaluates state and returns typed decisions/probabilities rather than generated text, code, or explanations.
-- **Inputs/outputs:** Natural-language text state (string/JSON/arrays) and images supported per TypeSafe docs; Jev 1.13 supports question types Choice, Score, and Noul (Box requires Jev 1.14 per docs). Outputs are structured/typed decisions, not free-form text generation.
-- **Context window:** 64k per-request and 32k per-question context (default); long-context mode (opt-in header) raises both to 262k tokens per docs. Project meta also notes "64K per request (32K state + 32K question); 262K opt-in via header".
-- **Pricing:** $42 per billion tokens / $0.042 per million input tokens; output tokens free (TypeSafe docs). Project meta notes ~$0.042/M input with free output.
-- **Modalities/capabilities:** Text/JSON/array state input and image input supported by Jev models generally; no native audio/video acceptance stated. Not a chatbot/code-generation model.
+- **Name:** Jev 1.13
+- **Short description:** TypeSafe AI’s Jev 1.13 is a System One typed-decision model (not a text-generating/chat/coding LLM) that evaluates state and returns structured decisions/probabilities for software workflows.
+- **Provider / access:** TypeSafe AI API (`POST /v1/systemone`, `model: jev-1.13.0` / alias contexts) and OpenCode Console listing (`jev-1.13`, `jev-1.13-free`, System One endpoint). Local metadata lists `opencode/jev-1.13`.
+- **Release / knowledge:** Official TypeSafe docs list Jev 1.13 as a current model alongside Jev 1.14. Knowledge cutoff not stated in reviewed docs (decision model; not a general text-generation model).
+- **IDs:** `jev-1.13`, `jev-1.13.0`, `opencode/jev-1.13`.
+- **Context window:** 64k per-request / 32k per-question context by default; long-context mode (opt-in header `TypeSafe-Danger-Zone-Long-Context: true`) raises both to 262k tokens (TypeSafe docs). Local metadata notes 64K per request (32K state + 32K question); 262K opt-in via header.
+- **Modalities:** Text and images input; typed decision output. Supports natural-language text state (string/JSON/arrays) and PNG/JPEG images; no native audio/video acceptance stated. Question types for Jev 1.13: Choice, Score, Noul (Box requires Jev 1.14).
+- **Pricing (as of 2026-11-14):** $42 per billion tokens / **$0.042 per million input tokens**; **output tokens free** (TypeSafe docs). OpenCode Console lists Jev 1.13 at $0.042/M input and free output (with free slot `jev-1.13-free`).
+- **Architecture:** Proprietary TypeSafe System One decision model. Not a generative LLM; outputs typed/calibrated decisions and probabilities rather than free-form text/code/explanations.
 
 ### Raw benchmarks found
 
-- **No verified public benchmark numbers found** for exact `jev-1.13` against this project's standard benchmark list (Tau/Terminal/GDPval/GPQA/HLE/SWE-bench/LiveCodeBench/MRCR etc.).
-- Agent / tool use: no verified public score found (model is a decision component, not a general agentic LLM).
-- Reasoning / knowledge: no verified public score found.
-- Coding: no verified public score found (cannot generate code/text).
-- Long context: documented 64k/32k limits and 262k opt-in mode, but no MRCR/RULER/GraphWalks retrieval benchmark numbers found.
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed official TypeSafe documentation (System One concepts, models page) and OpenCode Console models/pricing/docs context, plus catalog/search attempts (AA/models.dev/OpenRouter). TypeSafe provides verified product/spec/pricing/capability documentation for this exact model identity, but **no verified public benchmark numerics mapping to this project’s standard LLM evaluation dimensions** (Terminal-Bench/Tau/GDPval-AA/Toolathon/MCP-Atlas, GPQA/HLE/AIME/AA Intelligence Index/LCR, SWE-bench/LiveCodeBench/SciCode, multimodal benchmarks, etc.) were found for exact `jev-1.13`. Local metadata references “JevBench 1.5.4 score 72.13”, but this was **not independently verified** from an accessible public source in this pass and is not part of this repository’s standard comparable benchmark suite. Because Jev 1.13 is a specialized typed-decision model (not a text/code-generating LLM), assigning normalized 1–100 scores on the project’s general LLM dimensions would be misleading. This file remains `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Decision/routing/triage/guardrail component for software workflows; not a general agentic text-generating model. Standard agent/tool benchmark numerics: **no verified public score found**.
+
+Reasoning / knowledge:
+
+- Calibrated typed decision/probability outputs over provided state/questions; not general free-form reasoning/QA generation. Standard reasoning/knowledge benchmark numerics: **no verified public score found**.
+
+Coding:
+
+- Cannot generate code or text responses by design (returns typed decisions). Standard coding benchmark numerics: **no verified public score found**.
+
+Long context:
+
+- Documented 64k/32k default and 262k opt-in long-context limits; no MRCR/RULER/AA-LCR/GraphWalks-style retrieval benchmark numerics found.
+
+Multimodal:
+
+- Supports image input (PNG/JPEG) in state/questions per TypeSafe docs; output is typed decisions (not multimodal generation). No standard multimodal benchmark numerics found.
 
 ### Normalized scores (1–100)
 
-Not produced. Zero verified public benchmark numbers found for this exact model identity within the project's standard scoring framework; Jev 1.13 is a specialized decision model and scoring it as a general text/coding/multimodal LLM would be misleading without verified evidence.
+Not provided. Jev 1.13 is a specialized System One decision model with no verified public benchmark evidence for this project’s standard general LLM scoring dimensions; normalized LLM-category scores would be non-comparable/misleading. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Specs/capabilities/pricing:** TypeSafe docs and OpenCode Console listings align on core facts (System One typed-decision model, `jev-1.13.0`, Choice/Score/Noul for 1.13, text+image input, typed output, 64k/32k default and 262k opt-in, $0.042/M input with free output).
+- **Benchmarks:** No verified public standard-suite benchmark numerics found for exact `jev-1.13`; metadata JevBench claim unverified.
+- **Category mismatch:** Model is not a general text-generating LLM, so standard repo scoring dimensions are not directly applicable.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-11
-- Method: Fresh public web research using official TypeSafe documentation fetched in this run; no scored assessment produced due to absence of verified public benchmark numbers for the exact model identity in this project's standard framework.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across official TypeSafe docs (System One/models), OpenCode Console models/docs context, and AA/models.dev/OpenRouter search attempts, plus local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts): TypeSafe System One docs (shell + webfetch), TypeSafe models.md (shell + webfetch), TypeSafe docs home, OpenCode Console models docs, OpenRouter/models.dev/AA searches for "jev", Mistral Leanstral 1.5 announcement fetch (contextual batch), HuggingFace Leanstral page attempt (401, contextual), OpenRouter Leanstral page attempt (404, contextual), local `meta.json` and prior `Iceman.md.excluded` review.
 - Reference URLs:
   - [System One (TypeSafe docs)](https://docs.typesafe.ai/concepts/system-one)
   - [Models (TypeSafe docs)](https://docs.typesafe.ai/models.md)
+  - [OpenCode Console models](https://opencode.ai/docs/console/models/)
+  - Local repository metadata consulted: `model/jev-1.13/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

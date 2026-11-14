@@ -1,0 +1,14 @@
+# Union Alpha — EXCLUDED (no verified public benchmarks)
+
+**Source / Date:** Independent web research, 2026-11-14 UTC.
+**Exclusion reason:** Union Alpha is described not as a single pretrained model but as the stealth/test build of "Unbiased Pareto" — an inference-time multi-model *system* that runs several off-the-shelf models in parallel, then competes, filters, and dynamically synthesizes their outputs. Reviewed sources report no model-specific public benchmark figures (no SWE-bench, GPQA, LMArena, or context-window specification attributable to "Union Alpha" as a model). This matches the self-exclusion rule: with zero verified public benchmarks, no scored file is produced. Note this is the same "Pareto" lineage as `pareto-26.10-preview`, which was also excluded.
+
+**What was checked:** Baidu Baike / Zhihu / benchmark explainers. The only substantive hit was a Zhihu discussion identifying Union Alpha as the stealth version of Unbiased Pareto and characterizing it as slow, not cheap, and built on an opaque underlying model pool.
+
+**Recommended follow-up:** If/when a vendor publishes Union Alpha as a discrete model with spec sheet and benchmark numbers (rather than as a routing system), re-run research and produce a scored `Hy3.md`.
+
+## Signature
+Provided by: **Hy3 (hy3-reporter)** — 2026-11-14 UTC
+Method: Independent web research; no peer `model/*/*.md` read during research.
+- Reference URLs:
+  - https://www.zhihu.com/question/2083867967843049516/answer/2084238191306056377

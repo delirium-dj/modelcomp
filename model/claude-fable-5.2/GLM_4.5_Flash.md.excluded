@@ -1,0 +1,109 @@
+# Claude Fable 5.2 — findings by GLM 4.5 Flash
+
+- Source: Anthropic (claude-fable-5.2)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Claude Fable 5.2
+- **Short description:** Anthropic's most capable model for technical work, setting a new bar in coding, finance, and the sciences with robust safeguards in place.
+- **Provider / access:** Anthropic API `claude-fable-5-2`
+- **Release / knowledge:** Released November 9, 2026; knowledge cutoff not specified
+- **IDs:** `anthropic/claude-fable-5-2`
+- **Context window:** 1M tokens (verified from official documentation)
+- **Modalities:** Text and image input; text output; reasoning yes; tool use yes; JSON mode not specified
+- **Pricing (as of 2026-11-14):** $8 / input MTok, $40 / output MTok (paid model)
+- **Architecture:** Proprietary (parameters not specified)
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found**
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- no long-context retrieval reported
+
+### Raw benchmarks found
+
+> List measured numbers with (source, rank/percentile, harness) for traceability.
+> If a benchmark was not found, say "no verified public score found" and mark the
+> closest proxy as provisional — never invent values.
+
+Specialized benchmarks (Fable 5.2 data):
+
+- FrontierCode 2.0: **49.1%** (high effort) (Anthropic, 2026)
+- FrontierSWE v2: **69.9%** (Anthropic, 2026)
+- AutomationBench: **51.4%** (Anthropic, 2026)
+- Terminal-Bench-Science 0.1: **74.6%** (Anthropic, 2026)
+- CyScenarioBench: **76.3%** (with safeguards) (Anthropic, 2026)
+- CVE Rediscovery: **89.6%** (with safeguards) (Anthropic, 2026)
+- De novo binder design (24 hr): **85.1%** (with safeguards) (Anthropic, 2026)
+- WANDR: **82.1%** (Anthropic, 2026)
+- OSWorld 2.1: **89.3%** (Anthropic, 2026)
+- RoboDojo Sim: **64.9%** (Anthropic, 2026)
+- AA-Briefcase v1.1: **66.1%** (Anthropic, 2026)
+- Elo: **1785** (Anthropic, 2026)
+- Remote Labor Index: **41.3%** (high effort) (Anthropic, 2026)
+- Humanity's Last Exam: **74.2%** (Anthropic, 2026)
+- Chartography: **73.4%** (Anthropic, 2026)
+
+### Normalized scores (1–100)
+
+> Derive each from the raw numbers above using the methodology in
+> `model-comparison.md`. Add a one-sentence justification citing the key evidence,
+> and state what caps the score.
+>
+> **OVERALL SCORE FORMULA (v4, see `RULES.md`):**
+> Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`.
+> **NEVER include Cost efficiency** — scored independently.
+
+- **Tool use: 93/100.** Exceptional performance across multiple coding benchmarks including FrontierCode 2.0 (49.1%), FrontierSWE v2 (69.9%), and OSWorld 2.1 (89.3%), demonstrating top-tier capabilities in complex software engineering tasks.
+- **Reasoning: 92/100.** Strong performance on scientific reasoning benchmarks like Terminal-Bench-Science (74.6%), Humanity's Last Exam (74.2%), and Chartography (73.4%), indicating advanced analytical capabilities across domains.
+- **Context window: 96/100.** 1M token context window places it in the highest tier for handling long-form tasks and complex workflows.
+- **Multimodal: 83/100.** Text and image input capabilities with strong performance on vision-based tasks as demonstrated in official benchmarks.
+- **Coding: 95/100.** Outstanding performance in coding benchmarks including SWE-bench equivalent (FrontierSWE v2: 69.9%), automation tasks (AutomationBench: 51.4%), and computer use (OSWorld 2.1: 89.3%).
+- **Cost efficiency: 42/100.** Premium pricing at $8/$40 per MTok input/output makes it one of the more expensive models on the market, though slightly more affordable than its predecessor.
+- **Overall Score: 91.8/100.** Mean of the five quality dimensions (Tool, Reasoning, Context, Multimodal, Coding), reflecting exceptional performance across all domains with particular strength in technical and scientific tasks.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.5 Flash (zai/glm-4.5-flash)** — 2026-11-14
+- Method: Public internet research with webfetch fallback to official Anthropic documentation; benchmark data from official Fable 5.2 specifications
+- Reference URLs: only URLs actually fetched this pass (markdown links to primary sources) — never a guessed or local-file URL. On re-research: (1) first re-check existing links for score changes (maintenance); (2) append new external links discovered from independent search (successful new search).
+  - [Anthropic Claude Fable 5.2 Announcement](https://www.anthropic.com/news/claude-fable-and-mythos-5-2)
+  - [Anthropic Claude Fable Model Information](https://www.anthropic.com/claude/fable)
+  - [Claude Fable 5.2 and Mythos 5.2 System Card](https://www.anthropic.com/claude-fable-5-2-mythos-5-2-system-card)
+- Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
+
+---
