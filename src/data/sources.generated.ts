@@ -111,7 +111,8 @@ export type SourceKey =
   | "Gemini 4 Hydrogen"
   | "Hy4"
   | "Hy3"
-  | "GLM 5.2";
+  | "GLM 5.2"
+  | "DeepSeek 4.1 Flash 1017";
 
 /** Virtual sort views for the results-source dropdown (not reporting agents). */
 export type ViewKey = "tool" | "reason" | "context" | "cost" | "code" | "multi";
@@ -234,4 +235,5 @@ export const SOURCE_DEFS: SourceDef[] = [
   { key: "Hy4", label: "Hy4", file: "Hy4.md", slug: "hy4" },
   { key: "Hy3", label: "Hy3", file: "Hy3.md", slug: "hy3" },
   { key: "GLM 5.2", label: "GLM 5.2", file: "GLM_5.2.md", slug: "glm-5.2" },
+  { key: "DeepSeek 4.1 Flash 1017", label: "DeepSeek 4.1 Flash 1017", file: "DeepSeek_4.1_Flash_1017.md" },
 ];

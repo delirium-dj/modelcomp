@@ -1,57 +1,67 @@
 # Qoder Sonus — findings by Iceman
 
-- Source: Qoder/Sonus 1.0
-- Date: 2026-11-10 (UTC)
+- Source: Qoder / Sonus 1.0 (`qoder/sonus-1.0`, claimed in local metadata)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qoder Sonus
-- **Short description:** Local metadata describes Qoder Sonus as a computer-operation specialized model for coding, financial modeling, and complex desktop/software tasks (128K context, text in/out).
-- **Provider / access:** Qoder platform (`qoder.com`). Local metadata lists `qoder/sonus-1.0`, pricing via Qoder Credits, and limited public details.
-- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
-- **IDs:** `qoder-sonus`, `sonus-1.0`.
-- **Context window:** 128,000 tokens total (local metadata).
-- **Modalities:** Text input/output.
-- **Pricing (as of 2026-11-10):** Qoder Credits (SOTA rate applies) per local metadata.
-- **Architecture:** Proprietary/undisclosed. Architecture/parameter count not publicly disclosed.
+- **Name:** Qoder Sonus (Sonus 1.0)
+- **Short description:** Local metadata describes Qoder Sonus as a computer-operation specialized model for coding, financial modeling, and complex desktop/software tasks (128K context, text in/out), but no independently verifiable official/public model card, specification page, or benchmark source for this exact identity was located in this pass.
+- **Provider / access:** Claimed as Qoder platform (`qoder.com`, `qoder/sonus-1.0`) in local metadata. Reviewed Qoder sites/docs/pricing pages did not expose verifiable model-specific documentation for this exact ID.
+- **Release / knowledge:** Not independently verified from accessible official/public sources. Knowledge cutoff not stated.
+- **IDs:** `qoder-sonus`, `sonus-1.0`, `qoder/sonus-1.0` (local metadata claims).
+- **Context window:** 128,000 tokens total (local metadata claim, unverified).
+- **Modalities:** Text input/output (local metadata claim, unverified).
+- **Pricing (as of 2026-11-14):** Qoder Credits (SOTA rate applies) per local metadata claim; not independently verified from accessible model-specific official documentation.
+- **Architecture:** Proprietary/undisclosed. Architecture and parameter count not publicly verified.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: No accessible official model card or independently verifiable public benchmark/spec source for this exact model was found in this pass. Local metadata provides only high-level capability/positioning claims. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed `qoder.com`, `qoder.ai`, Qoder docs/pricing pages, and searched models.dev API/search, OpenRouter search/API, Artificial Analysis search, and Hugging Face search for `qoder`, `sonus`, and related terms. No accessible official model card, verifiable specification page, catalog/API listing, or independently attributable standardized benchmark numerics were found for this exact model identity (`Qoder Sonus` / `sonus-1.0` / `qoder/sonus-1.0`). Local metadata claims remain unverified and are not used as scored evidence. To avoid unverifiable or misattributed scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / BFCL: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- GPQA Diamond / HLE / MMLU-Pro / AIME / AA Intelligence Index / AA-LCR / CritPt: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode: **no verified public score found**
 
 Long context:
 
-- 128K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+- 128K context claimed in metadata; no independently verified long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Text-only per metadata.
+- Text-only claimed in metadata; no multimodal benchmark scores found.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model; no scored assessment is issued and this report is self-excluded.
+Not provided. Insufficient independently verifiable public identity/specification/benchmark evidence for this exact model in accessible sources; local metadata claims were not independently verified. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/access:** Local metadata claims `qoder/sonus-1.0` on Qoder, but reviewed Qoder public pages/docs/pricing and public catalogs/APIs did not provide a verifiable model-specific record for this exact ID in this pass.
+- **Specs/pricing:** Claimed 128K context, text-only modalities, and Qoder Credits/SOTA-rate pricing remain unverified from accessible official/public model documentation.
+- **Benchmarks:** No standardized, attributable benchmark results found.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent review of local metadata; no accessible official/verified public benchmark source found for this exact model ID.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Qoder sites/docs/pricing pages, models.dev/OpenRouter/Artificial Analysis/Hugging Face searches and model API scans, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): `qoder.com` fetch, `qoder.ai` fetch, docs.qoder.com/pricing/docs/ai/pricing and related docs URL fetch attempts, OpenRouter/AA/models.dev/HF searches for qoder/sonus/qoduck, HF searches, docs/pricing text scans, models.dev API/OpenRouter API scans for qoder/sonus/qoduck terms, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
-  - [Qoder](https://qoder.com)
+  - [Qoder](https://qoder.com/)
+  - [Qoder docs](https://docs.qoder.com/)
+  - [models.dev API](https://models.dev/api.json)
+  - [OpenRouter models API](https://openrouter.ai/api/v1/models)
   - Local repository metadata consulted: `model/qoder-sonus/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

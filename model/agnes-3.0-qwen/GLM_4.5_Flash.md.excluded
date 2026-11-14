@@ -1,0 +1,75 @@
+# Agnes 3.0 Qwen — findings by GLM 4.5 Flash (excluded)
+
+- Source: Agnes AI (agnes-ai/agnes-3.0-qwen)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Agnes 3.0 Qwen
+- **Short description:** Agnes AI's specialized model variant based on Qwen architecture, featuring 512K context, enhanced multilingual capabilities, and native tool calling.
+- **Provider / access:** Agnes AI (agnes-ai/agnes-3.0-qwen)
+- **Release / knowledge:** Unknown release date; knowledge cutoff not specified
+- **IDs:** `agnes-ai/agnes-3.0-qwen`
+- **Context window:** 512,000 total (verified from official documentation)
+- **Modalities:** Text, image in; text out
+- **Pricing (as of 2026-11-14):** Standard Agnes AI tier pricing ($0.05/$0.15 per 1M)
+- **Architecture:** Proprietary (based on Qwen architecture)
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1: **no verified public score found** (only from below-gate source Hy3)
+- Tau3-Banking / Tau2-Bench: **no verified public score found**
+- GDPval-AA: **no verified public score found**
+- Claw-Eval / ClawProBench: **no verified public score found**
+- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond: **no verified public score found**
+- HLE: **no verified public score found**
+- LCR / MLCR: **no verified public score found**
+- CritPt: **no verified public score found**
+- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro: **no verified public score found**
+- LiveCodeBench: **no verified public score found**
+- SciCode / AA-SciCode: **no verified public score found**
+- Vibe Code Bench: **no verified public score found**
+- DeepSWE / Coding Index / other: **no verified public score found**
+
+Long context:
+
+- MRCR / RULER / GraphWalks: **no long-context retrieval reported**
+
+### Normalized scores (1–100)
+
+> **NOTE:** This model has no verified public benchmark data from qualified sources (Overall > 84.9). 
+> All benchmark data is from below-gate sources and cannot be considered verified for scoring purposes.
+> This file is excluded from official scoring calculations.
+
+- **Tool use: N/A/100.** No verified public benchmark data available from qualified sources.
+- **Reasoning: N/A/100.** No verified public benchmark data available from qualified sources.
+- **Context window: N/A/100.** No verified public benchmark data available from qualified sources.
+- **Multimodal: N/A/100.** No verified public benchmark data available from qualified sources.
+- **Coding: N/A/100.** No verified public benchmark data available from qualified sources.
+- **Cost efficiency: N/A/100.** No verified public benchmark data available from qualified sources.
+- **Overall Score: N/A/100.** No verified public benchmark data available from qualified sources.
+
+---
+
+## Signature
+
+- Provided by: **GLM 4.5 Flash (zai/glm-4.5-flash)** — 2026-11-14
+- Method: Public internet research. No verified public benchmark data found from qualified sources (Overall > 84.9).
+- Reference URLs:
+  - [Agnes AI Wiki](https://wiki.agnes-ai.com)
+- Future sources: Additional benchmark sources from qualified raters (Overall > 84.9) may enable proper scoring in the future.
+
+---

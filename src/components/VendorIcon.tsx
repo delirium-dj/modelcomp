@@ -193,6 +193,7 @@ const VENDORS: VendorMatch[] = [
   { slug: "agnes-ai", icon: "agnes-ai", label: "Agnes AI" },
   { slug: "atlas-cloud", icon: "atlas-cloud", label: "Atlas Cloud" },
   { slug: "workbuddy", icon: "workbuddy", label: "WorkBuddy" },
+  { slug: "apmix", icon: "apmix", label: "Apmix", adaptive: true },
   { slug: "azure-ai-content-safety", icon: "azure-ai-content-safety", label: "Azure AI Content Safety" },
   { match: "bifrost", icon: "bifrost", label: "Bifrost" },
   { match: "braintrust", icon: "braintrust", label: "Braintrust" },

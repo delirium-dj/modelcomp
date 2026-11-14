@@ -1,70 +1,67 @@
 # Qwen 3.5 Flash Lite — findings by Iceman
 
-- Source: Alibaba Cloud/Qwen 3.5 Flash Lite
-- Date: 2026-11-10 (UTC)
+- Source: Alibaba Cloud / Qwen 3.5 Flash Lite (claimed in local metadata)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen 3.5 Flash Lite
-- **Short description:** Alibaba’s Qwen 3.5 Flash Lite is described in local metadata as a MoE API tier (~35B total/3B active, 1M context) for high-volume multimodal work at ultra-low pricing.
-- **Provider / access:** Alibaba Cloud Model Studio / commercial hosted API tier. Local metadata lists `opencode/qwen-3.5-flash-lite` and `noFreeId`.
-- **Release / knowledge:** Not clearly established in reviewed public sources for this exact ID/tier. Knowledge cutoff not explicitly stated.
-- **IDs:** `qwen-3.5-flash-lite`, `Qwen 3.5 Flash Lite` (local naming).
-- **Context window:** 1,000,000 tokens total; 65,536 max output (local metadata, unverified from reviewed official page in this pass).
-- **Modalities:** Text, image, video input; text output (local metadata).
-- **Pricing (as of 2026-11-10):** ~ $0.10/$0.40 per 1M in/out cited in local metadata; commercial Alibaba Cloud tier. Not independently verified from reviewed listing.
-- **Architecture:** MoE (~35B total/3B active) claimed in local metadata; not independently verified from official model card for this exact tier.
+- **Short description:** Local metadata describes Qwen 3.5 Flash Lite as an Alibaba Cloud MoE API tier (~35B total/3B active, 1M context, multimodal input) for high-volume low-cost workloads, but this exact model ID/tier could not be independently verified from accessible official/public catalogs, model APIs, or documentation in this pass.
+- **Provider / access:** Claimed as Alibaba Cloud Model Studio / commercial hosted API tier (`opencode/qwen-3.5-flash-lite`) in local metadata. No verifiable listing found for this exact ID/tier in reviewed Alibaba Cloud model pages, models.dev, OpenRouter, Artificial Analysis, or Hugging Face searches/APIs.
+- **Release / knowledge:** Not independently verified for this exact ID/tier. Knowledge cutoff not stated.
+- **IDs:** `qwen-3.5-flash-lite`, `Qwen 3.5 Flash Lite`, `opencode/qwen-3.5-flash-lite` (local metadata claims).
+- **Context window:** 1,000,000 tokens total; 65,536 max output (local metadata claim, unverified).
+- **Modalities:** Text, image, video input; text output (local metadata claim, unverified).
+- **Pricing (as of 2026-11-14):** ~ $0.10/$0.40 per 1M in/out (local metadata claim, unverified).
+- **Architecture:** MoE (~35B total / 3B active) claimed in local metadata; not independently verified from an official model card for this exact tier.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I reviewed Alibaba Cloud Model Studio’s recommended models page and OpenCode Zen models documentation, but did not find clearly attributable, independently verified public benchmark/spec evidence for this exact `qwen-3.5-flash-lite` model ID/tier in accessible sources during this pass. The reviewed Model Studio page did not list this exact tier, and no official benchmark numerics were extracted. This file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed Alibaba Cloud Model Studio pages (models/recommended and model list text generation), Qwen/Alibaba-related pages searched in this pass, Artificial Analysis/models.dev/OpenRouter/Hugging Face searches and model APIs, and local metadata/prior report. No accessible official/public source provided clearly attributable, independently verifiable specs or benchmark numerics for this exact model ID/tier (`qwen-3.5-flash-lite` / `Qwen 3.5 Flash Lite`). Searches returned other vendors’ “flash-lite” models (e.g. Google Gemini 3.5 Flash Lite) but no matching Qwen 3.5 Flash Lite listing. Local metadata claims remain unverified and are not used as scored evidence. To avoid unverifiable or misattributed scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
-- Tau2-Bench / Tau3-Banking: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / BFCL: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- GPQA Diamond / HLE / MMLU-Pro / AIME / AA Intelligence Index / AA-LCR / CritPt: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode: **no verified public score found**
 
 Long context:
 
-- 1M context claimed in local metadata; no standalone long-context retrieval benchmark score extracted.
+- 1M context claimed in metadata; no independently verified long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Multimodal capability claimed in metadata; no multimodal benchmark scores extracted.
+- Text/image/video input claimed in metadata; no multimodal benchmark scores found.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model ID/tier in this pass; no scored assessment is issued and this report is self-excluded.
+Not provided. Insufficient independently verifiable public identity/specification/benchmark evidence for this exact model ID/tier in accessible sources; local metadata claims were not independently verified. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/access:** Local metadata claims `opencode/qwen-3.5-flash-lite` as an Alibaba Cloud commercial tier, but reviewed Alibaba Cloud model pages and public catalogs/APIs did not list this exact ID/tier in this pass.
+- **Catalog confusion risk:** “Flash Lite” naming overlaps with other vendors/products (e.g. Gemini 3.5 Flash Lite appeared in searches/APIs); no evidence tied those listings to this exact Qwen model.
+- **Specs/benchmarks:** Claimed context, modalities, architecture, and pricing remain unverified; no standardized benchmark evidence found.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to Alibaba Cloud Model Studio listing and OpenCode Zen models docs; no verifiable benchmark/spec data found for this exact ID.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Alibaba Cloud Model Studio pages, Qwen/AA/models.dev/OpenRouter/Hugging Face searches and model APIs, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): AA qwen3-max model page fetch, OpenRouter qwen3-max URL attempt (404), HF Qwen/Qwen3-Max page attempt (401), models.dev qwen3-max page fetch, qwen blog/model-studio/AA/OR/HF search fetches for qwen3-max and qwen-3.5-flash-lite, qwen.ai blog page fetch/scan, models.dev/OR/AA/Alibaba help/model-studio/models.dev API/OR API scans, targeted OpenRouter API lookup, flash-lite term scans across catalogs/APIs, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
-  - [Alibaba Cloud Model Studio recommended models](https://www.alibabacloud.com/help/en/model-studio/models)
-  - [OpenCode Zen models documentation](https://opencode.ai/docs/zen)
+  - [Alibaba Cloud Model Studio models](https://www.alibabacloud.com/help/en/model-studio/models)
+  - [Alibaba Cloud Model Studio text generation model list](https://www.alibabacloud.com/help/en/model-studio/model-list-text-generation)
+  - [models.dev API](https://models.dev/api.json)
+  - [OpenRouter models API](https://openrouter.ai/api/v1/models)
   - Local repository metadata consulted: `model/qwen-3.5-flash-lite/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,0 +1,60 @@
+# Union Alpha — findings by DeepSeek 4.1 Flash 1017
+
+- Source: unverified (no publisher page reached)
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: `../../model-comparison.md`
+- Cross-model signed log: `../../model-findings.md`
+
+## Model card
+
+- **Name:** Union Alpha (`union-alpha`)
+- **Short description:** no verified public information retrieved in this pass; the model could not be matched to any publisher, model page, or API listing.
+- **Provider / access:** no verified public score found — no API id could be cited.
+- **Release / knowledge:** no verified public score found.
+- **IDs:** no verified public score found.
+- **Context window:** no verified public score found.
+- **Modalities:** no verified public score found.
+- **Pricing (as of 2026-11-14):** no verified public score found.
+- **Architecture:** no verified public score found.
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Artificial Analysis Intelligence Index: no verified public score found
+- Terminal-Bench 4.0 / GDPval-AA / AutomationBench-AA: no verified public score found
+
+Reasoning / knowledge:
+
+- AA-Omniscience Accuracy / Non-Hallucination Rate: no verified public score found
+- HLE-Diamond: no verified public score found
+- CritPt v2 (Hard Subset): no verified public score found
+
+Coding:
+
+- FrontierCode-AA 2.0 / Terminal-Bench 4.0: no verified public score found
+- SWE-bench Verified / LiveCodeBench: no verified public score found
+
+Long context:
+
+- no verified public score found
+
+### Normalized scores (1–100)
+
+None assigned — the exclusion rule applies: no verifiable evidence, so no placeholder scores are written.
+
+## Access failure notes
+
+- `https://artificialanalysis.ai/models/union-alpha` returned HTTP 404 (no Artificial Analysis model page under this slug).
+- `https://openrouter.ai/models?q=union-alpha` returned the generic OpenRouter model catalogue with no listing matching "union alpha" (the query filter did not resolve to a model page), so no vendor prefix, API id, context window, price, or modality data could be confirmed.
+- Web search was unavailable this pass (HTTP 402), so the direct-URL fallback ladder was used exclusively; no further primary source could be identified for this slug.
+
+---
+
+## Signature
+
+- Provided by: **DeepSeek 4.1 Flash 1017 (deepseek/deepseek-v4.1-flash-1017)** — 2026-11-14
+- Method: public internet research via direct `webfetch` (web search returned HTTP 402); both ladder rungs were tried and returned no model-specific data, so the folder is excluded rather than populated with placeholders.
+- Reference URLs: only URLs actually fetched this pass (markdown links to primary sources)
+  - [Artificial Analysis — models/union-alpha (404)](https://artificialanalysis.ai/models/union-alpha)
+  - [OpenRouter — model catalogue query "union-alpha"](https://openrouter.ai/models?q=union-alpha)

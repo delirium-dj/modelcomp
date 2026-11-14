@@ -1,58 +1,74 @@
-# Pixel Canary — findings by Iceman
+# Pixel Canary (Callstack Apex) — findings by Iceman
 
-- Source: Callstack/Apex (stealth "Pixel Canary")
-- Date: 2026-11-10 (UTC)
+- Source: Callstack / Apex (`callstack/apex`, formerly stealth "Pixel Canary")
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Pixel Canary (Apex)
-- **Short description:** Callstack’s Apex coding model (revealed from stealth "Pixel Canary") is a React/mobile-web specialized model with image input support and a 262K context window per local metadata.
-- **Provider / access:** Callstack/Apex (gateway-listed). Local metadata lists `callstack/apex`, pricing $0.50/$3.00 per 1M, and `noFreeId`.
-- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
-- **IDs:** `pixel_canary`, `callstack/apex`.
-- **Context window:** 262,144 tokens total; 131,072 max output (gateway-declared per metadata).
-- **Modalities:** Text and image input; text output (metadata).
-- **Pricing (as of 2026-11-10):** $0.50/M input, $0.20 cached, $3.00/M output (GA per metadata); prior "free while stealth" claim unverified.
-- **Architecture:** Proprietary closed model. Architecture/parameter count not publicly disclosed.
+- **Name:** Pixel Canary / Apex
+- **Short description:** Apex is Callstack’s closed agentic coding model specialized for mobile/web React workloads (React Native, React, Next.js), revealed from the stealth name “Pixel Canary” per local metadata; it has verifiable vendor/gateway specs and framework-specific eval claims but lacks standardized, comparable public benchmarks across this project’s core scoring dimensions.
+- **Provider / access:** Callstack (API access) and Vercel AI Gateway (`callstack/apex`). Local metadata lists `callstack/apex`, `noFreeId`; prior “free while stealth” claim is treated as unverified in metadata.
+- **Release / knowledge:** Vercel AI Gateway page lists release date 2026-10-08. Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `pixel_canary`, `Pixel Canary`, `Apex`, `callstack/apex`.
+- **Context window:** 262,144 tokens context window; 131,072 max output (Vercel AI Gateway/model listing). Apex site describes a 256K context window in page copy (minor source wording conflict).
+- **Modalities:** Text and image input; text output (Vercel AI Gateway/model listing indicates image input support).
+- **Pricing (as of 2026-11-14):** $0.50 per 1M input tokens, $0.20 per 1M cached input tokens, $3.00 per 1M output tokens (Apex site/Vercel AI Gateway listing; excluding applicable taxes/provider terms).
+- **Architecture:** Proprietary closed model. Architecture and parameter count not publicly disclosed.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: The expected official blog URL in metadata returned HTTP 404 during this pass, and no independently verifiable public benchmark/spec source with standardized, clearly attributable results for this exact model was accessible. Local metadata mentions framework-specific eval claims (e.g. 28/31 Next.js tasks, 87.8% React Native evals) but these were not independently verified from an accessible official source here. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed `apex.callstack.com`, Vercel AI Gateway’s Apex model page, models.dev API/search, OpenRouter/Artificial Analysis/Hugging Face searches, and the metadata-referenced Callstack blog URL (404). I found attributable vendor/gateway specs and vendor-reported React/Next.js framework eval results for the exact Apex/`callstack/apex` model, but no independently verifiable standardized benchmark coverage suitable for comparable project scoring (e.g. SWE-bench Verified/Pro, LiveCodeBench, SciCode, Terminal-Bench 2.1, τ²/τ³, GPQA Diamond, HLE, AIME, AA Intelligence Index/AA-LCR, multimodal suites). Because evidence is strong for a specialized domain but insufficient for standardized cross-dimension 1–100 comparability, this file remains `.md.excluded` (notes only; scores ignored).
+
+Framework-specific / vendor-reported coding evals (Apex site, attributed to RN/Next.js eval sources shown on page):
+
+- **React Native evals:** **87.8%** (Apex), compared on-page to Claude Opus 5.5 88.6% and GPT 6.1 Sol 86.3% (source cited on page: `rn-evals.vercel.app`).
+- **Next.js evals (31 tasks, pass@4, per page):** **96.8%** with docs, **90.3%** without docs (Apex). Page also reports cost/leaderboard comparisons (e.g. Apex $0.067* per task vs GPT 6 Astra $0.891 and Claude Opus 5.5 $0.234; source cited as `nextjs.org/evals`, Sep 25, 2026, per page footnote).
+- **React fix benchmark context (ReactBench, as shown on page):** Apex shown as tied #2 in “fixing React” section (exact task/effort breakdown partially extracted from page content; treat as vendor-reported UI claim pending direct benchmark-page verification).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Tool/agentic coding capability implied by product positioning and API use; no standardized Terminal-Bench/τ-bench/GDPval-AA/MCP-Atlas scores found.
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- GPQA Diamond / HLE / MMLU-Pro / AIME / AA Intelligence Index / AA-LCR / CritPt: **no verified public score found**
 
-Coding:
+Coding (standardized):
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode: **no verified public score found**
 
 Long context:
 
-- 262K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+- 262K context / 131K max output listed by Vercel AI Gateway; no standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Image input claimed in metadata; no multimodal benchmark scores found.
+- Image input supported (text/image in, text out per Vercel AI Gateway); no multimodal benchmark scores found.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+Not provided. Verifiable evidence exists for specialized React/Next.js coding performance and model specs/pricing, but not for standardized, comparable benchmark coverage across the repo’s core dimensions. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity:** `apex.callstack.com`, Vercel AI Gateway, and models.dev API align on Callstack Apex (`callstack/apex`) as a React Native/React/Next.js-focused coding model; local metadata maps this folder to stealth “Pixel Canary”.
+- **Specs:** Vercel AI Gateway lists 262K context / 131K max output, text+image input, $0.50/$0.20 cached/$3.00 output pricing; Apex site states “256K context window” in copy (minor wording/context discrepancy).
+- **Benchmarks:** Apex site reports strong vendor-attributed React Native and Next.js eval results (87.8% RN; 96.8%/90.3% Next.js), but metadata-referenced Callstack blog URL returned 404 and no standardized public benchmark suite results were found in AA/OpenRouter/HF/models.dev scans in this pass.
+- **Catalogs:** models.dev API contains `callstack/apex`; OpenRouter/AA/HF searches in this pass did not provide rich standardized benchmark entries for this exact model.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`); metadata-referenced blog returned 404 and no verified public benchmark source was accessible.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Apex/Callstack pages, Vercel AI Gateway model page, models.dev/OpenRouter/Artificial Analysis/Hugging Face searches and model API scans, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): `apex.callstack.com` fetch, Callstack blog URL attempt (404), `owo.ai` fetch, Apex pricing/docs/Callstack docs/Vercel AI Gateway/OR/AA/models.dev/HF/owo docs-pricing/OR/models.dev/AA/HF search fetches, Apex/Vercel/models.dev API/OpenRouter API/catalog text scans, Apex home text extraction scans, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
   - [Apex (Callstack)](https://apex.callstack.com/)
+  - [Apex on Vercel AI Gateway](https://vercel.com/ai-gateway/models/apex)
+  - [models.dev API](https://models.dev/api.json)
   - Attempted (404): `https://www.callstack.com/blog/apex-agentic-coding-for-mobile-and-web-specialized-in-react`
   - Local repository metadata consulted: `model/pixel_canary/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

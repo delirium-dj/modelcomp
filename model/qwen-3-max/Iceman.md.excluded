@@ -1,58 +1,67 @@
 # Qwen 3 Max — findings by Iceman
 
-- Source: Alibaba/Qwen3 Max
-- Date: 2026-11-10 (UTC)
+- Source: Alibaba / Qwen3 Max (`qwen3-max`, `alibaba/qwen3-max`, `qwen3-max-2025-09-23`)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Qwen3 Max
-- **Short description:** Alibaba’s Qwen3 Max is a closed-weights flagship text model (262K context, 65K output) positioned for coding agents, complex reasoning, and tool use; now deprecated/superseded by later Qwen tiers.
-- **Provider / access:** Alibaba Cloud / hosted providers (models.dev lists multiple providers). Local metadata lists `opencode/qwen3-max`, pricing ~$1.20/$6.00 per 1M, and `noFreeId`.
-- **Release / knowledge:** Listed on models.dev as released 2025-09-23, knowledge 2025-04. Knowledge cutoff not explicitly stated in reviewed official benchmark sources.
-- **IDs:** `qwen3-max`, `alibaba/qwen3-max`.
-- **Context window:** 262,144 tokens total; 65,536 max output (models.dev/local metadata).
+- **Short description:** Alibaba’s Qwen3 Max is a closed-weights flagship Qwen3 text model for coding agents, complex reasoning, and tool use, now deprecated/superseded by later Qwen Max tiers; verifiable specs/pricing are available but independently verifiable standardized benchmark numerics for comparable scoring were not obtained in this pass.
+- **Provider / access:** Alibaba Cloud / hosted providers. models.dev lists multiple providers for `alibaba/qwen3-max`. Local metadata lists `opencode/qwen3-max`, `noFreeId`.
+- **Release / knowledge:** models.dev lists release 2025-09-23, knowledge 2025-04, updated 2025-09-23. Artificial Analysis marks the model deprecated and suggests Qwen3 Max Thinking as a newer release.
+- **IDs:** `qwen3-max`, `alibaba/qwen3-max`, `qwen3-max-2025-09-23`, `opencode/qwen3-max`.
+- **Context window:** 262,144 tokens total; 65,536 max output (models.dev/AA/local metadata).
 - **Modalities:** Text input/output.
-- **Pricing (as of 2026-11-10):** ~$1.20/$6.00 per 1M in/out on Alibaba (reseller pricing varies; models.dev shows provider range).
-- **Architecture:** Proprietary closed-weights model. Architecture/parameter count not publicly disclosed.
+- **Pricing (as of 2026-11-14):** Provider-dependent; models.dev shows ~$1.20/$6.00 per 1M in/out on Alibaba and varies by reseller/provider (e.g. lower reseller rates listed). Commercial hosted pricing only (closed weights).
+- **Architecture:** Proprietary closed-weights model. Architecture and parameter count not publicly disclosed.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I reviewed the models.dev listing for `alibaba/qwen3-max`, which provides specifications, provider/pricing, and capability flags but no standardized benchmark scores. Local metadata cites AA Intelligence Index 15.6 and HLE 11.9% and notes no public SWE-bench or Terminal-Bench figures, but these were not independently verified from an accessible official/public benchmark source in this pass. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed Artificial Analysis’ Qwen3 Max model page, models.dev model page/API data, OpenRouter model search/API, Hugging Face search (HF model page access returned 401 in this pass), Qwen/Alibaba Cloud pages/searches, and local metadata/prior report. I found verifiable model specs/capabilities/pricing (262K/65K context, text-only, tool calling, temperature, provider pricing ranges, deprecated status) but no independently verifiable, accessible standardized benchmark numerics for this exact model suitable for comparable 1–100 scoring in this pass (AA page showed Intelligence/Cost/Performance as N/A/unknown for the deprecated listing; no SWE-bench/LiveCodeBench/Terminal-Bench/τ-bench/GPQA/HLE/AIME figures were extracted from accessible sources). Local metadata cites AA Intelligence Index 15.6 and HLE 11.9% but these were not independently verified from accessible current sources in this pass. To avoid unverifiable or misattributed scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Tool calling capability indicated; standardized agent/tool benchmark numerics not found.
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Tool calling capability indicated (models.dev). Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / BFCL: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no independently verified public score found** in reviewed accessible sources
+- GPQA Diamond / HLE / MMLU-Pro / AIME / AA Intelligence Index / AA-LCR / CritPt: **no independently verified public score found** in accessible sources reviewed this pass
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode: **no verified public score found**
 
 Long context:
 
-- 262K context supported; no standalone long-context retrieval benchmark score found.
+- 262K context supported (verified spec); no standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Text-only model.
+- Text-only model (verified spec).
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark evidence for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+Not provided. Insufficient independently verifiable standardized benchmark evidence for comparable scoring of this exact model in accessible sources reviewed this pass, despite verified specs/pricing. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/specs:** AA, models.dev, OpenRouter/search/API references, and local metadata align on Qwen3 Max (`alibaba/qwen3-max`, 262K/65K, text-only, closed weights, deprecated/superseded). models.dev and AA agree on core context/spec attributes.
+- **Pricing:** Hosted pricing varies by provider; Alibaba-listed ~$1.20/$6.00 per 1M appears in models.dev/provider data, while resellers show different rates.
+- **Benchmarks:** AA deprecated page did not provide populated benchmark/index numerics in accessible extracted content during this pass; local metadata’s cited AA Intelligence Index/HLE figures were not independently re-verified from accessible current sources and are treated as unverified for scoring.
+- **Access:** Hugging Face model page fetch returned 401 in this pass; no open-weights artifact verified.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to models.dev listing; specs/capabilities available but no standardized benchmark numerics found.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Artificial Analysis, models.dev, OpenRouter search/API, Hugging Face searches/pages (access-limited), Qwen/Alibaba Cloud pages, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): AA qwen3-max model page fetch, OpenRouter qwen3-max URL attempt (404), HF Qwen/Qwen3-Max page attempt (401), models.dev qwen3-max page fetch, qwen blog/model-studio/AA/OR/HF search fetches for qwen3-max and qwen-3.5-flash-lite, qwen.ai blog page fetch/scan, models.dev/OR/AA/Alibaba help/model-studio/models.dev API/OR API scans, targeted OpenRouter API lookup, flash-lite term scans across catalogs/APIs, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
+  - [Qwen3 Max (Artificial Analysis)](https://artificialanalysis.ai/models/qwen3-max)
   - [Qwen3 Max (models.dev)](https://models.dev/models/alibaba/qwen3-max)
-  - Local repository metadata consulted: `model/qwen3-max/meta.json`
+  - [Alibaba Cloud Model Studio models](https://www.alibabacloud.com/help/en/model-studio/models)
+  - Local repository metadata consulted: `model/qwen-3-max/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

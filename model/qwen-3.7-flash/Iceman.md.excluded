@@ -1,57 +1,67 @@
 # Qwen 3.7 Flash — findings by Iceman
 
-- Source: Alibaba/Qwen 3.7 Flash
-- Date: 2026-11-10 (UTC)
+- Source: Alibaba Qwen / Qwen3.7 Flash (`qwen/qwen3.7-flash`)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Qwen 3.7 Flash
-- **Short description:** Alibaba’s Qwen 3.7 Flash is described in local metadata as a proprietary API model (1M context) offering reasoning, function calling, and web search at ultra-low cost.
-- **Provider / access:** Alibaba Cloud / QwenCloud API contexts per local metadata (`opencode/qwen-3.7-flash`).
-- **Release / knowledge:** Local metadata references July 2026 Flash; knowledge cutoff not explicitly stated in reviewed accessible sources.
-- **IDs:** `qwen-3.7-flash`, `Qwen 3.7 Flash`.
-- **Context window:** 1,000,000 tokens total; 131,072 max output (local metadata).
-- **Modalities:** Text, image, and video input; text output (local metadata).
-- **Pricing (as of 2026-11-10):** $0.03/$0.13 per 1M in/out (<=32K input) on QwenCloud; cache $0.006 (local metadata).
-- **Architecture:** Proprietary closed/API model. Architecture/parameter count not publicly disclosed.
+- **Name:** Qwen 3.7 Flash (Qwen3.7 Flash)
+- **Short description:** Qwen3.7 Flash is Alibaba’s vision-language reasoning model/API tier for multimodal agents, visual coding, search, and computer interaction, with verifiable specs/pricing in provider/catalog APIs but no independently verifiable standardized benchmark numerics found for comparable scoring in this pass.
+- **Provider / access:** Hosted/API access (e.g. OpenRouter `qwen/qwen3.7-flash`; models.dev lists `qwen3.7-flash`). Local metadata lists `opencode/qwen-3.7-flash`.
+- **Release / knowledge:** OpenRouter canonical slug/API metadata indicates `qwen3.7-flash-20260727` (created 2026-07-27 in API metadata). Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `qwen-3.7-flash`, `qwen3.7-flash`, `qwen/qwen3.7-flash`, `opencode/qwen-3.7-flash`.
+- **Context window:** 1,000,000 tokens context window reported by OpenRouter API/listing; OpenRouter top provider shows 1,000,000 context / 65,536 max completion, while models.dev API lists 196,608 context / 131,072 output (provider/catalog variance). Local metadata claims 1,000,000 total / 131,072 max output.
+- **Modalities:** Text, image, and video input; text output (OpenRouter API/models.dev/local metadata).
+- **Pricing (as of 2026-11-14):** OpenRouter API shows tiered token pricing (e.g. ~$0.03/$0.13 per 1M in/out base tier with cache read/write pricing and higher rates for larger prompt tiers), while models.dev lists $0.12/$0.48 per 1M in/out; provider/pricing varies by route/tier. Local metadata cites ~$0.03/$0.13 (<=32K input) with cache $0.006.
+- **Architecture:** Proprietary/API model. Architecture and parameter count not publicly disclosed.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: No clearly attributable, independently verified public benchmark/spec evidence for this exact `qwen-3.7-flash` model ID was found in accessible sources during this pass. Local metadata provides capability/pricing claims but no verifiable standardized benchmark numerics. This file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed OpenRouter search/API data, models.dev API/search, Artificial Analysis searches/pages, Hugging Face/Alibaba Cloud/Qwen searches, and local metadata/prior report. I found verifiable identity/spec/pricing/capability evidence for the exact `qwen/qwen3.7-flash` model in provider/catalog APIs (1M context, multimodal text+image+video input, reasoning/tool support, tiered pricing), but no independently verifiable standardized benchmark numerics suitable for comparable 1–100 scoring were found in accessible sources during this pass. Because benchmark coverage is insufficient and context/pricing fields vary by source, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Function calling and web search capabilities claimed in metadata; standardized agent/tool benchmark numerics not found.
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Reasoning and tool-related API parameters supported per OpenRouter API/models.dev (`tools`, `tool_choice`, `reasoning`, etc.). Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / BFCL: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- GPQA Diamond / HLE / MMLU-Pro / AIME / AA Intelligence Index / AA-LCR / CritPt: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode: **no verified public score found**
 
 Long context:
 
-- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+- 1M context reported in OpenRouter API/local metadata (with provider-specific output limits; models.dev reports different context/output values); no independently verified long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Image/video input claimed in metadata; no multimodal benchmark scores found.
+- Text/image/video input and text output supported per OpenRouter API/models.dev; no multimodal benchmark scores found.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark evidence for this exact model ID in this pass; no scored assessment is issued and this report is self-excluded.
+Not provided. Verifiable specs/pricing/capability metadata exist for this exact model, but standardized benchmark evidence is insufficient for comparable 1–100 scoring and key fields (context/output/pricing) vary across sources. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/specs:** OpenRouter API (`qwen/qwen3.7-flash`, canonical `qwen3.7-flash-20260727`), models.dev API, and local metadata align on a Qwen3.7 Flash multimodal reasoning model with tool support, but differ on some limits (e.g. OR top provider 1M/65K vs models.dev 196,608/131,072 context/output).
+- **Pricing:** OpenRouter API shows tiered prompt/completion/cache pricing; models.dev lists flat $0.12/$0.48; local metadata cites base-tier $0.03/$0.13 (<=32K input). Pricing is route/tier-dependent and not fully consistent across sources.
+- **Benchmarks:** AA/models.dev/OR/HF/Alibaba Cloud/Qwen searches in this pass did not yield verifiable standardized benchmark numerics for this exact ID.
+- **State:** No prior scored `Iceman.md` existed for this folder; exclusion updated with stronger second-pass evidence.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent review of local metadata; no accessible verified public benchmark source found for this exact model ID.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across OpenRouter search/API, models.dev API/search, Artificial Analysis searches, Hugging Face/Alibaba Cloud/Qwen searches, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): prior `Iceman.md`/`Iceman.md.excluded` reads, OpenRouter qwen3.7-max page fetch, Qwen blog URL attempt (404), AA qwen3-7-max page fetch, AA/models.dev/OR/HF/Alibaba help/qwen.ai search fetches for qwen3.7-max and qwen3.7-flash, AA/OR/models.dev API/OR API scans, targeted OpenRouter models API extracts for qwen3.7-max and qwen3.7-flash, local `meta.json` reviews for batch targets.
 - Reference URLs:
+  - [Qwen3.7 Flash models (OpenRouter search)](https://openrouter.ai/models?q=qwen3.7-flash)
+  - [OpenRouter models API](https://openrouter.ai/api/v1/models)
+  - [models.dev API](https://models.dev/api.json)
   - Local repository metadata consulted: `model/qwen-3.7-flash/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

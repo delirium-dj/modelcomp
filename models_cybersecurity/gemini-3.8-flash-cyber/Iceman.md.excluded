@@ -1,57 +1,67 @@
 # Gemini 3.8 Flash Cyber — findings by Iceman
 
-- Source: Google DeepMind/Gemini 3.8 Flash Cyber
-- Date: 2026-11-10 (UTC)
+- Source: Google DeepMind / Gemini 3.8 Flash Cyber (restricted variant)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Gemini 3.8 Flash Cyber
-- **Short description:** Google DeepMind’s security fine-tune of Gemini 3.8 Flash for vulnerability detection/patching workflows (Fairwind-gated, Google-only access per local metadata).
-- **Provider / access:** Restricted Fairwind Program / Google-only access. Local metadata lists `google/gemini-3-8-flash-cyber`, no public pricing, and `noFreeId`.
-- **Release / knowledge:** Not clearly established from accessible public sources in this pass. Knowledge cutoff not stated.
+- **Short description:** Gemini 3.8 Flash Cyber is described in local metadata as Google DeepMind’s security-focused fine-tune of Gemini 3.8 Flash for vulnerability detection and patching workflows, with restricted Fairwind/Google-only access and no public pricing. Publicly accessible sources in this pass verified the base Gemini 3.8 Flash family specs but not an independently attributable public spec/benchmark record for this exact “Cyber” variant.
+- **Provider / access:** Restricted Fairwind Program / Google-only access (per local metadata). Local metadata lists `google/gemini-3-8-flash-cyber`, `noFreeId`.
+- **Release / knowledge:** Not independently verified for this exact cyber variant from accessible public sources in this pass. Base Gemini 3.8 Flash docs are public.
 - **IDs:** `gemini-3.8-flash-cyber`, `google/gemini-3-8-flash-cyber`.
-- **Context window:** 1,048,576 tokens input / 65K output (local metadata).
-- **Modalities:** Text and code input; text and code output.
-- **Pricing (as of 2026-11-10):** Restricted Fairwind Program; no public pricing.
-- **Architecture:** Proprietary security fine-tune of Gemini 3.8 Flash. Architecture/parameter details not publicly disclosed.
+- **Context window:** 1,048,576 tokens input / 65,536 output tokens per local metadata and consistent with public Gemini 3.8 Flash base-model docs; not independently verified as a distinct published cyber variant spec in this pass.
+- **Modalities:** Local metadata states text and code in/out. Public Gemini 3.8 Flash base docs list text/image/video/audio/PDF inputs and text output with capabilities including function calling, search/maps grounding, code execution, structured outputs, computer use, etc.; exact modality/capability set for the restricted cyber fine-tune not independently verified.
+- **Pricing (as of 2026-11-14):** Restricted Fairwind Program; no public pricing found (consistent with local metadata).
+- **Architecture:** Proprietary security fine-tune of Gemini 3.8 Flash (per local metadata). Architecture/parameter details not publicly disclosed.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I reviewed accessible Google DeepMind Gemini model pages, but they describe the general Gemini 3.8 Flash model rather than the restricted `Gemini 3.8 Flash Cyber` fine-tune. No independently verifiable, clearly attributable public benchmark numerics for this exact cyber variant were found in accessible sources during this pass (local metadata cites CWE-Bench 47.2% but it was not verified from an accessible public source here). This file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed accessible Google DeepMind/Gemini pages, Google AI Studio model/docs pages, AI blog/safety-security/security blog pages, OpenRouter/Artificial Analysis/models.dev APIs and searches for `gemini-3.8-flash-cyber` / related IDs, and local metadata/prior report. Public sources verify the base **Gemini 3.8 Flash** model (1M/65K, multimodal inputs/text output, tool/capability support), but I found no independently verifiable, clearly attributable public benchmark numerics or public model card for this exact restricted **Gemini 3.8 Flash Cyber** variant. Local metadata’s claim (e.g. CWE-Bench 47.2%) could not be verified from accessible public sources in this pass. Because evidence is insufficient for exact-model scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Base Gemini 3.8 Flash supports tool/function calling, code execution, computer use, grounding, structured outputs, and thinking in public docs; exact cyber-variant tool/agent benchmark performance not publicly verified. Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / CWE-Bench-AA (exact variant): **no verified public score found for this exact cyber variant**
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- GPQA Diamond / HLE / AIME / AA Intelligence Index / MMLU-Pro: **no verified public score found for this exact cyber variant**
 
-Coding:
+Coding / security:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode: **no verified public score found for this exact cyber variant**
+- CWE-Bench 47.2% appears in local metadata but was **not independently verified** from an accessible public source in this pass.
 
 Long context:
 
-- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+- 1M context / 65K output is documented for base Gemini 3.8 Flash; no standalone long-context retrieval benchmark score found for the exact cyber variant.
 
 Multimodal:
 
-- Text/code focused per metadata.
+- Base Gemini 3.8 Flash is multimodal; local metadata describes text/code focus for cyber variant. Exact cyber-variant modality set not independently verified.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark/spec evidence for this exact restricted model variant; no scored assessment is issued and this report is self-excluded.
+Not provided. The base Gemini 3.8 Flash model is publicly documented, but this restricted cyber fine-tune lacks independently verifiable public benchmark/spec evidence for exact-model scoring (and metadata claims such as CWE-Bench 47.2% were not verified). No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/access:** Local metadata describes a Fairwind-gated, Google-only security fine-tune (`google/gemini-3-8-flash-cyber`); no public OR/AA/models.dev/API listing found for this exact ID in this pass.
+- **Base model evidence:** Google AI Studio docs/DeepMind Gemini pages verify Gemini 3.8 Flash base specs/capabilities (1M/65K, multimodal inputs, text output, tool support), but do not confirm the cyber variant’s exact public capabilities/limits.
+- **Benchmarks:** Local metadata cites CWE-Bench 47.2% unverified; no accessible public benchmark numerics found for this exact cyber variant.
+- **State:** Exclusion updated with deeper second-pass evidence; remains unscored.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no verifiable public benchmark source found for this exact cyber variant.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Google DeepMind/Gemini pages, Google AI Studio docs/models pages, Google AI/blog/safety-security/security blog searches, OpenRouter/Artificial Analysis/models.dev APIs and searches, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts for this batch/target set): prior `Iceman.md.excluded`/`meta.json` reads for batch targets, OpenRouter/AA/DeepMind/AI Studio webfetches, OpenRouter/AA/models.dev API and HF search scans, HF/models/GitHub/blog/docs fetches, models.dev and OpenRouter API extracts for `prism-ml/ternary-bonsai-2-27b`, HF gguf page/API and raw GitHub README fetches, Fairwind/docs/blog scans.
 - Reference URLs:
+  - [Gemini 3.8 Flash docs (Google AI Studio)](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash)
   - [Gemini models (Google DeepMind)](https://deepmind.google/models/gemini/)
   - Local repository metadata consulted: `models_cybersecurity/gemini-3.8-flash-cyber/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

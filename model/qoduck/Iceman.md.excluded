@@ -1,69 +1,67 @@
 # QoDuck — findings by Iceman
 
-- Source: Qoder/QoDuck (stealth preview)
-- Date: 2026-11-10 (UTC)
+- Source: Qoder / QoDuck (stealth preview, claimed in local metadata)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** QoDuck
-- **Short description:** Alibaba/Qoder stealth coding and reasoning preview model (suspected Qwen-family checkpoint per local metadata) with adaptive thinking and large context, available in Qoder environments.
-- **Provider / access:** Qoder desktop/platform preview surfaces. Local metadata lists `opencode/qoduck` with free daily preview allowance in Qoder desktop.
-- **Release / knowledge:** Stealth preview; release date and knowledge cutoff not publicly documented in reviewed sources.
-- **IDs:** `qoduck` (local/preview identifier).
-- **Context window:** 1,048,576 total tokens (65,536 max output) per local metadata; not independently verified from reviewed official page.
-- **Modalities:** Text and image input; text and code output per local metadata.
-- **Pricing (as of 2026-11-10):** Free preview tier (0.0x credits) in Qoder desktop per local metadata; hosted pricing outside preview not documented in reviewed sources.
-- **Architecture:** Undisclosed/stealth; architecture and parameter count not publicly disclosed.
+- **Short description:** Local metadata describes QoDuck as a stealth coding/reasoning preview model in Qoder (suspected Qwen-family checkpoint) with adaptive thinking and large context, but accessible public sources in this pass provided no independently verifiable official model card, specs, or standardized benchmark results for this exact identity.
+- **Provider / access:** Claimed as Qoder desktop/platform preview (`opencode/qoduck`, `qoder.ai`) in local metadata, with a free preview tier/allowance context. Qoder docs/navigation references “Qoduck: Try the Stealth Model Free for a Limited Time”, but detailed model specs/benchmarks were not verifiable from accessible pages in this pass.
+- **Release / knowledge:** Stealth preview; release date and knowledge cutoff not publicly documented/verified.
+- **IDs:** `qoduck`, `opencode/qoduck` (local/preview identifiers).
+- **Context window:** 1,048,576 total tokens (65,536 max output) per local metadata claim; not independently verified from accessible official documentation in this pass.
+- **Modalities:** Text and image input; text and code output per local metadata claim; not independently verified.
+- **Pricing (as of 2026-11-14):** Free preview tier (0.0x credits) in Qoder desktop per local metadata claim; broader hosted pricing not verified from accessible official model-specific documentation.
+- **Architecture:** Undisclosed/stealth. Architecture and parameter count not publicly disclosed/verified (metadata notes “suspected Qwen 4 checkpoint” as unverified speculation).
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I reviewed Qoder’s public site (`qoder.ai`), but the accessible official source in this pass did not provide verifiable technical specifications or public benchmark scores for the exact `qoduck` model. Local metadata claims were not independently verified. This file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed `qoder.com`, `qoder.ai`, Qoder docs/pricing pages, and searched models.dev API/search, OpenRouter search/API, Artificial Analysis search, and Hugging Face search for `qoduck`, `qoder`, and related terms. Qoder docs/navigation showed a “Qoduck” announcement reference, but accessible content in this pass did not provide verifiable technical specifications or independently attributable standardized benchmark scores for the exact `qoduck` model. Local metadata claims (context, modalities, pricing, suspected lineage) remain unverified and are not used as scored evidence. To avoid unverifiable or misattributed scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1: **no verified public score found**
-- Tau2-Bench / Tau3-Banking: **no verified public score found**
-- GDPval-AA: **no verified public score found**
-- Claw-Eval / ClawProBench: **no verified public score found**
-- Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / BFCL: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond: **no verified public score found**
-- HLE: **no verified public score found**
-- LCR / MLCR: **no verified public score found**
-- CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
+- GPQA Diamond / HLE / MMLU-Pro / AIME / AA Intelligence Index / AA-LCR / CritPt: **no verified public score found**
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro: **no verified public score found**
-- LiveCodeBench: **no verified public score found**
-- SciCode / AA-SciCode: **no verified public score found**
-- Vibe Code Bench: **no verified public score found**
-- DeepSWE / Coding Index / other: **no verified public score found**
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode: **no verified public score found**
 
 Long context:
 
-- 1M context claimed in local metadata; no verified long-context retrieval benchmark score found.
+- 1M context claimed in metadata; no independently verified long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Text/image input claimed in local metadata; no multimodal benchmark scores found.
+- Text/image input claimed in metadata; no multimodal benchmark scores found.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model in this pass; no scored assessment is issued and this report is self-excluded.
+Not provided. Insufficient independently verifiable public identity/specification/benchmark evidence for this exact stealth preview model in accessible sources; local metadata claims were not independently verified. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/access:** Qoder public/docs surfaces reference QoDuck as a stealth/preview offering in some navigation text, but no detailed official model card/spec/benchmark page for the exact ID was accessible in this pass. Public catalogs/APIs searched (models.dev, OpenRouter, AA, HF) did not provide a verifiable listing.
+- **Specs/claims:** Local metadata claims 1M/65K context, text+image in / text+code out, free preview pricing, and suspected Qwen-family lineage; all remain unverified/speculative from accessible official/public evidence.
+- **Benchmarks:** No standardized, attributable benchmark results found.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to Qoder public site; no verifiable benchmark/spec details for the exact model found.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Qoder sites/docs/pricing pages, models.dev/OpenRouter/Artificial Analysis/Hugging Face searches and model API scans, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): `qoder.com` fetch, `qoder.ai` fetch, docs.qoder.com/pricing/docs/ai/pricing and related docs URL fetch attempts, OpenRouter/AA/models.dev/HF searches for qoder/sonus/qoduck, HF searches, docs/pricing text scans, models.dev API/OpenRouter API scans for qoder/sonus/qoduck terms, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
-  - [Qoder official site](https://qoder.ai)
+  - [Qoder](https://qoder.com/)
+  - [Qoder docs](https://docs.qoder.com/)
+  - [models.dev API](https://models.dev/api.json)
+  - [OpenRouter models API](https://openrouter.ai/api/v1/models)
   - Local repository metadata consulted: `model/qoduck/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,57 +1,66 @@
 # GPT-5.6 Cyber — findings by Iceman
 
-- Source: OpenAI/GPT-5.6 Cyber
-- Date: 2026-11-10 (UTC)
+- Source: OpenAI / GPT-5.6 Cyber (restricted variant)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GPT-5.6 Cyber
-- **Short description:** OpenAI’s Daybreak Red cybersecurity fine-tune of GPT-5.6 for authorized vulnerability detection, exploit analysis, and defense patch verification (restricted access per local metadata).
-- **Provider / access:** Restricted Daybreak Red program; custom enterprise pricing. Local metadata lists `openai/gpt-5.6-cyber` and limited public details.
-- **Release / knowledge:** Not clearly established from accessible public sources in this pass. Knowledge cutoff not stated.
-- **IDs:** `gpt-5.6-cyber`, `openai/gpt-5.6-cyber`.
-- **Context window:** 1,048,576 tokens total; 128K max output (local metadata).
-- **Modalities:** Text and code input; text and code output.
-- **Pricing (as of 2026-11-10):** Restricted program access; custom enterprise pricing.
-- **Architecture:** Proprietary cybersecurity fine-tune of GPT-5.6. Architecture/parameter details not publicly disclosed.
+- **Short description:** GPT-5.6 Cyber is described in local metadata as OpenAI’s Daybreak Red cybersecurity fine-tune of GPT-5.6 for authorized vulnerability detection, exploit analysis, and defense patch verification, with restricted/program-based access and no public pricing. No independently verifiable public spec/benchmark record for this exact variant was found in this pass.
+- **Provider / access:** Restricted Daybreak Red program; custom enterprise pricing (per local metadata). Local metadata lists `openai/gpt-5.6-cyber`.
+- **Release / knowledge:** Not independently verified from accessible public sources in this pass. Knowledge cutoff not stated.
+- **IDs:** `gpt-5.6-cyber`, `openai/gpt-5.6-cyber` (referenced as a canonical/model identifier in models.dev API context in this pass, but no standalone public model object/spec page verified).
+- **Context window:** 1,048,576 tokens total; 128K max output (local metadata; not independently verified from an accessible official public source).
+- **Modalities:** Text and code input; text and code output (local metadata; not independently verified).
+- **Pricing (as of 2026-11-14):** Restricted program access; custom enterprise pricing (no public pricing found).
+- **Architecture:** Proprietary cybersecurity fine-tune of GPT-5.6 (per local metadata). Architecture/parameter details not publicly disclosed.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I attempted to find an accessible official/public announcement or model page for this exact restricted variant, but no verifiable public benchmark/spec source was obtained in this pass. No independently verifiable, clearly attributable public benchmark numerics for `GPT-5.6 Cyber` were found. This file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I searched/reviewed OpenAI public pages (including news/index fetch attempts), OpenRouter/Artificial Analysis/models.dev APIs and searches, and local metadata/prior report for this exact `gpt-5.6-cyber` variant. models.dev content included a `canonical_model_id` reference to `openai/gpt-5.6-cyber` in scanned API data, but I did not find an accessible standalone public model page, official announcement, or independently verifiable benchmark/spec record for this exact restricted variant. No clearly attributable public benchmark numerics were found. Because evidence is insufficient for exact-model scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / security-agent benchmarks: **no verified public score found for this exact variant**
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- GPQA Diamond / HLE / AIME / AA Intelligence Index / MMLU-Pro: **no verified public score found for this exact variant**
 
-Coding:
+Coding / security:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- SWE-bench Verified / SWE-bench Pro / LiveCodeBench / SciCode: **no verified public score found for this exact variant**
 
 Long context:
 
-- 1M context claimed in metadata; no standalone long-context retrieval benchmark score found.
+- 1M/128K context claimed in local metadata; no independently verified long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Text/code focused per metadata.
+- Text/code-focused per local metadata; no independently verified multimodal benchmark evidence found.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark/spec evidence for this exact restricted model variant; no scored assessment is issued and this report is self-excluded.
+Not provided. This restricted cybersecurity variant lacks an independently verifiable public model/spec/benchmark record for exact-model scoring in accessible sources. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/access:** Local metadata describes a restricted Daybreak Red OpenAI cyber fine-tune (`openai/gpt-5.6-cyber`). Public OR/AA/OpenAI pages did not provide a verifiable public model record in this pass.
+- **models.dev:** A canonical model ID reference to `openai/gpt-5.6-cyber` appeared in scanned API data, but no standalone verifiable public spec/benchmark object/page was confirmed.
+- **Benchmarks/specs:** No independently verifiable public benchmark numerics or official spec details found for this exact variant; metadata claims remain unverified.
+- **State:** Exclusion updated with deeper second-pass evidence; remains unscored.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) and local metadata review; no verifiable public benchmark source found for this exact model.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across OpenAI public pages, OpenRouter/Artificial Analysis/models.dev APIs and searches, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts for this batch/target set): prior `Iceman.md.excluded`/`meta.json` reads (both targets), HF ling-3.0-flash-fin page/API webfetches, models.dev page webfetch, OpenRouter/AA/OpenAI search/index webfetches, OpenRouter models API scan, models.dev API scan/extracts, OR/Vercel free-route fetches, AA ling-3-0-flash-fin page webfetch, AA/OR/Vercel targeted text scans, and models.dev canonical/id extract checks.
 - Reference URLs:
   - [OpenAI](https://openai.com)
+  - [models.dev API](https://models.dev/api.json)
   - Local repository metadata consulted: `models_cybersecurity/gpt-5.6-cyber/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

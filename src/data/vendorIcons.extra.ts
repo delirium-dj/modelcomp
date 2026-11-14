@@ -28,6 +28,7 @@ import scxRaw from "../../assets/vendor-icons/scx.svg?raw";
 import modelmeshRaw from "../../assets/vendor-icons/modelmesh.svg?raw";
 import prismmlRaw from "../../assets/vendor-icons/prismml.svg?raw";
 import agnesAiRaw from "../../assets/vendor-icons/agnes-ai.svg?raw";
+import apmixRaw from "../../assets/vendor-icons/apmix.svg?raw";
 // WorkBuddy's own app-icon logo (brand gradient tile), vendored from the
 // download.codebuddy.ai asset CDN; source kept at assets/vendor-icons/workbuddy.svg.
 import workbuddyRaw from "../../assets/vendor-icons/workbuddy.svg?raw";
@@ -63,6 +64,7 @@ const scx = svgRawEntry(scxRaw);
 const modelmesh = svgRawEntry(modelmeshRaw);
 const prismml = svgRawEntry(prismmlRaw);
 const agnesAi = svgRawEntry(agnesAiRaw);
+const apmix = svgRawEntry(apmixRaw);
 const workbuddy = svgRawEntry(workbuddyRaw);
 
 export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: string; fill?: string }> = {
@@ -195,4 +197,7 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   // WorkBuddy's own app-icon logo — assets/vendor-icons/workbuddy.svg (40x40
   // gradient tile, self-contained defs; visible on both themes as drawn).
   "workbuddy":     { viewBox: workbuddy.viewBox, body: workbuddy.body },
+  // Apmix (apmix.ai) — maintainer-supplied brand mark, monochrome currentColor.
+  // Source at assets/vendor-icons/apmix.svg, inlined via `?raw`.
+  "apmix":         { viewBox: apmix.viewBox, body: apmix.body, fill: "currentColor" },
 };
