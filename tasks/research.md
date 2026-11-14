@@ -5,6 +5,9 @@
 > **Small-context runtimes (sub-200k, kickoff `BRIEF: small-context`):** run on
 > `tasks/research-brief.md` instead of this file plus the full must-read corpus
 > — same rules, ~5k tokens. This file remains the full procedure.
+> **≤8 K-ITPM runtimes (e.g. Qwen 3.8 27B on Groq, 7,000 ITPM):** stop here and
+> use `tasks/research-assign-tiny.md` — one pinned subject per conversation,
+> ~0.8 K tokens.
 
 > **MISSION — batch, not one report.** One delegation covers the whole
 > missing-set: one `<YOUR_STEM>.md` in EVERY queued `model/<subject>/` folder

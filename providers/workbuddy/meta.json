@@ -1,0 +1,34 @@
+{
+  "name": "WorkBuddy",
+  "kind": "vendor",
+  "short": "Tencent's everyday office-work AI agent for Mac and Windows — describe a task in one sentence and get finished reports, decks and spreadsheets from your own files. Provides Tencent Hy4 on Free, Pro and Team subscriptions with a shared credit pool.",
+  "officialUrl": "https://www.workbuddy.ai/",
+  "hosts": [
+    "workbuddy.ai",
+    "www.workbuddy.ai"
+  ],
+  "covers": [
+    "hy4"
+  ],
+  "catalogUrl": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+  "plans": [
+    {
+      "name": "Free",
+      "price": "$0/month",
+      "notes": "Free tier to start; credits, limits and top-up packs listed on the pricing page.",
+      "evidenceUrl": "https://www.workbuddy.ai/pricing/"
+    },
+    {
+      "name": "Pro",
+      "price": "$10/month",
+      "notes": "Individual plan — list $20/month; $8/month billed yearly ($96/year).",
+      "evidenceUrl": "https://www.workbuddy.ai/pricing/"
+    },
+    {
+      "name": "Team",
+      "price": "$40/seat/month",
+      "notes": "Shared credit pool and admin console; $480/seat/year.",
+      "evidenceUrl": "https://www.workbuddy.ai/pricing/"
+    }
+  ]
+}

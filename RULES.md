@@ -32,6 +32,13 @@ override.
   (`first five`, `N=5`, …) narrows the set; the run ends when the missing-set
   is empty, the cap is reached, or every remaining folder is blocked with a
   recorded access failure (`tasks/research-assign.md` § Completion test).
+  **Runtime-ceiling exception (does not change the assignment):** a runtime
+  whose per-request input ceiling is below ~8 K tokens (e.g. Qwen 3.8 27B on
+  Groq, 7,000 ITPM) runs ONE pinned subject per conversation via
+  `tasks/research-assign-tiny.md`; the orchestrator starts a fresh
+  conversation for the next subject. The whole missing-set remains the
+  assignment, split across sessions only because the request cannot hold the
+  queue.
 - **Path contract (STEM/slug conflation guard):** a research agent's file is
   always `model/<subject-folder>/<YOUR_STEM>.md` — the FOLDER names the model
   being researched (the subject), the FILENAME is always the agent's own

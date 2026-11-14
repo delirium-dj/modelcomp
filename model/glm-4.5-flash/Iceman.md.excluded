@@ -1,57 +1,66 @@
 # GLM 4.5 Flash — findings by Iceman
 
-- Source: Z.ai/GLM-4.5-Flash
-- Date: 2026-11-10 (UTC)
+- Source: Z.ai / GLM-4.5-Flash
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** GLM-4.5-Flash
-- **Short description:** Z.ai’s GLM-4.5-Flash is described in local metadata as a free-tier lightweight language model (128K context) with dual thinking modes and optimized agentic tool execution.
-- **Provider / access:** Z.ai developer platform / OpenCode Zen (per metadata). Local metadata lists `opencode/glm-4.5-flash`, pricing free ($0.00/$0.00), and `noFreeId: false`.
-- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
-- **IDs:** `glm-4.5-flash`, `opencode/glm-4.5-flash`.
-- **Context window:** 128,000 tokens total (local metadata).
-- **Modalities:** Text input/output.
-- **Pricing (as of 2026-11-10):** Free on Zen; $0.00/$0.00 on Z.ai developer platform (local metadata/pricing page lists GLM-4.5-Flash as free).
-- **Architecture:** Lightweight/distilled variant relative to flagship GLM-4.5 per metadata; detailed architecture/parameter count not publicly disclosed in accessible sources.
+- **Short description:** Z.ai’s GLM-4.5-Flash is a free, lightweight text model in the GLM-4.5 series positioned for fast reasoning, coding, and agent workflows; accessible official benchmark disclosures for this exact model ID remain limited.
+- **Provider / access:** Z.ai developer platform (and referenced in OpenCode/local metadata as `opencode/glm-4.5-flash`). Z.ai pricing lists GLM-4.5-Flash as **Free** (input/cached/output).
+- **Release / knowledge:** models.dev lists knowledge **2025-04**, release **2025-07-28** (last updated 2025-07-28). No dedicated official GLM-4.5-Flash model card page found in accessible docs (GLM-4.5 page lists it in series; direct flash-specific docs page returned 404).
+- **IDs:** `glm-4.5-flash`, `opencode/glm-4.5-flash`, canonical `zhipuai/glm-4.5-flash` (per models.dev).
+- **Context window:** 131,072 tokens context / 98,304 max output (models.dev). Local metadata claims 128K total / up to 98K max output (broadly consistent).
+- **Modalities:** Text input/output (models.dev, local metadata).
+- **Pricing (as of 2026-11-14):** **Free** on Z.ai developer platform per official pricing page (`$0/$0/$0/$0` input/cached storage/cached input/output). Local metadata also reports free on Zen.
+- **Architecture:** Part of GLM-4.5 family; lightweight/free variant. Detailed parameter count/architecture for this exact Flash model not publicly disclosed in accessible sources (GLM-4.5 family docs describe 355B/32B-active and 106B/12B-active variants for flagship/Air, but exact Flash sizing not confirmed).
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I reviewed Z.ai pricing documentation, which lists GLM-4.5-Flash as a free model, but I could not find an accessible official model card or independently verifiable standardized benchmark numerics for this exact model in this pass. Local metadata provides capability claims (thinking modes, tool calling, up to 98K output) but no verifiable benchmark scores. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): Deep second-pass research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`/API fetches) reviewed Z.ai pricing/docs, GLM-4.5 family documentation, models.dev API/catalog data, Hugging Face/OpenRouter/AA searches, and local metadata/prior report. I found verifiable pricing/spec/catalog evidence for the exact `glm-4.5-flash` identity, but **no clearly attributable official model card and no independently verifiable standardized benchmark numerics** (e.g. Terminal-Bench/Tau/GDPval-AA, GPQA/HLE/AIME/AA Intelligence Index, SWE-bench/LiveCodeBench/SciCode, MRCR/AA-LCR, MMMU) for this exact model ID. Claims such as “dual thinking modes” and tool/agent suitability are supported at a general/docs-series or catalog level but lack extracted standardized scores for repository-normalized scoring. To avoid unverifiable or misattributed scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Tool-calling support claimed in metadata; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Tool-calling/reasoning/agent workflow support indicated by GLM-4.5 series docs and models.dev metadata; Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found** for this exact model.
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- Reasoning-capable text model indicated by series/catalog metadata; GPQA Diamond / HLE / AIME / AA Intelligence Index / LCR / CritPt: **no verified public score found**.
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- Coding/agent positioning indicated by series/docs metadata; SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench: **no verified public score found**.
 
 Long context:
 
-- 128K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+- 131,072-token context / 98,304 output indicated (models.dev; local metadata broadly consistent). No standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Text-only per metadata.
+- Text-only (models.dev/local metadata). No multimodal benchmark evidence.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+Not provided. Insufficient independently verified, clearly attributable public benchmark evidence for this exact model identity; no scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Identity/specs/pricing:** Z.ai pricing, GLM-4.5 family docs mention, and models.dev agree on `glm-4.5-flash` as a free text GLM Flash variant with ~131K/98K context-output in catalog data; local metadata is broadly consistent (128K/98K, free).
+- **Benchmarks:** No attributable standardized benchmark numerics found for this exact ID across reviewed official/docs/catalog sources.
+- **Architecture:** Exact Flash parameter count/architecture not explicitly confirmed in accessible sources.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to Z.ai pricing/docs and local metadata; no verifiable standardized benchmark source found.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`/API fetches) across Z.ai pricing/docs (including GLM-4.5 family page), models.dev API/catalog data, Hugging Face/OpenRouter/AA searches, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts): Z.ai pricing page, Z.ai GLM-4.5 docs page, GLM-4.5-Flash docs URL attempt (404), Open.bigmodel.cn pages/pricing attempts, OpenRouter model/search attempts, Hugging Face model/search attempts, Artificial Analysis search, models.dev search pages, models.dev `api.json` extraction, local `meta.json` and prior `Iceman.md.excluded` review.
 - Reference URLs:
   - [Z.ai pricing](https://docs.z.ai/guides/overview/pricing)
+  - [GLM-4.5 docs (Z.ai)](https://docs.z.ai/guides/llm/glm-4.5)
+  - [models.dev API](https://models.dev/api.json)
   - Local repository metadata consulted: `model/glm-4.5-flash/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

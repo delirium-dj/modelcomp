@@ -19,4 +19,4 @@
 
 - Based on 4 qualifying reporting source(s) (rater Overall > 84.9): Claude Sonnet 4.6, Gemini 3.6 Flash, Gemini 3.8 Flash, Step 5 Preview.
 - Average from top 4 by Overall Score: Claude Sonnet 4.6, Gemini 3.6 Flash, Gemini 3.8 Flash, Step 5 Preview.
-- Ignored below-gate rater(s): Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Hy4, Iceman, Inkling 2 Small, MiniMax M3.1 Flash.
+- Ignored below-gate rater(s): Flint, Gemini 3.1 Flash Lite, Gemini 3.5 Flash Lite, Hy4, Iceman, Inkling 2 Small, MiniMax M3.1 Flash.

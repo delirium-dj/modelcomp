@@ -41,9 +41,9 @@ interface VendorMatch {
 // Token-prefix match over `${id} ${name}` lowercase, so e.g. "Inkling"
 // never matches "ling". Artwork: free brand SVGs from thesvg.org
 // (GLINCKER/thesvg, MIT), LobeHub icons (MIT) and Simple Icons (CC0);
-// puter, synthetic and reflection are the vendors' own favicon SVGs,
-// inlined from
-// src/data/vendorIcons.generated.ts — no <img>, no network requests.
+// puter, synthetic and reflection are the vendors' own favicon SVGs and
+// workbuddy its own app-icon logo — inlined from the vendorIcons modules,
+// no <img>, no network requests.
 const VENDORS: VendorMatch[] = [
   { match: "claude", icon: "anthropic", label: "Anthropic", chip: true },
   { match: "anthropic", icon: "anthropic", label: "Anthropic", chip: true },
@@ -192,6 +192,7 @@ const VENDORS: VendorMatch[] = [
   { match: "replicate", icon: "replicate", label: "Replicate", adaptive: true, invertDark: true },
   { slug: "agnes-ai", icon: "agnes-ai", label: "Agnes AI" },
   { slug: "atlas-cloud", icon: "atlas-cloud", label: "Atlas Cloud" },
+  { slug: "workbuddy", icon: "workbuddy", label: "WorkBuddy" },
   { slug: "azure-ai-content-safety", icon: "azure-ai-content-safety", label: "Azure AI Content Safety" },
   { match: "bifrost", icon: "bifrost", label: "Bifrost" },
   { match: "braintrust", icon: "braintrust", label: "Braintrust" },

@@ -127,6 +127,7 @@
 76.9 claude-sonnet-3.7
 76.9 glm-5.2-coding
 76.5 gemma-4-12b-unified
+76.5 longcat-2.5
 76.4 ternary-bonsai-2-27b
 76.1 ling-3.0-flash-vl
 75.9 gpt-6.2-sol
@@ -140,7 +141,6 @@
 74.7 mimo-v2.5-pro
 74.6 claude-haiku-4.5
 74.6 ling-3.2-flash
-74.5 longcat-2.5
 73.9 hy4
 73.9 ternary-bonsai-27b
 73.8 nemotron-3.5-bolt-74b-a9b

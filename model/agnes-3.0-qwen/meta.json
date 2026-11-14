@@ -1,0 +1,9 @@
+{
+  "id": "opencode/agnes-3.0-qwen",
+  "name": "Agnes 3.0 Qwen",
+  "short": "Agnes 3.0 Qwen model evaluation entry.",
+  "contextWindow": "128K total",
+  "modalities": "Text in/out",
+  "pricingNote": "Standard pricing",
+  "scaffolded": true
+}

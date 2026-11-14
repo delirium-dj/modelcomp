@@ -28,6 +28,9 @@ import scxRaw from "../../assets/vendor-icons/scx.svg?raw";
 import modelmeshRaw from "../../assets/vendor-icons/modelmesh.svg?raw";
 import prismmlRaw from "../../assets/vendor-icons/prismml.svg?raw";
 import agnesAiRaw from "../../assets/vendor-icons/agnes-ai.svg?raw";
+// WorkBuddy's own app-icon logo (brand gradient tile), vendored from the
+// download.codebuddy.ai asset CDN; source kept at assets/vendor-icons/workbuddy.svg.
+import workbuddyRaw from "../../assets/vendor-icons/workbuddy.svg?raw";
 
 // Real brand SVGs are kept under assets/ and inlined via Vite `?raw`, so the .svg
 // file stays the single point of truth (edit it, not this module). `vite/client`
@@ -60,6 +63,7 @@ const scx = svgRawEntry(scxRaw);
 const modelmesh = svgRawEntry(modelmeshRaw);
 const prismml = svgRawEntry(prismmlRaw);
 const agnesAi = svgRawEntry(agnesAiRaw);
+const workbuddy = svgRawEntry(workbuddyRaw);
 
 export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: string; fill?: string }> = {
   // --- Real brand marks (Simple Icons, CC0) ---
@@ -188,4 +192,7 @@ export const VENDOR_ICON_SVGS_EXTRA: Record<string, { viewBox: string; body: str
   "prismml":       { viewBox: prismml.viewBox, body: prismml.body, fill: "currentColor" },
   // Agnes AI mark, sourced from assets/vendor-icons/agnes-ai.svg (shadows base key).
   "agnes-ai":      { viewBox: agnesAi.viewBox, body: agnesAi.body },
+  // WorkBuddy's own app-icon logo — assets/vendor-icons/workbuddy.svg (40x40
+  // gradient tile, self-contained defs; visible on both themes as drawn).
+  "workbuddy":     { viewBox: workbuddy.viewBox, body: workbuddy.body },
 };

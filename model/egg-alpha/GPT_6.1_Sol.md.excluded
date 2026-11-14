@@ -1,0 +1,63 @@
+# Egg Alpha — findings by GPT-6.1 Sol
+
+- Source: Unresolved anonymous `egg-alpha` label reported on TokenRhythm / 基元律动.
+- Date: 2026-11-14 (UTC)
+- Overview and scoring methodology: [model-comparison](../../model-comparison.md)
+- Cross-model signed log: [model-findings](../../model-findings.md)
+- Status: **Self-excluded: no exact-model numerical quality benchmark or independently verified current serving contract.**
+
+## Model card
+
+- **Name:** Egg Alpha / `egg-alpha` (reported anonymous label).
+- **Short description:** Community pages discuss a short-lived anonymous model on TokenRhythm. The platform is real, but its general model-aggregation capabilities and unrelated self-developed model names do not identify the weights behind Egg Alpha.[1][2][3]
+- **Provider / access:** TokenRhythm's official docs establish the authenticated API base **`https://tokenrhythm.studio/v1`**, with Chat Completions, Messages and other protocols. Its native `GET /v1/models` returned **401** without credentials through direct HTTP and PowerShell; no authentication was bypassed or inference attempted. The public model page did not expose an Egg Alpha entry in the retrieved content.[1][2]
+- **Release / knowledge:** No primary exact-model release date, retirement announcement or knowledge cutoff verified. The fetched community removal discussion is dated **November 5** and reports sightings around **November 3**; these are secondary observations, not a vendor release citation.[3]
+- **IDs:** No current callable native `egg-alpha` ID, exact snapshot or Zen Free ID verified. Fresh Zen, OpenRouter, Vercel and Hugging Face queries yielded no exact match. Absence from those catalogs is not proof that no private or historical endpoint existed.[4][5][6][7]
+- **Context window:** Unverified for this exact subject. The community's historical **1M** claim is not adopted as today's native context/output contract.[3]
+- **Modalities:** Current exact input/output types unverified. Historical text/image/video claims and a pelican demo are not proof of native media input or generation.
+- **Pricing (as of 2026-11-14):** No verified current per-token tariff or free entitlement. Historical zero-price reports, platform trial credits and other models' prices are not substituted.
+- **Architecture:** Exact manufacturer, parameters, weights and license unverified. No equivalence to NeoHorse or another platform model was established; renaming speculation is not a checkpoint mapping.[1][3]
+
+### Raw benchmarks found
+
+Agent / tool use:
+
+- Terminal-Bench 2.1/4.x, Tau2/Tau3, GDPval-AA, Claw-Eval/ClawProBench, Toolathon, MCP-Atlas and SWE Atlas Codebase QnA: **no verified public score found** for `egg-alpha`.
+
+Reasoning / knowledge:
+
+- GPQA Diamond, HLE, LCR/MLCR, CritPt, Intelligence Index and Omniscience accuracy/hallucination rate: **no verified public score found**.
+
+Coding:
+
+- SWE-bench Verified/Pro, LiveCodeBench, SciCode, Vibe Code Bench, DeepSWE and Coding Index: **no verified public score found**. Forum demonstrations and a platform benchmark table for other named models are not Egg Alpha results.
+
+Long context:
+
+- MRCR, RULER, GraphWalks, exact serving capacity and full-window retrieval: **no verified public score found** or primary exact-model limit established.
+
+### Normalized scores (1–100)
+
+**Not assigned.** Zero exact-model numerical quality benchmarks were verified. Neither an anonymous label, authentication failure, historical trial claim nor a sibling's specification justifies dimension scores or Overall.
+
+### Evidence and access audit
+
+After the search integration returned HTTP 402, direct DuckDuckGo HTML search worked and supplied community leads. Their contents are treated only as leads/qualified historical reports, not independently verified benchmark evidence; one discussion explicitly displays AI-assisted authorship. The official TokenRhythm homepage, model page and API docs were independently fetched, and the authenticated native catalog failure was confirmed via shell. Fresh public gateway/artifact queries were empty. This is a bounded no-evidence/access-limited conclusion, not a global web outage or proof of model nonexistence. No peer findings, local metadata or other model numbers were used.
+
+---
+
+## Signature
+
+- Provided by: **GPT-6.1 Sol (agentrouter/gpt-6.1-sol)** — 2026-11-14 UTC
+- Method: Independent public-web research with live DuckDuckGo fallback, official platform/API documentation, public catalog/registry filtering and PowerShell HTTP confirmation after search HTTP 402. Native authentication was not bypassed. Secondary historical claims are labelled, and no speculative alias, sibling benchmark or placeholder score is adopted.
+- Reference URLs:
+  - [1 — Official TokenRhythm API/protocol documentation](https://tokenrhythm.studio/docs/api-integration)
+  - [2 — Official TokenRhythm model page](https://tokenrhythm.studio/models)
+  - [3 — Qualified community removal discussion](https://mozhenzhen.com/circle/116)
+  - [4 — Live Zen model catalog](https://opencode.ai/zen/v1/models)
+  - [5 — Live OpenRouter model catalog](https://openrouter.ai/api/v1/models)
+  - [6 — Live Vercel model catalog](https://ai-gateway.vercel.sh/v1/models)
+  - [7 — Live exact-name artifact query](https://huggingface.co/api/models?search=egg-alpha&limit=100)
+  - [8 — Official platform quickstart](https://tokenrhythm.studio/docs)
+  - [9 — Live exact-name search](https://html.duckduckgo.com/html/?q=%22egg-alpha%22+AI+benchmark)
+- Future sources: preserve this record; a scored report requires genuinely new verified exact-model evidence.

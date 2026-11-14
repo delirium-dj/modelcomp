@@ -1,5 +1,10 @@
 # Research brief (compact — for sub-200k-context runtimes)
 
+> **Harder ceiling?** If the runtime rejects this brief or has a per-request
+> input ceiling below ~8 K tokens (e.g. Qwen 3.8 27B on Groq, 7,000 ITPM), stop
+> here and use `tasks/research-assign-tiny.md` — one pinned subject per
+> conversation, ~0.8 K tokens.
+
 You are reading this INSTEAD of the full corpus (`RULES.md` +
 `.agents/rules.md` + `.antigravity/history/project-map.md` +
 `tasks/research-assign.md` + `tasks/research.md` + `model/README.md` ≈ 33k

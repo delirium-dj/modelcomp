@@ -3,6 +3,10 @@ description: Research all models under model directory
 ---
 # Batch Research Workflow
 
+> **≤8 K-ITPM runtimes (e.g. Qwen 3.8 27B on Groq, 7,000 ITPM): do not use this
+> workflow.** Use `tasks/research-assign-tiny.md` — one pinned subject per
+> conversation, no full-corpus or queue reads.
+
 > **This is a BATCH, not a single report.** One run writes `<STEM>.md` into
 > every queued `model/<slug>/` folder that lacks it. Your own model folder is
 > one queue item, never the assignment (`tasks/research-assign.md` § Completion
