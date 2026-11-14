@@ -1,0 +1,20 @@
+# pixel_canary — findings by Hy3
+
+- **Source / Date:** Web search (Google, Baidu, CSDN, NVIDIA, OSChina) — 2026-11-14
+- **Status:** Excluded — no verified public AI/LLM model found under this name.
+
+## Exclusion Reason
+Multiple independent web searches for "pixel_canary" / "pixel canary" as an LLM, language model, or model codename returned **no** evidence of an AI model with this identifier. Results consistently pointed to unrelated entities:
+- Android Canary / Pixel device programs (Google Android Developers, ARCore device lists)
+- NVIDIA NeMo Canary (an ASR / speech-recognition model, not an LLM, and named "Canary" not "pixel_canary")
+- Consumer hardware (Edifier Halo Pixelbar AI speaker) and miscellaneous LLM tutorials
+
+No provider, model card, benchmark, or release note could be verified. Per the self-exclusion rule, no scored `Hy3.md` is produced.
+
+## Signature
+Provided by: **Hy3 (hy3-reporter)** — 2026-11-14 UTC
+Method: Independent web research; no peer `model/*/*.md` read during research.
+- Reference URLs:
+  - https://developer.android.google.cn/about/canary?hl=zh-cn
+  - https://developer.nvidia.com/zh-cn/blog/?p=9677
+  - https://my.oschina.net/emacs_8004789/blog/19680997

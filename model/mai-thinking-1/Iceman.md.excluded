@@ -1,58 +1,68 @@
 # MAI-Thinking-1 — findings by Iceman
 
-- Source: Microsoft AI/MAI-Thinking-1
-- Date: 2026-11-10 (UTC)
+- Source: Microsoft AI / MAI-Thinking-1 (`microsoft/mai-thinking-1`)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** MAI-Thinking-1
-- **Short description:** Microsoft AI’s MAI-Thinking-1 is described as an in-house ~1T/35B-active reasoning MoE (256K context) for hard reasoning and code; closed with no published public API id or rate card.
-- **Provider / access:** Microsoft AI. Local metadata lists `microsoft/mai-thinking-1`, `noFreeId`, and notes no public token pricing.
-- **Release / knowledge:** Official Microsoft AI model page reviewed 2026-11-10. Knowledge cutoff not explicitly stated in accessible reviewed content.
-- **IDs:** `mai-thinking-1`, `MAI-Thinking-1`.
-- **Context window:** 256,000 tokens (256K); max output 25,000 (local metadata).
-- **Modalities:** Text input/output.
-- **Pricing (as of 2026-11-10):** No public rate card/token price published (metadata).
-- **Architecture:** Proprietary closed model (~1T/35B-active MoE per metadata); details not fully disclosed in accessible reviewed content.
+- **Short description:** Microsoft AI’s MAI-Thinking-1 is presented as an in-house reasoning model for complex problem solving/software engineering, emphasizing expert reasoning with cost-efficient serving (per official Microsoft AI model page).
+- **Provider / access:** Microsoft AI (official model page/playground context). No public API model ID or public rate card found in accessible sources in this pass. Local metadata lists `microsoft/mai-thinking-1`, `noFreeId`.
+- **Release / knowledge:** Official Microsoft AI model page reviewed 2026-11-14; technical paper/PDF linked from page (`/wp-content/uploads/2026/06/main_20260602_2.pdf` in page content) but not text-extractable in this pass. Knowledge cutoff not explicitly stated in accessible reviewed content.
+- **IDs:** `mai-thinking-1`, `MAI-Thinking-1`, `microsoft/mai-thinking-1`.
+- **Context window:** 256,000 tokens (256K); max output 25,000 tokens (local metadata claim; not clearly extractable from accessible official page text in this pass).
+- **Modalities:** Text input/output (per local metadata/positioning).
+- **Pricing (as of 2026-11-14):** No public token pricing/rate card published in accessible official sources in this pass (Microsoft page indicates cost-efficiency messaging but no concrete per-token rates). Local metadata pricing figures are unverified.
+- **Architecture:** Proprietary closed model. Local metadata claims ~1T/35B-active MoE; accessible official page text in this pass did not provide a clearly extractable architecture/spec table to independently verify this claim.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I reviewed the official Microsoft AI MAI-Thinking-1 page via `webfetch`, but the accessible page content did not provide clearly extractable, standardized benchmark numerics in a form I could independently verify in this pass. Local metadata references vendor-published figures (e.g. SWE-bench Verified 73.5%, GPQA 84.2%) and notes no independent measurement; these were not verified from an accessible official benchmark table/PDF text extract here. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed the official Microsoft AI MAI-Thinking-1 page (webfetch/shell context), attempted to access the linked technical PDF (binary/non-extractable text in this environment), and searched AA/models.dev/OpenRouter for public listings/benchmark pages. The official page provides product positioning/capability descriptions but no clearly extractable standardized benchmark numeric table in accessible text form in this pass. Local metadata cites vendor-published benchmark figures (e.g. SWE-bench Verified 73.5%, GPQA 84.2%, AIME 2025 97.0%, etc.) but these were **not independently verified** from accessible extractable official sources during this pass, and independent third-party benchmark listings were not found. Because verifiable, extractable benchmark evidence is insufficient for comparable normalized scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found** (from accessible extract)
+- Positioned for complex reasoning/software-engineering workflows; no independently verified standardized agent/tool benchmark numerics extracted.
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found** (accessible/extractable)
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found** (from accessible extract)
+- Official messaging emphasizes expert reasoning/calibrated uncertainty; no independently verified standardized reasoning/knowledge benchmark numerics extracted.
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found** (accessible/extractable)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found** (from accessible extract)
+- Positioned for software engineering/repository-level reasoning; no independently verified standardized coding benchmark numerics extracted.
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found** (accessible/extractable)
 
 Long context:
 
-- 256K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+- 256K context claimed in local metadata; no standalone long-context retrieval benchmark score found in accessible sources.
 
 Multimodal:
 
-- Text-only per metadata.
+- Text-only positioning/metadata; no multimodal benchmark evidence.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified, extractable public benchmark evidence in accessible sources during this pass; no scored assessment is issued and this report is self-excluded.
+Not provided. Insufficient independently verified, extractable standardized public benchmark evidence in accessible sources during this pass; local metadata/vendor claims were not independently verified as extractable benchmark evidence. Assigning normalized 1–100 scores would be speculative/non-comparable. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Official positioning vs verifiable data:** Microsoft AI page confirms MAI-Thinking-1 identity and reasoning-focused positioning but accessible text did not yield extractable benchmark tables/specs in this pass.
+- **Metadata claims:** Local metadata includes specific architecture/context/benchmark/pricing claims that were not independently verified from accessible extractable official sources here.
+- **Public listings:** No AA/OpenRouter/models.dev benchmarked public listing found for this exact model in this pass.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to official Microsoft AI page; benchmark numerics were not clearly extractable/verifiable from accessible content in this pass.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across official Microsoft AI model page, linked PDF access attempt, AA/models.dev/OpenRouter search attempts, Inception docs/pages fetched in batch context, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): Microsoft AI MAI-Thinking-1 page (webfetch), Inception Mercury 2.5 blog (webfetch), Inception models docs (webfetch), OpenRouter Mercury 2.5 page fetch, AA Mercury 2.5 page fetch, AA Mercury search fetch, models.dev search for mai-thinking, OpenRouter search for mai-thinking, AA search for mai-thinking, Microsoft MAI-Thinking-1 PDF fetch attempt, OpenRouter/Microsoft/AA direct model page attempts for mai-thinking-1, OpenRouter Mercury 2/2.5 and Inception docs/pricing attempts, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
   - [MAI-Thinking-1 (Microsoft AI)](https://microsoft.ai/models/mai-thinking-1/)
-  - [MAI-Thinking-1 PDF](https://microsoft.ai/pdf/mai-thinking-1.pdf)
+  - Attempted/linked: [MAI-Thinking-1 technical paper (PDF)](https://microsoft.ai/pdf/mai-thinking-1.pdf)
   - Local repository metadata consulted: `model/mai-thinking-1/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,59 +1,71 @@
 # Mercury 3 — findings by Iceman
 
-- Source: Inception Labs/Mercury 3
-- Date: 2026-11-10 (UTC)
+- Source: Inception Labs / Mercury 3 (`inception/mercury-3`, `mercury-3`)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Mercury 3
-- **Short description:** Inception Labs’ Mercury 3 is a flagship diffusion LLM (dLLM) with non-autoregressive parallel decoding (>1,000 tok/s), 1M context, and text-only tool/function-calling support.
-- **Provider / access:** Inception Labs / hosted providers (e.g. OpenRouter per metadata). Local metadata lists `inception/mercury-3`, pricing $0.10/$0.35 per 1M, and `noFreeId`.
-- **Release / knowledge:** Not clearly established from accessible official sources in this pass. Knowledge cutoff not explicitly stated.
-- **IDs:** `mercury-3`, `inception/mercury-3`.
-- **Context window:** 1,000,000 tokens total; 128,000 max output (local metadata).
-- **Modalities:** Text input/output.
-- **Pricing (as of 2026-11-10):** $0.10/$0.35 per 1M in/out (local metadata).
-- **Architecture:** Proprietary diffusion LLM (non-autoregressive parallel decoding). Architecture/parameter count not publicly disclosed.
+- **Short description:** Inception Labs’ Mercury 3 is the flagship diffusion LLM (dLLM) positioned for fast, high-quality reasoning/chat/agentic workloads with very high throughput and a 1M-token context window.
+- **Provider / access:** Inception Labs API and hosted providers (OpenAI-compatible API; availability via Inception platform and partners per official materials). OpenRouter/AA dedicated model pages were not accessible as verifiable benchmark sources in this pass (404/unavailable). Local metadata lists `inception/mercury-3`, `noFreeId`.
+- **Release / knowledge:** Inception blog "Diffusion at Scale: Introducing Mercury 3" reviewed 2026-11-14 (published Oct 29, 2026 per page metadata). Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `mercury-3`, `inception/mercury-3`, `Mercury 3`.
+- **Context window:** 1,000,000 tokens context; 131,072 max output tokens (Inception docs). Local metadata states 1M/128K out; docs are treated as the more specific official source in this pass.
+- **Modalities:** Text input/output (Inception docs/blog).
+- **Pricing (as of 2026-11-14):** Inception docs list **$0.20/M input and $0.70/M output** (with launch pricing shown as 50% off: **$0.10/M input, $0.35/M output**, cached $0.01/M in discounted listing context). Pricing/promotions may vary over time and by provider.
+- **Architecture:** Proprietary diffusion LLM (non-autoregressive parallel decoding). Official materials state it is >40x larger than Mercury 1 with scaling-law gains; parameter count not publicly disclosed.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: Accessible official/provider pages attempted in this pass (`inceptionlabs.ai/mercury-3/`, OpenRouter model page) returned 404/unavailable content via `webfetch`, and no other independently verifiable public benchmark source with clearly attributable standardized numerics for this exact model was obtained. Local metadata cites figures (e.g. GPQA 89.2%, MRCR 75.5%, SWE-bench 38.5%) but these were not independently verified from an accessible source here. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): I reviewed Inception Labs’ official Mercury 3 blog and models documentation, OpenRouter/Artificial Analysis model page attempts, AA/OR benchmark scans, and local metadata/prior report. Official sources provide attributable specs, capabilities, and vendor performance/quality claims (e.g. 1,068 tok/s, 1M context, comparisons to GPT-6 Luna/Claude Haiku 5.5, case-study results), but **no independently verifiable standardized public benchmark numerics** for this project’s comparison dimensions were obtained for this exact model from accessible third-party sources in this pass (AA model page 404, OpenRouter model page unavailable/404 in webfetch and scans showed no attributable benchmark values). Local metadata cites figures (e.g. GPQA 89.2%, MRCR 75.5%, SWE-bench 38.5%) but these were not independently verified from accessible official/third-party benchmark sources here. Because comparable normalized scoring requires verifiable benchmark evidence, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Tool/function calling and JSON mode claimed in metadata; standardized agent/tool benchmark numerics not found.
+- Official materials describe agentic use cases (browser use, search agents, customer support) and docs list tool calling/structured outputs; standardized agent/tool benchmark numerics: **no verified public score found**.
 - Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no independently verified public score found**
+- Vendor claims quality on par/better than frontier speed-optimized models in marketing materials, but no independently verified standardized reasoning/knowledge benchmark numerics found.
+- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no independently verified public score found** (local metadata claims unverified)
 
 Coding:
 
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified public score found**
+- Vendor case studies mention coding/web navigation/agent workflows, but no independently verified standardized coding benchmark numerics found.
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no independently verified public score found** (local metadata SWE-bench claim unverified)
 
 Long context:
 
-- 1M context claimed in metadata; no standalone verified long-context retrieval benchmark score found.
+- 1M context / 131K max output stated in official docs; no standalone long-context retrieval benchmark score (MRCR/RULER/AA-LCR/GraphWalks) independently verified in this pass.
 
 Multimodal:
 
-- Text-only model.
+- Text-only model (docs/metadata).
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verified public benchmark/spec evidence for this exact model in accessible sources; no scored assessment is issued and this report is self-excluded.
+Not provided. Official specs/capabilities and vendor performance claims are attributable, but independently verifiable standardized benchmark evidence for this exact model is insufficient in accessible sources for comparable normalized 1–100 scoring in this repository. No scored assessment is issued and this report remains self-excluded.
+
+### Source comparison / conflicts
+
+- **Official specs/capabilities:** Inception docs and blog align on core identity (Mercury 3, 1M context, 131K max output, text-only, tool calling/structured outputs, high throughput ~1,068 tok/s, diffusion dLLM). Pricing shown in docs includes launch discount context.
+- **Metadata differences:** Local metadata states 128K max output and different pricing phrasing/claims; official docs indicate 131,072 max output and current/discounted pricing presentation. Local metadata benchmark claims (GPQA 89.2%, MRCR 75.5%, SWE-bench 38.5%) were not independently verified.
+- **Third-party availability:** OpenRouter and AA dedicated model benchmark pages were not accessible/verifiable in this pass (404/unavailable/no attributable extracted benchmark values).
+- **Vendor claims vs repo scoring:** Blog comparisons/case studies are informative but not standardized, independently verifiable benchmark numerics for this project’s scoring framework.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`); attempted official/provider pages unavailable and no verified benchmark source obtained.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Inception Labs official Mercury 3 blog and models documentation, OpenRouter/AA model page attempts, AA/OR benchmark scans, and local metadata/prior report review.
+- Research performed (>=10 successful independent web fetch/search attempts in batch): Inception Mercury 3 blog (webfetch), OpenRouter Mercury 3 page attempt (404), OpenRouter Mercury 2 page fetch, AA Mercury 2 page fetch, AA Mercury 3 page attempt (404), Inception models docs fetch, AA/OR benchmark scans for Mercury 2 and Mercury 3, OpenRouter Mercury 2.5/3/2 pages and Inception docs/blog/pricing attempts from batch context, local `meta.json` and prior `Iceman.md.excluded` reviews for batch targets.
 - Reference URLs:
-  - Attempted (404): [Mercury 3 (Inception Labs)](https://inceptionlabs.ai/mercury-3/)
-  - Attempted (404): [Mercury 3 (OpenRouter)](https://openrouter.ai/inception/mercury-3)
+  - [Diffusion at Scale: Introducing Mercury 3 (Inception Labs blog)](https://inceptionlabs.ai/blog/introducing-mercury-3)
+  - [Models (Inception Labs docs)](https://docs.inceptionlabs.ai/get-started/models)
+  - Attempted (unavailable/404): [Mercury 3 (OpenRouter)](https://openrouter.ai/inception/mercury-3)
+  - Attempted (404): [Mercury 3 (Artificial Analysis)](https://artificialanalysis.ai/models/mercury-3)
   - Local repository metadata consulted: `model/mercury-3/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

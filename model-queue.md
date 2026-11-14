@@ -100,6 +100,7 @@
 81.2 gpt-5.2-codex
 80.9 gemma-4-31b
 80.6 grok-4
+80.4 agnes-3.0-qwen
 80.4 grok-4.20
 80.3 grok-4-fast
 80.3 muse-ember
@@ -107,9 +108,11 @@
 80 gpt-5.4-mini
 79.8 qwen-4-max
 79.5 kimi-k2.8-preview
+79.4 doubao-seed-2.1-lite-260915
 79.3 glm-5.3
 79.2 qwen-3.5-flash
 78.9 grok-4.1
+78.8 doubao-seed-2.1-turbo-260628
 78.8 doubao-seed-evolving
 78.7 minimax-m3.1-flash
 78.7 union-alpha
@@ -120,6 +123,7 @@
 77.9 claude-sonnet-4
 77.7 gemini-3.1-flash-lite
 77.5 gemini-1.5-pro
+77.4 agnes-2.5-pro-alpha
 77.3 gemini-2.0-flash
 77.2 gpt-5.1-codex-max
 77.1 doubao-seed-2.1-pro-260915

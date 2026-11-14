@@ -19,4 +19,4 @@
 
 - Based on 3 qualifying reporting source(s) (rater Overall > 84.9): Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash.
 - Average from top 3 by Overall Score: Gemini 3.8 Flash, GLM 5.3 Flash, MiMo 2.6 Flash.
-- Ignored below-gate rater(s): Big Pickle, Ernie 5.5 Flash, Flint, Gemini 3.5 Flash Lite, Laguna XS 2.1.
+- Ignored below-gate rater(s): Big Pickle, Ernie 5.5 Flash, Flint, Gemini 3.5 Flash Lite, Hy3, Laguna XS 2.1.
