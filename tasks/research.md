@@ -6,12 +6,20 @@
 > `tasks/research-brief.md` instead of this file plus the full must-read corpus
 > — same rules, ~5k tokens. This file remains the full procedure.
 
+> **MISSION — batch, not one report.** One delegation covers the whole
+> missing-set: one `<YOUR_STEM>.md` in EVERY queued `model/<subject>/` folder
+> that does not yet hold it. Your own model folder is one queue item, never
+> the assignment. Writing one file advances the queue by one step; a
+> single-report run is an incomplete run (strict rule 14). The queue ends only
+> when it is empty, an explicit kickoff cap is reached, or remaining folders
+> are blocked with a recorded access failure.
+
 This file defines the workflow only. Agent identity comes from the assigned
 delegator file (`tasks/research-assign.md`) via its Identity resolution chain
 (kickoff line -> pinned STEM line -> validated self-identification -> ask).
 Do not hardcode any model name in this file.
 
-> **Startup budget: 2 tool calls before your first report.** The kickoff pins your STEM (zero calls), `model-queue.md` gives you roster + scores + order in one read (1 call), and one wildcard listing for `model/*/<STEM>.md*` tells you which folders already hold your file (1 call). Anything beyond that before writing — directory walks, per-folder checks, opening `average.md` files, re-sorting — is wasted budget. Full recipe: Step 1.
+> **Startup budget: 2 tool calls before your first report.** The kickoff pins your STEM (zero calls), `model-queue.md` gives you roster + scores + order in one read (1 call), and one wildcard listing for `model/*/<STEM>.md*` tells you which folders already hold your file (1 call). That listing also gives the batch size `N` — expect to write `N` files, not one. Anything beyond that before writing — directory walks, per-folder checks, opening `average.md` files, re-sorting — is wasted budget. Full recipe: Step 1.
 
 > **GEMINI AGENTS — read first (crash guard):** before any other step, read
 > `.agents/gemini-rate-limits.md` in full and apply it for the whole task
@@ -63,6 +71,9 @@ Do not hardcode any model name in this file.
 ```text
 Your STEM is resolved by tasks/research-assign.md (Identity resolution chain),
 or pinned explicitly below: AGENT_SOURCE_STEM = <STEM> (e.g. Grok_4.6).
+Your assignment is the WHOLE missing-set — a BATCH, not one report: write your
+file in every queued model/<slug>/ folder that lacks it. Your own model folder
+is one queue item, never the assignment.
 Your file is model/<subject-folder>/<YOUR_STEM>.md, display name is <STEM with _ -> space>.
 The FOLDER names the model you research; the FILENAME is always YOUR OWN stem —
 you NEVER write a file named after the model being researched
@@ -80,7 +91,8 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    models_cybersecurity/ / models_health/, never placed under model/ per RULES.md). When you reach a folder, check that one folder only — never pre-verify the whole queue.
 3. Process ONE folder at a time: research from fresh web search, draft per
    model-report-TEMPLATE.md, write model/<subject>/<YOUR_STEM>.md immediately,
-   then advance. If web search fails (402/quota/outage): one simpler retry, then
+   then advance to the next queued folder — REPEAT until the queue is empty.
+   One written report is one queue step, never a finished assignment. If web search fails (402/quota/outage): one simpler retry, then
    webfetch/curl the known official URLs directly (RULES.md § Web-research
    fallback) — never substitute local repo files for public-web evidence.
    Skip existing <YOUR_STEM>.md files; never overwrite/edit/delete in-pass.
@@ -89,6 +101,9 @@ Follow tasks/research.md exactly (combined single pass: audit → queue → one-
    written — their one roster is `model-aliases.generated.md` (repo root, auto-generated):
    drop any listed slug or stem even when the audit finds the folder on disk missing your file,
    and surface it in your final summary.
+5. Completion test: done only when the missing-set is empty — or the kickoff
+   cap is reached, or every remaining folder is blocked with a recorded access
+   failure. Files written < initial N means the batch is incomplete: keep going.
 ```
 
 ---
@@ -180,7 +195,7 @@ After that, check existence only for the folder you are currently writing (one c
   3. Create `model/<slug>/` (full mode: `<parent>/<slug>/`; empty folder only — do NOT create `meta.json` or `average.md`; the orchestrator generates those via `tasks/sync-data.md`).
   4. Append `model/<slug>` (full mode: `<parent>/<slug>`) to the END of your queue (after all ranked folders), in discovery order.
 
-### Step 3: Sequential one-folder-at-a-time execution
+### Step 3: Sequential one-folder-at-a-time execution (repeat until the queue is empty)
 
 For each queued slug, in order:
 
@@ -221,10 +236,16 @@ For each queued slug, in order:
 4. **Advance** only after the file is written — or after an explicit leave-it-excluded
    decision — or after logging an `ENRICH-PROPOSAL` (incremental save = interrupt-safe).
 5. **Combined single pass:** audit → queue → one-by-one in one delegation. A "first five"
-   request is the same queue with limit N=5, not a different mode.
+   request is the same queue with limit N=5, not a different mode. The pass ends
+   only when the queue is empty, the explicit cap is reached, or remaining
+   folders are blocked with a recorded access failure — never after one report.
 
 ### Step 4: Verification (no builds)
 
+- Batch completion: the run is done only when the Step 1 queue is empty, an
+  explicit kickoff cap is reached, or every remaining folder is blocked with a
+  recorded access failure. Re-run the wildcard listing and compare; one written
+  file with initial `N > 1` is an incomplete run.
 - Relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
 - All `<...>` placeholders replaced; no values copied from peer files.
 - Permanence holds (`RULES.md`): only new `<Your_Filename>` files added; the
@@ -240,7 +261,7 @@ For each queued slug, in order:
 
 ## 3. Strict rules & constraints
 
-1. **Audit all subdirectories in scope** without exception (production: `model/` only; full mode: `model/` + `models_voice/`; incl. empty/new folders).
+1. **Audit the whole in-scope tree** (production: `model/` only; full mode: `model/` + `models_voice/`; incl. empty/new folders) using the Step 1 two-call method — `model-queue.md` plus ONE wildcard listing. Never a folder-by-folder walk, never a prefix of the tree.
 2. **Highest-Overall-first** per Step 1; discoveries append at end. A "first five" cap is the same queue with limit N=5.
 3. **Incremental save (one-by-one)** — write each file before moving on.
 4. **Zero influence:** never read peer findings before/during research (only `model-queue.md` — or, in fallback, the single Overall line of `average.md` — for ordering, plus the template). Own existing `<Your_Filename>` may be read only to extract its Signature date for the 7-day age check and its existing Reference URLs under `## Signature` for the Step 1 re-research maintenance check — never copy peer numbers, and NEVER open peer agents' files.
@@ -293,10 +314,13 @@ For each queued slug, in order:
     overwrites of its own file.
 14. **Finish the whole queue:** the queue is the entire missing-set — no
     partial assignment exists unless the kickoff message states an explicit
-    cap (`first five`, `N=5`, …). The task ends only when the missing-set is
-    empty or the user revokes it; a completed prefix (16 of 129, …) is never
-    "the assigned queue". If asked why you stopped with work remaining,
-    resume — never argue that a prefix was the whole task.
+    cap (`first five`, `N=5`, …). Writing `<YOUR_STEM>.md` into your own model
+    folder (or any single folder) completes ONE queue item, never the batch:
+    one file is a prefix of one. The task ends only when the missing-set is
+    empty, the explicit cap is reached, or the user revokes it; a completed
+    prefix (16 of 129, …) is never "the assigned queue". If asked why you
+    stopped with work remaining, resume — never argue that a prefix was the
+    whole task.
 15. **Search outage ≠ local shortcut:** if web search returns `402`/quota/
     outage, follow the fallback ladder in `RULES.md` § *Web-research fallback*
     — one retry with a simpler query, then direct `webfetch`, then shell

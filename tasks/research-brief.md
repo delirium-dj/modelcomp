@@ -9,6 +9,14 @@ never overrides it. On any conflict: kickoff pin > RULES.md > this brief.
 If a rule you need is missing here, read the named section of `RULES.md`
 targeted — never the whole corpus.
 
+> **MISSION — batch, not one report.** One delegation covers EVERY queued
+> folder missing your file: one `<YOUR_STEM>.md` per `model/<subject>/`
+> folder. Your own model folder is one queue item, never the whole
+> assignment. One report = one queue step; the run ends only when the
+> missing-set is empty (or an explicit kickoff cap is reached, or remaining
+> folders are blocked with a recorded access failure). If you wrote one file
+> and the queue still has items, you are 1/N done — continue.
+
 ## 0. Identity — your STEM (zero tool calls)
 
 Your STEM (your reporter identity, your filename stem) comes from the kickoff
@@ -36,7 +44,7 @@ No pin anywhere → STOP and ask the orchestrator. Never guess a filename.
   `models_finance/<slug>/` — production scope: park them (note in your final
   summary, do not create or research now), never place them under `model/`.
 
-## 2. Startup (2 tool calls, then write)
+## 2. Startup (2 tool calls, then write the first of N)
 
 1. Read `model-queue.md` (repo root): roster + Overall scores + processing
    order in ONE file. File order IS the order — never re-sort, never verify
@@ -47,7 +55,9 @@ No pin anywhere → STOP and ask the orchestrator. Never guess a filename.
 Your queue = queue-file slugs minus folders holding your file, in file
 order. Parked/retired/deleted slugs are already absent from the queue file. A
 "first five" request = the same queue with limit 5. When you reach a folder,
-check only that folder — never pre-verify the whole queue.
+check only that folder — never pre-verify the whole queue. The wildcard
+listing gives the batch size `N` (folders still missing your file): expect to
+write `N` reports, not one.
 
 ## 3. Forbidden identities — one small lookup
 
@@ -94,9 +104,10 @@ every inline list you may have seen quoted in older docs.
    five non-cost dims (tolerance 0.51). Never invent numbers — missing
    benchmark = `no verified public score found`; every number carries a
    source.
-4. Write immediately to `model/<subject>/<YOUR_STEM>.md`, then advance
-   (incremental save = interrupt-safe). Skip folders already holding your
-   file. Never overwrite, edit, or delete in-pass.
+4. Write immediately to `model/<subject>/<YOUR_STEM>.md`, then advance to the
+   next queued folder — repeat until the queue is empty. One written report
+   is not completion (incremental save = interrupt-safe). Skip folders already
+   holding your file. Never overwrite, edit, or delete in-pass.
 5. Zero verified benchmarks → self-exclude as `<YOUR_STEM>.md.excluded`
    (notes only, never scored).
 6. Your own `<YOUR_STEM>.md.excluded` twin: draft fresh FIRST (zero
@@ -124,7 +135,9 @@ every inline list you may have seen quoted in older docs.
   `no verified public score found` or `.md.excluded`; global outage →
   `WEB-ACCESS-BLOCKED` summary (`RULES.md` § Web-research fallback).
 - Never stop early: the task ends only when the queue is empty or the user
-  revokes it. Quiet periods and "enough files" are NOT stop conditions.
+  revokes it. Writing your own model folder's report (or any single report)
+  finishes one queue item, never the batch. Quiet periods and "enough files"
+  are NOT stop conditions.
 - Never run `pnpm sync`, `pnpm build.types`, `pnpm build`, or `pnpm dev` —
   hand them over in the final summary.
 - Never edit task/rule files (`tasks/`, `RULES.md`, `.agents/`, template).
@@ -138,6 +151,10 @@ every inline list you may have seen quoted in older docs.
   `model/README.md`) and is queued like any other folder.
 
 ## 7. Finish
+
+Before the final summary, confirm the queue is empty (`N = 0` remaining, or an
+explicit cap, or blocked folders recorded). If you wrote fewer than the initial
+`N` files and nothing is blocked, continue — the assignment is not finished.
 
 Final summary: files written, `ENRICH-PROPOSAL`s, surfaced oddities
 (parked / deleted / hyphen-versioned / vendor-prefixed / merged-variant folders found

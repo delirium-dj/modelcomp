@@ -71,6 +71,12 @@ instead (same steps via `node <bin>`, same output).
 
 ## Rule 5 — Never stop early; recovery is re-delegation
 
+- One file = one queue step, never completion. Writing your own model
+  folder's report first (or only) does not satisfy the assignment: the
+  wildcard audit gives the batch size `N`, and the run ends only at `N = 0`
+  (or an explicit kickoff cap, or every remaining folder blocked with a
+  recorded access failure). If you wrote fewer than `N` files and nothing is
+  blocked, continue with the next queued folder.
 - The task ends only when re-auditing `model/` shows zero folders missing
   your `<STEM>.md` (or `.md.excluded` decision) — or the user explicitly
   revokes it. "Enough files", quiet periods, and rate-limit waits are NOT

@@ -23,6 +23,15 @@ override.
 
 ## Research rules (absolute — no exceptions without explicit user sign-off)
 
+- **Batch scope (absolute):** one research delegation assigns the agent's
+  ENTIRE missing-set — `model/<subject>/<YOUR_STEM>.md` in every
+  `model/<slug>/` folder that does not yet hold it, processed in
+  `model-queue.md` order. The agent's own model folder is one queue item,
+  never the assignment; a run that writes one report while queued folders
+  remain is incomplete, not finished. Only an explicit kickoff cap
+  (`first five`, `N=5`, …) narrows the set; the run ends when the missing-set
+  is empty, the cap is reached, or every remaining folder is blocked with a
+  recorded access failure (`tasks/research-assign.md` § Completion test).
 - **Path contract (STEM/slug conflation guard):** a research agent's file is
   always `model/<subject-folder>/<YOUR_STEM>.md` — the FOLDER names the model
   being researched (the subject), the FILENAME is always the agent's own

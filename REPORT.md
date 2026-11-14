@@ -1,5 +1,21 @@
 # Task Execution Report - modelcomp (Dark Mode, Hamburger, Branded Logo & Favicon, Data Sync, Growth-Proof Restructure)
 
+## 2026-11-14 — Research delegation clarified as a batch (one report ≠ done)
+
+1. **Diagnosis.** Some delegated research agents wrote exactly one findings file (often in their own model folder) and stopped. The rules did say "finish the whole queue", but the strongest nearby signals pointed the other way: the delegator title read **"single-edit delegator"**, **"your file"** was repeated in the singular, **"assigned agent"** could be misread as the model being researched, the brief said **"Startup (2 tool calls, then write)"**, and the copy-paste prompt said **"Process ONE folder at a time"** with no repeat-until-empty clause and no measurable completion test. A per-stem audit of `model/` found 46 stems with ≤5 files while compliant bulk agents hold 200+ (e.g. `model/longcat-2.0/LongCat_2.0.md`, `model/mimo-v2.6-free/MiMo_2.6_Free.md`, `model/gpt-6-sol/Qwen_3.8.md`, `model/grok-4.7/Gemini_2.0_Flash.md`, `model/gemini-1.5-pro/Gemma_4_31B_IT.md`, `model/grok-4.1/Browser.md`). This is the same failure mode already logged on 2026-10-03 (an agent audited only its own folder and jumped to queue position 123).
+2. **Fix (docs only — no `model/` files, no code).** Every delegation surface now states the batch mission before identity/path details and ends with the same completion test:
+   - `tasks/research-assign.md` — retitled **"batch delegator"**; top **MISSION** block; **"assigned reporter"**; own model folder explicitly "one queue item"; new § **Completion test** (done only when the missing-set is empty, an explicit cap is reached, or remaining folders are blocked; one file with N > 1 is incomplete).
+   - `tasks/research.md` — MISSION block; startup line notes the wildcard listing yields batch size `N`; copy-paste prompt gains a batch preamble, "repeat until the queue is empty", and a completion-test step; Step 3.5 and strict rule 14 now make one file a queue step, never the batch.
+   - `tasks/research-brief.md` — MISSION block before identity; "Startup (2 tool calls, then write the first of N)"; per-folder loop repeats until empty; never-stop list forbids treating one report as the batch.
+   - `RULES.md` — new absolute **Batch scope** bullet under *Research rules*.
+   - `AGENTS.md` — new critical directive 7 **Batch Research Scope**.
+   - `.agents/gemini-rate-limits.md` — Rule 5: one file = one queue step; end at `N = 0`, an explicit cap, or recorded access failures.
+   - `.agents/rules.md` — Findings-workflow **Batch scope** bullet.
+   - `.agents/workflows/batch_research_all_models.md` — replaced "list all subdirectories" with the 2-call queue method (`model-queue.md` + one `model/*/<STEM>.md*` wildcard) and added the batch warning + completion test.
+   - `model-report-TEMPLATE.md` — batch reminder in the template notice and checklist item 5 (this file is one queue item).
+3. **Verification.** No findings, `meta.json`, or `average.md` files were touched, and no build/sync was run (handover per repo policy). The completion test is tool-free: compare files written against the initial missing-set size `N` obtained from the two startup calls.
+   Next: `pnpm sync && pnpm build.types:direct && pnpm build:direct` (POSIX: `pnpm sync && pnpm build.types && pnpm build`).
+
 ## 2026-11-13 (2) — gemini-quota-retry: infinite retry mode without emergency brake cutoff
 
 1. **User request.** Gemini models (especially on Free/metered tiers) frequently drop quota error messages:

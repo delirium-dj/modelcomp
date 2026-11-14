@@ -2,6 +2,10 @@
 
 > TEMPLATE — do not commit as-is. Copy this file to `model/<slug>/<Source_Name>.md`,
 > replace every `<...>` placeholder with your own research, and strip this notice block.
+> BATCH REMINDER: this file is ONE queue item. Your assignment is every queued
+> folder missing your file — after saving, continue with the next one until the
+> missing-set is empty (`tasks/research-assign.md` § Completion test). Never stop
+> after one report.
 > Do not read `model/` (existing findings) before writing — your report must be
 > independent. Overview + scoring methodology: `../../model-comparison.md`.
 > Signed log: `../../model-findings.md`.
@@ -105,3 +109,4 @@ Long context:
 2. Filename is `model/<slug>/<Source_Name>.md` (folder name = filesystem-safe slug, see `model/README.md`). Use the exact assigned stem — never write a near-variant filename (e.g. `Ling_3.0.md` when the assignment is `Ling_3.0_Flash_Fin.md`); variant stems register as duplicate sources and fail review.
 3. Signature block filled in (including mandatory Reference URLs linking primary benchmarks/docs; on re-research, existing URLs re-checked for maintenance and new URLs appended from successful new search); relative links (`../../model-comparison.md`, `../../model-findings.md`) resolve from `model/<slug>/`.
 4. No benchmark invented; zero verified benchmarks → saved as `.md.excluded` (see above).
+5. This file is one queue item: if other queued folders still lack `<Source_Name>.md`, the run is NOT finished — continue with the next folder (`tasks/research-assign.md` § Completion test).

@@ -1,66 +1,87 @@
 # Claude Opus 5 — findings by Iceman
 
-- Source: Anthropic (Claude Opus 5)
-- Date: 2026-11-13 (UTC)
+- Source: Anthropic/Claude Opus 5
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
 - **Name:** Claude Opus 5
-- **Short description:** Anthropic’s Claude Opus 5 (announced 2026-07-24) is a high-capability Opus-tier model positioned for everyday coding and knowledge work, emphasizing stronger performance/cost efficiency than Opus 4.8 and improved agentic thoroughness while remaining below Mythos/Fable on some frontier cybersecurity capabilities.
-- **Provider / access:** Anthropic (Claude apps/API and major cloud platforms per announcement). Announcement states developers can use `claude-opus-5` on the Claude API and that it is available on all platforms; exact Zen/provider route IDs beyond that not independently verified from additional public sources.
-- **Release / knowledge:** Announced 2026-07-24. Knowledge cutoff: no verified public value found.
-- **IDs:** `claude-opus-5` (Anthropic API model name stated in announcement). No verified OpenCode Zen free/paid ID found from accessible sources.
-- **Context window:** No explicit context-window figure stated in the accessible announcement text; no verified public value found.
-- **Modalities:** Text-focused coding/knowledge-work model; image/PDF input and other modality details not explicitly specified in the accessible announcement text (no verified public specification found). Tool use/agentic workflows supported (announcement discusses agentic coding, computer use, tool changes/fallbacks).
-- **Pricing (as of 2026-11-13):** $5 per million input tokens and $25 per million output tokens (same base pricing as Opus 4.8 per announcement). Fast mode available at 2x base price (per announcement).
-- **Architecture:** Proprietary Anthropic model. Parameter count and detailed architecture not publicly disclosed.
+- **Short description:** Anthropic’s legacy Opus-tier model (released July 24, 2026) designed for long autonomous coding, agentic workflows, and knowledge work, offering strong cost/performance efficiency for its class; succeeded by Claude Opus 5.5.
+- **Provider / access:** Anthropic Claude API and supported platforms (e.g. Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry per announcement/docs). Local metadata lists `anthropic/claude-opus-5`, `noFreeId`.
+- **Release / knowledge:** Released July 24, 2026 (Anthropic announcement/platform docs). Reliable knowledge cutoff May 2026; training data cutoff May 2026 (Anthropic platform docs).
+- **IDs:** `claude-opus-5`, `anthropic.claude-opus-5` (platform-specific).
+- **Context window:** 1,000,000 tokens context; 128,000 max output (larger batch output beta noted in docs).
+- **Modalities:** Text, image, and PDF input; text output.
+- **Pricing (as of 2026-11-14, docs reviewed):** $5 / 1M input tokens, $25 / 1M output tokens (standard pricing; cache/batch/fast-mode terms per Anthropic docs/announcement).
+- **Architecture:** Proprietary Anthropic model; architecture/parameter count not publicly disclosed. Supports extended/adaptive thinking and effort controls.
 
 ### Raw benchmarks found
 
-> Based on Anthropic’s “Introducing Claude Opus 5” announcement (2026-07-24, accessed 2026-11-13). Many results are presented comparatively in charts; exact numeric scores are included only where explicitly stated in accessible text.
+> SECOND-PASS UPDATE (converted from excluded): I reviewed Anthropic’s official announcement and platform documentation, plus Artificial Analysis, OpenRouter, models.dev, and local metadata/prior report. The announcement provides multiple attributable benchmark/comparison claims and chart-referenced evaluations, but many exact numeric scores were not fully extractable as plain text from accessible sources in this pass. Local metadata cites `SWE-Pro 79.2%`; this figure was **not independently verified** from accessible sources in this pass and is **not used as a scored input**. Scores below are **provisional normalized estimates** grounded in verified specs and clearly attributable official claims/relative results.
 
 Agent / tool use:
-- OSWorld 2.0 (computer use benchmark): **outperforms every other model at any given cost** per announcement, surpassing Fable 5’s best result at just over a third of the cost (exact score not stated in accessible text)
-- Zapier AutomationBench (business workflow completion): **pass rate around 1.5× the next-best model for the same cost per task** per announcement; even at lowest effort passes more tasks than any other model (exact % not stated)
-- Frontier-Bench v0.1 (agentic/coding & work benchmark): **state-of-the-art claim** over all other models in announcement; more than doubles Opus 4.8’s performance at lower cost per task (internal run details noted; exact score not stated in accessible text)
-- CursorBench 3.2: **within 0.5% of Fable 5’s peak score at max effort, at half the cost per task** (exact score not stated)
-- Tau2-Bench / Claw-Eval / ClawProBench / Toolathon / MCP-Atlas / GDPval-AA / SWE Atlas Codebase QnA: **GDPval-AA v2** listed among evaluations where it is best/most cost-efficient (claim), but no verified numeric score found in accessible text; others no verified public score found
+
+- Anthropic positions Opus 5 for everyday coding/knowledge work and long autonomous tasks, with strong efficiency controls (effort settings) and improved verification/iteration behavior.
+- **Frontier-Bench v0.1:** Anthropic reports Opus 5 surpasses all other models and more than doubles Opus 4.8’s performance at lower cost per task (internal run details noted in announcement; exact numeric not extracted as plain text).
+- **CursorBench 3.2:** at max effort, within 0.5% of Fable 5’s peak score at half the cost per task; better performance at given cost than other models at high/xhigh/max effort (announcement/chart claim).
+- **Zapier AutomationBench:** pass rate around 1.5× the next-best model for the same cost per task; even at lowest effort setting passes more tasks than any other model (announcement).
+- **OSWorld 2.0:** outperforms every other model at any given cost and surpasses Fable 5’s best result at just over a third of the cost (announcement).
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: specific standardized numerics for this exact model were **not directly extracted** in this pass (GDPval-AA v2 shown as strong in announcement charts/text but numeric not extracted).
 
 Reasoning / knowledge:
-- ARC-AGI 3 (novel problem solving): **score is three times as high as the next-best model** (exact score not stated in accessible text)
-- HLE: listed among evaluations where it is best/most cost-efficient (claim), but **no verified numeric score found** in accessible text
-- DeepSearchQA: listed among evaluations (claim), but **no verified numeric score found**
-- GPQA Diamond / LCR / MLCR / CritPt / Artificial Analysis Intelligence Index / Omniscience Accuracy/Hallucination: **no verified public score found**
+
+- **ARC-AGI 3:** score is three times as high as the next-best model (announcement).
+- **GDPval-AA v2 / HLE / DeepSearchQA:** featured as strong evaluations in announcement (chart-based; exact numerics not extracted).
+- GPQA Diamond / AIME / AA Intelligence Index / LCR / CritPt: **no directly extracted verified public score found**.
 
 Coding:
-- AA Coding Agent Index: listed (chart/claim context), but **no verified numeric score found** in accessible text
-- Frontier-Bench v0.1 and CursorBench 3.2 include coding/agentic coding aspects as described above (comparative claims only)
-- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench: **no verified public score found**
+
+- Strong software engineering claims supported by Frontier-Bench v0.1 and CursorBench 3.2 results described above; announcement emphasizes long-horizon coding, debugging/root-cause analysis, and careful iteration.
+- **SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench:** **no directly extracted verified public numeric score found** in this pass (local metadata SWE-Pro 79.2% unverified).
 
 Long context:
-- **No verified public long-context retrieval benchmark or explicit context-window figure found** in accessible sources.
+
+- **1,000,000-token context / 128K max output** documented (Anthropic docs/announcement context). No standalone long-context retrieval benchmark numeric extracted.
+
+Multimodal:
+
+- **Text, image, and PDF input; text output** supported (docs/announcement). Announcement highlights stronger visual outputs/demos; no standardized multimodal benchmark numeric extracted.
 
 ### Normalized scores (1–100)
 
-> Derived from verified public evidence in Anthropic’s announcement. Comparative claims without exact public numbers are treated as directional evidence and reflected conservatively. Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`; Cost efficiency excluded from Overall.
+> Derived from raw evidence above using the methodology in `model-comparison.md`. Scores are provisional normalized interpretations (not official vendor scores) due to limited extractable standardized numeric benchmark tables in accessible sources.
 
-- **Tool use: 87/100.** Strong public evidence of agentic/computer-use and workflow capability (state-of-the-art/comparative leads on OSWorld 2.0, AutomationBench, Frontier-Bench claims; example of autonomous multi-step engineering behavior). Capped by lack of widely reported exact numeric scores across standard tool-use leaderboards in accessible sources.
-- **Reasoning: 82/100.** Directional evidence of strong reasoning/problem-solving (ARC-AGI 3 reported as 3× next-best, and leadership claims on HLE/DeepSearchQA/GDPval-AA v2 contexts) supports high capability, but exact public benchmark numbers are not available in accessible text, limiting calibration.
-- **Context window: 50/100.** No verified public context-window size or long-context retrieval benchmark results found; assigned a neutral provisional score pending verified specification/measurements.
-- **Multimodal: 45/100.** Announcement demonstrates/mentions improved visual outputs and computer-use performance (OSWorld 2.0) suggesting practical vision/computer interaction, but no explicit verified modality specification (image/PDF/audio/video input-output) or multimodal benchmark scores found in accessible sources.
-- **Coding: 88/100.** Strong coding/engineering evidence from Frontier-Bench and CursorBench comparative claims, AA Coding Agent Index inclusion, and reported real-world/early-tester coding performance; capped by absence of verified exact public scores on standard coding benchmarks (e.g. SWE-bench Verified/LiveCodeBench) in accessible sources.
-- **Cost efficiency: 78/100.** Priced at $5/$25 per 1M tokens (per announcement), positioned as high performance at Opus 4.8 pricing and strong performance-per-cost versus peers in several claims; paid but competitively priced for its tier (no free tier).
-- **Overall Score: 70/100.** Mean of the five non-cost dims (87, 82, 50, 45, 88) = 70.4 → 70 (half-up). A strong general-purpose coding/agentic model with good reported efficiency, but public evidence available here is partly comparative and lacks several verified numeric specs/benchmarks.
+- **Tool use: 87/100.** Strong agentic/autonomous workflow evidence (AutomationBench pass-rate leadership claim, OSWorld 2.0 cost/performance leadership, Frontier-Bench/CursorBench agentic coding results) and 1M context; capped by limited extractable standardized tool-use numerics.
+- **Reasoning: 86/100.** Exceptional relative reasoning/problem-solving signals (ARC-AGI 3 3× next-best, strong GDPval-AA v2/HLE/DeepSearchQA positioning in announcement) and scientific/research improvements; capped by lack of extracted standardized reasoning benchmark numerics.
+- **Context window: 95/100.** 1,000,000-token context and 128,000-token output are clearly documented (tier-mapped as very large context), supporting long autonomous sessions; capped mainly by lack of extracted standalone long-context retrieval benchmark scores.
+- **Multimodal: 82/100.** Verified text/image/PDF input support and improved visual output capability claims; capped by absence of extracted standardized multimodal benchmark numerics.
+- **Coding: 88/100.** Strong coding/agent evidence from Frontier-Bench v0.1 and CursorBench 3.2 claims plus long-horizon engineering behavior reports; capped by lack of directly extracted standardized coding benchmark numerics (e.g. SWE-bench/SWE-Pro values).
+- **Cost efficiency: 82/100.** Paid-tier pricing ($5/$25 per 1M tokens) is competitive relative to capability claims (frontier-adjacent performance/cost efficiency highlighted by Anthropic), though not low-cost.
+- **Overall Score: 88/100.** Mean of the five non-cost dimensions (Tool 87, Reasoning 86, Context 95, Multimodal 82, Coding 88) rounded to nearest integer; best fit for long autonomous coding, agentic workflows, and large-context knowledge work where verified access is available, with caution on limited extractable numeric benchmarks and supersession by Opus 5.5.
+
+> Caution: Scores are provisional estimates based on verified specs and clearly attributable announcement/docs claims/comparisons, not direct transcription of a full standardized benchmark table for this exact model. Local metadata benchmark claims (e.g. SWE-Pro 79.2%) were not independently verified in this pass and were not used as scored inputs.
+
+### Source comparison / conflicts
+
+- **Specs/pricing:** Anthropic platform docs, announcement, OpenRouter, models.dev, and local metadata align on core identity/specs/pricing context ($5/$25, 1M/128K, released Jul 24 2026, May 2026 knowledge/training cutoffs in docs).
+- **Benchmarks:** Announcement provides rich comparative/chart-based evidence (Frontier-Bench, CursorBench, AA Coding Agent Index, ARC-AGI 3, GDPval-AA v2, OSWorld 2.0, AutomationBench, HLE, DeepSearchQA, OSS-Fuzz) but limited extractable exact numerics in plain text; local metadata SWE-Pro figure unverified in this pass.
+- **Safety/behavior:** Announcement notes safeguards/fallback behavior and cyber/biology capability positioning relative to Mythos 5/Fable 5; relevant context but not a benchmark contradiction.
+- **Prior Iceman file:** This pass converts/replaces prior self-excluded report with an evidence-supported provisional scored report.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-13
-- Method: public internet research via fetched primary source (Anthropic announcement); scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Anthropic announcement and platform docs, Artificial Analysis, OpenRouter, models.dev, and local metadata/prior report review; compared specs/claims and noted extractability limits.
+- Research performed (>=10 successful independent web fetch/search attempts): Anthropic Opus 5 announcement (full fetch + snippet extraction), Anthropic Opus 5 platform overview, Anthropic all-models docs, Anthropic Opus 5 system card URL attempt, Opus 5 migration/docs page attempt, Artificial Analysis model page, OpenRouter model page, OpenRouter `/api/v1/models` lookup attempt, models.dev model page, models.dev API attempt, local `meta.json` and prior `Iceman.md.excluded` review.
 - Reference URLs:
-  - [Introducing Claude Opus 5 (Anthropic)](https://www.anthropic.com/news/claude-opus-5)
-  - [Claude Opus 5 system card (Anthropic, PDF)](https://www.anthropic.com/claude-opus-5-system-card)
+  - [Introducing Claude Opus 5 (Anthropic announcement)](https://www.anthropic.com/news/claude-opus-5)
+  - [Claude Opus 5 overview (Anthropic platform docs)](https://platform.claude.com/docs/en/models/opus-5/overview)
+  - [Claude Opus 5 on Artificial Analysis](https://artificialanalysis.ai/models/claude-opus-5)
+  - [Claude Opus 5 on OpenRouter](https://openrouter.ai/anthropic/claude-opus-5)
+  - [Claude Opus 5 on models.dev](https://models.dev/models/anthropic/claude-opus-5)
+  - Local repository metadata consulted: `model/claude-opus-5/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

@@ -1,14 +1,24 @@
-# Research assignment — single-edit delegator (canonical)
+# Research assignment — batch delegator (canonical)
+
+> **MISSION — a batch, not one report.** This assignment is a QUEUE: write
+> `model/<subject-folder>/<YOUR_STEM>.md` in EVERY queued `model/*/` folder
+> that does not yet contain it — not just one folder, and not just your own
+> model's folder. Your own model folder (if present) is ONE queue item among
+> dozens. One report = one queue step; it never means "the assignment is
+> done". The run ends only when the missing-set is empty, the kickoff states
+> an explicit cap (`first five`, `N=5`, …), or every remaining folder is
+> blocked by a recorded access failure. If you have written exactly one file
+> while queue items remain, you are 1/N done — continue with the next item.
 
 `AGENT_SOURCE_STEM: <STEM>` — pinned STEM for this delegation (placeholder: the orchestrator pins the real value per run via the kickoff message; never leave a stale value here).
 
 > **Orchestrator: ALWAYS pin the real STEM in the kickoff message — never delegate unpinned.** An unpinned delegation forces the agent through self-identification, registry validation, and possible ask loops, burning its per-minute request budget before it writes a single file. A pinned STEM resolves identity in zero tool calls (Identity resolution step 1). Pin the resolved LITERAL write path in the same line too (conflation guard, 2026-10 incident): e.g. `AGENT_SOURCE_STEM: North_Mini_Code — you write model/<slug>/North_Mini_Code.md (your own stem, never the subject's name)`. For sub-200k-context runtimes also add `BRIEF: small-context` so the agent runs on `tasks/research-brief.md` instead of the full corpus.
 
-`STEM` = your filename stem (e.g. `North_Mini_Code`) — your reporter identity, i.e. the `<Source_Name>` in every `model/<slug>/<Source_Name>.md` you write. It is NOT your research subject: you research every model folder except ones already containing your file; your own model folder is just one of many.
+`STEM` = your filename stem (e.g. `North_Mini_Code`) — your reporter identity, i.e. the `<Source_Name>` in every `model/<slug>/<Source_Name>.md` you write. It is NOT your research subject: you research every model folder except ones already containing your file; your own model folder is just one of many — never the whole assignment.
 
 > **READ-ONLY for research agents:** never edit this file (or any file under `tasks/`, `RULES.md`, `.agents/`, `model-report-TEMPLATE.md`). A STEM override belongs in the delegation kickoff message (`AGENT_SOURCE_STEM: <value>`), never here.
 
-Assigned agent (derived: STEM with `_` -> space). Task: follow `tasks/research.md` with the resolved STEM. One active STEM at a time: finish (or revoke) the current assignment before reassigning; a recovery re-delegation resolves the same STEM again (see `.agents/gemini-rate-limits.md` Rule 5).
+Assigned reporter (derived: STEM with `_` -> space). Task: follow `tasks/research.md` with the resolved STEM and process the WHOLE missing-set as a batch (one file per queued folder, in `model-queue.md` order). One active STEM at a time: finish (or revoke) the current assignment before reassigning; a recovery re-delegation resolves the same STEM again and resumes the remaining queue (see `.agents/gemini-rate-limits.md` Rule 5).
 
 ## Identity resolution (no file edit required — first match wins)
 
@@ -37,8 +47,18 @@ Effective orders (already resolved, do not re-derive — combined single pass: a
 8. Roster/score lookup (single point of reference, `RULES.md` § Model roster & Overall scores): for any "which models are in the dataset / what is X's overall score" question read `model-queue.md` (repo root, one file) — never scan `model/`, parse `average.md` files, or open findings/research files for scores, and never investigate your own model's files to self-identify (your STEM comes from the kickoff per Identity resolution above).
 9. Web access fallback (absolute): if web search returns `402`/quota/outage, follow `RULES.md` § Web-research fallback — one simpler retry, then `webfetch` the known official/leaderboard URLs directly, then shell `curl`/`Invoke-WebRequest`; cite only URLs actually fetched. NEVER substitute local files (peer findings, `model-comparison.md`, generated data, `meta.json`/`average.md`) for public-web evidence. No retrievable evidence → `no verified public score found` or `.md.excluded`; global outage → `WEB-ACCESS-BLOCKED` summary, never fabricated output.
 
+### Completion test (run before claiming done)
+
+The assignment is complete ONLY when one of these is true:
+
+1. the missing-set from Effective order 3 is empty;
+2. the kickoff explicitly capped the run (`first five`, `N=5`, …) and that cap is reached;
+3. every remaining folder is blocked with a recorded access failure (`.md.excluded` decision or `WEB-ACCESS-BLOCKED` summary).
+
+Compare the files you wrote this run against the size `N` of your initial missing-set. One written file with `N > 1` is an incomplete run — never report "assignment complete". The authority is the audit, not your memory: re-run the wildcard listing (`model/*/<YOUR_STEM>.md*`) before declaring done and confirm every queue slug is covered (folders that already held your file stay covered). After a crash, re-delegation resumes the remaining items; it never restarts from your own model folder.
+
 ### Quarantine backlog (only when your STEM has placeholder twins)
 
 If `model/<slug>/<STEM>.md.excluded` files still carry `- **Overall Score: 15/100` (the 2026-09-19 placeholder purge — live today for `GPT_5.6_Terra`), they lead the queue (highest-`average.md`-Overall-first inside the group); folders already holding a real `<STEM>.md` are skipped, never overwritten. For each: fresh public web research per `tasks/research.md` (you MAY read your own `.md.excluded` only to identify the model — never copy its 15/100 scores) and produce real normalized scores passing the `tasks/sync-data.md` gate (Overall = half-up mean of the five quality dims, tolerance 0.51; Cost excluded); write the corrected `<STEM>.md`, then delete the `.excluded` twin. A file still carrying `- **Overall Score: 15/100` is never reactivated — leave it `.excluded`; only a corrected file (Overall != 15) is picked up by the next `pnpm sync`.
 
-Reuse for a new agent: paste this file as-is and ALWAYS pin the STEM with `AGENT_SOURCE_STEM: <value>` in the kickoff message (self-resolution is fallback-only for brand-new unregistered agents) — never copy it to `tasks/<stem>.md`.
+Reuse for a new agent: paste this file as-is and ALWAYS pin the STEM with `AGENT_SOURCE_STEM: <value>` in the kickoff message (self-resolution is fallback-only for brand-new unregistered agents) — never copy it to `tasks/<stem>.md`. The kickoff also states the batch expectation (whole missing-set, one file per queued folder) so the agent hears it twice.

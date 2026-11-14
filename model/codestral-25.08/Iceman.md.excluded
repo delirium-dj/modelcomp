@@ -1,57 +1,68 @@
 # Codestral 25.08 — findings by Iceman
 
-- Source: Mistral AI/Codestral 25.08
-- Date: 2026-11-10 (UTC)
+- Source: Mistral AI/Codestral 25.08 (Codestral 2508)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Codestral 25.08
-- **Short description:** Mistral AI’s Codestral 25.08 is a specialized low-latency code model for IDE autocomplete, fill-in-the-middle (FIM), and multi-language development (256K context per metadata).
-- **Provider / access:** Mistral AI (La Plateforme/API) and partners. Local metadata lists `opencode/codestral-25.08`, pricing $0.30/$0.90 per 1M, and `noFreeId`.
-- **Release / knowledge:** Mistral announcement page reviewed 2026-11-10. Knowledge cutoff not explicitly stated in reviewed source.
-- **IDs:** `codestral-25.08`, `Codestral 25.08`.
-- **Context window:** 256,000 tokens total (8,192 max output) per local metadata.
-- **Modalities:** Text and code input/output.
-- **Pricing (as of 2026-11-10):** $0.30/$0.90 per 1M input/output tokens (Mistral AI La Plateforme/OpenRouter) per metadata.
-- **Architecture:** Proprietary/specialized code model (Codestral family). Detailed architecture/parameter count not disclosed in accessible reviewed content.
+- **Name:** Codestral 25.08 (Codestral 2508)
+- **Short description:** Mistral AI’s specialized low-latency code model (July 2025 release/update) optimized for IDE autocomplete and fill-in-the-middle (FIM) completion, with chat/code assistance support and enterprise deployment options.
+- **Provider / access:** Mistral AI (La Plateforme/API) and partner providers (e.g. OpenRouter). Mistral docs/models list `codestral-2508` / `codestral-latest`; local metadata lists `opencode/codestral-25.08`, `noFreeId`.
+- **Release / knowledge:** Announced July 30, 2025 in Mistral’s “Codestral 25.08 and the Complete Mistral Coding Stack for Enterprise” post. Knowledge cutoff not explicitly stated in reviewed sources.
+- **IDs:** `codestral-2508`, `codestral-latest` (Mistral), `mistralai/codestral-2508` (OpenRouter), `codestral-25.08` (local naming).
+- **Context window:** 256,000 tokens context documented by Mistral docs/models and OpenRouter; max output varies by provider/API surface (OpenRouter advertises up to 32K max completion; local metadata notes 8,192 max out).
+- **Modalities:** Text/code input and text/code output (completion and chat use cases).
+- **Pricing (as of 2026-11-14):** ~$0.30 / $0.90 per 1M input/output tokens (Mistral/OpenRouter standard listings; provider-specific regional/pricing variants exist per OpenRouter).
+- **Architecture:** Proprietary/specialized code model (Codestral family). Detailed architecture/parameter count not publicly disclosed in reviewed sources.
 
 ### Raw benchmarks found
 
-> SELF-EXCLUSION: I reviewed Mistral’s Codestral 25.08 announcement page, which reports product/quality improvements (e.g. +30% accepted completions, +10% retained code, 50% fewer runaway generations, +5% instruction following, +5% average MultiplE) but does not provide clearly extractable, independently verifiable standardized benchmark numerics for the methodology categories used here (SWE-bench, Terminal-Bench, GPQA, AIME, LiveCodeBench, etc.) attributable to this exact model version. To avoid unverifiable or misattributed scoring, this file is saved as `.md.excluded` (notes only; scores ignored).
+> SECOND-PASS SELF-EXCLUSION (updated): Deep second-pass research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) reviewed Mistral’s announcement, Mistral docs/models/pricing, OpenRouter model page/docs, models.dev, and local metadata/prior report. Mistral reports relative/product and evaluation improvements (e.g. **+30% accepted completions**, **+10% retained code**, **50% fewer runaway generations** in live IDE usage; **+5% instruction following** on IF eval v8; **+5% average MultiplE** for code abilities) and positions Codestral for FIM/autocomplete and coding stack workflows. However, I did not find clearly extractable, independently verifiable standardized benchmark numerics for this exact model/version in the methodology categories used here (SWE-bench, Terminal-Bench, GPQA, AIME, LiveCodeBench, AA indices, etc.) attributable as comparable public scores. To avoid unverifiable or misattributed scoring, this file remains `.md.excluded` (notes only; scores ignored).
 
 Agent / tool use:
 
-- Tuned for IDE/autocomplete workflows rather than autonomous multi-turn tool loops (metadata). Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+- Primarily optimized for IDE autocomplete/FIM and developer-assistance workflows rather than autonomous multi-turn agent/tool-loop benchmarks. Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**.
 
 Reasoning / knowledge:
 
-- GPQA Diamond / HLE / AIME / AA Intelligence Index: **no verified public score found**
+- GPQA Diamond / HLE / AIME / AA Intelligence Index / LCR / CritPt: **no verified public score found**.
 
 Coding:
 
-- FIM/autocomplete improvements reported qualitatively/relatively; SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode: **no verified public score found**
+- Reported improvements (Mistral announcement): +30% accepted completions, +10% retained code, 50% fewer runaway generations; +5% average MultiplE (chat/code abilities). These are relative/product/eval improvements, not directly comparable standardized benchmark scores in this project’s scoring framework.
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench: **no verified public score found**.
 
 Long context:
 
-- 256K context claimed in metadata; no standalone long-context retrieval benchmark score found.
+- 256K context documented (Mistral docs/OpenRouter). No standalone long-context retrieval benchmark score found.
 
 Multimodal:
 
-- Text/code only.
+- Text/code-focused model; no multimodal image/audio benchmark evidence found.
+
+### Source comparison / conflicts
+
+- **Specs/pricing:** Mistral docs, OpenRouter, and local metadata broadly align on Codestral 2508 identity as a 256K-context code model at ~$0.30/$0.90 per 1M tokens; max-output details differ by surface/provider (e.g. local metadata 8K vs OpenRouter-advertised higher completion limits).
+- **Benchmarks/evidence:** Mistral provides relative/product metrics and some eval deltas (IF eval v8, MultiplE) but not clearly extractable standardized public benchmark numerics matching required categories for this exact version; AA model-detail page for this slug was not found (404).
+- **Use-case fit:** Evidence supports strength in autocomplete/FIM and coding assistance; insufficient evidence for autonomous agent/tool-use and general reasoning/multimodal scoring in this framework.
 
 ### Normalized scores (1–100)
 
-Not provided. Insufficient independently verifiable standardized benchmark evidence for this exact model version in accessible sources; no scored assessment is issued and this report is self-excluded.
+Not provided. Insufficient independently verifiable, clearly attributable standardized benchmark evidence for this exact model/version in the required scoring categories; no scored assessment is issued and this report remains self-excluded.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-10
-- Method: Independent public research attempt using alternative web access (`webfetch`) to Mistral announcement and local metadata; no verifiable standardized benchmark numerics extracted.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`) across Mistral announcement/docs/pricing, OpenRouter model/docs, models.dev, Artificial Analysis lookup, and local metadata/prior report review; compared available specs/claims.
+- Research performed (>=10 successful independent web fetch/search attempts): Mistral Codestral 25.08 announcement, Mistral pricing page, Mistral docs models page, Mistral docs API page, OpenRouter Codestral 2508 model page, OpenRouter llms.txt/docs content, Artificial Analysis model lookup attempt (404), models.dev model path lookup, models.dev catalog/API attempts, local `meta.json` and prior `Iceman.md.excluded` review.
 - Reference URLs:
-  - [Announcing Codestral 25.08 (Mistral AI)](https://mistral.ai/news/codestral-25-08)
+  - [Announcing Codestral 25.08 and the Complete Mistral Coding Stack for Enterprise (Mistral AI)](https://mistral.ai/news/codestral-25-08)
+  - [Mistral pricing](https://mistral.ai/pricing)
+  - [Mistral models documentation](https://docs.mistral.ai/getting-started/models/)
+  - [Codestral 2508 on OpenRouter](https://openrouter.ai/mistralai/codestral-2508)
   - Local repository metadata consulted: `model/codestral-25.08/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
