@@ -1,70 +1,86 @@
 # Claude Mythos 5 — findings by Iceman
 
-- Source: Anthropic (Claude Mythos Preview / Claude Mythos 5, Project Glasswing)
-- Date: 2026-11-13 (UTC)
+- Source: Anthropic/Claude Mythos 5 (June 2026, Project Glasswing / Cyber Verification Program)
+- Date: 2026-11-14 (UTC), deep second-pass research and consolidation
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
 ## Model card
 
-- **Name:** Claude Mythos 5 (Claude Mythos Preview)
-- **Short description:** Anthropic’s frontier cybersecurity-focused model announced with Project Glasswing (2026-04-07) as Claude Mythos Preview; a general-purpose model with unusually strong coding, reasoning, and vulnerability-discovery/exploitation capabilities, initially provided to a limited set of defensive partners rather than broadly released.
-- **Provider / access:** Anthropic (Project Glasswing / limited research preview access). Anthropic stated participants could access via Claude API, Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry; after initial usage credits, pricing stated as $25/$125 per million input/output tokens for participants. Exact public/Zen API IDs not verified from public sources.
-- **Release / knowledge:** Announced 2026-04-07 (Project Glasswing). Knowledge cutoff: no verified public value found.
-- **IDs:** No verified public general-availability API model ID found (preview/restricted access).
-- **Context window:** No verified public context-window specification found in accessible primary sources.
-- **Modalities:** Text/code focus evident from evaluations; image/multimodal input-output capabilities not clearly specified in accessible public sources. Tool use/agentic operation demonstrated in reported evaluations (e.g. terminal/computer-use and agentic coding tasks).
-- **Pricing (as of 2026-11-13):** Restricted preview pricing reported by Anthropic as $25/$125 per million input/output tokens for Project Glasswing participants after credits; broader public pricing not announced (no free tier).
-- **Architecture:** Proprietary frontier model (Anthropic). Parameter count and detailed architecture not publicly disclosed.
+- **Name:** Claude Mythos 5
+- **Short description:** Anthropic’s June 2026 Mythos-class model offered for defensive cybersecurity and high-stakes security/biology workflows to organizations verified through Anthropic verification programs (e.g. Cyber Verification Program / Project Glasswing). Per Anthropic platform documentation, Claude Mythos 5 is the **same model as Claude Fable 5** with the same specifications and pricing, provided with cybersecurity safeguards lifted for verified defensive work (distinct from general-public Fable access behavior).
+- **Provider / access:** Anthropic via trusted/verified access programs only (not general public). Available through Anthropic platforms/integrations for verified organizations as described by Anthropic; local metadata lists `anthropic/claude-mythos-5`, `noFreeId`.
+- **Release / knowledge:** Released June 9, 2026 (Anthropic announcement/platform docs). Reliable knowledge cutoff January 2026; training data cutoff January 2026 (shared Fable 5/Mythos 5 platform specs).
+- **IDs:** `claude-mythos-5`, `anthropic.claude-mythos-5` (platform-specific).
+- **Context window:** 1,000,000 tokens context; 128,000 max output.
+- **Modalities:** Text and image input; text output.
+- **Pricing (as of 2026-11-14, docs reviewed):** $10 / 1M input tokens, $50 / 1M output tokens (same as Claude Fable 5); cache/batch pricing per Anthropic docs.
+- **Architecture:** Proprietary Anthropic model; architecture/parameter count not publicly disclosed. Reasoning model with adaptive thinking (always on, default high) per shared platform behavior.
+
+### Identity correction (important)
+
+> Prior in-folder `Iceman.md` incorrectly conflated this model with **“Claude Mythos Preview”** (announced April 7, 2026, different pricing/access framing). This report covers **Claude Mythos 5** (released June 9, 2026), which Anthropic documents as the same underlying model/specs/pricing as **Claude Fable 5** but offered separately for verified defensive cybersecurity workflows. Benchmarks/specs here are attributed to Mythos 5/Fable 5 (June 2026) sources only; Mythos Preview claims are not reused.
 
 ### Raw benchmarks found
 
-> Values below are taken from Anthropic’s public Project Glasswing announcement and the Anthropic Frontier Red Team assessment of Claude Mythos Preview (accessed 2026-11-13). Where a benchmark was not found in verified public sources, marked accordingly.
+> SECOND-PASS UPDATE (consolidated from mixed state): I reviewed Anthropic’s shared Fable 5/Mythos 5 announcement and platform documentation, models.dev listing, OpenRouter API/catalog lookups, and local metadata/prior reports. The announcement contains qualitative/comparative capability claims and chart/image-based benchmark references, but many exact per-benchmark numeric scores for this exact model were not extractable as plain text from accessible sources in this pass. Local metadata cites `SWE-bench Verified 95.5%, GPQA 94.1%` for Mythos 5 but these figures were **not independently verified** from accessible official sources in this pass and are not used as scored inputs. Scores below are **provisional, capability/spec-derived estimates** grounded in verified shared specs and clearly attributable claims.
 
 Agent / tool use:
-- CyberGym (cybersecurity vulnerability reproduction): **83.1%** (Anthropic Project Glasswing page, vs Claude Opus 4.6 66.6%)
-- BrowseComp (agentic search): **86.9%** (Project Glasswing benchmark table)
-- OSWorld-Verified (agentic/computer use): **79.6%** (Project Glasswing benchmark table)
-- Terminal-Bench 2.0 (agentic coding & terminal use): **82.0%** (Project Glasswing; Terminus-2 harness, adaptive thinking max effort, 1M token budget/task, 5 attempts; note: 92.1% reported with 4-hour timeout and TB 2.1 updates)
-- Tau2-Bench / Claw-Eval / ClawProBench / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no verified public score found**
+
+- Anthropic reports long-horizon autonomous/agentic strengths for the Fable/Mythos 5 base model (software engineering, multi-step tasks, memory-assisted workflows). FrontierCode evaluation referenced in announcement: “scores highest among frontier models, even at medium effort” (exact numeric not text-extracted).
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas / SWE Atlas Codebase QnA: **no directly extracted verified public score found**.
 
 Reasoning / knowledge:
-- GPQA Diamond: **94.6%** (Anthropic Project Glasswing benchmark table)
-- Humanity’s Last Exam (HLE): **56.8%** without tools, **64.7%** with tools (Project Glasswing; note: Anthropic states it still performs well at low effort, suggesting possible memorization concerns)
-- LCR / MLCR / CritPt: **no verified public score found**
-- Artificial Analysis Intelligence Index / BenchLM overall: **no verified public score found**
-- Omniscience Accuracy / Hallucination Rate: **no verified public score found**
+
+- Announcement claims exceptional performance in knowledge work/scientific research and cybersecurity-relevant reasoning; cites **Hebbia Finance Benchmark for senior-level reasoning: “highest score of any model”** (exact numeric not extracted).
+- GPQA Diamond / HLE / AIME / AA Intelligence Index / LCR / CritPt: **no directly extracted verified public score found** (local metadata GPQA claim unverified in this pass).
 
 Coding:
-- SWE-bench Verified: **93.9%** (Anthropic Project Glasswing; memorization-screen note reported by Anthropic)
-- SWE-bench Pro: **77.8%** (Project Glasswing)
-- SWE-bench Multilingual: **87.3%** (Project Glasswing)
-- SWE-bench Multimodal (internal Anthropic implementation): **59.0%** (Project Glasswing; not directly comparable to public leaderboard)
-- LiveCodeBench / SciCode / AA-SciCode / Vibe Code Bench / DeepSWE: **no verified public score found**
+
+- Strong software engineering/agentic coding claims shared with Fable 5 base (FrontierCode leadership claim at medium effort; real-world migration reports in announcement). Exact standardized coding benchmark numerics for this exact model not extracted.
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench: **no directly extracted verified public score found** (local metadata SWE-bench claim unverified in this pass).
 
 Long context:
-- **No verified public long-context retrieval benchmark (e.g. MRCR/RULER/GraphWalks) or explicit context-window figure found** in accessible primary sources.
+
+- **1,000,000-token context / 128K output** documented (Anthropic docs/models.dev). Long-context behavior/memory experiments described qualitatively in announcement; no standalone retrieval benchmark numeric extracted.
+
+Multimodal:
+
+- **Text and image input; text output** supported. Announcement claims strong vision/task performance (e.g. extracting numbers from scientific figures, rebuilding web app source from screenshots, vision-only Pokémon FireRed completion) — qualitative/demonstrated claims; no standardized multimodal benchmark numeric extracted.
 
 ### Normalized scores (1–100)
 
-> Derived from the raw public evidence above. Overall = half-up mean of the five quality dims `(Tool + Reasoning + Context + Multimodal + Coding) / 5`; Cost efficiency excluded from Overall.
+> Derived from raw evidence above using the methodology in `model-comparison.md`. Scores are provisional normalized interpretations (not official vendor scores) due to limited extractable standardized numeric benchmark tables for this exact model.
 
-- **Tool use: 91/100.** Strong agentic evidence on public benchmarks: CyberGym 83.1%, OSWorld-Verified 79.6%, BrowseComp 86.9%, and Terminal-Bench 2.0 82.0% (92.1% in Anthropic’s extended setting), plus Frontier Red Team reports of autonomous end-to-end vulnerability discovery/exploitation workflows. Capped by lack of broad public tool-benchmark coverage (Tau/Toolathon/MCP-Atlas etc. not publicly reported).
-- **Reasoning: 88/100.** Excellent GPQA Diamond (94.6%) and solid HLE with tools (64.7%), but HLE without tools 56.8% and Anthropic notes possible memorization at low effort; other major reasoning benchmarks (LCR/CritPt/AA index) not publicly verified, limiting confidence at the very top tier.
-- **Context window: 50/100.** No verified public context-window size or long-context retrieval results found in accessible primary sources; assigned a neutral provisional score pending verified specification/measurements.
-- **Multimodal: 40/100.** Limited public evidence of multimodal capability: OSWorld-Verified (79.6%) implies visual/computer-use competence and SWE-bench Multimodal 59.0% was reported on an internal implementation, but no clear verified specification of supported input/output modalities beyond text/code-centric use in public materials.
-- **Coding: 95/100.** Exceptional verified coding/security results: SWE-bench Verified 93.9%, SWE-bench Multilingual 87.3%, SWE-bench Pro 77.8%, Terminal-Bench 2.0 82.0% (92.1% extended), plus extensive real-world vulnerability-finding/exploit evidence reported by Anthropic. Slight cap because several standard coding benchmarks (LiveCodeBench/SciCode) are not publicly reported.
-- **Cost efficiency: 35/100.** Restricted, defense-focused preview with reported participant pricing of $25/$125 per 1M tokens after credits and no public/free tier; high capability but expensive and access-limited relative to broadly available models.
-- **Overall Score: 73/100.** Mean of the five non-cost dims (91, 88, 50, 40, 95) = 72.8 → 73 (half-up). Best interpreted as a high-end, restricted cybersecurity/coding frontier preview with strong verified coding and agentic performance, but limited publicly verified context/multimodal specs and no broad public availability.
+- **Tool use: 86/100.** Shared Fable 5 base with long-horizon agentic/autonomous workflow emphasis, FrontierCode/agent-eval positioning, and 1M context; capped by limited extractable standardized tool-use numerics.
+- **Reasoning: 87/100.** Mythos-class positioning with strong knowledge-work/research/cyber reasoning claims and Hebbia Finance Benchmark “highest score of any model” (exact numeric not extracted); capped by missing extractable standardized reasoning benchmark numerics.
+- **Context window: 95/100.** 1,000,000-token context and 128,000-token output are clearly documented (tier-mapped as very large context); capped mainly by lack of extracted standalone long-context retrieval benchmark scores.
+- **Multimodal: 84/100.** Verified text+image input and text output with strong announced vision capabilities/demos; capped by absence of extracted standardized multimodal benchmark numerics.
+- **Coding: 88/100.** FrontierCode leadership claim (medium effort) and strong real-world/agentic coding reports shared with Fable 5 base; capped by lack of directly extracted standardized coding benchmark numerics.
+- **Cost efficiency: 72/100.** Paid-tier pricing ($10/$50 per 1M tokens, same as Fable 5) is premium but aligned with frontier capability tier; less cost-efficient than low-cost/free alternatives.
+- **Overall Score: 88/100.** Mean of the five non-cost dimensions (Tool 86, Reasoning 87, Context 95, Multimodal 84, Coding 88) rounded to nearest integer; best fit for verified defensive long-horizon coding/agentic and large-context multimodal workflows, with caution on restricted access, limited extractable numeric benchmarks, and unverified local-metadata claims.
+
+> Caution: Scores are provisional estimates based on verified shared specs and clearly attributable announcement/docs claims, not direct transcription of a full standardized benchmark table for this exact model. Do not reuse Mythos Preview (April 2026) benchmark figures. Recalculate if/when exact numerics become clearly extractable.
+
+### Source comparison / conflicts
+
+- **Identity/specs:** Anthropic platform docs and models.dev align that Mythos 5 is the same model/specs/pricing as Fable 5 (`claude-mythos-5`, 1M/128K, $10/$50, Jun 9 2026, Jan 2026 cutoffs). OpenRouter and AA model-detail pages for `claude-mythos-5` were not available (404) in this pass.
+- **Access:** Verification-required (CVP/Project Glasswing) for defensive cybersecurity workflows; safeguards lifted relative to general Fable access per docs/announcement.
+- **Benchmarks:** Shared announcement provides rich qualitative/comparative claims but limited extractable exact numerics in text; local `meta.json` benchmark figures (95.5%/94.1%) were not independently verified in this pass — treated as unverified, not conflicting evidence.
+- **Prior Iceman files:** This pass corrects and consolidates prior mixed-state files (including a prior report conflating with Mythos Preview).
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-13
-- Method: public internet research via fetched primary sources; scores are normalized 1–100 interpretations, not official vendor scores.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`/API fetches) across Anthropic announcement and platform docs, models.dev, OpenRouter/AA lookups, and local metadata/prior report review; compared specs/claims and corrected identity.
+- Research performed (>=10 successful independent web fetch/search attempts): Anthropic Fable 5/Mythos 5 announcement, Anthropic Mythos 5 platform overview, Anthropic Fable 5 platform overview (shared specs), Anthropic all-models docs, models.dev `claude-mythos-5` page, OpenRouter model page lookup (404), OpenRouter `/api/v1/models` search, Artificial Analysis model lookup (404), local `meta.json` and prior `Iceman.md`/`Iceman.md.excluded` review, plus targeted HTML snippet extraction for benchmark-related terms.
 - Reference URLs:
-  - [Project Glasswing: Securing critical software for the AI era (Anthropic)](https://www.anthropic.com/glasswing)
-  - [Assessing Claude Mythos Preview’s cybersecurity capabilities (Anthropic Frontier Red Team)](https://red.anthropic.com/2026/mythos-preview)
-  - [Claude Mythos Preview system card (Anthropic, PDF)](https://www.anthropic.com/claude-mythos-preview-system-card)
+  - [Claude Fable 5 and Claude Mythos 5 (Anthropic announcement)](https://www.anthropic.com/news/claude-fable-5-mythos-5)
+  - [Claude Mythos 5 overview (Anthropic platform docs)](https://platform.claude.com/docs/en/models/mythos-5/overview)
+  - [Claude Fable 5 overview (shared specs reference)](https://platform.claude.com/docs/en/models/fable-5/overview)
+  - [Claude Mythos 5 on models.dev](https://models.dev/models/anthropic/claude-mythos-5)
+  - [Cyber Verification Program (access context)](https://support.claude.com/en/articles/14604842)
+  - Local repository metadata consulted: `model/claude-mythos-5/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.

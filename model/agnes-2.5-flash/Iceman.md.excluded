@@ -1,37 +1,70 @@
 # Agnes 2.5 Flash — findings by Iceman
 
 - Source: Sapiens AI / Agnes 2.5 Flash (as listed in project metadata)
-- Date: 2026-11-11 (UTC)
+- Date: 2026-11-14 (UTC), deep second-pass research
 - Overview and scoring methodology: `../../model-comparison.md`
 - Cross-model signed log: `../../model-findings.md`
 
-## Research status
+## Model card
 
-Self-excluded (`.md.excluded`): no verified public benchmark numbers were found for the exact model identity `opencode/agnes-2.5-flash` / "Agnes 2.5 Flash" in this run. I attempted fresh web research but could not access or identify authoritative public sources (model card, official announcement, API docs, or benchmark reports) with verifiable benchmark scores for this exact model/ID. Without verified public benchmark evidence, a scored findings file would require invention and is not produced.
-
-## Notes from attempted research
-
-- Project metadata describes Agnes 2.5 Flash as a Sapiens AI high-throughput flash-tier MoE model with 512K context, tool calling, prompt caching, and adaptive thinking mode (text + image in; text out), with listed pricing $0.05/$0.15 per 1M tokens and a $0 trial tier. These are metadata claims in-repo and were not independently verified against an official public source in this pass.
-- Attempted to fetch `https://www.sapiens.ai/` but encountered a transport/fetch error in this environment; no alternative official benchmark source was located.
+- **Name:** Agnes 2.5 Flash
+- **Short description:** Local metadata describes Agnes 2.5 Flash as a Sapiens AI high-throughput flash-tier MoE model with 512K context, tool calling, prompt caching, and adaptive thinking (text+image in; text out), but this identity/specification could not be independently verified from accessible public sources in this pass.
+- **Provider / access:** Local metadata lists `opencode/agnes-2.5-flash`. No confirmed official provider page, model card, API listing, or hosted endpoint documentation was verified.
+- **Release / knowledge:** Not established from accessible public sources. Knowledge cutoff not stated.
+- **IDs:** `agnes-2.5-flash`, `opencode/agnes-2.5-flash`.
+- **Context window:** 512K total (local metadata claim; unverified).
+- **Modalities:** Text and image input; text output (local metadata claim; unverified).
+- **Pricing (as of 2026-11-14):** $0.05 in / $0.15 out per 1M tokens; $0 trial tier (local metadata claim; unverified).
+- **Architecture:** Claimed flash-tier MoE with adaptive thinking in metadata; no verified architecture/parameter disclosure found.
 
 ### Raw benchmarks found
 
-- **No verified public benchmark numbers found** for exact `agnes-2.5-flash`.
-- Agent / tool use: no verified public score found.
-- Reasoning / knowledge: no verified public score found.
-- Coding: no verified public score found.
-- Long context: no verified public score found.
+> SECOND-PASS SELF-EXCLUSION (updated): Deep second-pass research using alternative web access (`webfetch`, PowerShell HTTP/API fetches) did not locate any authoritative public model card, official announcement, provider API docs, benchmark report, or independent evaluation clearly attributable to this exact model identity (`opencode/agnes-2.5-flash` / “Agnes 2.5 Flash”). No verifiable standardized benchmark numerics were found. This file remains `.md.excluded` (notes only; scores ignored).
+
+Agent / tool use:
+
+- Terminal-Bench 2.1 / Tau2 / Tau3 / GDPval-AA / Toolathon / MCP-Atlas: **no verified public score found**
+
+Reasoning / knowledge:
+
+- GPQA Diamond / HLE / AIME / AA Intelligence Index / LCR / CritPt: **no verified public score found**
+
+Coding:
+
+- SWE-bench Verified / SWE-Pro / LiveCodeBench / SciCode / Vibe Code Bench: **no verified public score found**
+
+Long context:
+
+- 512K context claimed in local metadata; no standalone long-context retrieval benchmark score found.
+
+Multimodal:
+
+- Text+image input claimed in local metadata; no multimodal benchmark scores found.
+
+### Source comparison / conflicts
+
+- **Identity/availability:** GitHub issues in `anomalyco/opencode` show requests/configuration problems mentioning “Agnes AI” (e.g. #56369, #32543), but no evidence of a stable, documented, benchmarked public model release for this exact ID. OpenCode Zen docs/models pages reviewed did not list Agnes 2.5 Flash.
+- **Catalog coverage:** models.dev, OpenRouter (model search/API), Hugging Face model search, and Artificial Analysis search did not yield a verifiable model record for `agnes-2.5-flash` in this pass.
+- **Provider site:** `sapiens.ai` / `www.sapiens.ai` fetch attempts failed (SSL/transport errors in this environment); no alternative official source located.
+- **Conclusion:** Metadata-only claims exist locally, but public evidence is insufficient and unverified for scoring.
 
 ### Normalized scores (1–100)
 
-Not produced. Zero verified public benchmark numbers found for this exact model identity; scoring would require invention and is prohibited.
+Not provided. No independently verified public benchmark/spec evidence for this exact model identity; no scored assessment is issued and this report remains self-excluded.
 
 ---
 
 ## Signature
 
-- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-11
-- Method: Fresh public web research attempted in this run; no scored assessment produced due to absence of verified public benchmark numbers and lack of accessible authoritative sources for the exact model identity.
+- Provided by: **Iceman (opencode/iceman-free)** — 2026-11-14
+- Method: Deep second-pass independent research using alternative web access (`webfetch`, PowerShell `Invoke-WebRequest`/API fetches) across provider-site attempts, OpenCode docs/changelog/models pages, GitHub issues/API searches, models.dev, OpenRouter, Hugging Face, and Artificial Analysis; compared available signals.
+- Research performed (>=10 successful independent web fetch/search attempts): `https://www.sapiens.ai/` attempt, `https://sapiens.ai/` attempt, OpenCode Zen docs, OpenCode changelog, OpenCode models docs, GitHub issues search UI (agnes), GitHub issues API search (agnes), models.dev search/listing, models.dev specific path lookup, OpenRouter models search, OpenRouter `/api/v1/models` dump search, Hugging Face models search, Artificial Analysis models search, plus local `meta.json`/prior report review.
 - Reference URLs:
-  - [Sapiens AI (fetch attempted; not successfully retrieved in this run)](https://www.sapiens.ai/)
+  - [OpenCode Zen docs](https://opencode.ai/docs/zen)
+  - [OpenCode models docs](https://opencode.ai/docs/models)
+  - [OpenCode issues mentioning agnes](https://github.com/anomalyco/opencode/issues?q=agnes)
+  - [GitHub API issue search (agnes)](https://api.github.com/search/issues?q=repo:anomalyco/opencode+agnes)
+  - [Models.dev catalog](https://models.dev/models)
+  - [OpenRouter models API](https://openrouter.ai/api/v1/models)
+  - Local repository metadata consulted: `model/agnes-2.5-flash/meta.json`
 - Future sources: add a new file next to this one, e.g. `GPT_5.md`, using the same headings.
